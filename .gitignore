@@ -1,6 +1,10 @@
+_site/
+_drafts/
 .DS_Store
-*/.DS_Store
-
-node_modules
-
-_site
+.idea/
+.sass-cache
+Gemfile
+Gemfile.lock
+_posts/.MWebMetaData/
+.jekyll-metadata
+start
