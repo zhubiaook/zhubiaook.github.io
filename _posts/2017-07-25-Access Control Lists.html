@@ -1,0 +1,315 @@
+---
+layout: post
+title: 'Linux 文件系统上的权限'
+date: 2017-07-25
+author: zhubiao
+tags: 文件权限|用户和组管理
+---
+
+<!DOCTYPE html><html><head><title>文件系统上的权限</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="文件系统上的权限">文件系统上的权限</h1>
+
+
+
+<h3 id="文件系统权限的概念">文件系统权限的概念</h3>
+
+<blockquote>
+  <p>文件系统上的权限指文件系统上文件和目录的权限，这种权限是建立在文件系统上的，与操作系统本身没关系。不同的文件系统对文件的访问控制权限是不一样的。比如ext4，xfs等CentOS6和CentOS7上的文件系统可以使用属主、属组、其它的方式针对三类用户来设置访问控制权限，而windows上常见的FAT32文件系统却不支持这种设置方式。</p>
+</blockquote>
+
+<p>实验环境是：CentOS6和CentOS7系统</p>
+
+
+
+<h3 id="常见权限分类">常见权限分类</h3>
+
+<p>文件系统主要针对三类用户设置访问权限，当然还有更复杂的权限设置，后面介绍。 <br>
+    * 属主 <br>
+    * 属组 <br>
+    * 其它</p>
+
+<p>如下所示通过<code>ll</code>命令可查看这三类权限</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># ll file1 </span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 grp1<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>09:23 file1<br><span class="hljs-comment">#属主权限：-rw</span><br><span class="hljs-comment">#属组权限：-r--</span><br><span class="hljs-comment">#其它用户权限：r--</span><br></code></pre>
+
+<p>每类用户又定义了三类权限 <br>
+    * r : readable 可读 <br>
+    * w : writeable 可写 <br>
+    * x : executable 可执行</p>
+
+<p>目录和文件可读，可写，可执行含义不一样 <br>
+    * 文件</p>
+
+<table>
+<thead>
+<tr>
+  <th align="center">权限位</th>
+  <th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="center">r</td>
+  <td align="left">可以使用查看类命令读取文件的内容</td>
+</tr>
+<tr>
+  <td align="center">w</td>
+  <td align="left">可以将内容写入文件</td>
+</tr>
+<tr>
+  <td align="center">x</td>
+  <td align="left">可以执行文件，即将文件提请到内核启动为一个进程，对于二进制可执行文件有x权限即可将其运行起来，而对于shell脚本(文本文件)，需要有r,x权限才能执行此脚本。</td>
+</tr>
+</tbody></table>
+
+
+<p>* 目录</p>
+
+<table>
+<thead>
+<tr>
+  <th align="center">权限位</th>
+  <th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="center">r</td>
+  <td align="left">若该目录有可读权限，可以查看目录内所包含的文件名，比如使用<code>ls</code> 命令查看</td>
+</tr>
+<tr>
+  <td align="center">w</td>
+  <td align="left">可以在该目录下新建、删除文件。但是要能在该目录下新建、删除文件必须要有x权限</td>
+</tr>
+<tr>
+  <td align="center">x</td>
+  <td align="left">可以进入此目录，比如用户<code>cd</code> 命令切换到该目录下</td>
+</tr>
+</tbody></table>
+
+
+<h3 id="修改属主属组权限命令">修改属主、属组、权限命令</h3>
+
+<p>修改属主、属组 <strong>chown</strong> <br>
+<strong>chown [-R] [user]][:group] <em>FileName</em></strong></p>
+
+<blockquote>
+  <p>-R #使用-R可修改该目录及目录内所有路径下的文件和目录的属主，属组 <br>
+      chown即可修改属主，可以修改属主，或同时修改属主和属组 <br>
+      chown user <em>FileName</em> <br>
+      chown :group <em>FileName</em> <br>
+      chown user:group <em>FileName</em></p>
+</blockquote>
+
+<p>实例</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><br><span class="hljs-comment">#将属主修改为user1</span><br>[centos7@root app]<span class="hljs-comment"># chown user1 1.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><br><span class="hljs-comment">#将属组修改为grp1</span><br>[centos7@root app]<span class="hljs-comment"># chown :grp1 1.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 grp1<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><br><span class="hljs-comment">#同时修改属主和属组为root</span><br>[centos7@root app]<span class="hljs-comment"># chown root:root 1.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><br><span class="hljs-comment">#递归修改属主和属组为user1</span><br>[centos7@root app]<span class="hljs-comment"># ll -R dir</span><br>dir:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 3 </span>root root<span class="hljs-number"> 15 </span>Jul<span class="hljs-number"> 25 </span>10:33 a<br>-rw-r--r--.<span class="hljs-number"> 1 </span>root root <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:33 file2<br><br>dir/a:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 2 </span>root root<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>10:33 b<br><br>dir/a/b:<br>total 0<br>[centos7@root app]<span class="hljs-comment"># chown -R user1:user1 dir</span><br>[centos7@root app]<span class="hljs-comment"># ll -R dir</span><br>dir:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 3 </span>user1 user1<span class="hljs-number"> 15 </span>Jul<span class="hljs-number"> 25 </span>10:33 a<br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 user1 <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:33 file2<br><br>dir/a:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 2 </span>user1 user1<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>10:33 b<br><br>dir/a/b:<br>total 0<br></code></pre>
+
+<hr>
+
+<p>修改属组 <strong>chgrp</strong> <br>
+<strong>chgrp [-R] group <em>FileName</em></strong></p>
+
+<p>修改属组不但可以使用<code>chown</code>命令，还可以使用<code>chgrp</code>进行修改</p>
+
+<blockquote>
+  <p>-R 递归修改目录和文件的属组</p>
+</blockquote>
+
+<p>实例</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap"><span class="hljs-comment">#修改属组</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br>[centos7@root app]<span class="hljs-comment"># chgrp grp1 1.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>root grp1<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><br><span class="hljs-comment"># 递归修改dir目录下所有文件和子目录的属组为gpr1</span><br>[centos7@root app]<span class="hljs-comment"># ll -R dir</span><br>dir:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 3 </span>user1 user1<span class="hljs-number"> 15 </span>Jul<span class="hljs-number"> 25 </span>10:33 a<br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 user1 <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:33 file2<br><br>dir/a:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 2 </span>user1 user1<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>10:33 b<br><br>dir/a/b:<br>total 0<br>[centos7@root app]<span class="hljs-comment"># chgrp -R grp1 dir</span><br>[centos7@root app]<span class="hljs-comment"># ll -R dir</span><br>dir:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 3 </span>user1 grp1<span class="hljs-number"> 15 </span>Jul<span class="hljs-number"> 25 </span>10:33 a<br>-rw-r--r--.<span class="hljs-number"> 1 </span>user1 grp1 <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:33 file2<br><br>dir/a:<br>total 0<br>drwxr-xr-x.<span class="hljs-number"> 2 </span>user1 grp1<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>10:33 b<br><br>dir/a/b:<br>total 0<br></code></pre>
+
+<hr>
+
+<p>修改文件和目录的访问权限 <strong>chmod</strong> <br>
+<strong>chmod [-R] MODE <em>File</em></strong> <br>
+<strong>chmod  - -reference=<em>SourceFile</em> <em>DestFile</em></strong></p>
+
+<p>chmod不仅可以常见的r, w, x权限，还可以用来修改SUID,SGID,Sticky特殊权限, 权限有两种表示法，数字和模式。</p>
+
+<ul><li>数字法是对属主，属组和其它权限位有可读、可写、可执行位的则用1表示，无的则使用0表示，然后分别将属主、属组、其它位置的三位二进制数字转换成十进制的数字，如下面的权限位用数字表示为644。</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs css"><span class="hljs-selector-attr">[centos7@root app]</span># <span class="hljs-selector-tag">ll</span> 1<span class="hljs-selector-class">.txt</span><br><span class="hljs-selector-tag">-rw-r--r--</span>. 1 <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">grp1</span> 0 <span class="hljs-selector-tag">Jul</span> 25 10<span class="hljs-selector-pseudo">:29</span> 1<span class="hljs-selector-class">.txt</span><br></code></pre>
+
+<ul><li>模式表示法，通过下表中的三列表组合来赋予文件访问权限</li>
+</ul>
+
+<p><img longdesc="./1500952232333.png" alt="Alt text" title="" type="image/png" src="data:image/png;base64,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" class=""></p>
+
+<p>实例</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># ll 1.txt 2.txt</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>644 grp1<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br>-rw-r--r--.<span class="hljs-number"> 1 </span>644 root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>11:14 2.txt<br><br><span class="hljs-comment">#现在1.txt,2.txt的权限都为rw-r--r-- 644, 将其改为rwxr-xr-x 755</span><br><span class="hljs-comment"># 方法一</span><br>[centos7@root app]<span class="hljs-comment"># chmod 755 1.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt</span><br>-rwxr-xr-x.<span class="hljs-number"> 1 </span>644 grp1<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>10:29 1.txt<br><span class="hljs-comment"># 方法二</span><br>[centos7@root app]<span class="hljs-comment"># chmod u=rwx,g=rx,o=rx 2.txt</span><br>[centos7@root app]<span class="hljs-comment"># ll 2.txt</span><br>-rwxr-xr-x.<span class="hljs-number"> 1 </span>644 root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>11:14 2.txt<br><br><span class="hljs-comment">#按照1.txt的权限设置a的权限</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt a -d</span><br>-r--r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>11:32 1.txt<br>drwxr-xr-x.<span class="hljs-number"> 2 </span>root root<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>11:32 a<br>[centos7@root app]<span class="hljs-comment"># chmod --reference=1.txt a</span><br>[centos7@root app]<span class="hljs-comment"># ll 1.txt a -d</span><br>-r--r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 25 </span>11:32 1.txt<br>dr--r--r--.<span class="hljs-number"> 2 </span>root root<span class="hljs-number"> 6 </span>Jul<span class="hljs-number"> 25 </span>11:32 a<br></code></pre>
+
+
+
+<h3 id="umask">umask</h3>
+
+<p>umask值，影响创建文件或目录时默认访问权限，当我们创建文件或目录时，发现系统会默认给我们指定权限，这个权限就是通过与<strong>umask</strong>的值计算而来的，默认root的umask为0022，普通用户的umask 为0002</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs elixir">[centos7<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># umask </span><br><span class="hljs-number">0022</span><br>[centos7<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># umask -S</span><br>u=rwx,g=rx,o=rx<br>[centos7<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># su user1</span><br>[centos7<span class="hljs-variable">@user1</span> app]<span class="hljs-variable">$ </span>umask<br><span class="hljs-number">0002</span><br>[centos7<span class="hljs-variable">@user1</span> app]<span class="hljs-variable">$ </span>umask -S<br>u=rwx,g=rwx,o=rx<br></code></pre>
+
+<p>umask值得设定 <br>
+<strong>umaks NUM</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit">[centos7<span class="hljs-symbol">@root</span> app]<span class="hljs-meta"># umask </span><br><span class="hljs-number">0022</span><br>[centos7<span class="hljs-symbol">@root</span> app]<span class="hljs-meta"># umask 046</span><br>[centos7<span class="hljs-symbol">@root</span> app]<span class="hljs-meta"># umask</span><br><span class="hljs-number">0046</span><br></code></pre>
+
+<p>umask值的计算 <br>
+umask值得实际作用是，在对应的位中将umask指定的权限去除，例如将umask设定为135(–x -wx r-x)，则创建的新文件或目录中权限位不能含–x-wxr-x这些权限</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gcode"><span class="hljs-attr">#将umask设定为135</span>-<span class="hljs-comment">(-x-wxr-x)</span><br>[ce<span class="hljs-symbol">ntos7</span>@root app]<span class="hljs-attr"># umask 135</span><br><br>创建的新文件中对应的权限位去除了--x-wxr-x权限<br>[ce<span class="hljs-symbol">ntos7</span>@root app]<span class="hljs-attr"># &gt; file1</span><br>[ce<span class="hljs-symbol">ntos7</span>@root app]<span class="hljs-attr"># ll file1</span><br>-rw-r---w-. <span class="hljs-number">1</span> root root <span class="hljs-number">0</span> Jul <span class="hljs-number">25</span> <span class="hljs-number">12</span>:<span class="hljs-number">51</span> file<span class="hljs-number">1</span><br><br>创建的新文件中对应的权限位去除了--x-wxr-x权限<br>[ce<span class="hljs-symbol">ntos7</span>@root app]<span class="hljs-attr"># mkdir dir2</span><br>[ce<span class="hljs-symbol">ntos7</span>@root app]<span class="hljs-attr"># ll -d dir2</span><br>drw-r---w-. <span class="hljs-number">2</span> root root <span class="hljs-number">6</span> Jul <span class="hljs-number">25</span> <span class="hljs-number">12</span>:<span class="hljs-number">55</span> dir<span class="hljs-number">2</span><br></code></pre>
+
+<p>还有一种间接的计算方法</p>
+
+<ul><li>目录 <br>
+目录权限 = 777 - umask</li>
+<li>文件 <br>
+value = 666 - umask  <br>
+<ul>
+<li>若value每一位都为偶数，文件权限的值就是value</li>
+<li>若vlue中有奇数位，则奇数位+1 后得到的值为文件权限的值    </li></ul></li>
+</ul>
+
+<hr>
+
+<h3 id="linux文件系统上的特殊权限">Linux文件系统上的特殊权限</h3>
+
+<p>Linux系统上的普通用户是能够修改自己的密码的，修改密码时，将涉及到对/etc/passwd文件的修改，我们看一下该文件的权限</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># ll /etc/passwd</span><br>-rw-r--r--.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 2412 </span>Jul<span class="hljs-number"> 25 </span>09:19 /etc/passwd<br></code></pre>
+
+<p>发现只有属主root拥有对该文件的修改权限，而普通用户是怎么，何时拥有修改该文件的权限呢，这就是SUID, SGID, STicky这三个特殊权限在起作用，在介绍着三个权限之前，我们先普及一下相应的概念。</p>
+
+<p>Linux系统上的可执行程序也是一种文件，该文件在被提取到内存中去执行后，则称为进程，文件有属主、属组的概念，进程也有属主、属组的概念。</p>
+
+<ol start="1"><li rel="1">无特殊权限的程序对文件的访问权限</li>
+</ol>
+
+<blockquote>
+  <p>(1) 任何一个可执行程序能不能够被发起为进程，取决于发起者是否对该程序有访问权限 <br>
+   (2) 启动为进程之后，进程的属主为发起者，进程的属组为发起者所属组 <br>
+   (3) 进程访问文件时的权限取决于发起者，进程的发起者与文件的属主相同，则拥有文件属主的权限，进程发起者所属组与文件属组相同，则拥有文件属组的权限，否则应用文件其它位权限。</p>
+</blockquote>
+
+<ol start="2"><li rel="2">程序有SUID权限对文件的访问权限</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap"><span class="hljs-comment">#passwd命令就是拥有SUID权限</span><br>[centos7@root app]<span class="hljs-comment"># ll /usr/bin/passwd</span><br>-rwsr-xr-x.<span class="hljs-number"> 1 </span>root root<span class="hljs-number"> 27832 </span>Jun<span class="hljs-number"> 10 </span><span class="hljs-number"> 2014 </span>/usr/bin/passwd<br></code></pre>
+
+<blockquote>
+  <p>(1) 任何一个可执行程序能不能够被发起为进程，取决于发起者是否对该程序有访问权限 <br>
+      (2) 启动为进程后，进程的属主不再是发起者，而是命令本身的属主 <br>
+      (3) 进程访问文件时的权限取决于命令的属主</p>
+</blockquote>
+
+<p></p><ol start="3"><li rel="3">程序有SGID权限对文件的访问权限 <br></li></ol><p></p>
+
+<blockquote>
+  <p>当命令设置了SGID的权限，则用此命令去访问文件时，对该文件的访问权限为命令发起者所属的组或命令所属的组是否能够与文件所属组匹配，有任意一个能够匹配，则应用该属组的权限
+  </p>
+</blockquote>
+
+<h4 id="suid权限设定">SUID权限设定</h4>
+
+<p><strong>chmod u+s </strong> <br>
+<strong>chmod u-s</strong></p>
+
+<p>给命令设定了SUID权限后，发起者若对该命令有执行权限，启动为进程后发起者将以命令属主的身份去访问文件</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">[centos7@user1 <span class="hljs-keyword">app</span>]$ ll /etc/shadow<br>-r--------. 1 root root 1949 Jul 25 10:04 /etc/shadow<br>#shadow文件只有root用户有权读取，下面我们通过赋予<span class="hljs-keyword">cat</span>命令SUID权限后，普通用户也能读取该文件<br><br># 复制<span class="hljs-keyword">cat</span>命令到/<span class="hljs-keyword">app</span>目录下，并赋予SUID权限<br>[centos7@root <span class="hljs-keyword">app</span>]# cp -a /usr/bin/<span class="hljs-keyword">cat</span> ./<br>[centos7@root <span class="hljs-keyword">app</span>]# ll <span class="hljs-keyword">cat</span><br>-rwxr-xr-x. 1 root root 54080 Nov  6  2016 <span class="hljs-keyword">cat</span><br>[centos7@root <span class="hljs-keyword">app</span>]# chmod <span class="hljs-keyword">u</span>+s <span class="hljs-keyword">cat</span>  &lt;=设置SUID权限<br>[centos7@root <span class="hljs-keyword">app</span>]# ll <span class="hljs-keyword">cat</span><br>-rwsr-xr-x. 1 root root 54080 Nov  6  2016 <span class="hljs-keyword">cat</span><br>[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">su</span> user1 &lt;=切换为普通用户<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ /usr/bin/<span class="hljs-keyword">cat</span> /etc/shadow &lt;=用原命令读取，无权限<br>/usr/bin/<span class="hljs-keyword">cat</span>: /etc/shadow: Permission denied  <br>[centos7@user1 <span class="hljs-keyword">app</span>]$ ./<span class="hljs-keyword">cat</span> /etc/shadow &lt;=用赋予SUID权限的命令读取的结果<br>root:<span class="hljs-variable">$6</span><span class="hljs-variable">$P7</span>.k5VtL<span class="hljs-variable">$34kw1szrNeaf</span>/uAAFwk40uaZX3n2r0/.qM.IStlFb7z0mO52O/xuvVHQNyyOqIOz.bJAECjW9Qv6lgaXhqAyd/:17368:0:99999:7:::<br>bin:*:17368:0:99999:7:::<br></code></pre>
+
+
+
+<h4 id="sgid-权限的设定">SGID 权限的设定</h4>
+
+<p><strong>chmod g+s </strong> <br>
+<strong>chmod g-s</strong></p>
+
+<ul><li>对命令设定了SIGD权限后，使用此命令去访问文件，发起者所属组或命令所属组，与文件所属组相同，则应用文件所属组的权限。</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">将<span class="hljs-keyword">cat</span>命令的属组该为user1组，并赋予SGID权限<br>[centos7@root <span class="hljs-keyword">app</span>]# ll <span class="hljs-keyword">cat</span><br>-rwxr-xr-x. 1 root root 54080 Nov  6  2016 <span class="hljs-keyword">cat</span><br>[centos7@root <span class="hljs-keyword">app</span>]# chgrp user1 <span class="hljs-keyword">cat</span><br>[centos7@root <span class="hljs-keyword">app</span>]# chmod <span class="hljs-keyword">g</span>+s <span class="hljs-keyword">cat</span><br>[centos7@root <span class="hljs-keyword">app</span>]# ll <span class="hljs-keyword">cat</span><br>-rwxr-sr-x. 1 root user1 54080 Nov  6  2016 <span class="hljs-keyword">cat</span><br><br>[centos7@root <span class="hljs-keyword">app</span>]# ll file1 file2<br>----r-----. 1 root user1 15 Jul 25 15:15 file1<br>----r-----. 1 root user2 23 Jul 25 15:17 file2<br># 切换为user2用户去读取file1文件<br>[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">su</span> user2 <br>[centos7@user2 <span class="hljs-keyword">app</span>]$ /usr/bin/<span class="hljs-keyword">cat</span> file1 &lt;=用原命令无权限读取<br>/usr/bin/<span class="hljs-keyword">cat</span>: file1: Permission denied<br>[centos7@user2 <span class="hljs-keyword">app</span>]$ ./<span class="hljs-keyword">cat</span> file1 &lt;=使用了加了SGID权限读取<br>hello everyone<br>[centos7@user2 <span class="hljs-keyword">app</span>]$ ./<span class="hljs-keyword">cat</span> file2 &lt;=也能读取该文件，说明是累加，而不是替换为命令所属组<br>something <span class="hljs-keyword">so</span> beautiful<br></code></pre>
+
+<ul><li>对目录设定了SGID权限后, 在该目录下所创建的文件的属组是目录的基本组，没有设定之前，新文件的属组是创建者所属组。</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">mkdir</span> -<span class="hljs-keyword">m</span> 777 <span class="hljs-keyword">dir</span><br>[centos7@root <span class="hljs-keyword">app</span>]# chmod <span class="hljs-keyword">g</span>+s <span class="hljs-keyword">dir</span> &lt;=对目录设定SGID<br>[centos7@root <span class="hljs-keyword">app</span>]# chown :grp1 <span class="hljs-keyword">dir</span><br>[centos7@root <span class="hljs-keyword">app</span>]# ll -<span class="hljs-keyword">d</span> <span class="hljs-keyword">dir</span><br>drwxrwsrwx. 2 root grp1 6 Jul 25 15:32 <span class="hljs-keyword">dir</span> &lt;=目录基本组为grp1<br>[centos7@root <span class="hljs-keyword">app</span>]# touch <span class="hljs-keyword">dir</span>/1.txt<br>[centos7@root <span class="hljs-keyword">app</span>]# ll <span class="hljs-keyword">dir</span>/1.txt<br>-rw-r---w-. 1 root grp1 0 Jul 25 15:33 <span class="hljs-keyword">dir</span>/1.txt<br>[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">su</span> user1<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ touch <span class="hljs-keyword">dir</span>/2.txt<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ ll <span class="hljs-keyword">dir</span>/2.txt<br>-rw-rw-r--. 1 user1 grp1 0 Jul 25 15:34 <span class="hljs-keyword">dir</span>/2.txt<br></code></pre>
+
+<h4 id="sticky-权限的设定">Sticky 权限的设定</h4>
+
+<p><strong>chmod o+t</strong> <br>
+<strong>chmod o-t</strong></p>
+
+<p>在Linux系统上有一个临时文件目录<strong>/tmp</strong>，任何用户都可以在该目录下创建和删除自己的文件，系统将此目录赋予了所有用户都rwx的权限。但作为普通用户我们却发现只能删除自己创建的文件，而不能删除别人创建的文件。这就是通过Sticky权限来实现的。</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@user1 app]$ ll -d /tmp<br>drwxrwxrwt.<span class="hljs-number"> 49 </span>root root<span class="hljs-number"> 8192 </span>Jul<span class="hljs-number"> 25 </span>15:21 /tmp<br></code></pre>
+
+<p>Sticky只能作用于目录，设置了Sticky权限后，普通用户只能删除自己创建的文件。</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">mkdir</span> -<span class="hljs-keyword">m</span> 777 <span class="hljs-keyword">dir</span><br>[centos7@root <span class="hljs-keyword">app</span>]# chmod o+t <span class="hljs-keyword">dir</span><br>[centos7@root <span class="hljs-keyword">app</span>]# ll -<span class="hljs-keyword">d</span> <span class="hljs-keyword">dir</span><br>drwxrwxrwt. 2 root root 6 Jul 25 15:53 <span class="hljs-keyword">dir</span><br>[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">su</span> user1<br># 可以创建，删除自己创建的文件<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ touch <span class="hljs-keyword">dir</span>/1.txt<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ touch <span class="hljs-keyword">dir</span>/11.txt<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ <span class="hljs-keyword">rm</span> <span class="hljs-keyword">dir</span>/11.txt<br>[centos7@user1 <span class="hljs-keyword">app</span>]$ <span class="hljs-keyword">exit</span><br><span class="hljs-keyword">exit</span><br>[centos7@root <span class="hljs-keyword">app</span>]# <span class="hljs-keyword">su</span> user2<br>[centos7@user2 <span class="hljs-keyword">app</span>]$ ll <span class="hljs-keyword">dir</span><br><span class="hljs-keyword">total</span> 0<br>-rw-rw-r--. 1 user1 user1 0 Jul 25 15:54 1.txt<br>[centos7@user2 <span class="hljs-keyword">app</span>]$ <span class="hljs-keyword">rm</span> <span class="hljs-keyword">dir</span>/1.txt<br><span class="hljs-keyword">rm</span>: remove write-protected regular empty <span class="hljs-keyword">file</span> ‘<span class="hljs-keyword">dir</span>/1.txt’? <span class="hljs-built_in">y</span><br><span class="hljs-keyword">rm</span>: cannot remove ‘<span class="hljs-keyword">dir</span>/1.txt’: Operation not permitted &lt;=不可以删除别的用户创建的文件<br>[centos7@user2 <span class="hljs-keyword">app</span>]$ touch <span class="hljs-keyword">dir</span>/3.txt<br></code></pre>
+
+<hr>
+
+<h3 id="aclaccess-control-list">ACL(Access Control List)</h3>
+
+<blockquote>
+  <p>前面的篇幅介绍的权限模型都为属主，属组，其它位与readable, writable, executable 三者的组合，当我们需要更详细的权限访问控制，前面的方法将力不从心，ACL提供更详细的权限访问控制功能</p>
+</blockquote>
+
+<ul><li>无ACL，对文件的访问权限匹配顺序为<strong>属主-&gt;属组-&gt;Other</strong></li>
+<li>有ACL，对文件的访问权限匹配顺序为<strong>属主-&gt;自定义用户-&gt;原属组和自定义组权限累加-&gt;other</strong></li>
+</ul>
+
+<blockquote>
+  <p>以上两种权限都从左到右匹配用户，匹配到就不再检查右边的，其权限将是匹配到的权限</p>
+</blockquote>
+
+<p>CentOS6系统安装时设定的分区默认是带ACL功能的，而后序自己新增的分区是不带ACL的，CentOS7系统都带ACL功能</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta">#查看分区是否带acl功能</span><br>[centos6<span class="hljs-symbol">@root</span> ~]<span class="hljs-meta"># tune2fs -l /dev/sda3 | grep acl</span><br><span class="hljs-keyword">Default</span> mount options:    user_xattr acl<br><span class="hljs-meta"># sda6为我自己创建的分区，无acl功能，自己添加</span><br>[centos6<span class="hljs-symbol">@root</span> ~]<span class="hljs-meta"># tune2fs -l /dev/sda6 | grep acl</span><br>[centos6<span class="hljs-symbol">@root</span> ~]<span class="hljs-meta"># tune2fs -o acl /dev/sda6 </span><br>tune2fs <span class="hljs-number">1.41</span><span class="hljs-number">.12</span> (<span class="hljs-number">17</span>-May<span class="hljs-number">-2010</span>)<br>[centos6<span class="hljs-symbol">@root</span> ~]<span class="hljs-meta"># tune2fs -l /dev/sda6 | grep acl</span><br><span class="hljs-keyword">Default</span> mount options:    acl<br>[centos6<span class="hljs-symbol">@root</span> ~]<span class="hljs-meta"># mount -o acl /dev/sda6 /mnt/ &lt;=挂载</span><br></code></pre>
+
+<p>设置和查看ACL分别使用<strong>setfacl</strong> 和<strong>getfacl</strong>命令</p>
+
+<p>设置ACL权限 <strong>setfacl</strong> <br>
+setfacl [options] …</p>
+
+<p>常用选项</p>
+
+<blockquote>
+  <p>-m acl规则(多条用逗号隔开) FILE 增加acl规则 <br>
+  -b 删除所有acl规则 <br>
+  -x 删除指定的acl规则 <br>
+  -R 递归设置acl规则 <br>
+  选项-m和-x后边跟以acl规则。多条acl规则以逗号(,)隔开。 <br>
+  选项-M和-X用来从文件或标准输入读取acl规则。  <br>
+  选项–set和–set-file用来设置文件或目录的acl规则，先前的设定将被覆盖。  <br>
+  选项-m(–modify)和-M(–modify-file)选项修改文件或目录的acl规则。 <br>
+   选项-x(–remove)和-X(–remove-file)选项删除acl规则。 <br>
+   -d default设定目录的默认acl规则</p>
+</blockquote>
+
+<p>实例一 </p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs elixir"><span class="hljs-comment">#创建新文件fil1</span><br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># echo "hello everyone" &gt; fil1</span><br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># ll fil1 </span><br>-rw-r--r--. <span class="hljs-number">1</span> root root <span class="hljs-number">15</span> Jul <span class="hljs-number">25</span> <span class="hljs-number">17</span><span class="hljs-symbol">:</span><span class="hljs-number">03</span> fil1<br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># getfacl fil1 &lt;=此时查看并无自定义的acl规则</span><br><span class="hljs-comment"># file: fil1</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">:rw-</span><br><span class="hljs-symbol">group:</span><span class="hljs-symbol">:r--</span><br><span class="hljs-symbol">other:</span><span class="hljs-symbol">:r--</span><br><br><span class="hljs-comment"># 设定user1有rwx权限，grp1组有r权限，原所属组有rx权限，其它无权限</span><br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># setfacl -m u:user1:rwx,g::rx,g:grp1:r,o::- fil1 </span><br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># getfacl fil1</span><br><span class="hljs-comment"># file: fil1</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">:rw-</span>  &lt;=属主<br><span class="hljs-symbol">user:</span><span class="hljs-symbol">user1:</span>rwx &lt;=自定义用户<br><span class="hljs-symbol">group:</span><span class="hljs-symbol">:r-x</span> &lt;=原属组<br><span class="hljs-symbol">group:</span><span class="hljs-symbol">grp1:</span>r-- &lt;=自定义组<br><span class="hljs-symbol">mask:</span><span class="hljs-symbol">:rwx</span> &lt;=mask值，设定所有用户的最大权限<br><span class="hljs-symbol">other:</span><span class="hljs-symbol">:---</span> &lt;=其它<br><br>[centos6<span class="hljs-variable">@root</span> app]<span class="hljs-comment"># ll fil1 </span><br>-rw-rwx---+ <span class="hljs-number">1</span> root root <span class="hljs-number">15</span> Jul <span class="hljs-number">25</span> <span class="hljs-number">17</span><span class="hljs-symbol">:</span><span class="hljs-number">03</span> fil1 &lt;=权限位的<span class="hljs-string">"."</span>变成了<span class="hljs-string">"+"</span>,表示设定了ACL功能<br></code></pre>
+
+<p>实例二 给目录设定默认ACL <br>
+当给目录设定了默认ACL，则在该目录内创建的文件将继承该目录的ACL规则</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs yaml"><span class="hljs-string">[centos6@root</span> <span class="hljs-string">app]#</span> <span class="hljs-string">mkdir</span> <span class="hljs-string">dir</span> <span class="hljs-string">&lt;=创建目录dir</span><br><span class="hljs-string">Try</span> <span class="hljs-string">`setfacl</span> <span class="hljs-bullet">--help'</span> <span class="hljs-string">for</span> <span class="hljs-string">more</span> <span class="hljs-string">information.</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">app]#</span> <span class="hljs-string">getfacl</span> <span class="hljs-string">fil1</span> <span class="hljs-string">| setfacl --set-file=- dir &lt;=把fil1的acl规则复制给dir<br>[centos6@root app]# ll dir -d <br>drw-rwx---+ 2 root root 4096 Jul 25 17:14 dir<br>[centos6@root app]# getfacl dir<br># file: dir<br># owner: root<br># group: root<br></span><span class="hljs-attr">user:</span><span class="hljs-string">:rw-</span><br><span class="hljs-attr">user:</span><span class="hljs-attr">user1:rwx</span><br><span class="hljs-attr">group:</span><span class="hljs-string">:r-x</span><br><span class="hljs-attr">group:</span><span class="hljs-attr">grp1:r--</span><br><span class="hljs-attr">mask:</span><span class="hljs-string">:rwx</span><br><span class="hljs-attr">other:</span><span class="hljs-string">:---</span><br><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">app]#</span> <span class="hljs-string">setfacl</span> <span class="hljs-bullet">-m</span> <span class="hljs-attr">d:u:user2:rw</span> <span class="hljs-string">dir</span> <span class="hljs-string">&lt;=设定默认acl规则</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">app]#</span> <span class="hljs-string">getfacl</span> <span class="hljs-string">dir</span><br><span class="hljs-comment"># file: dir</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-attr">user:</span><span class="hljs-string">:rw-</span><br><span class="hljs-attr">user:</span><span class="hljs-attr">user1:rwx</span><br><span class="hljs-attr">group:</span><span class="hljs-string">:r-x</span><br><span class="hljs-attr">group:</span><span class="hljs-attr">grp1:r--</span><br><span class="hljs-attr">mask:</span><span class="hljs-string">:rwx</span><br><span class="hljs-attr">other:</span><span class="hljs-string">:---</span><br><span class="hljs-attr">default:</span><span class="hljs-attr">user::rw-</span>      <span class="hljs-string">&lt;=默认acl规则，会将属主，属主，other这基本acl也设定为默认acl</span><br><span class="hljs-attr">default:</span><span class="hljs-attr">user:user2:rw-</span> <span class="hljs-string">&lt;=我们定义的acl</span><br><span class="hljs-attr">default:</span><span class="hljs-attr">group::r-x</span><br><span class="hljs-attr">default:</span><span class="hljs-attr">mask::rwx</span><br><span class="hljs-attr">default:</span><span class="hljs-attr">other::---</span><br><br><span class="hljs-comment">#然后在该目录下创建文件，将继承目录设定的默认acl规则</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">app]#</span> <span class="hljs-string">cd</span> <span class="hljs-string">dir</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">dir]#</span> <span class="hljs-string">pwd</span><br><span class="hljs-string">/app/dir</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">dir]#</span> <span class="hljs-string">touch</span> <span class="hljs-string">file2</span><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">dir]#</span> <span class="hljs-string">getfacl</span> <span class="hljs-string">file2</span> <br><span class="hljs-comment"># file: file2</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-attr">user:</span><span class="hljs-string">:rw-</span><br><span class="hljs-attr">user:</span><span class="hljs-attr">user2:rw-</span>  <span class="hljs-string">&lt;=从目录处继承下来的</span><br><span class="hljs-attr">group:</span><span class="hljs-string">:r-x</span>          <span class="hljs-comment">#effective:r--</span><br><span class="hljs-attr">mask:</span><span class="hljs-string">:rw-</span><br><span class="hljs-attr">other:</span><span class="hljs-string">:---</span><br><br><span class="hljs-string">[centos6@root</span> <span class="hljs-string">dir]#</span> <span class="hljs-string">ll</span> <span class="hljs-string">file2</span> <br><span class="hljs-bullet">-</span><span class="hljs-string">rw-rw----+</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span> <span class="hljs-number">0</span> <span class="hljs-string">Jul</span> <span class="hljs-number">25</span> <span class="hljs-number">17</span><span class="hljs-string">:21</span> <span class="hljs-string">file2</span><br></code></pre>
+
+<p>实例三 给文件备份，恢复ACL规则 <br>
+当我们使用cp 命令加-p 或-a 选项时将保留acl，而tar命令却无法保留acl，此时可以将ACL备份到文件中，后面再恢复</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs elixir"><span class="hljs-comment">#设定ACL规则</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># setfacl -Rm u:user1:rwx,g:grp1:rx dir</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># getfacl dir</span><br><span class="hljs-comment"># file: dir</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">:rw-</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">user1:</span>rwx<br><span class="hljs-symbol">group:</span><span class="hljs-symbol">:r-x</span><br><span class="hljs-symbol">group:</span><span class="hljs-symbol">grp1:</span>r-x<br><span class="hljs-symbol">mask:</span><span class="hljs-symbol">:rwx</span><br><span class="hljs-symbol">other:</span><span class="hljs-symbol">:---</span><br><br><span class="hljs-comment"># 备份ACl规则</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># getfacl -R dir &gt; acl.txt</span><br><br><span class="hljs-comment">#删除ACL规则</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># setfacl -Rb dir</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># getfacl dir</span><br><span class="hljs-comment"># file: dir</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">:rw-</span><br><span class="hljs-symbol">group:</span><span class="hljs-symbol">:r-x</span><br><span class="hljs-symbol">other:</span><span class="hljs-symbol">:---</span><br><br><span class="hljs-comment"># 恢复ACL规则</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># setfacl --restore acl.txt</span><br>[centos6<span class="hljs-variable">@root</span> dir]<span class="hljs-comment"># getfacl dir</span><br><span class="hljs-comment"># file: dir</span><br><span class="hljs-comment"># owner: root</span><br><span class="hljs-comment"># group: root</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">:rw-</span><br><span class="hljs-symbol">user:</span><span class="hljs-symbol">user1:</span>rwx<br><span class="hljs-symbol">group:</span><span class="hljs-symbol">:r-x</span><br><span class="hljs-symbol">group:</span><span class="hljs-symbol">grp1:</span>r-x<br><span class="hljs-symbol">mask:</span><span class="hljs-symbol">:rwx</span><br><span class="hljs-symbol">other:</span><span class="hljs-symbol">:---</span><br></code></pre></div></body></html>
