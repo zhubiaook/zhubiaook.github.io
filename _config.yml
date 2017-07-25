@@ -2,7 +2,7 @@
 title: 'zhubiaook'
 description: 'hello'
 keyword: 'zhubiao,Something so beautiful '
-url: 'http://blog.zhubiao.com' # your host
+url: 'https://zhubiaook.github.io' # your host
 baseurl: '/'
 
 # Navigation links
@@ -24,7 +24,7 @@ nightMode: true
 
 # Comments
 disqus: false
-#disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+#disqus_url: ''
 
 # Share
 social-share: true
