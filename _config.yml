@@ -1,50 +1,64 @@
-# Site settings
-title: blog-zhubiao
-email: zhubiaook@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: http://zhubiaook.github.io # the base hostname & protocol for your site
-rss_url: /pages/feed.xml
-author: zhubiao
+﻿# Site settings 配置站点
+title: 'zhubiaook'
+description: 'hello'
+keyword: 'zhubiao,Something so beautiful '
+url: 'https://zhubiaook.github.io/' # your host
+baseurl: '/'
 
-# Sidebar filter
-# Choose 'tag' or 'category' as filter in sidebar.
-filter: 'category'
-recent_num: 20
+# Navigation links
+nav:
+  home: '/'
+  tags: '/tags.html'
 
-# Social account
-#twitter: masonsuyan
-#weibo: suyan0830
-#github: suyan
-#instagram: suyan0830
-#linkedin: suyan0830
+# Author 配置博主信息
+author: 'zhubiao'
+nickname: 'Andrew'
+bio: '简单乐观爱创造'
+avatar: 'assets/img/profile.png'
 
-# avatar and Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+# Search
+search: true
 
-# disqus config
-disqus:
-  shortname: suyan-zh
+# Night mode
+nightMode: true
 
-# google analytics config
-ga:
-  #id: UA-54767140-1
-  #url: yansu.org
+# Comments
+disqus: false
+#disqus_url: ''
+
+# Share
+social-share: true
+social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
+
+# theme color 主题皮肤
+theme-color: 'default'  # pink or default
+
+# Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
+postPatterns: 'seaOfClouds'
+
+# SNS settings 配置社交网站url: weibo, zhihu, twitter, instagrame, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
+sns:
+  jianshu: 'http://www.jianshu.com/u/42dabc60e2c9'
+  facebook: ''
+  twitter: ''
+  github: 'https://github.com/zhubiaook'
+
+# Tags 设置标签
+recommend-tags: true # whether or not display recommend-tags on the sidebar
+recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
 
 # Build settings
-permalink: /:year/:month/:day/:title.html
+paginate: 8
+paginate_path: 'page:num'
+exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
+
+# Markdown
 markdown: kramdown
 highlighter: rouge
-mathjax: disabled
-sass:
-  style: compressed
+kramdown:
+  input: GFM
 
-# Jekyll Plugin
-# https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/
-gems:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-feed
+RSS: false
 
+# Plugins
+gems: [jekyll-paginate]
