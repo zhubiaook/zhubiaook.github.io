@@ -2,8 +2,8 @@
 title: 'zhubiaook'
 description: 'hello'
 keyword: 'zhubiao,Something so beautiful '
-url: 'https://zhubiaook.github.io/' # your host
-baseurl: '/zhubiaook.github.io'
+#url: 'https://zhubiaook.github.io/' # your host
+baseurl: '/'
 
 # Navigation links
 nav:
