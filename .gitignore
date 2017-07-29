@@ -1,6 +1,7 @@
+_site
+node_modules
+npm-debug.log
 .DS_Store
 */.DS_Store
-
-node_modules
-
-_site
+*/*/.DS_Store
+*.sh
