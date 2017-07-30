@@ -94,5 +94,11 @@ friends: [
     },{
         title: "linux commands",
         href: "http://man.linuxde.net/"
+    },{
+        title: "曲良",
+        href: "http://www.pojun.tech/blog/"
+    },{
+        title: "sunxiaoyu",
+        href: "http://blog.csdn.net/sxy2475"
     }
 ]
