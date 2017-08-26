@@ -101,8 +101,8 @@ friends: [
         title: "redhat",
         href: "https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/"
     },{
-        title "DigitalOcean",
-        href "https://www.digitalocean.com/community/tutorials"
+        title: "DigitalOcean",
+        href: "https://www.digitalocean.com/community/tutorials"
     },{
         title: "阿兰",
         href: "http://maxiecloud.com/"
