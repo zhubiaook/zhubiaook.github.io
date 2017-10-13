@@ -1,0 +1,375 @@
+文件共享的三个服务
+	FTP服务
+	NFS服务
+	SAMBA服务
+	
+存储的方式
+	DAS
+		Client->FileSysteem+硬盘
+	NAS
+		Client--网络--FileSysteem->硬盘
+	SAN
+		Client->FileSysteem--网络--硬盘
+
+==========
+FTP
+==========		
+
+最古老的三个协议
+	邮件
+	http
+	ftp
+
+
+FTP协议
+	双通道协议
+		命令通道
+			端口21
+		数据通道
+			主动模式端口20
+			被动模式端口：随机端口
+				端口由服务器提供，计算而来(172,18,0,1,175,224)
+			
+	两种工作模式(服务器角度)
+		主动模式
+			服务器主动连接客户端
+			服务器端口
+				命令：21
+				数据：20
+		被动模式
+			客户端主动连接服务器
+			服务器端口
+				命令：21
+				数据：随机
+				
+		e.g
+			ftp客户端工具切换工作模式命令
+				passive
+			通常ftp工具
+				Windows默认：主动模式
+				Linxu默认：被动模式
+			
+	FTP软件介绍
+		FTP服务端软件
+			Wu-ftpd
+			Proftpd
+			Pureftpd
+			ServU
+			IIS
+			vsftpd:VerySecure FTP Daemon
+				CentOS默认FTP服务器 
+				
+		FTP客户端软件
+			ftp
+				passive
+				binary
+				ftp -A ftpserver port 
+					-A主动模式
+					–p 被动模式
+			lftp
+				lftp -u USER[,PASSWORD] ftpserver
+				lftp username@ftpserver
+			lftpget
+				lftpget ftp://ftpserver/pub/file
+			wget
+			curl
+			gftp
+				GUI centos5 最新版2.0.19 (11/30/2008)
+			filezilla
+			CuteFtp
+			FlashFXP
+			LeapFtp
+			IE ftp://username:password@ftpserver
+		
+	状态码
+		1XX：信息		125：数据连接打开
+		2XX：成功类状态	200：命令OK 230：登录成功
+		3XX：补充类		331：用户名OK
+		4XX：客户端错误	425：不能打开数据连接
+		5XX：服务器错误	530：不能登录
+					
+	用户认证方式
+		匿名用户
+			用户名：
+				ftp/anonymous
+				Linux系统默认自带的用户
+			访问目录：
+				ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+
+		系统用户
+			Linux系统用户
+				/etc/passwd
+				/etc/shadow
+				
+		虚拟用户
+			独立的用户/密码文件
+				nsswitch:networkservice switch名称解析框架
+				pam:pluggableauthentication module 用户认证
+				/lib64/security /etc/pam.d/ /etc/pam.conf	
+		客户端访问的目录是用户的家目录，改变家目录即可改变用户访问的ftp目录
+
+Vsftpd
+	相关文件路径
+		主配置文件
+			 /etc/vsftpd/vsftpd.conf
+			 /etc/vsftpd/*
+		用户认证配置文件
+			/etc/pad.d/vsftpd
+		日志配置文件	
+			/etc/logrotate.d/vsftpd
+		共享文件位置
+			匿名用户：映射为系统用户ftp的家目录
+			系统用户：用户家目录
+			虚拟用户: 映射的系统用户家目录
+	
+vsftpd配置
+	帮助文档
+		man 5 vsftpd.conf
+	
+	端口
+		命令端口
+			listen_port=PORT
+		数据端口
+			主动模式
+				connect_from_port_20=YES/NO
+				ftp_data_port=PORT
+			被动模式(范围)
+				pasv_min_port=PORT
+				pasv_max_port=PORT
+					0 : 随机分配
+				当设定了被动模式的端口范围后，随机分配的端口将不生效
+					
+	使用当地时间
+		use_localtime=YES/NO
+			不用设置为YES，否则会加了8个小时，反而不对
+			
+	
+	匿名用户的配置
+		说明：匿名用户的权限受配置文件/etc/vsftpd/vsftpd.conf和远程主机上ftp用户文件系统权限的双重限制。
+		
+		是否允许匿名用户生效
+			anonymous_enable=YES/NO
+		匿名用户登录是否跳过密码检查环节
+			no_anon_password=YES/NO	
+			
+		自己上传的文件，文件是否为全部可读，匿名用户才能下载
+			anon_world_readable_only=YES/NO
+		匿名用户上传文件的权限
+			1. ftp用户对该目录具有写权限(w)
+			2. anon_upload_enable=YES 
+		匿名用户创建文件夹的权限
+			1. ftp用户对该目录具有写权限(w)
+			2. anon_mkdir_write_enable=YES
+		匿名用户删除文件的权限
+			1. ftp用户对该目录具有写权限(w)
+			2. anon_other_write_enable=YES 	
+		匿名用户上传文件的umask值
+			anon_umask=077
+		指定上传文件的属主，属组，文件权限
+			chown_uploads=YES(默认NO)
+			chown_username=wang
+			chown_upload_mode=0644
+				
+	系统用户的配置
+		默认系统用户登录拥有以下权限
+			该用户的家目录所有权
+			可以切换到任何文件系统中的目录
+			
+		将系统用户禁锢在家目录/或指定的目录里面
+			所有系统用户都禁锢
+				chroot_local_user=YES
+			指定的用户不禁锢，其它全部禁锢
+				chroot_local_user=YES
+				chroot_list_enable=YES
+				chroot_list_file=/PAHT/USER_LIST
+					USER_LIST中存储用户名
+			指定的用户禁锢，其它不禁锢
+				chroot_local_user=NO
+				chroot_list_enable=YES
+				chroot_list_file=/PAHT/USER_LIST
+			是否允许系统用户登录
+				local_enable=YES/NO
+			是否允许系统用户上传文件
+				write_enable=YES/NO
+			修改系统用户所上传文件的UMASK
+				local_umask=022
+			改变系统用户的共享目录为指定的目录
+				local_root=/PATH
+			将系统用户全部变为来宾用户，类似于匿名用户的权限
+				guest_enable=YES
+				guest_username=USERNAME
+			
+		
+	日志
+		wu-ftp
+		vsftpd
+	登录提示信息
+		ftpd_banner="string"
+		banner_file=/path
+	目录访问提示信息
+		dirmessage_enable=YES
+		message_file=.message
+	
+	使用pam完成用户验证
+		主配置文件中调用pam模块
+			pam_service_name=vsftpd
+		pam配置文件:/etc/pam.d/vsftpd
+		/etc/vsftpd/ftpusers默认文件中用户拒绝登录
+		
+	
+	是否启用控制用户登录的列表文件
+		userlist_enable=YES 默认有此设置
+		userlist_deny=YES(默认值)黑名单,不提示口令，NO为白名单
+		userlist_file=/etc/vsftpd/users_list此为默认值
+	
+	连接限制
+		max_clients=0
+			最大并发连接数
+		max_per_ip=0
+			每个IP允许的并发连接数
+	
+	vsftpd指定用户身份运行
+		nopriv_user=nobody
+	
+	传输速率：字节/秒
+		anon_max_rate=0 
+			匿名用户的最大传输速率
+		local_max_rate=0 	
+			本地用户的最大传输速率
+			
+	连接时间：秒为单位
+		connect_timeout=60 
+			主动模式数据连接超时时长
+		accept_timeout=60 	
+			被动模式数据连接超时时长
+		data_connection_timeout=300 
+			数据连接无数据输超时时长
+		idle_session_timeout=60 
+			无命令操作超时时长
+			
+	优先以文本方式传输
+		ascii_upload_enable=YES
+		ascii_download_enable=YES
+
+	修改为非独立服务
+		1. 修改配置文件
+			listen=NO
+		2. /etc/xinet.d/ 下面创建配置文件vsftpd
+			service ftp
+			{
+				flags = REUSE
+				socket_type = stream
+				wait = no
+				user = root
+				server = /usr/sbin/vsftpd
+				log_on_failure += USERID
+				disable = no
+			}
+				
+		3. 重启xinetd服务
+		
+	基于SSL的FTPS
+		1. 查看是否有SSL模块
+			ldd `which vsftpd`
+		2. 修改配置文件支持SSL
+			ssl_enable=YES
+			allow_anon_ssl=NO
+			force_local_logins_ssl=YES
+			froce_local_data_ssl=YES/NO
+			rsc_cert_file=/path/FileName.pem
+		
+		3. 用filezilla测试
+		
+	
+	虚拟用户
+		账户存储方式
+			
+			
+		实现步骤
+			/etc/vsftpd/vuser.txt
+				username1
+				passwd1
+				username2
+				passwd2
+			cd /etc/vsftpd/
+				
+				
+======
+FTP状态码
+=========
+FTP状态码：
+
+1xx-肯定的初步答复这些状态代码指示一项操作已经成功开始，但客户端希望在继续操作新命令前得到另一个答复。
+
+110重新启动标记答复。
+120服务已就绪，在nnn分钟后开始。
+125数据连接已打开，正在开始传输。
+150文件状态正常，准备打开数据连接。
+2xx-肯定的完成答复一项操作已经成功完成。客户端可以执行新命令。
+200命令确定。
+202未执行命令，站点上的命令过多。
+211系统状态，或系统帮助答复。
+212目录状态。
+213文件状态。
+214帮助消息。
+215NAME系统类型，其中，NAME是AssignedNumbers文档中所列的正式系统名称。
+220服务就绪，可以执行新用户的请求。
+221服务关闭控制连接。如果适当，请注销。
+225数据连接打开，没有进行中的传输。
+226关闭数据连接。请求的文件操作已成功（例如，传输文件或放弃文件）。
+227进入被动模式(h1,h2,h3,h4,p1,p2)。
+230用户已登录，继续进行。
+250请求的文件操作正确，已完成。
+257已创建“PATHNAME”。
+3xx-肯定的中间答复该命令已成功，但服务器需要更多来自客户端的信息以完成对请求的处理。
+331用户名正确，需要密码。
+332需要登录帐户。
+350请求的文件操作正在等待进一步的信息。
+4xx-瞬态否定的完成答复该命令不成功，但错误是暂时的。如果客户端重试命令，可能会执行成功。
+421服务不可用，正在关闭控制连接。如果服务确定它必须关闭，将向任何命令发送这一应答。
+425无法打开数据连接。 426Connectionclosed;transferaborted.
+450未执行请求的文件操作。文件不可用（例如，文件繁忙）。
+451请求的操作异常终止：正在处理本地错误。
+452未执行请求的操作。系统存储空间不够。
+5xx-永久性否定的完成答复该命令不成功，错误是永久性的。如果客户端重试命令，将再次出现同样的错误。
+500语法错误，命令无法识别。这可能包括诸如命令行太长之类的错误。
+501在参数中有语法错误。
+502未执行命令。
+503错误的命令序列。
+504未执行该参数的命令。
+530未登录。
+532存储文件需要帐户。
+550未执行请求的操作。文件不可用（例如，未找到文件，没有访问权限）。
+551请求的操作异常终止：未知的页面类型。
+552请求的文件操作异常终止：超出存储分配（对于当前目录或数据集）。
+553未执行请求的操作。不允许的文件名。
+常见的FTP状态代码及其原因：
+150-FTP使用两个端口：21用于发送命令，20用于发送数据。
+状态代码150表示服务器准备在端口20上打开新连接，发送一些数据。
+226-命令在端口20上打开数据连接以执行操作，如传输文件。该操作成功完成，数据连接已关闭。
+230-客户端发送正确的密码后，显示该状态代码。它表示用户已成功登录。
+331-客户端发送用户名后，显示该状态代码。无论所提供的用户名是否为系统中的有效帐户，都将显示该状态代码。
+426-命令打开数据连接以执行操作，但该操作已被取消，数据连接已关闭。
+530-该状态代码表示用户无法登录，因为用户名和密码组合无效。如果使用某个用户帐户登录，可能键入错误的用户名或密码，也可能选择只允许匿名访问。如果使用匿名帐户登录，IIS的配置可能拒绝匿名访问。
+550-命令未被执行，因为指定的文件不可用。例如，要GET的文件并不存在，或试图将文件PUT到您没有写入权限的目录
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+	
+	
+	
