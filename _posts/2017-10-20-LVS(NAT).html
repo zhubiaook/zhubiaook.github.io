@@ -7,7 +7,8 @@ header-img: "img/post-bg-universe.jpg"
 categories: Linux
 tags: LVS
 ---
-<!DOCTYPE html><html><head><title>LVS(NAT)+ldirectord实现负载均衡</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
 .note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
 
 .note-content .hljs-comment, .note-content 
@@ -48,10 +49,6 @@ tags: LVS
                         
                     
 
-
-
-<h1 id="lvsnatldirectord实现负载均衡">LVS(NAT)+ldirectord实现负载均衡</h1>
-
 <hr>
 
 <p><font size="4" color="Coral"> <br>
@@ -64,8 +61,6 @@ tags: LVS
 实验介绍 <br>
 </font> <br>
 如下图所示，本实验使用6台CentOS6虚拟机，使用LVS实现基于IP的负载均衡，为了使VS服务器上的资源相同，使用NFS共享存储和同一个MySQL数据库。并且要求VS服务器支持http和https两种服务。</p>
-
-
 
 <p><img longdesc="./lvs.png" alt="Alt text" title="" type="image/png" src="/evernote/res/https://www.evernote.com/shard/s364/res/f2ddbdad-8290-452e-9599-b9a713e648de?size=59939&amp;format=image.png" class="remote"></p>
 
@@ -320,6 +315,8 @@ tags: LVS
 <br></li>
 <li rel="2">使用yum命令安装ldirectord，自动解决软件包依赖问题</li>
 </ol>
+
+
 
 <pre class="prettyprint hljs-dark"><code class="hljs css"><div class="hljs-line"><span class="hljs-selector-tag">yum</span> <span class="hljs-selector-tag">-y</span> <span class="hljs-selector-tag">install</span> <span class="hljs-selector-tag">ldirectord-3</span><span class="hljs-selector-class">.9</span><span class="hljs-selector-class">.6-0rc1</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.x86_64</span><span class="hljs-selector-class">.rpm</span> 
 </div></code></pre>
