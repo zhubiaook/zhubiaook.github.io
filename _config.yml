@@ -128,10 +128,10 @@ friends: [
         title: "xiaoshuaigege",
         href: "http://www.pojun.tech/blog/"
     },{
-        title: "sunxiaoyu",
-        href: "http://blog.csdn.net/sxy2475"
-    },{
         title: "survivor",
         href: "http://survivor.ruanyifeng.com/"
-    }	
+    },{
+		title: "DBA's Record",
+		href: "http://www.cnblogs.com/zhoujinyi/"
+	}	
 ]
