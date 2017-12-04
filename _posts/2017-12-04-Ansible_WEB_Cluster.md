@@ -1,3 +1,13 @@
+---
+layout: post
+title: 'Ansible配置管理高可用WEB集群'
+date: 2017-12-04
+author: "zhubiao"
+header-img: "img/post-bg-universe.jpg"
+categories: Linux
+tags: Ansible
+---
+
 # Ansible配置管理高可用WEB集群
 
 <font size=5 color=#0099ff>
