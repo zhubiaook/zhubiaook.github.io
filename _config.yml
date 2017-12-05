@@ -131,10 +131,15 @@ friends: [
         title: "survivor",
         href: "http://survivor.ruanyifeng.com/"
     },{
-		title: "DBA's Record",
-		href: "http://www.cnblogs.com/zhoujinyi/"
-	},{
-		title: "余洪春",
-		href: "http://blog.51cto.com/yuhongchun"
-	}	
+        title: "IBM:developerWorks",
+        href: "https://www.ibm.com/developerworks/cn/views/linux/libraryview.jsp"
+    },{
+        title: "DBA's Record",
+        href: ""http://www.cnblogs.com/zhoujinyi/"
+    },{
+        title: "余洪春",
+        href: "href: "http://blog.51cto.com/yuhongchun"
+    }
 ]
+
+
