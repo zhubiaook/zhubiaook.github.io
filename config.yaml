@@ -1,7 +1,7 @@
 baseURL: https://blog.zybz.fun/
 
 languageCode: en-us
-title: "zybz-blog"
+title: "blog"
 theme: "toha"
 publishDir: docs
 
@@ -24,7 +24,7 @@ params:
   copyright: © 2020 Copyright.
 
   # background image of the landing page
-  # background: "images/background.jpg"
+  background: /assets/images/default-background.jpg
 
   # Provide logos for your site. The inverted logo will be used in the initial
   # transparent navbar and the main logo will be used in the non-transparent navbar.
@@ -34,7 +34,7 @@ params:
     inverted: /assets/images/inverted-logo.png
 
   # GitHub repo URL of your site
-  gitRepo: https://github.com/zhubiaook/zhubiaook.github.io/
+  gitRepo: https://github.com/zhubiaook/zhubiaook.github.io
 
   # specify whether you want to write some blog posts or not
   enableBlogPost: true
@@ -58,6 +58,6 @@ params:
       email: "zhubiaook@outlook.com"
     # a summary of what you do
     summary:
-    - I am a Developer
-    - I work with Go
+    - I am a DevOps
+    - I work with Python
     - I love to work with some fun projects
