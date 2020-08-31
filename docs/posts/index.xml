@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on zybz-blog</title>
+    <link>https://blog.zybz.fun/posts/</link>
+    <description>Recent content in Posts on zybz-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Aug 2020 17:22:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo Installation</title>
+      <link>https://blog.zybz.fun/posts/hugo/</link>
+      <pubDate>Mon, 31 Aug 2020 17:22:09 +0800</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/hugo/</guid>
+      <description>Requirements Hugo Version 0.68.0 or higher
+Installation Create your site if you haven’t already
+hugo new site my-site -f=yaml cd my-site git init Add the theme as git sub-module
+git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t use SSH URL of the theme during adding as git sub-module. Also, don’t clone the theme in your themes directory using git clone. They don’t work well with Github Action or Netlify.
+ If you want to customize the theme templates, then fork it and use the fork as your theme.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,63 @@
+baseURL: https://blog.zybz.fun/
+
+languageCode: en-us
+title: "zybz-blog"
+theme: "toha"
+publishDir: docs
+
+# Allow raw html in markdown file
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6
+    ordered: false
+
+# Enable global emoji support
+enableEmoji: true
+
+# Custom parameters
+params:
+  # copyright
+  copyright: © 2020 Copyright.
+
+  # background image of the landing page
+  # background: "images/background.jpg"
+
+  # Provide logos for your site. The inverted logo will be used in the initial
+  # transparent navbar and the main logo will be used in the non-transparent navbar.
+  # It will default to the theme logos if not provided.
+  logo:
+    main: /assets/images/main-logo.png
+    inverted: /assets/images/inverted-logo.png
+
+  # GitHub repo URL of your site
+  gitRepo: https://github.com/zhubiaook/zhubiaook.github.io
+
+  # specify whether you want to write some blog posts or not
+  enableBlogPost: true
+
+  # specify whether you want to show Table of Contents in reading page
+  enableTOC: true
+
+  # specify the list of custom menus that you want to show in the top navbar.
+  # they will be separated by a divider from the main menus.
+  customMenus:
+  - name: 语雀
+    url: https://www.yuque.com/zhubiaook
+
+  # some information about you
+  author:
+    name: "zhubiao"
+    nickname: "zhubiao"
+    image: /assets/images/default-avatar.png
+    # give your contact information. they will be used in the footer
+    contactInfo:
+      email: "zhubiaook@outlook.com"
+    # a summary of what you do
+    summary:
+    - I am a Developer
+    - I work with Go
+    - I love to work with some fun projects
