@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bash 脚本编程基础–变量</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="bash 脚本编程基础–变量" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">zybz-blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>July 29, 2017</p>
+        </div>
+
+        <div class="title">
+          <h1>bash 脚本编程基础–变量</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          
+<!DOCTYPE html><html><head><title>bash 脚本编程基础–变量</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="bash-脚本编程基础变量">bash 脚本编程基础–变量</h1>
+
+<blockquote>
+  <p><strong>shell脚本语言是实现Linux/UNIX系统自动化运维的重要工具</strong></p>
+</blockquote>
+
+<h2 id="bash-基础知识介绍">bash 基础知识介绍</h2>
+
+
+
+<h3 id="shell-与-shell-脚本">shell 与 shell 脚本</h3>
+
+<ul><li><p>shell <br>
+shell位于操作系统最外层，是用户与操作系统交互的工具。shell 是一种命令解释器，将用户输入的命令解释给操作系统执行，并处理操作系统的各种输出结果。</p></li>
+<li><p>shell脚本 <br>
+当我们将多条命令保存到文件中，便可方便、快速的执行多条命令。该文件便是shell脚本，shell脚本里不仅可以包含多条命令，还可以使用变量，流程控制语句(选择、循环、顺序)。</p></li>
+</ul>
+
+
+
+<h3 id="程序编程风格">程序编程风格</h3>
+
+<p>程序是由指令+数据组成，程序编程风格有两种，过程式和对象式。</p>
+
+<ul><li>过程式：以指令为中心，数据服务于指令，面向过程首先分析解决问题的所有可能情况，然后将这些解决方法整理成各个步骤，然后按步骤通过调用函数等方式顺序执行。</li>
+<li>对像式：以数据为中心，指令服务于数据，面向对象是将一切事物看做对象，甚至解决问题的思维也抽象成对象，对象并不是解决问题的具体方法，而是解决问题的模板，解决具体问题再将对象实例化。</li>
+</ul>
+
+<p>shell脚本属于过程式编程风格，过程式编程语言有如下特点</p>
+
+<ul><li>顺序执行</li>
+<li>选择执行</li>
+<li>循环执行</li>
+</ul>
+
+
+
+<h3 id="编译执行与解释执行">编译执行与解释执行</h3>
+
+<p>计算机只能识别二进制的文件，执行二进制指令，所有人类编好的程序源码(文本文件)必须翻译成二进制数据后，计算机才能理解。翻译的方式有两种，一种是由编译器将源码翻译成目标二进制文件后由计算机统一执行，这个过程称为编译执行；另一种是每输入一行命令，解释器就解释执行一行命令，这个过程称为解释执行。解释执行操作方便，但执行效率相对较低。C，C++，JAVA都是编译执行，Bash脚本是解释执行。</p>
+
+<p>另外需澄清的一点是，低级语言与高级语言之间并不存在好坏之分，所谓低级与高级是指相对于人类而言，还是相对机器而言，越接近机器的语言越低级，越接近人类的语言越高级。高级语言让人类更容易理解，但执行效率相对较低，而低级语言反之。比如汇编语言相对C语言属于低级语言，而C语言相对Python是低级语言，但他们的执行效率汇编是最高的。</p>
+
+<h3 id="变量变量名与内存的关系">变量、变量名与内存的关系</h3>
+
+<p>所有程序在未启动为进程之前都是存储在磁盘上的文件，CPU要执行程序，必须把程序启动为进程，即将磁盘上的程序包括数据加载到内存中，然后按程序的流程执行指令。显然CPU要能够从内存中将指令和数据读取到CPU内部才能执行它，CPU必然要知道要从内存中的哪块区域去读取下一条要执行的指令。为了达到此目的，内存将自己划分成了许多区域，每块区域都有一个地址编码，CPU就是根据该编码找到指令和数据的。内存中的某些区域的数据可能会要经常被使用到，我们可以记住这些区域的地址，使用到的时候就可以按地址去查找，这些区域便是变量，变量其实就是内存区域。这些地址都是数字，对于计算机而言很容易，但对人类来说简直就是痛苦，就像人们喜欢记住网站的域名，不喜欢记网站服务器的IP地址一样，所以我们将这些地址起一个名字，便是变量名。实际上为了安全起见，操作系统一般也不允许我们编写的代码里自己规划、使用内存空间，而是由操作系统分配给我们。</p>
+
+
+
+<h2 id="创建bash脚本">创建bash脚本</h2>
+
+<p><strong>创建脚本的一般步骤为</strong></p>
+
+<ol><li rel="1">编写脚本，一般使用vim作为编写脚本的编辑器</li>
+<li rel="2">调试脚本 <br>
+<strong>bash -n <em>script_name</em></strong>    #检查语法 <br>
+<strong>bash -x <em>script_name</em></strong>   #调试</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs bash"><span class="hljs-comment">#如下为一个四则运算，判断用户输入的数字及运算符是否符合要求，符合要求再进行运算</span><br><span class="hljs-meta">#!/bin/bash<br></span><br><span class="hljs-comment">#---------------------------------------------</span><br><span class="hljs-comment"># Author:        zhuenbiao</span><br><span class="hljs-comment"># File Name:     arithmetic_operation.sh</span><br><span class="hljs-comment"># Create Time:   2017-07-28 22:50:08</span><br><span class="hljs-comment">#   Last Modified: 2017-07-28 22:50:08 </span><br><span class="hljs-comment"># Description:</span><br><span class="hljs-comment"># Version:           0.1</span><br><span class="hljs-comment">#---------------------------------------------</span><br><br><span class="hljs-comment">## check if interager of input number</span><br><span class="hljs-comment">#check_int() {</span><br><span class="hljs-comment">#   if [ -n "`echo "$1" | sed 's/[[:digit:]]//g'`" ]; then</span><br><span class="hljs-comment">#       echo "please input one interager "</span><br><span class="hljs-comment">#       exit 1</span><br><span class="hljs-comment">#   fi</span><br><span class="hljs-comment">#}</span><br><br><span class="hljs-comment"># check if interager of input number(next method)</span><br><span class="hljs-function"><span class="hljs-title">check_int</span></span>() {<br>    <span class="hljs-keyword">if</span> [ `expr match <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> <span class="hljs-string">"[[:digit:]]\+$"</span>` = 0 ];<span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">"please input one interager "</span><br>        <span class="hljs-built_in">exit</span> 1<br>    <span class="hljs-keyword">fi</span><br>}<br><br><span class="hljs-comment"># check weather in "+,-,*,/" of input operator</span><br><span class="hljs-function"><span class="hljs-title">check_operator</span></span>() {<br>    <span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">${#1}</span>"</span> <span class="hljs-_">-ne</span> <span class="hljs-string">"1"</span> ];<span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">"please input only one operator"</span>   <br>        <span class="hljs-built_in">exit</span> 1<br>    <span class="hljs-keyword">fi</span><br><br>    <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"`echo "</span><span class="hljs-variable">$1</span><span class="hljs-string">" | egrep -o '[-\+\*/]' `"</span> ]; <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">"please input operator in '+,-,*,/' "</span>  <br>        <span class="hljs-built_in">exit</span> 1<br>    <span class="hljs-keyword">fi</span><br>}<br><br><span class="hljs-comment"># read first number </span><br><span class="hljs-built_in">read</span> -p <span class="hljs-string">"please input first number:"</span> num1<br>check_int <span class="hljs-string">"<span class="hljs-variable">$num1</span>"</span><br><br><span class="hljs-comment"># read operator </span><br><span class="hljs-built_in">read</span> -p <span class="hljs-string">"please input one operator:"</span> operator<br>check_operator <span class="hljs-string">"<span class="hljs-variable">$operator</span>"</span><br><br><span class="hljs-comment"># read next number</span><br><span class="hljs-built_in">read</span> -p <span class="hljs-string">"please input next number: "</span> num2<br>check_int <span class="hljs-string">"<span class="hljs-variable">$num2</span>"</span><br><br><span class="hljs-comment"># calculation</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$num1</span> <span class="hljs-variable">$operator</span> <span class="hljs-variable">$num2</span> = <span class="hljs-variable">$((${num1}${operator}${num2})</span>)"</span> <br><br>----------------------------------------------------------<br>[centos7@root math]<span class="hljs-comment"># bash -n arithmetic_operation  &lt;=检查语法</span><br>[centos7@root math]<span class="hljs-comment"># bash -x arithmetic_operation  &lt;=调试</span><br>+ <span class="hljs-built_in">read</span> -p <span class="hljs-string">'please input first number:'</span> num1<br>please input first number:10   &lt;=输入运算的第一个整数<br>+ check_int 10<br>++ expr match 10 <span class="hljs-string">'[[:digit:]]\+$'</span><br>+ <span class="hljs-string">'['</span> 2 = 0 <span class="hljs-string">']'</span><br>+ <span class="hljs-built_in">read</span> -p <span class="hljs-string">'please input one operator:'</span> operator<br>please input one operator:+   &lt;=输入运算符<br>+ check_operator +<br>+ <span class="hljs-string">'['</span> 1 <span class="hljs-_">-ne</span> 1 <span class="hljs-string">']'</span><br>++ <span class="hljs-built_in">echo</span> +<br>++ egrep -o <span class="hljs-string">'[-\+\*/]'</span><br>+ <span class="hljs-string">'['</span> -z + <span class="hljs-string">']'</span><br>+ <span class="hljs-built_in">read</span> -p <span class="hljs-string">'please input next number: '</span> num2<br>please input next number: 5  &lt;=输入运算的第二个整数<br>+ check_int 5<br>++ expr match 5 <span class="hljs-string">'[[:digit:]]\+$'</span><br>+ <span class="hljs-string">'['</span> 1 = 0 <span class="hljs-string">']'</span><br>+ <span class="hljs-built_in">echo</span> <span class="hljs-string">'10 + 5 = 15'</span><br>10 + 5 = 15      &lt;=执行结果<br></code></pre>
+
+<ol start="3"><li rel="3"><p>执行脚本，执行脚本之前一般给脚本执行权限，执行脚本有如下方式</p>
+
+<ul>
+<li><strong>bash <em>script_name</em></strong> 不需执行权限</li>
+<li><strong>path/script_name</strong>,或 <strong>./script_name</strong>  需要执行权限</li>
+<li><strong>source <em>script_name</em></strong> 或 <strong>. <em>script_name</em></strong> 需要执行权限</li></ul>
+
+<p>其中前面两种是新建子进程，在子进程中执行脚本，不会影响当前进程的环境(变量，操作)，而第三钟是在当前进程中执行脚本，直接影响当前shell进程的环境。</p></li>
+<li rel="4"><p>可以将经常执行脚本的目录添加到<strong>PATH</strong>路径中，这样就可以直接执行脚本</p></li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs ini"><span class="hljs-section">[centos7@root tools]</span><span class="hljs-comment"># tail -n 2 /etc/bashrc</span><br><span class="hljs-comment"># Define PATH</span><br><span class="hljs-attr">PATH</span>=<span class="hljs-string">"$PATH:/app/scripts/tools:/app/scripts/test"</span><br></code></pre>
+
+<p><strong>bash 脚本的组成结构</strong></p>
+
+<ol><li rel="1"><p>脚本首行声明使用何种shell解释执行该脚本，虽然在bash环境中执行bash脚本不声明也能执行，但需按照编程规范声明。 <br>
+linux系统中常见的脚本解释器 <br>
+    /bin/bash <br>
+    /usr/bin/perl <br>
+    /usr/bin/python</p></li>
+<li rel="2"><p>规范的注释，声明了shebang机制后，接着写该脚本的一些注释信息，如作者，文件名，创建时间，描述信息，版本等。</p></li>
+<li rel="3"><p>后面接着便是脚本的正文部分，该部分包括命令，变量，流程控制语句，我们编写脚本应该养成良好的习惯，比如规范的缩进，详细的注释，见名知义的命名。       </p></li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs vala"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-meta">#---------------------------------------------</span><br><span class="hljs-meta"># Author:        zhuenbiao</span><br><span class="hljs-meta"># File Name:     arithmetic_operation.sh</span><br><span class="hljs-meta"># Create Time:   2017-07-28 22:50:08</span><br><span class="hljs-meta"># Last Modified: 2017-07-28 22:50:08 </span><br><span class="hljs-meta"># Description:</span><br><span class="hljs-meta"># Version:       0.1</span><br><span class="hljs-meta">#---------------------------------------------</span><br><br><span class="hljs-meta">## check if interager of input number</span><br><span class="hljs-meta">#check_int() {</span><br><span class="hljs-meta"># if [ -n "`echo "$1" | sed 's/[[:digit:]]//g'`" ]; then</span><br><span class="hljs-meta">#   echo "please input one interager "</span><br><span class="hljs-meta">#   exit 1</span><br><span class="hljs-meta"># fi</span><br><span class="hljs-meta">#}</span><br><br><span class="hljs-meta"># check if interager of input number(next method)</span><br>check_int() {<br>  <span class="hljs-keyword">if</span> [ `expr match <span class="hljs-string">"$1"</span> <span class="hljs-string">"[[:digit:]]\+$"</span>` = <span class="hljs-number">0</span> ];then<br>    echo <span class="hljs-string">"please input one interager "</span><br>    exit <span class="hljs-number">1</span><br>  fi<br>}<br></code></pre>
+
+
+
+<h2 id="bash-变量">bash 变量</h2>
+
+<blockquote>
+  <p>相对于其他语言，bash脚本是不区分变量类型的，包括数字，bash也将其当做字符来存储。</p>
+</blockquote>
+
+<p><strong>bash中根据变量的作用范围不同可分为：</strong></p>
+
+<ul><li>环境变量 <br>
+环境变量也叫全局变量，一旦声明，当前进程及子进程中都生效。但父进程中是无效的。</li>
+<li>本地变量 <br>
+本地变量的生效范围仅在当前进程中有效，其子进程中都无效。</li>
+<li>局部变量 <br>
+bash脚本中的某段代码片段中有效。</li>
+</ul>
+
+<p><strong>变量的赋值</strong> <br>
+普通变量</p>
+
+<ul><li>直接赋值：var_name=”hello everyone”</li>
+<li>变量引用：var_name=$another_var</li>
+<li>命令引用：var_name=`date +%F`</li>
+</ul>
+
+<p>环境变量的赋值</p>
+
+<ul><li><code>export var_name=value</code></li>
+<li><code>declare -x var_name=value</code></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta"># 方法一</span><br>[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># export num1=10</span><br><br><span class="hljs-meta">#方法二</span><br>[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># num2=20</span><br>[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># export num2</span><br><br><span class="hljs-meta">#方法三</span><br>[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># declare -x num3=30</span><br>[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># echo $num3</span><br></code></pre>
+
+<p><strong>变量引用</strong></p>
+
+<ul><li>$var_name</li>
+<li>${var_name}</li>
+</ul>
+
+<p><strong>删除变量</strong> <br>
+<strong>unset <em>var_name</em></strong></p>
+
+<p><strong>定义只读变量</strong> <br>
+只读变量一旦定义，将无法重新赋值，删除，只有退出当前进程才可以消除</p>
+
+<ul><li><strong>readonly <em>var_name=value</em></strong></li>
+<li><strong>declare -r  <em>var_name=value</em></strong> <br>
+查看只读变量: <strong>readonly -p</strong></li>
+</ul>
+
+<p><strong>查看变量</strong></p>
+
+<ul><li>查看系统变量 <code>env</code>,<code>printenv</code>,<code>declare -x</code></li>
+<li>查看所有变量 set</li>
+</ul>
+
+
+
+<h2 id="bash-脚本实例">bash 脚本实例</h2>
+
+<p><strong>题一</strong> <br>
+    当我们创建脚本时，总有一些重复性的工作，比如声明shebang，脚本头部说明信息，给脚本执行权限，这些重复性的工作有了脚本就应该告别</p>
+
+<p>如下，我们编写脚本实现执行命令<code>init_scripts.sh script_name</code>就自动创建初始化好相应信息的脚本script_name</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs bash">[centos7@root tools]<span class="hljs-comment"># cat init_scripts.sh </span><br><span class="hljs-meta">#!/bin/bash<br></span><br><span class="hljs-comment">#---------------------------------------------</span><br><span class="hljs-comment"># Author:        zhuenbiao</span><br><span class="hljs-comment"># File Name:     init_scripts</span><br><span class="hljs-comment"># Create Time:   2017-07-28 17:45:00</span><br><span class="hljs-comment">#   Last Modified: 2017-07-28 17:45:00</span><br><span class="hljs-comment"># Description:   automatically create head of</span><br><span class="hljs-comment">#                a script file</span><br><span class="hljs-comment"># Version:           0.1</span><br><span class="hljs-comment">#---------------------------------------------</span><br><br><span class="hljs-comment"># Check if input the file name</span><br><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$#</span>"</span> <span class="hljs-_">-ne</span> <span class="hljs-string">"1"</span> ]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Input one file name"</span><br>    <span class="hljs-built_in">exit</span> 1<br><span class="hljs-keyword">fi</span><br><br><span class="hljs-comment"># Check if the file already exists</span><br><span class="hljs-keyword">if</span> [ <span class="hljs-_">-a</span> <span class="hljs-variable">$1</span> ]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"The file \"<span class="hljs-variable">$1</span>\" already exists"</span><br>    <span class="hljs-built_in">exit</span> 1<br><span class="hljs-keyword">fi</span><br><br><span class="hljs-comment"># automatically create head of a script file</span><br>cat &gt; <span class="hljs-variable">$1</span> &lt;&lt;EOF<br><span class="hljs-meta">#!/bin/bash<br></span><br><span class="hljs-comment">#---------------------------------------------</span><br><span class="hljs-comment"># Author:        zhuenbiao</span><br><span class="hljs-comment"># File Name:     `echo $1`</span><br><span class="hljs-comment"># Create Time:   `date +"%F %T"`</span><br><span class="hljs-comment">#   Last Modified: `date +"%F %T"` </span><br><span class="hljs-comment"># Description:</span><br><span class="hljs-comment"># Version:           0.1</span><br><span class="hljs-comment">#---------------------------------------------</span><br><br><br>EOF<br><br>chmod a+x <span class="hljs-variable">$1</span><br>vim + <span class="hljs-variable">$1</span><br></code></pre>
+
+<p><strong>执行结果</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs bash">[centos7@root <span class="hljs-built_in">test</span>]<span class="hljs-comment"># init_scripts.sh new_script</span><br>[centos7@root <span class="hljs-built_in">test</span>]<span class="hljs-comment"># cat new_script </span><br><span class="hljs-meta">#!/bin/bash<br></span><br><span class="hljs-comment">#---------------------------------------------</span><br><span class="hljs-comment"># Author:        zhuenbiao</span><br><span class="hljs-comment"># File Name:     new_script</span><br><span class="hljs-comment"># Create Time:   2017-07-29 21:29:26</span><br><span class="hljs-comment">#   Last Modified: 2017-07-29 21:29:26 </span><br><span class="hljs-comment"># Description:</span><br><span class="hljs-comment"># Version:           0.1</span><br><span class="hljs-comment">#---------------------------------------------</span><br></code></pre></div></body></html>
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io//edit/master/content/posts%5c2017-07-29-Bash-Basic-Variables.html">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/2017-08-01-find/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>文件查找 locate &amp; find</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/2017-07-27-grep/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>文本三剑客之 grep</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

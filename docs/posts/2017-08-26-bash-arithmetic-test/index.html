@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bash 数学运算与条件测试</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="bash 数学运算与条件测试" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">zybz-blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>August 26, 2017</p>
+        </div>
+
+        <div class="title">
+          <h1>bash 数学运算与条件测试</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          
+<!DOCTYPE html><html><head><title>bash 数学运算与条件测试</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}
+.note-content .hljs, .note-content 
+.hljs-subst {color: #444;}
+.note-content .hljs-comment {color: #888888;}
+.note-content .hljs-keyword, .note-content 
+.hljs-attribute, .note-content 
+.hljs-selector-tag, .note-content 
+.hljs-meta-keyword, .note-content 
+.hljs-doctag, .note-content 
+.hljs-name {font-weight: bold;}
+.note-content .hljs-type, .note-content 
+.hljs-string, .note-content 
+.hljs-number, .note-content 
+.hljs-selector-id, .note-content 
+.hljs-selector-class, .note-content 
+.hljs-quote, .note-content 
+.hljs-template-tag, .note-content 
+.hljs-deletion {color: #880000;}
+.note-content .hljs-title, .note-content 
+.hljs-section {color: #880000; font-weight: bold;}
+.note-content .hljs-regexp, .note-content 
+.hljs-symbol, .note-content 
+.hljs-variable, .note-content 
+.hljs-template-variable, .note-content 
+.hljs-link, .note-content 
+.hljs-selector-attr, .note-content 
+.hljs-selector-pseudo {color: #BC6060;}
+.note-content .hljs-literal {color: #78A960;}
+.note-content .hljs-built_in, .note-content 
+.hljs-bullet, .note-content 
+.hljs-code, .note-content 
+.hljs-addition {color: #397300;}
+.note-content .hljs-meta {color: #1f7199;}
+.note-content .hljs-meta-string {color: #4d99bf;}
+.note-content .hljs-emphasis {font-style: italic;}
+.note-content .hljs-strong {font-weight: bold;}
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="bash-数学运算与条件测试">bash 数学运算与条件测试</h1>
+
+<p>学习bash脚本编程过程中，发现bash脚本中的运算符，表达式种类繁多，且使用风格各异。现对数学运算和条件测试进行总结。</p>
+
+
+
+<h2 id="数学运算">数学运算</h2>
+
+<p><strong>数学运算符</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th align="center">名字</th>
+  <th align="center">符号</th>
+  <th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="center">数值运算</td>
+  <td align="center">+, -, *, /, %, **</td>
+  <td align="left">加，减，乘，除，取余，幂</td>
+</tr>
+<tr>
+  <td align="center">自增，自减运算</td>
+  <td align="center">++，–</td>
+  <td align="left">自增，自减</td>
+</tr>
+<tr>
+  <td align="center">逻辑运算</td>
+  <td align="center">&amp;&amp;，||，!</td>
+  <td align="left">与，或，非</td>
+</tr>
+<tr>
+  <td align="center">按位运算</td>
+  <td align="center">&amp;，|，~，^</td>
+  <td align="left">位与，位或，位非，位异或</td>
+</tr>
+<tr>
+  <td align="center">移位运算</td>
+  <td align="center">&lt;&lt;，&gt;&gt;</td>
+  <td align="left">位左移，位右移</td>
+</tr>
+<tr>
+  <td align="center">比较运算</td>
+  <td align="center">&gt;，&gt;=，&lt;，&lt;=，==，!=</td>
+  <td align="left">大于，大于等于，小于，小于等于，等于，不等于</td>
+</tr>
+<tr>
+  <td align="center">赋值运算</td>
+  <td align="center">=，+=，-=，*=，/=，%=</td>
+  <td align="left">赋值，运算并赋值</td>
+</tr>
+</tbody></table>
+
+
+<p><strong>数学运算命令</strong></p>
+
+<ul><li>(())</li>
+<li>let</li>
+<li>$[]</li>
+<li>bc</li>
+</ul>
+
+<hr>
+
+<p><strong>(())</strong></p>
+
+<ol><li rel="1"><p>语法  <strong>((EXPRESION))</strong> <br>
+EXPRESSION 由以下部分组成</p>
+
+<ul>
+<li>数值运算</li>
+<li>逻辑运算</li>
+<li>比较运算</li>
+<li>按位运算</li>
+<li>位移运算</li>
+<li>赋值运算</li></ul></li>
+<li rel="2"><p>$(()) 将运算结果赋值给其它变量 <br>
+<code>(())</code> 运算并不会输出任何结果，若将运算的结果赋值给其它变量，则使用<code>$(())</code></p></li>
+<li rel="3"><p>(()), $[], let 三者的对应关系 <br>
+        <code>((EXPRESION))</code> 等同于 <code>let "EXPRESION"</code> <br>
+        <code>$((EXPRESION))</code> 等同于 <code>$[EXPRESION]</code></p></li>
+</ol>
+
+<p>实例： 编写脚本实现输入两个整数，进行四则运算</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs bash">[root@CentOS6 app]<span class="hljs-comment"># cat four_arithmetic_operations.sh </span><br><span class="hljs-meta">#!/bin/bash<br></span><br><span class="hljs-comment">#---------------------------------------</span><br><span class="hljs-comment"># Author:        zhuenbiao</span><br><span class="hljs-comment"># File Name:     four_arithmetic_operations.sh </span><br><span class="hljs-comment"># Create Time:   2017-08-26 17:29:15</span><br><span class="hljs-comment"># Modified Time: 2017-08-26 17:29:15</span><br><span class="hljs-comment"># Version:       0.1</span><br><span class="hljs-comment"># Description:   </span><br><span class="hljs-comment">#---------------------------------------</span><br><br><br><span class="hljs-comment"># Check whether integer of inputed numbers</span><br>repaty=1<br>until [[ <span class="hljs-string">"<span class="hljs-variable">$num1</span>"</span> =~ ^[0-9]+$ &amp;&amp; <span class="hljs-string">"<span class="hljs-variable">$num2</span>"</span> =~ ^[0-9]+$ ]];<span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Please input two integer"</span><br>    <span class="hljs-built_in">read</span> -p <span class="hljs-string">"num1= "</span> num1<br>    <span class="hljs-built_in">read</span> -p <span class="hljs-string">"num2= "</span> num2<br><br>    <span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$repaty</span>"</span> <span class="hljs-_">-eq</span> 4 ];<span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">break</span>;<br>    <span class="hljs-keyword">fi</span><br><br>    ((repaty++))<br><span class="hljs-keyword">done</span><br><br><span class="hljs-comment"># Addition</span><br>sum=$((num1+num))<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$num1</span>+<span class="hljs-variable">$num2</span>=<span class="hljs-variable">$sum</span>"</span><br><br><span class="hljs-comment"># Subtraction</span><br>((difference=num1-num2))<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$num1</span>-<span class="hljs-variable">$num2</span>=<span class="hljs-variable">$difference</span>"</span><br><br><span class="hljs-comment"># Multiplication</span><br>product=$((<span class="hljs-variable">$num1</span>*<span class="hljs-variable">$num2</span>))<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$num1</span>*<span class="hljs-variable">$num2</span>=<span class="hljs-variable">$product</span>"</span><br><br><span class="hljs-comment"># Division</span><br>quotient=$(( num1 / num2))<br></code></pre>
+
+<p>输出结果如下：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl">[root@CentOS6 app]# bash four_arithmetic_operations.sh <br>Please input two <span class="hljs-type">integer</span><br>num1= <span class="hljs-number">20</span>  &lt;=输入<span class="hljs-number">20</span><br>num2= <span class="hljs-number">8</span>   &lt;=输入<span class="hljs-number">8</span><br><span class="hljs-number">20</span>+<span class="hljs-number">8</span>=<span class="hljs-number">20</span> <br><span class="hljs-number">20</span><span class="hljs-number">-8</span>=<span class="hljs-number">12</span><br><span class="hljs-number">20</span>*<span class="hljs-number">8</span>=<span class="hljs-number">160</span><br><span class="hljs-number">20</span>/<span class="hljs-number">8</span>=<span class="hljs-number">2</span><br></code></pre>
+
+<hr>
+
+<p><strong>let</strong></p>
+
+<ol><li rel="1"><p>语法  <strong>let “EXPRESION”</strong> <br>
+EXPRESSION 由以下部分组成</p>
+
+<ul>
+<li>数值运算</li>
+<li>逻辑运算</li>
+<li>比较运算</li>
+<li>按位运算</li>
+<li>位移运算</li>
+<li>赋值运算</li></ul></li>
+<li rel="2"><p><code>let "EXPRESSION"</code> 等同于 <code>((EXPRESSION))</code></p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta"># 加法运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># num1=10</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># num2=20</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># let sum=num1+num2</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $sum</span><br><span class="hljs-number">30</span><br><span class="hljs-meta"># 自增运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># let ++sum</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $sum</span><br><span class="hljs-number">31</span><br><span class="hljs-meta"># 按位异或运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># let result=num1^num2</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $result</span><br><span class="hljs-number">30</span><br><span class="hljs-meta"># 比较运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># let <span class="hljs-string">"num1 &gt; num2"</span></span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $?</span><br><span class="hljs-number">1</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># let <span class="hljs-string">"num1 != num2"</span></span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $?</span><br><span class="hljs-number">0</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># </span><br></code></pre>
+
+<hr>
+
+<p><strong>$[]</strong></p>
+
+<ol><li rel="1"><p>语法  <strong>$[EXPRESSION]</strong> <br>
+EXPRESSION 由以下部分组成</p>
+
+<ul>
+<li>数值运算</li>
+<li>逻辑运算</li>
+<li>比较运算</li>
+<li>按位运算</li>
+<li>位移运算</li>
+<li>赋值运算</li></ul></li>
+<li rel="2"><p><code>$[EXPRESSION]</code> 等同于 <code>$((EXPRESSION))</code></p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta"># 赋值运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># num1=10</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $[num1+=5]</span><br><span class="hljs-number">15</span><br><span class="hljs-meta"># 位移运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># num2=3</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $[num2&lt;&lt;1]</span><br><span class="hljs-number">6</span><br><span class="hljs-meta"># 比较运算</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo $[5&lt;=6]</span><br><span class="hljs-number">1</span><br></code></pre>
+
+<hr>
+
+<p><strong>bc</strong> <br>
+以上所介绍的运算符均只能运算整数，若要进行浮点数的运算，可以使用命令bc</p>
+
+<p>通过标准输入，将表达式输入给bc进行运算，如下所示：</p>
+
+<ul><li>STDOUT | bc</li>
+<li>bc &lt; 键盘输入</li>
+<li>bc &lt;&lt; EOF</li>
+<li>bc &lt; File</li>
+</ul>
+
+<p>表达式由以下部分组成</p>
+
+<ul><li>数值运算(包括浮点数运算)</li>
+<li>scale=#  &lt;=定义小数位数</li>
+<li>obase=2|8|10|16  &lt;=定义输出几进制的数字</li>
+<li>ibase=2|8|10|16  &lt;=定义输入几进制的数字</li>
+</ul>
+
+<p>例1，求半径为5的圆的面积</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit">[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># r=5</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># pi=3.14159</span><br>[root<span class="hljs-symbol">@CentOS6</span> app]<span class="hljs-meta"># echo <span class="hljs-string">"scale=3;$pi*$r*$r"</span> | bc</span><br><span class="hljs-number">78.53975</span><br></code></pre>
+
+
+
+<h2 id="条件测试">条件测试</h2>
+
+<p>在if，while 等流程控制语句中均需使用条件测试表达式的真假来做出流程的选择。</p>
+
+<p>条件测试有以下四种语法：</p>
+
+<ul><li>test EXPRESION</li>
+<li>[ EXPRESION ]</li>
+<li>[[ EXPRESION ]]</li>
+<li>((EXPRESION))</li>
+</ul>
+
+<p><strong>text 和 []</strong> <br>
+<code>text EXPRESION</code> 等同于 <code>[ EXPRESION ]</code></p>
+
+<p>EXPRESION 由以下部分组成：</p>
+
+<ul><li>数值比较 <br>
+运算符：-gt，-ge，-lt，-le，-eq， -ne</li>
+<li>字符串比较 <br>
+运算符：/&lt;，/&gt;，=，!=，-z，-n</li>
+<li>文件测试</li>
+<li>逻辑运算 <br>
+运算符：-a，-o，!     </li>
+</ul>
+
+
+
+<hr>
+
+<p><strong>[[]]</strong> <br>
+语法：<code>[[ EXPRESION ]]</code></p>
+
+<p>EXPRESION 由以下部分组成：</p>
+
+<ul><li>数值比较 <br>
+运算符：-gt, -ge, -lt, -le, -eq, -ne</li>
+<li>字符串比较 <br>
+运算符：&lt; &gt; = != -z -n</li>
+<li>文件测试</li>
+<li>逻辑运算 <br>
+运算符：&amp;&amp; || !</li>
+<li>扩展正则表达式 <br>
+运算符：=~</li>
+</ul>
+
+<p><strong>(())</strong> <br>
+主要用来做数值的比较，在if，while语句中使用 <br>
+语法：<code>((EXPRESION))</code> <br>
+EXPRESION 由以下部分组成：</p>
+
+<ul><li>数值比较 <br>
+运算符：&gt;, &gt;=, &lt;, &lt;=, ==, !=</li>
+<li>逻辑运算 <br>
+运算符：&amp;&amp; || ！</li>
+</ul>
+
+<hr>
+
+<p><strong>数值大小比较</strong> <br>
+适用于： test，[]，[[]]</p>
+
+<table>
+<thead>
+<tr>
+  <th align="center">符号</th>
+  <th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="center">-gt</td>
+  <td align="center">大于</td>
+</tr>
+<tr>
+  <td align="center">-ge</td>
+  <td align="center">大于等于</td>
+</tr>
+<tr>
+  <td align="center">-lt</td>
+  <td align="center">小于</td>
+</tr>
+<tr>
+  <td align="center">-le</td>
+  <td align="center">小于等于</td>
+</tr>
+<tr>
+  <td align="center">-eq</td>
+  <td align="center">等于</td>
+</tr>
+<tr>
+  <td align="center">-ne</td>
+  <td align="center">不等于</td>
+</tr>
+</tbody></table>
+
+
+<p><strong>字符串比较</strong> <br>
+适用于： test，[]，[[]]</p>
+
+<table>
+<thead>
+<tr>
+  <th align="center">符号</th>
+  <th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="center">=</td>
+  <td align="center">等于</td>
+</tr>
+<tr>
+  <td align="center">!=</td>
+  <td align="center">不等</td>
+</tr>
+<tr>
+  <td align="center">&gt;，\&gt;</td>
+  <td align="center">大于，[]使用 \&gt;，[[]]使用 &gt;</td>
+</tr>
+<tr>
+  <td align="center">&lt;，\&lt;</td>
+  <td align="center">小于，[]使用 \&lt;，[[]]使用 &lt;</td>
+</tr>
+<tr>
+  <td align="center">-n</td>
+  <td align="center">不空为真</td>
+</tr>
+<tr>
+  <td align="center">-z</td>
+  <td align="center">空为真</td>
+</tr>
+</tbody></table>
+
+
+<p><strong>文件测试</strong> <br>
+(1) 存在性测试</p>
+
+<ul><li>-a file 等同于 -e</li>
+<li>-e file 文件(所有文件，f,b,c,b,p,s)是否存在，存在为真</li>
+</ul>
+
+<p>(2) 存在性和类别测试</p>
+
+<ul><li>-f file : exists and is a file</li>
+<li>-d file : exist and is dirctory</li>
+<li>-b file : exists and is block</li>
+<li>-c file : exists and character</li>
+<li>-S file : exists and socket</li>
+<li>-p file : exists and pip</li>
+<li>-h | -L file : exists and symbolic link</li>
+</ul>
+
+<p>(3) 文件权限测试(针对执行该脚本的用户而言)</p>
+
+<ul><li>-r file : exists and readable</li>
+<li>-w file : exists and writeable</li>
+<li>-x file : exists and executable</li>
+</ul>
+
+<p>(4) 文件特殊权限测试</p>
+
+<ul><li>-u file : exists and SUID</li>
+<li>-g file : exits and SGID</li>
+<li>-k file : exists and Sticky</li>
+</ul>
+
+<p>(5) 文件大小测试</p>
+
+<ul><li>-s file : 文件存在且不空</li>
+</ul>
+
+<p>(6) 文件是否打开：</p>
+
+<ul><li>-N file : 文件自上一次读取之后是否被修改过</li>
+<li>-O file 当前文件属主是否为当前有效用户</li>
+<li>-G file 当前文件属组是否为当前有效用户</li>
+</ul>
+
+<p>(7) 双目测试</p>
+
+<ul><li>file1 -ef file2 是否为硬链接</li>
+<li>file1 -nt file2 file1 比 file2 新 (mtime)</li>
+<li>file1 -ot file2 file2 没有file2 新</li>
+</ul>
+
+<hr>
+
+<p>实例 1. 判断输入的数字是否为整数</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs json">[[ <span class="hljs-string">"$var"</span> =~ ^[-]?[<span class="hljs-number">0</span><span class="hljs-number">-9</span>]+$ ]]<br></code></pre></div></body></html>
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io//edit/master/content/posts%5c2017-08-26-bash-arithmetic-test.html">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/2017-09-03-kernel-minilinux/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>编译内核并制作微小Linux系统</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/2017-08-26-bash-slelect-for-while/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>bash 流程控制语句</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>文件查找 locate &amp; find</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="文件查找 locate &amp; find" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">zybz-blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>August 1, 2017</p>
+        </div>
+
+        <div class="title">
+          <h1>文件查找 locate &amp; find</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          
+<!DOCTYPE html><html><head><title>文件查找(find， locate)</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="文件查找find-locate">文件查找(find， locate)</h1>
+
+<blockquote>
+  <p>在Linux文件系统中快速、准确的搜索到自己想要的文件是运维人员的一项基本能力</p>
+</blockquote>
+
+<p><strong>在Linux系统中主要使用find和locate来查找文件，两者的区别如下</strong></p>
+
+<ul><li><code>locate</code> 基于数据库索引进行查找，查找文件速度快，是模糊查询，查找不够精确，同时数据库自动更新周期为每天一次，导致不能实时查找，可以通过手动更新数据库来达到实时查找，不过更新数据库将会搜索整个磁盘，耗费系统资源，当系统繁忙时是一件危险的操作。</li>
+<li><code>find</code> 命令选项特别多，可以根据各种条件精确查找文件，通过搜索磁盘进行查找，属于实时查找，由于搜索磁盘，速度比<code>locate</code>慢。</li>
+</ul>
+
+
+
+<h2 id="locate">locate</h2>
+
+<p><strong>locate [options] <em>keyword</em></strong> <br>
+locate 查找包含关键词或正则表达式匹配的文件路径或文件名，然后输出文件的完整路径，所查找的文件需具有读、执行权限。</p>
+
+<p><strong>常用选项</strong></p>
+
+<blockquote>
+  <p>-i | –ignore-cate  #查找文件时忽略大小写 <br>
+    -r | –regexp REGEXP #使用基本正则表达式匹配文件路径 <br>
+    -n NUM #输出搜索到的前N个匹配的路径</p>
+</blockquote>
+
+<p><strong>实例</strong></p>
+
+<ol start="1"><li rel="1">查找家目录下面包含.txt的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs awk">[centos7@root math]<span class="hljs-comment"># locate ~/*.txt</span><br><span class="hljs-regexp">/root/</span><span class="hljs-number">1</span>.txt<br><span class="hljs-regexp">/root/</span><span class="hljs-number">3</span>.txt<br><span class="hljs-regexp">/root/</span>dest.txt<br><span class="hljs-regexp">/root/</span>destination.txt<br><span class="hljs-regexp">/root/</span>passwd.txt<br><span class="hljs-regexp">/root/</span>shadown.txt<br><span class="hljs-regexp">/root/</span>source.txt<br></code></pre>
+
+<ol start="2"><li rel="2">查找/etc/目录下面结尾包含config，且路或文件名中包含数字的文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs groovy">locate -r <span class="hljs-string">"/etc/.*[[:digit:]]\+.*config$"</span> &lt;=使用正则表达式进行匹配<br><span class="hljs-regexp">/etc/</span>dconf<span class="hljs-regexp">/db/</span>distro.d/<span class="hljs-number">10</span>-authconfig<br><span class="hljs-regexp">/etc/</span>selinux<span class="hljs-regexp">/targeted/</span>active<span class="hljs-regexp">/modules/</span><span class="hljs-number">100</span>/authconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">98</span>netconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">99</span>authconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">99</span>kbdconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">99</span>mouseconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">99</span>sndconfig<br><span class="hljs-regexp">/etc/</span>setuptool.d/<span class="hljs-number">99</span>timeconfig<br><span class="hljs-regexp">/etc/</span>sysconfig/ip6tables-config<br></code></pre>
+
+<ol start="3"><li rel="3">查找家目录下以m开头的文件，忽略大小写</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit">[centos7<span class="hljs-symbol">@root</span> math]<span class="hljs-meta"># locate -i ~/m &lt;= -i忽略大小写</span><br>/root/Music<br></code></pre>
+
+<hr>
+
+
+
+<h2 id="find">find</h2>
+
+<blockquote>
+  <p>find能够根据所给的条件精确查找文件，且可以对查找到的文件进行后续处理，所查找文件需有读、执行的权限</p>
+</blockquote>
+
+<p><strong>find [optins] [查找路径] [查找条件] [处理动作]</strong></p>
+
+<ul><li>查找路径:  指定具体查找文件的路径，默认为当前目录</li>
+<li>查找条件:  文件名，文件类型，属主属组、文件权限、文件大小，文件时间戳，路径层次，默认为所有文件</li>
+<li>处理动作:  对查找到的文件进行后续处理</li>
+</ul>
+
+<hr>
+
+<h3 id="查找条件">查找条件</h3>
+
+<p><strong>根据文件名和inode编号查找</strong> <br>
+有如下几种查找条件</p>
+
+<blockquote>
+  <p>-name PATTERN : 根据文件查找，可以使用通配符：*，？，[]，[^] <br>
+    -iname PATTERN : 根据文件名查找，忽略字母大小写 <br>
+    -inum N : 根据节点编号查找 <br>
+    -samefile FILE_NAME : 查找与指定文件相同inode编号的文件，即有硬链接关系的文件 <br>
+    -regex PATTERN : 用基本正则表达式匹配文件的整个路径， <br>
+    -retextype type: 默认使用的正则表达式是emacs，可以指定为posix-awk,  posix-basic, posix-egrep and posix-extended. <br>
+    -links N : 查找inode编为N的文件</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找/boot目录下包含字符串grub的文件  </li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs stata">  [centos6@root <span class="hljs-keyword">app</span>]# find /<span class="hljs-keyword">boot</span> -name <span class="hljs-string">"*grub*"</span><br>/<span class="hljs-keyword">boot</span>/efi/EFI/redhat/grub.efi<br>/<span class="hljs-keyword">boot</span>/grub<br>/<span class="hljs-keyword">boot</span>/grub/grub.<span class="hljs-keyword">conf</span><br></code></pre>
+
+<ol start="2"><li rel="2">在CentOS6系统上查找节点编号为2，但不包含/proc目录的文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs dts">[centos6@root app]<span class="hljs-meta"># find / -path <span class="hljs-string">"/proc"</span> -prune -o -inum 2</span><br>/<br>/app<br>/proc<br>/boot<br><span class="hljs-meta-keyword">/sys/</span>fs<br><span class="hljs-meta-keyword">/dev/</span>pts/ptmx<br></code></pre>
+
+<ol start="3"><li rel="3">在/etc 目录下查找以.config结尾，并且.config前面包含至少一个数字的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs swift"><span class="hljs-built_in">find</span> /etc -regextype <span class="hljs-built_in">posix</span>-egrep -regex <span class="hljs-string">".*[[:digit:]]+\.config$"</span> &lt;=指定正则表达式类型为<span class="hljs-built_in">posix</span>-egrep<br>/etc/pki/nss-legacy/nss-rhel6.config <br></code></pre>
+
+<hr>
+
+<p><strong>指定搜索路径的层次</strong></p>
+
+<blockquote>
+  <p>-maxdepth LEVEL #最大搜索路径深度，包括指定的搜索路径 <br>
+    -mindepth LEVEL #最小搜索路径深度，包括指定的搜索路径</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找/etc/sysconfig 目录下搜索层次为该目录下第二层，且文件名以ifcfg开头的文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gradle">[centos6@root app]# <span class="hljs-keyword">find</span> <span class="hljs-regexp">/etc/</span>sysconfig -mindepth <span class="hljs-number">2</span> -maxdepth <span class="hljs-number">2</span> -name <span class="hljs-string">"ifcfg*"</span><br><span class="hljs-regexp">/etc/</span>sysconfig<span class="hljs-regexp">/network-scripts/i</span>fcfg-eth1<br><span class="hljs-regexp">/etc/</span>sysconfig<span class="hljs-regexp">/network-scripts/i</span>fcfg-lo<br><span class="hljs-regexp">/etc/</span>sysconfig<span class="hljs-regexp">/network-scripts/i</span>fcfg-eth0<br></code></pre>
+
+<hr>
+
+<p><strong>根据属主属组查找</strong></p>
+
+<blockquote>
+  <p>-user USER_NAME查找属主为USER_NAME的文件 <br>
+      -group GROUP_NAME 指定查找属组名为GROUP_NAME的文件 <br>
+      -uid UID  #查找指定属主ID编号的文件 <br>
+      -gid   #查找指定属组ID编号的文件 <br>
+      -nouser #查找没有属主的文件 <br>
+      -nogroup #查找没有属组的文件</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找当前目录下面用户名是zb20的所有文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># find -user zb20 -ls</span><br>67228528   <span class="hljs-number"> 4 </span>-rwxr-xr-x  <span class="hljs-number"> 1 </span>zb20     root         <span class="hljs-number"> 272 </span>Jul<span class="hljs-number"> 31 </span>20:44 ./scripts/test/1.sh<br>67228524   <span class="hljs-number"> 0 </span>-rw-rw-r--  <span class="hljs-number"> 1 </span>zb20     zb20           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>20:51 ./scripts/test/f2<br>67228527   <span class="hljs-number"> 0 </span>-rw-rw-r--  <span class="hljs-number"> 1 </span>zb20     zb20           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>20:51 ./scripts/test/f3<br>67228529   <span class="hljs-number"> 0 </span>-rw-rw-r--  <span class="hljs-number"> 1 </span>zb20     zb20           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>20:51 ./scripts/test/10.txt<br>67228530   <span class="hljs-number"> 0 </span>-rw-rw-r--  <span class="hljs-number"> 1 </span>zb20     zb20           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>20:51 ./scripts/test/11.txt<br></code></pre>
+
+<ol start="2"><li rel="2">查找 / 目录下uid编号为48的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs crystal">[centos6@root app]<span class="hljs-comment"># find / -uid 48 -ls</span><br><span class="hljs-number">787912</span>    <span class="hljs-number">4</span> drwx------   <span class="hljs-number">2</span> apache   apache       <span class="hljs-number">4096</span> Mar <span class="hljs-number">22</span> <span class="hljs-number">14</span>:<span class="hljs-number">53</span> /var/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">dav</span></span><br><span class="hljs-number">787894</span>    <span class="hljs-number">4</span> drwx------   <span class="hljs-number">2</span> apache   apache       <span class="hljs-number">4096</span> Mar <span class="hljs-number">22</span> <span class="hljs-number">14</span>:<span class="hljs-number">53</span> /var/cache/mod_proxy<br></code></pre>
+
+<ol start="3"><li rel="3">查找整个系统中没有属主的文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos6@root app]<span class="hljs-comment"># find / -nouser -ls</span><br>262166   <span class="hljs-number"> 4 </span>drwx------  <span class="hljs-number"> 4 </span>504     <span class="hljs-number"> 508 </span>        <span class="hljs-number"> 4096 </span>Aug <span class="hljs-number"> 1 </span>00:42 /home/tom<br>262288   <span class="hljs-number"> 4 </span>-rw-r--r--  <span class="hljs-number"> 1 </span>504     <span class="hljs-number"> 508 </span>         <span class="hljs-number"> 176 </span>Mar<span class="hljs-number"> 23 </span>08:15 /home/tom/.bash_profile<br>262289   <span class="hljs-number"> 4 </span>-rw-r--r--  <span class="hljs-number"> 1 </span>504     <span class="hljs-number"> 508 </span>         <span class="hljs-number"> 124 </span>Mar<span class="hljs-number"> 23 </span>08:15 /home/tom/.bashrc<br>262290   <span class="hljs-number"> 4 </span>drwxr-xr-x  <span class="hljs-number"> 4 </span>504     <span class="hljs-number"> 508 </span>        <span class="hljs-number"> 4096 </span>Jul<span class="hljs-number"> 15 </span>01:14 /home/tom/.mozilla<br>262291   <span class="hljs-number"> 4 </span>drwxr-xr-x  <span class="hljs-number"> 2 </span>504     <span class="hljs-number"> 508 </span>        <span class="hljs-number"> 4096 </span>Aug<span class="hljs-number"> 18 </span><span class="hljs-number"> 2010 </span>/home/tom/.mozilla/plugins<br>262292   <span class="hljs-number"> 4 </span>drwxr-xr-x  <span class="hljs-number"> 2 </span>504     <span class="hljs-number"> 508 </span>        <span class="hljs-number"> 4096 </span>Aug<span class="hljs-number"> 18 </span><span class="hljs-number"> 2010 </span>/home/tom/.mozilla/extensio<br></code></pre>
+
+<hr>
+
+<p><strong>根据文件类型查找</strong></p>
+
+<blockquote>
+  <p>-type TYPE #根据文件类型查找</p>
+</blockquote>
+
+<p>文件类型有如下几种</p>
+
+<blockquote>
+  <p>f :  #普通文件 <br>
+    d :  #目录 <br>
+    l :  #符号链接 <br>
+    s : #套接字文件 <br>
+    b : #块设备 <br>
+    c :  #符号设备 <br>
+    p :  #管道文件</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找 /run 目录下的套接字文件，管道文件，不包括子目录</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap"> [centos7@root app]<span class="hljs-comment"># find /run/ -maxdepth 1 \( -type p -o -type s \) -ls</span><br><span class="hljs-number"> 17999 </span>  <span class="hljs-number"> 0 </span>srwxr-xr-x  <span class="hljs-number"> 1 </span>root     root           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>07:20 /run/mcelog-client<br><span class="hljs-number"> 16725 </span>  <span class="hljs-number"> 0 </span>srw-rw-rw-  <span class="hljs-number"> 1 </span>root     root           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>07:20 /run/gssproxy.sock<br><span class="hljs-number"> 15642 </span>  <span class="hljs-number"> 0 </span>srw-rw-rw-  <span class="hljs-number"> 1 </span>root     root           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>07:20 /run/rpcbind.sock<br><span class="hljs-number"> 10916 </span>  <span class="hljs-number"> 0 </span>prw-------  <span class="hljs-number"> 1 </span>root     root           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>07:20 /run/dmeventd-client<br><span class="hljs-number"> 10915 </span>  <span class="hljs-number"> 0 </span>prw-------  <span class="hljs-number"> 1 </span>root     root           <span class="hljs-number"> 0 </span>Jul<span class="hljs-number"> 31 </span>07:20 /run/dmeventd-server<br></code></pre>
+
+<hr>
+
+<p><strong>组合条件</strong></p>
+
+<blockquote>
+  <p>-a  与 <br>
+    -o  或 <br>
+    ! | -not  非</p>
+</blockquote>
+
+<p><strong>根据文件大小查找</strong></p>
+
+<blockquote>
+  <p>-size [+|-]#UNIT <br>
+    UNIT:  #单位有c(byte), k, M, G <br>
+    -#UNIT: [0, #-1]UNIT  如-5k 表示[0, 4]k <br>
+    #UNIT: (#-1, #]UNIT  如5k 表示(4, 5]k <br>
+    +#UNIT: (#, +∞)UNIT  如+5k 表示(5, +∞)k</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找根下文件大于150M的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs dts">find / -path <span class="hljs-string">"/proc"</span> -prune -o  -size +<span class="hljs-number">150</span>M -exec ls -<span class="hljs-class">lh </span>{} \;<br>-rw-r--r--. <span class="hljs-number">1</span> root root <span class="hljs-number">318</span>M Dec  <span class="hljs-number">5</span>  <span class="hljs-number">2016</span> <span class="hljs-meta-keyword">/run/</span>media<span class="hljs-meta-keyword">/root/</span>CentOS <span class="hljs-number">7</span> x86_64/LiveOS/squashfs.img<br>-rw-r--r--. <span class="hljs-number">1</span> root root <span class="hljs-number">608</span>M Jul <span class="hljs-number">21</span> <span class="hljs-number">19</span>:<span class="hljs-number">10</span> <span class="hljs-meta-keyword">/var/</span>cache<span class="hljs-meta-keyword">/yum/</span>x86_64/<span class="hljs-number">7</span><span class="hljs-meta-keyword">/updates/</span>gen/other_db.sqlite<br></code></pre>
+
+<hr>
+
+<p><strong>根据时间戳查找</strong></p>
+
+<blockquote>
+  <p>[time] [+|-]N <br>
+   time 以天为单位-atime, -mtime, -ctime <br>
+   time以分钟为单位 -amin, -mmin, -cmin <br>
+   -N : [0, -N) <br>
+   N : [N, N+1) <br>
+   +N : [N+1, +∞)</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找/etc/目录下24小时内变更过的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs arduino"><span class="hljs-built_in">find</span> /etc -mtime <span class="hljs-number">-1</span><br></code></pre>
+
+<ol start="2"><li rel="2">查找/etc/目录下1天前的当天内被变更过得文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gradle"><span class="hljs-keyword">find</span> <span class="hljs-regexp">/etc/</span> -mtime <span class="hljs-number">1</span> <br></code></pre>
+
+<ol start="3"><li rel="3">查找/etc/目录下1天前，不包括1天前的当天变更过得文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs gradle"><span class="hljs-keyword">find</span> <span class="hljs-regexp">/etc/</span> -mtime +<span class="hljs-number">1</span><br></code></pre>
+
+<ol start="4"><li rel="4">创建一个账号，观察其修改的文件</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gradle">[centos7@root app]# useradd zhubiao; <span class="hljs-keyword">find</span> <span class="hljs-regexp">/etc/</span> -mmin -<span class="hljs-number">1</span><br><span class="hljs-regexp">/etc/</span><br><span class="hljs-regexp">/etc/i</span>ssue<br><span class="hljs-regexp">/etc/g</span>roup<br><span class="hljs-regexp">/etc/g</span>shadow<br><span class="hljs-regexp">/etc/</span>passwd<br><span class="hljs-regexp">/etc/</span>localtime<br><span class="hljs-regexp">/etc/</span>shadow<br></code></pre>
+
+<hr>
+
+<p><strong>根据权限查找</strong></p>
+
+<blockquote>
+  <p>-perm [-|/]MODE <br>
+   MODE #精确匹配，匹配的文件权限与指定的一样 <br>
+   -MODE #每类对象(u,g,o)都包含指定的权限，0不考虑 <br>
+   /MODE #任意一类对象(u,g,o)，其中一类包含指定的权限，0不考虑</p>
+</blockquote>
+
+<ol start="1"><li rel="1">查找根下一级目录中权限为1777的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[centos7@root app]<span class="hljs-comment"># find / -maxdepth 1 -perm 1777 -ls</span><br>67160136   <span class="hljs-number"> 8 </span>drwxrwxrwt <span class="hljs-number"> 36 </span>root     root        <span class="hljs-number"> 4096 </span>Aug <span class="hljs-number"> 1 </span>09:35 /tmp<br></code></pre>
+
+<ol start="2"><li rel="2">查找/usr/sbin目录下包含SUID权限的文件</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl">[centos7@root app]# find /usr/sbin -perm /<span class="hljs-number">4000</span> -ls<br><span class="hljs-number">34105536</span>   <span class="hljs-number">12</span> -rwsr-xr-x   <span class="hljs-number">1</span> root     root        <span class="hljs-number">11224</span> Nov  <span class="hljs-number">6</span>  <span class="hljs-number">2016</span> /usr/sbin/pam_timestamp_check<br><span class="hljs-number">34105538</span>   <span class="hljs-number">36</span> -rwsr-xr-x   <span class="hljs-number">1</span> root     root        <span class="hljs-number">36280</span> Nov  <span class="hljs-number">6</span>  <span class="hljs-number">2016</span> /usr/sbin/unix_chkpwd<br><span class="hljs-number">34619979</span>   <span class="hljs-number">40</span> -rws--x--x   <span class="hljs-number">1</span> root     root        <span class="hljs-number">40312</span> Jun <span class="hljs-number">10</span>  <span class="hljs-number">2014</span> /usr/sbin/userhelper<br><span class="hljs-number">34503001</span>   <span class="hljs-number">12</span> -rwsr-xr-x   <span class="hljs-number">1</span> root     root        <span class="hljs-number">11296</span> Nov  <span class="hljs-number">6</span>  <span class="hljs-number">2016</span> /usr/sbin/usernetctl<br><span class="hljs-number">34698184</span>  <span class="hljs-number">112</span> -rwsr-xr-x   <span class="hljs-number">1</span> root     root       <span class="hljs-number">113400</span> Nov <span class="hljs-number">18</span>  <span class="hljs-number">2016</span> /usr/sbin/mount.nfs<br></code></pre>
+
+<hr>
+
+<h3 id="处理动作">处理动作</h3>
+
+<ol><li rel="1"><code>-print</code>  #默认处理动作，显示到屏幕</li>
+<li rel="2"><code>-ls</code>  #类似于将查找的文件执行ls -l命令</li>
+<li rel="3"><code>-delete</code>  #将查找到的文件删除</li>
+<li rel="4"><code>-fls FILE_NAME</code> #查找到的文件的长格式信息保存到文件FILE_NAME中，类似于对查找到的文件执行ls -l &gt; FILE_NAME的操作</li>
+<li rel="5"><code>-exec COMMAND {} \;</code> #对查找到的没一个文件执行COMMAND命令的操作</li>
+<li rel="6"><p><code>-ok COMMAND {} \;</code> #对查找到的没一个文件执行COMMAND命令的操作，每操作一个文件，都询问用户是否要进行此操作</p></li>
+<li rel="1"><p>查找/etc/目录下面所有以.conf结尾的文件，并将其备份为压缩文件</p></li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs dts">find <span class="hljs-meta-keyword">/etc/</span> -regextype posix-egrep -regex <span class="hljs-string">".*\.conf$"</span> -exec tar -cjf ./etc_conf.tar.<span class="hljs-class">bz2 </span>{} \;<br></code></pre></div></body></html>
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io//edit/master/content/posts%5c2017-08-01-find.html">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/2017-08-05-rpm-yum/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>源码安装 rpm &amp; yum</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/2017-07-29-bash-basic-variables/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>bash 脚本编程基础–变量</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

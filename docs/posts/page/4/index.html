@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+    <link rel="stylesheet" href="/assets/css/layouts/list.css">
+    <link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">zybz-blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+        <div class="post-card">
+  <a href="/posts/2017-07-25-access-control-lists/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux 文件系统上的权限</h5>
+        <p class="card-text post-summary">Linux文件系统上的权限Linux 文件系统上的权限文件系统权限的概念文件系统上的权限指文件系统上文件和目录的权限，这种权限是建立在文件系统上的，与操作系统本身没关系。不同的文件系统对文件的访问控制权限是不一样的。比如ext4，xfs等CentOS6和CentOS7上的文件系统可以使用属主、属组、其它的方式针对三类用户来设置访问控制权限，而windows上常见的FAT32文件系统却不支持这种设置方式。
+实验环境是：CentOS6和CentOS7系统
+常见权限分类文件系统主要针对三类用户设置访问权限，当然还有更复杂的权限设置，后面介绍。 * 属主 * 属组 * 其它
+如下所示通过ll命令可查看这三类权限
+[centos7@root app]# ll file1 
+-rw-r--r--.1 user1 grp16 Jul25 09:23 file1
+#属主权限：-rw
+#属组权限：-r--
+#其它用户权限：r--
+每类用户又定义了三类权限 * r : readable 可读 * w : writeable 可写 * x : executable 可执行
+目录和文件可读，可写，可执行含义不一样 * 文件
+权限位含义r可以使用查看类命令读取文件的内容w可以将内容写入文件x可以执行文件，即将文件提请到内核启动为一个进程，对于二进制可执行文件有x权限即可将其运行起来，而对于shell脚本(文本文件)，需要有r,x权限才能执行此脚本。* 目录</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">July 25, 2017</span>
+        <a
+        href="/posts/2017-07-25-access-control-lists/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/2017-07-23-linux-managing-users-and-groups/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux 用户和组的管理</h5>
+        <p class="card-text post-summary">Linux 用户和组的管理Linux 用户和组的管理本文基于CentOS6 和 CentOS7系统
+Linux 属于多用户多任务管理系统，系统上一切皆文件，一切用户或程序首先得获得Linux系统分配的用户，通过用户所具有对文件访问、读取、执行的权限来获取Linux系统上的资源。
+用户和组的概念用户和组在Linux系统体现为用户名、UID和组名、GID，对于Linux系统只识别UID和GID，而用户名和组名是给人看的，便于记忆，有点类似域名和IP吧。也就是说修改了用户名和组名，UID和GID不变并不会影响用户和组所具有的权限，列如我们将UID为500的用户名删除后属主部分将变成UID-rw-r--r--. 1 500 zb10 0 Jul 23 09:47 1.txt，既然通过用户就可以获取系统资源，那我们为什么还需要组呢，都是为了权限分配的方便，比如有一类用户，对某些文件具有相同的读取、删除、修改等权限，若我们一个一个的将这些权限分配给这类用户，用户数量少还可以做到，大批量用户将累惨了。可以创建一个组，然后将这类用加入到组中，然后将权限分配给组，该组的用户将继承组中的权限。
+用户和组的关系一对一 一对多 多对一
+一个用户既可以只有一个组（该组为这个用户的私有组）, 也可以加入多个组中（其中与用户同名的是用户的基本组，其它为该用户的附加组）。当然一个组中也可以有多个用户，这是创建组的初衷。
+用户和组配置文件文件路径描述/etc/passwd用户及属性信息/etc/shadow用户密码及属性信息/etc/group组及属性信息/etc/gshadow组密码及属性信息/etc/login.defs控制新建用户和组的属性/etc/default/useradd新建用户默认值/etc/skel/此路径中存放用户家目录的模板文件/etc/passwd 格式描述UserName : x : UID : GID : Comment : HomeDir : ShellDir 包含7个字段，下面分别介绍</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">July 23, 2017</span>
+        <a
+        href="/posts/2017-07-23-linux-managing-users-and-groups/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+    </div>
+    <div class="paginator">
+      
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/4/">4</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+    <script src="/assets/js/list.js"></script>
+
+  </body>
+</html>

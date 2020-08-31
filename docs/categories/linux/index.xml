@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on zybz-blog</title>
+    <link>https://blog.zybz.fun/categories/linux/</link>
+    <description>Recent content in Linux on zybz-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ansible配置管理高可用WEB集群</title>
+      <link>https://blog.zybz.fun/posts/2017-12-04-ansible_web_cluster/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-12-04-ansible_web_cluster/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>Puppet 基础语法</title>
+      <link>https://blog.zybz.fun/posts/2017-11-25-puppet_standalone/</link>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-25-puppet_standalone/</guid>
+      <description>Puppet 基础语法.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>REDIS Sentinel and Cluster</title>
+      <link>https://blog.zybz.fun/posts/2017-11-18-redis_sentinel_and_cluster/</link>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-18-redis_sentinel_and_cluster/</guid>
+      <description>REDIS Sentinel and Cluster.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.</description>
+    </item>
+    
+    <item>
+      <title>REDIS 安装配置</title>
+      <link>https://blog.zybz.fun/posts/2017-11-16-redis-install_and_configure/</link>
+      <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-16-redis-install_and_configure/</guid>
+      <description>REDIS 安装配置.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>ProxySQL&#43;MHA实现读写分离及高可用</title>
+      <link>https://blog.zybz.fun/posts/2017-11-14-proxysql_mha/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-14-proxysql_mha/</guid>
+      <description>ProxySQL+MHA实现读写分离及高可用.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>MySQL Replication 实现高可用</title>
+      <link>https://blog.zybz.fun/posts/2017-11-12-mysql_replication/</link>
+      <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-12-mysql_replication/</guid>
+      <description>MySQL Replication 实现高可用.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .</description>
+    </item>
+    
+    <item>
+      <title>MySQL日志和备份</title>
+      <link>https://blog.zybz.fun/posts/2017-11-11-mysqlbackup/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-11-mysqlbackup/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>会话保持</title>
+      <link>https://blog.zybz.fun/posts/2017-11-07-session/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-07-session/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</description>
+    </item>
+    
+    <item>
+      <title>tomcat</title>
+      <link>https://blog.zybz.fun/posts/2017-11-05-tomcat/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-05-tomcat/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>varnish</title>
+      <link>https://blog.zybz.fun/posts/2017-11-03-varnish/</link>
+      <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-11-03-varnish/</guid>
+      <description>varnish.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>Keepalived&#43;LVS/Nginx 实验</title>
+      <link>https://blog.zybz.fun/posts/2017-10-30-keepalived_lvs_nginx/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-30-keepalived_lvs_nginx/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>LNMP</title>
+      <link>https://blog.zybz.fun/posts/2017-10-25-lnmp/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-25-lnmp/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>Nginx 服务器的安装与配置</title>
+      <link>https://blog.zybz.fun/posts/2017-10-27-nginx/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-27-nginx/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>LVS(NAT)&#43;ldirectord实现负载均衡</title>
+      <link>https://blog.zybz.fun/posts/2017-10-20-lvsnat/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-20-lvsnat/</guid>
+      <description>LVS(NAT)+ldirectord实现负载均衡.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>Linux iptables</title>
+      <link>https://blog.zybz.fun/posts/2017-10-20-iptables/</link>
+      <pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-20-iptables/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>LAMP实验(基于DNS的负载均衡)</title>
+      <link>https://blog.zybz.fun/posts/2017-10-16-lamp-dns/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-16-lamp-dns/</guid>
+      <description>LAMP实验(基于DNS的负载均衡)LAMP实验(基于DNS的负载均衡)在Linux下的DNS实现Bind中，可以对A记录设置多个解析，从而实现简单的负载均衡，此种方法配置简单，但由于DNS缓存问题，会导致被访问的服务器故障时，切换时间变长。 
+实验环境1. 实验拓扑图
+2. 实验介绍 本实验演示搭建LAMP，DNS设置多条A记录实现DNS轮询，对客户端的请求分配不同的IP地址，实现简单负载均衡，为了保证两台httpd的相应的资源相同，我们使用NFS文件共享，将资源存放于NFS服务器上。
+然后在此基础上搭建个人博客wordpress
+准备工作
+如上图所示准备6台虚拟机，安装CentOS6操作系统Client上安装pssh，通过pssh管理其他虚拟机，快速部署实验环境关闭防火墙，SElinux实验步骤步骤一：安装并配置HTTPD、PHP  安装HTTPD和PHP 在 172.18.17.12 和 172.18.17.13 服务器上安装以下软件
+httpdphpphp-mysql[10@root ~]# pssh -H &#39;172.18.17.12&#39; -H &#39;172.18.17.13&#39; yum -y install httpd php php-mysql[1] 03:59:44 [SUCCESS] 172.18.17.13[2] 03:59:44 [SUCCESS] 172.18.17.12
+启动HTTPD服务，并测试 启动 172.18.17.12 和 172.18.17.13 上的httpd服务
+[10@root ~]# pssh -H &#39;172.18.17.12&#39; -H &#39;172.18.17.13&#39; service httpd start[1] 04:02:45 [SUCCESS] 172.</description>
+    </item>
+    
+    <item>
+      <title>编译安装LAMP，搭建WordPress</title>
+      <link>https://blog.zybz.fun/posts/2017-10-11-lamp/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-11-lamp/</guid>
+      <description>编译安装LAMP，搭建WordPress.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>HTTP协议及其实现httpd</title>
+      <link>https://blog.zybz.fun/posts/2017-10-01-httpd/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-10-01-httpd/</guid>
+      <description>HTTP协议及其实现httpd.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .hljs-bullet {color: #2a9292;}.</description>
+    </item>
+    
+    <item>
+      <title>DNS 及 bind</title>
+      <link>https://blog.zybz.fun/posts/2017-09-23-dns-bind/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-23-dns-bind/</guid>
+      <description>DNS 及 bind.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
+DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</description>
+    </item>
+    
+    <item>
+      <title>PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</title>
+      <link>https://blog.zybz.fun/posts/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</guid>
+      <description>PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+
+PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</description>
+    </item>
+    
+    <item>
+      <title>SSH 协议及 openssh</title>
+      <link>https://blog.zybz.fun/posts/2017-09-13-ssh-openssh/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-13-ssh-openssh/</guid>
+      <description>SSH 协议及 openssh.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}SSH 协议及 opensshSSH 协议SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持；用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别；连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+opensshdropbearSSH用户认证方式
+基于口令的认证 基于口令的认证方式如下图所示：
+基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中[root@localhost ~]# ssh 172.18.17.201The authenticity of host &#39;172.</description>
+    </item>
+    
+    <item>
+      <title>openssl 及 CA</title>
+      <link>https://blog.zybz.fun/posts/2017-09-10-openssl-ca/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-10-openssl-ca/</guid>
+      <description>openssl 及 CA.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>文本三剑客之 awk</title>
+      <link>https://blog.zybz.fun/posts/2017-09-06-awk/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-06-awk/</guid>
+      <description>文本三剑客之 awk.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+    </item>
+    
+    <item>
+      <title>编译内核并制作微小Linux系统</title>
+      <link>https://blog.zybz.fun/posts/2017-09-03-kernel-minilinux/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-09-03-kernel-minilinux/</guid>
+      <description>编译内核并制作微小Linux系统.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+    </item>
+    
+    <item>
+      <title>bash 数学运算与条件测试</title>
+      <link>https://blog.zybz.fun/posts/2017-08-26-bash-arithmetic-test/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-26-bash-arithmetic-test/</guid>
+      <description>bash 数学运算与条件测试.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+    </item>
+    
+    <item>
+      <title>bash 流程控制语句</title>
+      <link>https://blog.zybz.fun/posts/2017-08-26-bash-slelect-for-while/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-26-bash-slelect-for-while/</guid>
+      <description>bash 流程控制语句.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+    </item>
+    
+    <item>
+      <title>Linux 任务计划</title>
+      <link>https://blog.zybz.fun/posts/2017-08-24-at-cron-anacron/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-24-at-cron-anacron/</guid>
+      <description>Linux 任务计划.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+    </item>
+    
+    <item>
+      <title>Linux 静态路由实验</title>
+      <link>https://blog.zybz.fun/posts/2017-08-20-static-route/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-20-static-route/</guid>
+      <description>Linux 静态路由实验Linux 静态路由实验CentOS6.9 和 CentOS7.3 上完成测试
+简介Linux主机通过启用路由转发，配置路由表后就可以当做路由器使用，当然这需要主机上有多张网卡。
+路由管理命令 在CentOS系统上路由表的管理命令主要有route和ip route这两个命令
+查看路由表 route -n ip route show 或 ip route list 或 ip route
+增加路由条目 增加主机路由 route add -host 3.3.3.3 gw 10.1.2.2 dev eth1 ip route add 6.6.6.6 via 10.1.4.1 dev ens33 增加网络路由 route add -net 10.1.3.0/24 gw 10.1.2.2 dev eth1 ip route add 10.1.4.0/24 via 10.1.2.2 dev eth1 增加默认路由 route add default gw 10.1.4.1 dev ens33 ip route add default via 10.</description>
+    </item>
+    
+    <item>
+      <title>逻辑卷的管理 LVM</title>
+      <link>https://blog.zybz.fun/posts/2017-08-12-lvm/</link>
+      <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-12-lvm/</guid>
+      <description>LVM 逻辑卷管理LVM 逻辑卷管理想象一个场景，某天你管理的服务器硬盘空间不足了，该怎么处理。当然是加硬盘，但若系统不允许关机，服务不能停，如何添加硬盘。此时我们可以在早期规划的时候就创建逻辑卷。逻辑卷可以在不影响系统运行的情况下弹性的扩展、压缩硬盘空间。
+逻辑卷组成如下图所示，逻辑卷的逻辑结构图，PV（physical volume）组成卷组VG(volume group)，在卷组上可以创建逻辑卷LV(logical volume)。
+PV (Physical Volume) PV 物理卷，就是硬盘或分区，和物理的硬盘有同样的功能，和普通硬盘的区别在于，它被标识为物理卷，有物理卷的管理参数，将来用它创建卷组用。
+VG (Volume Group) VG 卷组，将多个物理卷集合为一个大的逻辑硬盘，类似于没有LVM功能的硬盘，为创建逻辑卷提供硬盘空间，普通硬盘上面分配空间是通过block块进行分配，而卷组中是通过PE进行分配，PE是逻辑卷中空间分配的最小单位，默认值为4M。
+LV (Logical Volume) LV 逻辑卷，逻辑卷是在卷组的基础上将卷组分成不同大小的隔离空间，类似于非LVM中分区的概念。
+逻辑卷的用途在于弹性的扩展，压缩磁盘空间。其并不具有容错能力和提高I/O性能的功能。
+实验一、 逻辑卷的创建
+逻辑卷的创建步骤如下
+创建物理卷创建卷组创建逻辑卷创建文件系统挂载文件系统a. 准备实验环境 本实验中使用分区来创建物理卷，实际生产环境中一般使用整块硬盘来创建物理卷，我们创建4个分区/dev/sdb1, /dev/sdb2, /dev/sdb3, /dev/sdb4, 先使用3g分区创建逻辑卷，留一个分区到后面做扩展逻辑卷使用。
+创建分区, 并将分区类型调整为8e(Linux LVM)
+# 使用fdisk分区
+[root@zhubiaook ~]# fdisk /dev/sdb
+Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+Building a new DOS disklabel with disk identifier 0xb0beda60.</description>
+    </item>
+    
+    <item>
+      <title>RAID</title>
+      <link>https://blog.zybz.fun/posts/2017-08-11-raid/</link>
+      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-11-raid/</guid>
+      <description>RAID 独立磁盘冗余阵列RAID 独立磁盘冗余阵列RAID计算机发展初期，”大容量”硬盘相当昂贵，1988年加州大学伯克利分校的工程师们提出了使用多块廉价硬盘组合成”大容量”硬盘的解决方案，这便是RAID，所以早期RIAD称作Redundant Array of Inexpensive Disks，中文名：廉价冗余磁盘阵列。而随着后期的发展，将硬盘组合起来的RAID阵列卡并不便宜，甚至比硬盘本身还贵，所以RAID改名为Redundant Array of Independent Disks, 中文名：独立冗余磁盘阵列
+RAID通过硬件的阵列卡（也有使用软件模拟，但一般情况不会这么做，性能太差）将多块容量相同的硬盘组合成一块逻辑的大硬盘。然后再在RAID盘上进行分区，装文件系统。这样做的目的是，配合不同的RAID级别，数据存储时，RAID先将数据分解成chunk（大小可以指定），然后并行的将chunk并行写入各个硬盘，读取也是并行的从各个硬盘中读取，提高了硬盘的I/O性能。其次还能实现存储数据的时候生成校验位，存储于某块或全部硬盘中，这样模块硬盘损坏，其上的数据也能通过其它硬盘计算而来，这是自动进行的，提高了硬盘的容错能力。总之使用RAID，配合不同的运行级别，将提高硬盘总体的I/O性能和容错能力。
+RAID实现方式
+外接RAID卡主板集成RAID控制器通过软件模拟 对于有硬件的RAID卡，可以在启动BIOS时按照硬件厂商提供的配置界面对RAID进行配置，然后再在RAID盘上安装操作系统。也可以先安装操作系统再配置RAID。RAID级别目前常用的RAID级别: RAID-0, RAID-1, RAID-5, RAID-6, RAID-10, RAID-01
+RAID-0 条带卷 strip, 将数据分割成chunk, 存在不同的硬盘中，写入和读取时并行进行。
+提升读写能力无容错能力最少磁盘数2可用空间: n*min(disk1,disk2 …)RAID-1 镜像卷 mirror, 存储数据时，将数据复制一份存在另一块硬盘中。读取时并行进行。
+降低写入能力，提升读取能力可以同时坏一块硬盘最少两块磁盘可用磁盘空间: 0.5*n*min(disk1,disk2,disk3 … )RAID-4 存储数据的时候，并行进行，并生成校验位， 其中一块磁盘做校验盘，通过计算可算出任意一块磁盘的数据，读取数据也是并行进行。RAID-4有一个天生的缺陷，由于该级别使用一块硬盘来存储校验位，实际生产经验得到，这块存储校验位的硬盘总比其它硬盘更容易损坏，可能是其I/O次数比其它硬盘多所致。
+提高读写能力可以同时坏一块磁盘至少三块磁盘可以空间: (n-1)*min(disk1,disk2 … )RAID-5 为了改进RAID-4的缺陷，RAID-5各磁盘轮循做校验盘。
+提高读写能力可以同时坏一块磁盘至少三块磁盘可以空间: (n-1)*min(disk1,disk2 … )RAID-6 RAID-6在RAID-5的基础上，存储数据的时候计算两份校验只，将校验验值存在不同磁盘中，各磁盘轮循做校验盘</description>
+    </item>
+    
+    <item>
+      <title>磁盘配额 quota</title>
+      <link>https://blog.zybz.fun/posts/2017-08-10-quota/</link>
+      <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-10-quota/</guid>
+      <description>磁盘配额 quota磁盘配额 quota对于多用户的Linux系统而言，磁盘空间总是很宝贵的，若某用户过度占用磁盘将影响其他用户的使用，若磁盘空间耗尽将会影响系统的正常运行。征对此种情况，我们可以通过磁盘配额限制普通用户最大能使用的磁盘空间。
+quota常用情况
+/home/ 限制家目录的空间httpd server 限制网站空间ftp server 限制网络共享空间mail server 限制邮件空间磁盘配额quota限制的方式
+通过属主限制 当用户添加了quota, 该用户创建的的文件所占的空间必须遵守限额规定。即对文件的属主生效。通过属组限制 当属组添加了quota，主组是该组的用户所创建的文件所占的空间必须遵守限额的规定。即对文件的属组生效。quota 限制方法
+限制block，磁盘容量，一般使用这种方式限制inode，创建文件的数量柔性劝导(soft)，硬性规定(hard)，宽限期限(grace period )
+柔性劝导(soft): 当磁盘空间使用超过soft（block/inode）规定的值时将在每次用户增加磁盘空间的时候均提醒用户，在未超过硬性规定值之前，不禁止用户增加使用空间。硬性规定(hard): 当磁盘空间超过硬性规定值之后，用户将无法再增加磁盘的使用空间。宽限期限(grace period ): 设置soft和hard的目的在于提前提醒用户空间将快使用完，而宽限期限是当用户使用的空间在soft和hard之间时，再增加日期的限定，当超过此日期(从超过soft的时间开始算起)，用户能使用的最大空间将是soft设定的值。实验这里的磁盘配额针对单独的分区做限制，默认新分区未启用磁盘限额的功能，我们需在挂载分区时添加磁盘配额特性，并启用该功能。其次还需在分区所挂载的目录下生成限额数据库(quota.user, quota.group 分别征对用户和用户的主组)，我们新建两个用户(user1, user2)和组(grp1)，将用户user1,user2的主组设定为grp1,然后对这两个用户和组添加quota磁盘空间限制，测试用户和组在启用配额的分区空间的限制
+第一步 配置实验环境关闭SELinux 不关闭SELinux，将无法生成磁盘配额数据库，所以我们这里将其关闭#停用SELinux
+[root@zhubiaook work]# setenforce 0
+#修改配置文件，禁止开机启动SELinux
+[root@zhubiaook work]# cat /etc/selinux/config | grep &#34;^SELINUX=&#34;
+SELINUX=permissive
+创建用户和组#创建组grp1</description>
+    </item>
+    
+    <item>
+      <title>源码安装 rpm &amp; yum</title>
+      <link>https://blog.zybz.fun/posts/2017-08-05-rpm-yum/</link>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-05-rpm-yum/</guid>
+      <description>程序包管理: 源码安装 rpm &amp; yum程序包管理: 源码安装 rpm &amp;amp; yum操作系统上的程序都是程序员通过工具开发出来的，程序员直接编写的文本称为源码，计算机只能识别二进制文件，所以程序员编好的源码要能在计算机上运行需编译为二进制文件。
+通过源码来安装首先要部署好系统环境，然后将源码编译为二进制文件，然后再将二进制文件及运行该程序的一些配置文件放到指定的目录下，这对于没有编程经验的人来说是很痛苦的一件事。系统厂商为了解决编译所给客户带来的麻烦，在与我们相同的系统环境上完成编译，并将二进制文件，配置文件，程序安装默认路径，程序相关信息打包压缩到一个文件中，发布到网络上或光盘中提供给用户下载，用户只需要将该文件下载下来，用系统厂商提供的安装工具进行安装即可完成软件的部署。对于CentOS系统，给系统厂商给我们提供的编译好的程序是以.rpm结尾的压缩文件，安装工具有rpm和yum，两者的关系后文件介绍。
+源码安装在网络上有很多开源程序是通过源码的方式发布的，若此时又没有编译好的压缩包，或者未针对我们使用的系统编译的程序包，那我们只能自己下载源码，自己编译。
+我们以一个C语言编写的源码为例演示，程序开发、编译、运行的过程
+编译过程如下： 程序源码(hello.c) --预处理--&amp;gt; 预处理程序(hello.i) --编译--&amp;gt; 汇编程序(hello.s) --汇编--&amp;gt; 目标程序--链接--&amp;gt; 可执行文件
+首先安装好c语言编译工具gcc，gcc可以将源码一步就编译为可执行文件，但此处为了演示编译的过程，我们按上面的编译过程分步操作。
+[root-yum.repos.d] $ yum -y install gcc 上面是通过yum工具安装gcc编译工具，对于yum安装的方式后文介绍
+a. C语言源码 我们用C语言，打印一句经典的话”hello world!”
+[root-c] $ cat hello.c #include &amp;lt;stdio.h&amp;gt; //声明头文件
+int main() //程序入口
+{
+printf(&#34;hello world!\n&#34;); //打印&#34;hello world!&#34;
+return 0;
+}
+b. 预处理 gcc中 -E选项是用来生成预处理程序
+[root-c] $ gcc -E hello.c -o hello.i
+[root-c] $ ls</description>
+    </item>
+    
+    <item>
+      <title>文件查找 locate &amp; find</title>
+      <link>https://blog.zybz.fun/posts/2017-08-01-find/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-08-01-find/</guid>
+      <description>文件查找(find， locate)文件查找(find， locate)在Linux文件系统中快速、准确的搜索到自己想要的文件是运维人员的一项基本能力
+在Linux系统中主要使用find和locate来查找文件，两者的区别如下
+locate 基于数据库索引进行查找，查找文件速度快，是模糊查询，查找不够精确，同时数据库自动更新周期为每天一次，导致不能实时查找，可以通过手动更新数据库来达到实时查找，不过更新数据库将会搜索整个磁盘，耗费系统资源，当系统繁忙时是一件危险的操作。find 命令选项特别多，可以根据各种条件精确查找文件，通过搜索磁盘进行查找，属于实时查找，由于搜索磁盘，速度比locate慢。locatelocate [options] keyword locate 查找包含关键词或正则表达式匹配的文件路径或文件名，然后输出文件的完整路径，所查找的文件需具有读、执行权限。
+常用选项
+-i | –ignore-cate #查找文件时忽略大小写 -r | –regexp REGEXP #使用基本正则表达式匹配文件路径 -n NUM #输出搜索到的前N个匹配的路径
+实例
+查找家目录下面包含.txt的文件[centos7@root math]# locate ~/*.txt
+/root/1.txt
+/root/3.txt
+/root/dest.txt
+/root/destination.txt
+/root/passwd.txt
+/root/shadown.txt
+/root/source.txt
+查找/etc/目录下面结尾包含config，且路或文件名中包含数字的文件locate -r &#34;/etc/.*[[:digit:]]\+.*config$&#34; &amp;lt;=使用正则表达式进行匹配
+/etc/dconf/db/distro.d/10-authconfig
+/etc/selinux/targeted/active/modules/100/authconfig
+/etc/setuptool.d/98netconfig
+/etc/setuptool.d/99authconfig
+/etc/setuptool.d/99kbdconfig
+/etc/setuptool.d/99mouseconfig
+/etc/setuptool.d/99sndconfig
+/etc/setuptool.d/99timeconfig
+/etc/sysconfig/ip6tables-config
+查找家目录下以m开头的文件，忽略大小写[centos7@root math]# locate -i ~/m &amp;lt;= -i忽略大小写</description>
+    </item>
+    
+    <item>
+      <title>bash 脚本编程基础–变量</title>
+      <link>https://blog.zybz.fun/posts/2017-07-29-bash-basic-variables/</link>
+      <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-07-29-bash-basic-variables/</guid>
+      <description>bash 脚本编程基础–变量bash 脚本编程基础–变量shell脚本语言是实现Linux/UNIX系统自动化运维的重要工具
+bash 基础知识介绍shell 与 shell 脚本shell shell位于操作系统最外层，是用户与操作系统交互的工具。shell 是一种命令解释器，将用户输入的命令解释给操作系统执行，并处理操作系统的各种输出结果。
+shell脚本 当我们将多条命令保存到文件中，便可方便、快速的执行多条命令。该文件便是shell脚本，shell脚本里不仅可以包含多条命令，还可以使用变量，流程控制语句(选择、循环、顺序)。
+程序编程风格程序是由指令+数据组成，程序编程风格有两种，过程式和对象式。
+过程式：以指令为中心，数据服务于指令，面向过程首先分析解决问题的所有可能情况，然后将这些解决方法整理成各个步骤，然后按步骤通过调用函数等方式顺序执行。对像式：以数据为中心，指令服务于数据，面向对象是将一切事物看做对象，甚至解决问题的思维也抽象成对象，对象并不是解决问题的具体方法，而是解决问题的模板，解决具体问题再将对象实例化。shell脚本属于过程式编程风格，过程式编程语言有如下特点
+顺序执行选择执行循环执行编译执行与解释执行计算机只能识别二进制的文件，执行二进制指令，所有人类编好的程序源码(文本文件)必须翻译成二进制数据后，计算机才能理解。翻译的方式有两种，一种是由编译器将源码翻译成目标二进制文件后由计算机统一执行，这个过程称为编译执行；另一种是每输入一行命令，解释器就解释执行一行命令，这个过程称为解释执行。解释执行操作方便，但执行效率相对较低。C，C++，JAVA都是编译执行，Bash脚本是解释执行。
+另外需澄清的一点是，低级语言与高级语言之间并不存在好坏之分，所谓低级与高级是指相对于人类而言，还是相对机器而言，越接近机器的语言越低级，越接近人类的语言越高级。高级语言让人类更容易理解，但执行效率相对较低，而低级语言反之。比如汇编语言相对C语言属于低级语言，而C语言相对Python是低级语言，但他们的执行效率汇编是最高的。
+变量、变量名与内存的关系所有程序在未启动为进程之前都是存储在磁盘上的文件，CPU要执行程序，必须把程序启动为进程，即将磁盘上的程序包括数据加载到内存中，然后按程序的流程执行指令。显然CPU要能够从内存中将指令和数据读取到CPU内部才能执行它，CPU必然要知道要从内存中的哪块区域去读取下一条要执行的指令。为了达到此目的，内存将自己划分成了许多区域，每块区域都有一个地址编码，CPU就是根据该编码找到指令和数据的。内存中的某些区域的数据可能会要经常被使用到，我们可以记住这些区域的地址，使用到的时候就可以按地址去查找，这些区域便是变量，变量其实就是内存区域。这些地址都是数字，对于计算机而言很容易，但对人类来说简直就是痛苦，就像人们喜欢记住网站的域名，不喜欢记网站服务器的IP地址一样，所以我们将这些地址起一个名字，便是变量名。实际上为了安全起见，操作系统一般也不允许我们编写的代码里自己规划、使用内存空间，而是由操作系统分配给我们。
+创建bash脚本创建脚本的一般步骤为
+编写脚本，一般使用vim作为编写脚本的编辑器调试脚本 bash -n script_name #检查语法 bash -x script_name #调试#如下为一个四则运算，判断用户输入的数字及运算符是否符合要求，符合要求再进行运算
+#!/bin/bash
+
+#---------------------------------------------
+# Author: zhuenbiao
+# File Name: arithmetic_operation.sh
+# Create Time: 2017-07-28 22:50:08
+# Last Modified: 2017-07-28 22:50:08</description>
+    </item>
+    
+    <item>
+      <title>文本三剑客之 grep</title>
+      <link>https://blog.zybz.fun/posts/2017-07-27-grep/</link>
+      <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-07-27-grep/</guid>
+      <description>文本三剑客之 grep文本三剑客之 grep正则表达式是一钟特殊的字符串模式，用于匹配一组字符串，正则表达式的宗旨是文本资源为我所用。正则表达式是vim, grep, sed, awk等重多强大文本处理工具的重要组成部分。正则表达式因”坑”多而闻名，其实是对正则的掌握不到位所致。各工具中正则的语法有所差别，我们将介绍在Linux系统上处理文本的三个重要工具grep, sed, awk。 本文首先介绍grep
+grep, sed, awk
+grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析处理正则表达式分类 在Linux系统中，正则表达式分为两类：
+基本正则表达式扩展正则正则表达式正则表达式的组成 正则表达式一般由匹配字符，次数控制字符，位置控制字符，分组字符，普通字符组成，除了普通字符外的字符都叫元字符，元字符不再表示字符字面意义，而表示控制或通配功能。
+基本正则表达式字符匹配
+用来表示通配功能
+字符作用.匹配任意单个字符[]匹配指定范围内的任意单个字符[:lower:]匹配小写字母, 同a-z，但与匹配路径的通配符不一样喔[:upper:]匹配大写字母，同A_Z[:alph:]匹配所有大小写字母，同a-z,A-Z[:digit:]匹配数字，同0-9[:xdigit:]匹配十六进制数字[:alphnum:]匹配所有字母和数字, 同a-z,A-Z,0-9[:blank:]匹配空白字符(空格和制表符)[:space:]匹配水平或垂直空白字符(比[:blank:]包含的范围广)[:cntrl:]匹配不可打印的控制字符(退格、删除等)[:print:]匹配可打印字符[:punct:]匹配标点符号[:graph:]匹配可打印的非空白字符匹配次数</description>
+    </item>
+    
+    <item>
+      <title>Linux 文件系统上的权限</title>
+      <link>https://blog.zybz.fun/posts/2017-07-25-access-control-lists/</link>
+      <pubDate>Tue, 25 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-07-25-access-control-lists/</guid>
+      <description>Linux文件系统上的权限Linux 文件系统上的权限文件系统权限的概念文件系统上的权限指文件系统上文件和目录的权限，这种权限是建立在文件系统上的，与操作系统本身没关系。不同的文件系统对文件的访问控制权限是不一样的。比如ext4，xfs等CentOS6和CentOS7上的文件系统可以使用属主、属组、其它的方式针对三类用户来设置访问控制权限，而windows上常见的FAT32文件系统却不支持这种设置方式。
+实验环境是：CentOS6和CentOS7系统
+常见权限分类文件系统主要针对三类用户设置访问权限，当然还有更复杂的权限设置，后面介绍。 * 属主 * 属组 * 其它
+如下所示通过ll命令可查看这三类权限
+[centos7@root app]# ll file1 
+-rw-r--r--.1 user1 grp16 Jul25 09:23 file1
+#属主权限：-rw
+#属组权限：-r--
+#其它用户权限：r--
+每类用户又定义了三类权限 * r : readable 可读 * w : writeable 可写 * x : executable 可执行
+目录和文件可读，可写，可执行含义不一样 * 文件
+权限位含义r可以使用查看类命令读取文件的内容w可以将内容写入文件x可以执行文件，即将文件提请到内核启动为一个进程，对于二进制可执行文件有x权限即可将其运行起来，而对于shell脚本(文本文件)，需要有r,x权限才能执行此脚本。* 目录</description>
+    </item>
+    
+    <item>
+      <title>Linux 用户和组的管理</title>
+      <link>https://blog.zybz.fun/posts/2017-07-23-linux-managing-users-and-groups/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/2017-07-23-linux-managing-users-and-groups/</guid>
+      <description>Linux 用户和组的管理Linux 用户和组的管理本文基于CentOS6 和 CentOS7系统
+Linux 属于多用户多任务管理系统，系统上一切皆文件，一切用户或程序首先得获得Linux系统分配的用户，通过用户所具有对文件访问、读取、执行的权限来获取Linux系统上的资源。
+用户和组的概念用户和组在Linux系统体现为用户名、UID和组名、GID，对于Linux系统只识别UID和GID，而用户名和组名是给人看的，便于记忆，有点类似域名和IP吧。也就是说修改了用户名和组名，UID和GID不变并不会影响用户和组所具有的权限，列如我们将UID为500的用户名删除后属主部分将变成UID-rw-r--r--. 1 500 zb10 0 Jul 23 09:47 1.txt，既然通过用户就可以获取系统资源，那我们为什么还需要组呢，都是为了权限分配的方便，比如有一类用户，对某些文件具有相同的读取、删除、修改等权限，若我们一个一个的将这些权限分配给这类用户，用户数量少还可以做到，大批量用户将累惨了。可以创建一个组，然后将这类用加入到组中，然后将权限分配给组，该组的用户将继承组中的权限。
+用户和组的关系一对一 一对多 多对一
+一个用户既可以只有一个组（该组为这个用户的私有组）, 也可以加入多个组中（其中与用户同名的是用户的基本组，其它为该用户的附加组）。当然一个组中也可以有多个用户，这是创建组的初衷。
+用户和组配置文件文件路径描述/etc/passwd用户及属性信息/etc/shadow用户密码及属性信息/etc/group组及属性信息/etc/gshadow组密码及属性信息/etc/login.defs控制新建用户和组的属性/etc/default/useradd新建用户默认值/etc/skel/此路径中存放用户家目录的模板文件/etc/passwd 格式描述UserName : x : UID : GID : Comment : HomeDir : ShellDir 包含7个字段，下面分别介绍</description>
+    </item>
+    
+  </channel>
+</rss>
