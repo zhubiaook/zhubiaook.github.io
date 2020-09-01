@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>网络管理 on zybz-blog</title>
+    <title>网络管理 on blog</title>
     <link>https://blog.zybz.fun/tags/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/</link>
-    <description>Recent content in 网络管理 on zybz-blog</description>
+    <description>Recent content in 网络管理 on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Linux 静态路由实验</title>
-      <link>https://blog.zybz.fun/posts/2017-08-20-static-route/</link>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-20-static-route/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-20-static-route/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-20-static-route/</guid>
       <description>Linux 静态路由实验Linux 静态路由实验CentOS6.9 和 CentOS7.3 上完成测试
 简介Linux主机通过启用路由转发，配置路由表后就可以当做路由器使用，当然这需要主机上有多张网卡。
 路由管理命令 在CentOS系统上路由表的管理命令主要有route和ip route这两个命令

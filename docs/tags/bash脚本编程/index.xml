@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bash脚本编程 on zybz-blog</title>
+    <title>bash脚本编程 on blog</title>
     <link>https://blog.zybz.fun/tags/bash%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B/</link>
-    <description>Recent content in bash脚本编程 on zybz-blog</description>
+    <description>Recent content in bash脚本编程 on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Aug 2017 00:00:00 +0000</lastBuildDate>
@@ -13,28 +13,28 @@
     
     <item>
       <title>bash 数学运算与条件测试</title>
-      <link>https://blog.zybz.fun/posts/2017-08-26-bash-arithmetic-test/</link>
+      <link>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-arithmetic-test/</link>
       <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-26-bash-arithmetic-test/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-arithmetic-test/</guid>
       <description>bash 数学运算与条件测试.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
     </item>
     
     <item>
       <title>bash 流程控制语句</title>
-      <link>https://blog.zybz.fun/posts/2017-08-26-bash-slelect-for-while/</link>
+      <link>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-slelect-for-while/</link>
       <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-26-bash-slelect-for-while/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-slelect-for-while/</guid>
       <description>bash 流程控制语句.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
     </item>
     
     <item>
       <title>bash 脚本编程基础–变量</title>
-      <link>https://blog.zybz.fun/posts/2017-07-29-bash-basic-variables/</link>
+      <link>https://blog.zybz.fun/posts/linux/bash/2017-07-29-bash-basic-variables/</link>
       <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-07-29-bash-basic-variables/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/bash/2017-07-29-bash-basic-variables/</guid>
       <description>bash 脚本编程基础–变量bash 脚本编程基础–变量shell脚本语言是实现Linux/UNIX系统自动化运维的重要工具
 bash 基础知识介绍shell 与 shell 脚本shell shell位于操作系统最外层，是用户与操作系统交互的工具。shell 是一种命令解释器，将用户输入的命令解释给操作系统执行，并处理操作系统的各种输出结果。
 shell脚本 当我们将多条命令保存到文件中，便可方便、快速的执行多条命令。该文件便是shell脚本，shell脚本里不仅可以包含多条命令，还可以使用变量，流程控制语句(选择、循环、顺序)。

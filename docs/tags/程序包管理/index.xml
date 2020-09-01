@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>程序包管理 on zybz-blog</title>
+    <title>程序包管理 on blog</title>
     <link>https://blog.zybz.fun/tags/%E7%A8%8B%E5%BA%8F%E5%8C%85%E7%AE%A1%E7%90%86/</link>
-    <description>Recent content in 程序包管理 on zybz-blog</description>
+    <description>Recent content in 程序包管理 on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Aug 2017 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>源码安装 rpm &amp; yum</title>
-      <link>https://blog.zybz.fun/posts/2017-08-05-rpm-yum/</link>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-05-rpm-yum/</link>
       <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-05-rpm-yum/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-05-rpm-yum/</guid>
       <description>程序包管理: 源码安装 rpm &amp; yum程序包管理: 源码安装 rpm &amp;amp; yum操作系统上的程序都是程序员通过工具开发出来的，程序员直接编写的文本称为源码，计算机只能识别二进制文件，所以程序员编好的源码要能在计算机上运行需编译为二进制文件。
 通过源码来安装首先要部署好系统环境，然后将源码编译为二进制文件，然后再将二进制文件及运行该程序的一些配置文件放到指定的目录下，这对于没有编程经验的人来说是很痛苦的一件事。系统厂商为了解决编译所给客户带来的麻烦，在与我们相同的系统环境上完成编译，并将二进制文件，配置文件，程序安装默认路径，程序相关信息打包压缩到一个文件中，发布到网络上或光盘中提供给用户下载，用户只需要将该文件下载下来，用系统厂商提供的安装工具进行安装即可完成软件的部署。对于CentOS系统，给系统厂商给我们提供的编译好的程序是以.rpm结尾的压缩文件，安装工具有rpm和yum，两者的关系后文件介绍。
 源码安装在网络上有很多开源程序是通过源码的方式发布的，若此时又没有编译好的压缩包，或者未针对我们使用的系统编译的程序包，那我们只能自己下载源码，自己编译。

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>磁盘管理 on zybz-blog</title>
+    <title>磁盘管理 on blog</title>
     <link>https://blog.zybz.fun/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</link>
-    <description>Recent content in 磁盘管理 on zybz-blog</description>
+    <description>Recent content in 磁盘管理 on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Aug 2017 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>逻辑卷的管理 LVM</title>
-      <link>https://blog.zybz.fun/posts/2017-08-12-lvm/</link>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-12-lvm/</link>
       <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-12-lvm/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-12-lvm/</guid>
       <description>LVM 逻辑卷管理LVM 逻辑卷管理想象一个场景，某天你管理的服务器硬盘空间不足了，该怎么处理。当然是加硬盘，但若系统不允许关机，服务不能停，如何添加硬盘。此时我们可以在早期规划的时候就创建逻辑卷。逻辑卷可以在不影响系统运行的情况下弹性的扩展、压缩硬盘空间。
 逻辑卷组成如下图所示，逻辑卷的逻辑结构图，PV（physical volume）组成卷组VG(volume group)，在卷组上可以创建逻辑卷LV(logical volume)。
 PV (Physical Volume) PV 物理卷，就是硬盘或分区，和物理的硬盘有同样的功能，和普通硬盘的区别在于，它被标识为物理卷，有物理卷的管理参数，将来用它创建卷组用。
@@ -35,10 +35,10 @@ Building a new DOS disklabel with disk identifier 0xb0beda60.</description>
     
     <item>
       <title>RAID</title>
-      <link>https://blog.zybz.fun/posts/2017-08-11-raid/</link>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-11-raid/</link>
       <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-11-raid/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-11-raid/</guid>
       <description>RAID 独立磁盘冗余阵列RAID 独立磁盘冗余阵列RAID计算机发展初期，”大容量”硬盘相当昂贵，1988年加州大学伯克利分校的工程师们提出了使用多块廉价硬盘组合成”大容量”硬盘的解决方案，这便是RAID，所以早期RIAD称作Redundant Array of Inexpensive Disks，中文名：廉价冗余磁盘阵列。而随着后期的发展，将硬盘组合起来的RAID阵列卡并不便宜，甚至比硬盘本身还贵，所以RAID改名为Redundant Array of Independent Disks, 中文名：独立冗余磁盘阵列
 RAID通过硬件的阵列卡（也有使用软件模拟，但一般情况不会这么做，性能太差）将多块容量相同的硬盘组合成一块逻辑的大硬盘。然后再在RAID盘上进行分区，装文件系统。这样做的目的是，配合不同的RAID级别，数据存储时，RAID先将数据分解成chunk（大小可以指定），然后并行的将chunk并行写入各个硬盘，读取也是并行的从各个硬盘中读取，提高了硬盘的I/O性能。其次还能实现存储数据的时候生成校验位，存储于某块或全部硬盘中，这样模块硬盘损坏，其上的数据也能通过其它硬盘计算而来，这是自动进行的，提高了硬盘的容错能力。总之使用RAID，配合不同的运行级别，将提高硬盘总体的I/O性能和容错能力。
 RAID实现方式
@@ -52,10 +52,10 @@ RAID-0 条带卷 strip, 将数据分割成chunk, 存在不同的硬盘中，写�
     
     <item>
       <title>磁盘配额 quota</title>
-      <link>https://blog.zybz.fun/posts/2017-08-10-quota/</link>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-10-quota/</link>
       <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/2017-08-10-quota/</guid>
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-10-quota/</guid>
       <description>磁盘配额 quota磁盘配额 quota对于多用户的Linux系统而言，磁盘空间总是很宝贵的，若某用户过度占用磁盘将影响其他用户的使用，若磁盘空间耗尽将会影响系统的正常运行。征对此种情况，我们可以通过磁盘配额限制普通用户最大能使用的磁盘空间。
 quota常用情况
 /home/ 限制家目录的空间httpd server 限制网站空间ftp server 限制网络共享空间mail server 限制邮件空间磁盘配额quota限制的方式

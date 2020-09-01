@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.zybz.fun/</loc>
+    <lastmod>2020-08-31T17:22:09+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.zybz.fun/posts/hugo/</loc>
     <lastmod>2020-08-31T17:22:09+08:00</lastmod>
   </url>
@@ -13,17 +18,17 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/</loc>
-    <lastmod>2020-08-31T17:22:09+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.zybz.fun/tags/ansible/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-12-04-ansible_web_cluster/</loc>
+    <loc>https://blog.zybz.fun/posts/autoops/2017-12-04-ansible_web_cluster/</loc>
+    <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/autoops/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,7 +48,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-25-puppet_standalone/</loc>
+    <loc>https://blog.zybz.fun/posts/autoops/2017-11-25-puppet_standalone/</loc>
     <lastmod>2017-11-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,17 +58,22 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-18-redis_sentinel_and_cluster/</loc>
+    <loc>https://blog.zybz.fun/posts/database/</loc>
     <lastmod>2017-11-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-16-redis-install_and_configure/</loc>
+    <loc>https://blog.zybz.fun/posts/database/2017-11-18-redis_sentinel_and_cluster/</loc>
+    <lastmod>2017-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/database/2017-11-16-redis-install_and_configure/</loc>
     <lastmod>2017-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-14-proxysql_mha/</loc>
+    <loc>https://blog.zybz.fun/posts/database/2017-11-14-proxysql_mha/</loc>
     <lastmod>2017-11-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,13 +83,18 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-12-mysql_replication/</loc>
+    <loc>https://blog.zybz.fun/posts/database/2017-11-12-mysql_replication/</loc>
     <lastmod>2017-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-11-mysqlbackup/</loc>
+    <loc>https://blog.zybz.fun/posts/database/2017-11-11-mysqlbackup/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/</loc>
+    <lastmod>2017-11-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -88,12 +103,17 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-07-session/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-11-07-session/</loc>
     <lastmod>2017-11-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-05-tomcat/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/2017-11-05-tomcat/</loc>
+    <lastmod>2017-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/webserver/</loc>
     <lastmod>2017-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -103,12 +123,12 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-11-03-varnish/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-11-03-varnish/</loc>
     <lastmod>2017-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-30-keepalived_lvs_nginx/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/2017-10-30-keepalived_lvs_nginx/</loc>
     <lastmod>2017-10-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -118,7 +138,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-25-lnmp/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/nginx/2017-10-25-lnmp/</loc>
     <lastmod>2017-10-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -128,7 +148,12 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-27-nginx/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/nginx/</loc>
+    <lastmod>2017-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/webserver/nginx/2017-10-27-nginx/</loc>
     <lastmod>2017-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -138,12 +163,12 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-20-lvsnat/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/2017-10-20-lvsnat/</loc>
     <lastmod>2017-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-20-iptables/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-10-20-iptables/</loc>
     <lastmod>2017-10-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -153,17 +178,22 @@
   </url>
   
   <url>
+    <loc>https://blog.zybz.fun/posts/webserver/apache/</loc>
+    <lastmod>2017-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.zybz.fun/tags/lamp/</loc>
     <lastmod>2017-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-16-lamp-dns/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/apache/2017-10-16-lamp-dns/</loc>
     <lastmod>2017-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-11-lamp/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/apache/2017-10-11-lamp/</loc>
     <lastmod>2017-10-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -173,7 +203,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-10-01-httpd/</loc>
+    <loc>https://blog.zybz.fun/posts/webserver/apache/2017-10-01-httpd/</loc>
     <lastmod>2017-10-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -183,12 +213,12 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-23-dns-bind/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-23-dns-bind/</loc>
     <lastmod>2017-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</loc>
     <lastmod>2017-09-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -198,7 +228,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-13-ssh-openssh/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-13-ssh-openssh/</loc>
     <lastmod>2017-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -208,12 +238,12 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-10-openssl-ca/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-10-openssl-ca/</loc>
     <lastmod>2017-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-06-awk/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-06-awk/</loc>
     <lastmod>2017-09-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -228,17 +258,22 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-09-03-kernel-minilinux/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-09-03-kernel-minilinux/</loc>
     <lastmod>2017-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-26-bash-arithmetic-test/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/bash/</loc>
     <lastmod>2017-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-26-bash-slelect-for-while/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-arithmetic-test/</loc>
+    <lastmod>2017-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/bash/2017-08-26-bash-slelect-for-while/</loc>
     <lastmod>2017-08-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -248,7 +283,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-24-at-cron-anacron/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-24-at-cron-anacron/</loc>
     <lastmod>2017-08-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -258,7 +293,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-20-static-route/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-20-static-route/</loc>
     <lastmod>2017-08-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -273,22 +308,22 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-12-lvm/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-12-lvm/</loc>
     <lastmod>2017-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-11-raid/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-11-raid/</loc>
     <lastmod>2017-08-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-10-quota/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-10-quota/</loc>
     <lastmod>2017-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-05-rpm-yum/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-05-rpm-yum/</loc>
     <lastmod>2017-08-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -303,22 +338,22 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-08-01-find/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-08-01-find/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-07-29-bash-basic-variables/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/bash/2017-07-29-bash-basic-variables/</loc>
     <lastmod>2017-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-07-27-grep/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-07-27-grep/</loc>
     <lastmod>2017-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-07-25-access-control-lists/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-07-25-access-control-lists/</loc>
     <lastmod>2017-07-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -328,8 +363,28 @@
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/2017-07-23-linux-managing-users-and-groups/</loc>
+    <loc>https://blog.zybz.fun/posts/linux/2017-07-23-linux-managing-users-and-groups/</loc>
     <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/container/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/container/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/container/istio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/container/kubernetes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/monitoring/</loc>
   </url>
   
 </urlset>
