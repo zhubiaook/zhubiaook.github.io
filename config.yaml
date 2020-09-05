@@ -45,6 +45,8 @@ params:
   # specify the list of custom menus that you want to show in the top navbar.
   # they will be separated by a divider from the main menus.
   customMenus:
+  - name: 随笔
+    url: https://www.yuque.com/zhubiaook/share
   - name: 语雀
     url: https://www.yuque.com/zhubiaook
 
