@@ -127,6 +127,31 @@
     <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
   
 
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -159,6 +184,49 @@
   
     
     <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
 
@@ -225,6 +293,33 @@
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
       
+        <div class="post-card">
+  <a href="/posts/container/network/tun_tap/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux虚拟网络设备TUN/TAP</h5>
+        <p class="card-text post-summary">虚拟网络网卡与物理网卡的区别 网卡就像一根管道(piple)，数据从一端进入，从另外一端流出。物理网卡的一端连接内核协议栈，另外一端连接外部网络，当数据从协议栈流入物理网卡，将从另外一端流入外部网络。虚拟网络与之类似，只是虚拟网卡的一端连接内核协议栈，另外一端连接哪里就不一定，由相应的网卡驱动程序决定。
+TUN/TAP是Linux内核中的其中一种虚拟网卡，它的一端连接内核协议栈，另外一端连接的是用户空间的应用程序（比如OpenVPN）。
+TUN/TAP应用案例  OpenVPN就是使用TUN/TAP设备在公网上建立加密通道，实现异地网络内网连通。
+ 实现原理图
+参考链接 Linux虚拟网络设备之tun/tap - Linux程序员 - SegmentFault 思否</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 3, 2020</span>
+        <a
+        href="/posts/container/network/tun_tap/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
     </div>
     <div class="paginator">
       
@@ -244,6 +339,14 @@
     <div class="row text-left">
       <div class="col-md-4 col-sm-12">
         <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
         
 
       </div>

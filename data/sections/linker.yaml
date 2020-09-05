@@ -1,0 +1,27 @@
+# section information
+section:
+  name: Links
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: blog-宋净超
+  summary: "Kubernetes, Service Mesh"
+  url: https://jimmysong.io/
+
+- name: blog-阮一峰
+  summary: "科技周刊"
+  url: http://www.ruanyifeng.com/blog/
+
+- name: blog-芋道源码
+  summary: "Java"
+  url: http://www.iocoder.cn/
+
+- name: blog-public0821
+  summary: "Linux、 Docker网络"
+  url: https://segmentfault.com/u/public0821/articles

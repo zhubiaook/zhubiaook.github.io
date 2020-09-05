@@ -6,10 +6,76 @@
     <description>Recent content on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 17:22:09 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.zybz.fun/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tcpdump</title>
+      <link>https://blog.zybz.fun/posts/linux/command/tcpdump/</link>
+      <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/tcpdump/</guid>
+      <description>语法 tcpdump [OPTION] [FILTER]  选项
+   -i INTERFACE： 指定网络设备
+  -e 显示源，目的MAC地址
+  -n 部进行域名解析
+   过滤条件
+   过滤主机：[src|dst] host IP
+  过滤端口：[src|dst] port PORT
+  网络过滤：[src|dst] net NET_ADDRESS
+  协议过滤：arp|ip|tcp|udp|icmp
+   逻辑表达式
+   !, not
+  &amp;amp;&amp;amp;, and
+  ||, or
+  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
+tcpdump -i eth1 &amp;#39;((tcp) and (port 80) and ((dst host 192.</description>
+    </item>
+    
+    <item>
+      <title>Linux虚拟网络设备TUN/TAP</title>
+      <link>https://blog.zybz.fun/posts/container/network/tun_tap/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/container/network/tun_tap/</guid>
+      <description>虚拟网络网卡与物理网卡的区别 网卡就像一根管道(piple)，数据从一端进入，从另外一端流出。物理网卡的一端连接内核协议栈，另外一端连接外部网络，当数据从协议栈流入物理网卡，将从另外一端流入外部网络。虚拟网络与之类似，只是虚拟网卡的一端连接内核协议栈，另外一端连接哪里就不一定，由相应的网卡驱动程序决定。
+TUN/TAP是Linux内核中的其中一种虚拟网卡，它的一端连接内核协议栈，另外一端连接的是用户空间的应用程序（比如OpenVPN）。
+TUN/TAP应用案例  OpenVPN就是使用TUN/TAP设备在公网上建立加密通道，实现异地网络内网连通。
+ 实现原理图
+参考链接 Linux虚拟网络设备之tun/tap - Linux程序员 - SegmentFault 思否</description>
+    </item>
+    
+    <item>
+      <title>ip</title>
+      <link>https://blog.zybz.fun/posts/linux/command/ip/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/ip/</guid>
+      <description>语法 ip [OPTIONS] OBJECT {COMMAND | help}  OBJECT
+   link, l: 网络设备
+  address, a: 网络协议（IP, IPv6）地址
+  route, r: 路由表
+  addrlabel, addrl: Label configuration for protocol address selection
+  neighbour, n: ARP or NDISC cache entry.
+  rule, ru: Rule in routing policy database
+  tunnel, t: Tunnel over IP
+   帮助
+   ip help</description>
+    </item>
+    
+    <item>
+      <title>sysctl</title>
+      <link>https://blog.zybz.fun/posts/linux/command/sysctl/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/sysctl/</guid>
+      <description>sysctl 用来修改内核参数(/proc/sys/)
+ 语法 sysctl [OPTIONS] [variable[=value]] sysctl -p [FILE] 选项 -a, -A: 显示所有变量及值 -n: 只显示值 -w: 设置变量的值(临时) -p: 从指定的文件读取变量和值修改内核参数(永久)，默认从/etc/sysctl.conf读取 示例： 查看所有内核参数
+sysctl -a 输出：
+net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow_entries = 0 net.core.somaxconn = 128 net.core.warnings = 1 net.core.wmem_default = 212992 net.core.wmem_max = 212992 net.core.xfrm_acq_expires = 30 net.core.xfrm_aevent_etime = 10 net.core.xfrm_aevent_rseqth = 2 net.core.xfrm_larval_drop = 1 net.ipv4.cipso_cache_bucket_size = 10 net.ipv4.cipso_cache_enable = 1 net.ipv4.cipso_rbm_optfmt = 0 net.ipv4.cipso_rbm_strictvalid = 1 net.</description>
+    </item>
     
     <item>
       <title>Hugo Installation</title>
@@ -489,6 +555,38 @@ grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析�
 用户和组的关系一对一 一对多 多对一
 一个用户既可以只有一个组（该组为这个用户的私有组）, 也可以加入多个组中（其中与用户同名的是用户的基本组，其它为该用户的附加组）。当然一个组中也可以有多个用户，这是创建组的初衷。
 用户和组配置文件文件路径描述/etc/passwd用户及属性信息/etc/shadow用户密码及属性信息/etc/group组及属性信息/etc/gshadow组密码及属性信息/etc/login.defs控制新建用户和组的属性/etc/default/useradd新建用户默认值/etc/skel/此路径中存放用户家目录的模板文件/etc/passwd 格式描述UserName : x : UID : GID : Comment : HomeDir : ShellDir 包含7个字段，下面分别介绍</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.zybz.fun/posts/k8s%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/k8s%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/</guid>
+      <description>K8S 部署策略 参考文档 Kubernetes 部署策略详解-博客-阳明 Kubernetes deployment strategies - github
+部署策略 1. Recreate(重建) 2. RollingUpdate(滚动更新) 3. Blue/Green(蓝/绿) 4. Canary(金丝雀) 5. A/B testing(A/B测试) </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.zybz.fun/posts/v-model-%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A-/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/v-model-%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A-/</guid>
+      <description>v-model 双向数据绑定  v-model 指令监听用户输入控件的值，根据不同的控件读取相应的值来更新绑定的数据，绑定的数据也会更改控件的值。
+ 参考文档 http://www.imooc.com/wiki/vuelesson/vueforms.html
+基本用法 输入框 &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;input v-model=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;p&amp;gt;{{ name }}&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue/dist/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; vm = new Vue({ el : &amp;#34;#app&amp;#34;, data() { return { name: &amp;#34;&amp;#34; } } }) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 文本框 &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;textarea v-model=&amp;#34;name&amp;#34;&amp;gt;&amp;lt;/textarea&amp;gt; &amp;lt;p&amp;gt;{{ name }}&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue/dist/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; vm = new Vue({ el : &amp;#34;#app&amp;#34;, data() { return { name: &amp;#34;&amp;#34; } } }) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 复选框  多个复选框，绑定的数据初始值设置为列表，控件输入值的变化会修改数据，绑定数据的变化也会修改控件的值</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.zybz.fun/posts/v-on-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/v-on-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/</guid>
+      <description>v-on 事件处理  可以用 v-on 指令监听DOM事件，当事件触发时，执行JavaScript代码
+ 参考文档 http://www.imooc.com/wiki/vuelesson/vueevents.html
+基本使用 JS直接写在模板中 &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;!-- JS代码直接写在模板中 --&amp;gt; &amp;lt;button v-on:click=&amp;#34;count += 1&amp;#34;&amp;gt;click&amp;lt;/button&amp;gt; 数量: {{ count }} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; vm = new Vue({ el: &amp;#34;#app&amp;#34;, data() { return { count: 0 } } }) &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 不带参数方法 &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;!-- 使用方法 --&amp;gt; &amp;lt;button v-on:click=&amp;#34;add&amp;#34;&amp;gt;click&amp;lt;/button&amp;gt; 数量: {{ count }} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; vm = new Vue({ el: &amp;#34;#app&amp;#34;, data() { return { count: 0 } }, methods: { add() { this.</description>
     </item>
     
   </channel>

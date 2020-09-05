@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Command on blog</title>
+    <link>https://blog.zybz.fun/posts/linux/command/</link>
+    <description>Recent content in Command on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/posts/linux/command/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tcpdump</title>
+      <link>https://blog.zybz.fun/posts/linux/command/tcpdump/</link>
+      <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/tcpdump/</guid>
+      <description>语法 tcpdump [OPTION] [FILTER]  选项
+   -i INTERFACE： 指定网络设备
+  -e 显示源，目的MAC地址
+  -n 部进行域名解析
+   过滤条件
+   过滤主机：[src|dst] host IP
+  过滤端口：[src|dst] port PORT
+  网络过滤：[src|dst] net NET_ADDRESS
+  协议过滤：arp|ip|tcp|udp|icmp
+   逻辑表达式
+   !, not
+  &amp;amp;&amp;amp;, and
+  ||, or
+  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
+tcpdump -i eth1 &amp;#39;((tcp) and (port 80) and ((dst host 192.</description>
+    </item>
+    
+    <item>
+      <title>ip</title>
+      <link>https://blog.zybz.fun/posts/linux/command/ip/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/ip/</guid>
+      <description>语法 ip [OPTIONS] OBJECT {COMMAND | help}  OBJECT
+   link, l: 网络设备
+  address, a: 网络协议（IP, IPv6）地址
+  route, r: 路由表
+  addrlabel, addrl: Label configuration for protocol address selection
+  neighbour, n: ARP or NDISC cache entry.
+  rule, ru: Rule in routing policy database
+  tunnel, t: Tunnel over IP
+   帮助
+   ip help</description>
+    </item>
+    
+    <item>
+      <title>sysctl</title>
+      <link>https://blog.zybz.fun/posts/linux/command/sysctl/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/sysctl/</guid>
+      <description>sysctl 用来修改内核参数(/proc/sys/)
+ 语法 sysctl [OPTIONS] [variable[=value]] sysctl -p [FILE] 选项 -a, -A: 显示所有变量及值 -n: 只显示值 -w: 设置变量的值(临时) -p: 从指定的文件读取变量和值修改内核参数(永久)，默认从/etc/sysctl.conf读取 示例： 查看所有内核参数
+sysctl -a 输出：
+net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow_entries = 0 net.core.somaxconn = 128 net.core.warnings = 1 net.core.wmem_default = 212992 net.core.wmem_max = 212992 net.core.xfrm_acq_expires = 30 net.core.xfrm_aevent_etime = 10 net.core.xfrm_aevent_rseqth = 2 net.core.xfrm_larval_drop = 1 net.ipv4.cipso_cache_bucket_size = 10 net.ipv4.cipso_cache_enable = 1 net.ipv4.cipso_rbm_optfmt = 0 net.ipv4.cipso_rbm_strictvalid = 1 net.</description>
+    </item>
+    
+  </channel>
+</rss>

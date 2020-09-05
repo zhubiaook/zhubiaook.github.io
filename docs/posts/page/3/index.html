@@ -124,6 +124,31 @@
     <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
   
 
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -156,6 +181,49 @@
   
     
     <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
 
@@ -221,6 +289,105 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+
+PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 17, 2017</span>
+        <a
+        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-13-ssh-openssh/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">SSH 协议及 openssh</h5>
+        <p class="card-text post-summary">SSH 协议及 openssh.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}SSH 协议及 opensshSSH 协议SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持；用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别；连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+opensshdropbearSSH用户认证方式
+基于口令的认证 基于口令的认证方式如下图所示：
+基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中[root@localhost ~]# ssh 172.18.17.201The authenticity of host '172.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 13, 2017</span>
+        <a
+        href="/posts/linux/2017-09-13-ssh-openssh/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-10-openssl-ca/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">openssl 及 CA</h5>
+        <p class="card-text post-summary">openssl 及 CA.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 10, 2017</span>
+        <a
+        href="/posts/linux/2017-09-10-openssl-ca/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-06-awk/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文本三剑客之 awk</h5>
+        <p class="card-text post-summary">文本三剑客之 awk.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 6, 2017</span>
+        <a
+        href="/posts/linux/2017-09-06-awk/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-09-03-kernel-minilinux/" class="post-card-link">
@@ -442,160 +609,6 @@ SELINUX=permissive
 </div>
 
       
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-05-rpm-yum/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">源码安装 rpm &amp; yum</h5>
-        <p class="card-text post-summary">程序包管理: 源码安装 rpm & yum程序包管理: 源码安装 rpm &amp; yum操作系统上的程序都是程序员通过工具开发出来的，程序员直接编写的文本称为源码，计算机只能识别二进制文件，所以程序员编好的源码要能在计算机上运行需编译为二进制文件。
-通过源码来安装首先要部署好系统环境，然后将源码编译为二进制文件，然后再将二进制文件及运行该程序的一些配置文件放到指定的目录下，这对于没有编程经验的人来说是很痛苦的一件事。系统厂商为了解决编译所给客户带来的麻烦，在与我们相同的系统环境上完成编译，并将二进制文件，配置文件，程序安装默认路径，程序相关信息打包压缩到一个文件中，发布到网络上或光盘中提供给用户下载，用户只需要将该文件下载下来，用系统厂商提供的安装工具进行安装即可完成软件的部署。对于CentOS系统，给系统厂商给我们提供的编译好的程序是以.rpm结尾的压缩文件，安装工具有rpm和yum，两者的关系后文件介绍。
-源码安装在网络上有很多开源程序是通过源码的方式发布的，若此时又没有编译好的压缩包，或者未针对我们使用的系统编译的程序包，那我们只能自己下载源码，自己编译。
-我们以一个C语言编写的源码为例演示，程序开发、编译、运行的过程
-编译过程如下： 程序源码(hello.c) --预处理--&gt; 预处理程序(hello.i) --编译--&gt; 汇编程序(hello.s) --汇编--&gt; 目标程序--链接--&gt; 可执行文件
-首先安装好c语言编译工具gcc，gcc可以将源码一步就编译为可执行文件，但此处为了演示编译的过程，我们按上面的编译过程分步操作。
-[root-yum.repos.d] $ yum -y install gcc 上面是通过yum工具安装gcc编译工具，对于yum安装的方式后文介绍
-a. C语言源码 我们用C语言，打印一句经典的话”hello world!”
-[root-c] $ cat hello.c #include &lt;stdio.h&gt; //声明头文件
-int main() //程序入口
-{
-printf("hello world!\n"); //打印"hello world!"
-return 0;
-}
-b. 预处理 gcc中 -E选项是用来生成预处理程序
-[root-c] $ gcc -E hello.c -o hello.i
-[root-c] $ ls</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 5, 2017</span>
-        <a
-        href="/posts/linux/2017-08-05-rpm-yum/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-01-find/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">文件查找 locate &amp; find</h5>
-        <p class="card-text post-summary">文件查找(find， locate)文件查找(find， locate)在Linux文件系统中快速、准确的搜索到自己想要的文件是运维人员的一项基本能力
-在Linux系统中主要使用find和locate来查找文件，两者的区别如下
-locate 基于数据库索引进行查找，查找文件速度快，是模糊查询，查找不够精确，同时数据库自动更新周期为每天一次，导致不能实时查找，可以通过手动更新数据库来达到实时查找，不过更新数据库将会搜索整个磁盘，耗费系统资源，当系统繁忙时是一件危险的操作。find 命令选项特别多，可以根据各种条件精确查找文件，通过搜索磁盘进行查找，属于实时查找，由于搜索磁盘，速度比locate慢。locatelocate [options] keyword locate 查找包含关键词或正则表达式匹配的文件路径或文件名，然后输出文件的完整路径，所查找的文件需具有读、执行权限。
-常用选项
--i | –ignore-cate #查找文件时忽略大小写 -r | –regexp REGEXP #使用基本正则表达式匹配文件路径 -n NUM #输出搜索到的前N个匹配的路径
-实例
-查找家目录下面包含.txt的文件[centos7@root math]# locate ~/*.txt
-/root/1.txt
-/root/3.txt
-/root/dest.txt
-/root/destination.txt
-/root/passwd.txt
-/root/shadown.txt
-/root/source.txt
-查找/etc/目录下面结尾包含config，且路或文件名中包含数字的文件locate -r "/etc/.*[[:digit:]]\+.*config$" &lt;=使用正则表达式进行匹配
-/etc/dconf/db/distro.d/10-authconfig
-/etc/selinux/targeted/active/modules/100/authconfig
-/etc/setuptool.d/98netconfig
-/etc/setuptool.d/99authconfig
-/etc/setuptool.d/99kbdconfig
-/etc/setuptool.d/99mouseconfig
-/etc/setuptool.d/99sndconfig
-/etc/setuptool.d/99timeconfig
-/etc/sysconfig/ip6tables-config
-查找家目录下以m开头的文件，忽略大小写[centos7@root math]# locate -i ~/m &lt;= -i忽略大小写</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 1, 2017</span>
-        <a
-        href="/posts/linux/2017-08-01-find/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/bash/2017-07-29-bash-basic-variables/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">bash 脚本编程基础–变量</h5>
-        <p class="card-text post-summary">bash 脚本编程基础–变量bash 脚本编程基础–变量shell脚本语言是实现Linux/UNIX系统自动化运维的重要工具
-bash 基础知识介绍shell 与 shell 脚本shell shell位于操作系统最外层，是用户与操作系统交互的工具。shell 是一种命令解释器，将用户输入的命令解释给操作系统执行，并处理操作系统的各种输出结果。
-shell脚本 当我们将多条命令保存到文件中，便可方便、快速的执行多条命令。该文件便是shell脚本，shell脚本里不仅可以包含多条命令，还可以使用变量，流程控制语句(选择、循环、顺序)。
-程序编程风格程序是由指令+数据组成，程序编程风格有两种，过程式和对象式。
-过程式：以指令为中心，数据服务于指令，面向过程首先分析解决问题的所有可能情况，然后将这些解决方法整理成各个步骤，然后按步骤通过调用函数等方式顺序执行。对像式：以数据为中心，指令服务于数据，面向对象是将一切事物看做对象，甚至解决问题的思维也抽象成对象，对象并不是解决问题的具体方法，而是解决问题的模板，解决具体问题再将对象实例化。shell脚本属于过程式编程风格，过程式编程语言有如下特点
-顺序执行选择执行循环执行编译执行与解释执行计算机只能识别二进制的文件，执行二进制指令，所有人类编好的程序源码(文本文件)必须翻译成二进制数据后，计算机才能理解。翻译的方式有两种，一种是由编译器将源码翻译成目标二进制文件后由计算机统一执行，这个过程称为编译执行；另一种是每输入一行命令，解释器就解释执行一行命令，这个过程称为解释执行。解释执行操作方便，但执行效率相对较低。C，C++，JAVA都是编译执行，Bash脚本是解释执行。
-另外需澄清的一点是，低级语言与高级语言之间并不存在好坏之分，所谓低级与高级是指相对于人类而言，还是相对机器而言，越接近机器的语言越低级，越接近人类的语言越高级。高级语言让人类更容易理解，但执行效率相对较低，而低级语言反之。比如汇编语言相对C语言属于低级语言，而C语言相对Python是低级语言，但他们的执行效率汇编是最高的。
-变量、变量名与内存的关系所有程序在未启动为进程之前都是存储在磁盘上的文件，CPU要执行程序，必须把程序启动为进程，即将磁盘上的程序包括数据加载到内存中，然后按程序的流程执行指令。显然CPU要能够从内存中将指令和数据读取到CPU内部才能执行它，CPU必然要知道要从内存中的哪块区域去读取下一条要执行的指令。为了达到此目的，内存将自己划分成了许多区域，每块区域都有一个地址编码，CPU就是根据该编码找到指令和数据的。内存中的某些区域的数据可能会要经常被使用到，我们可以记住这些区域的地址，使用到的时候就可以按地址去查找，这些区域便是变量，变量其实就是内存区域。这些地址都是数字，对于计算机而言很容易，但对人类来说简直就是痛苦，就像人们喜欢记住网站的域名，不喜欢记网站服务器的IP地址一样，所以我们将这些地址起一个名字，便是变量名。实际上为了安全起见，操作系统一般也不允许我们编写的代码里自己规划、使用内存空间，而是由操作系统分配给我们。
-创建bash脚本创建脚本的一般步骤为
-编写脚本，一般使用vim作为编写脚本的编辑器调试脚本 bash -n script_name #检查语法 bash -x script_name #调试#如下为一个四则运算，判断用户输入的数字及运算符是否符合要求，符合要求再进行运算
-#!/bin/bash
-
-#---------------------------------------------
-# Author: zhuenbiao
-# File Name: arithmetic_operation.sh
-# Create Time: 2017-07-28 22:50:08
-# Last Modified: 2017-07-28 22:50:08</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">July 29, 2017</span>
-        <a
-        href="/posts/linux/bash/2017-07-29-bash-basic-variables/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-07-27-grep/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">文本三剑客之 grep</h5>
-        <p class="card-text post-summary">文本三剑客之 grep文本三剑客之 grep正则表达式是一钟特殊的字符串模式，用于匹配一组字符串，正则表达式的宗旨是文本资源为我所用。正则表达式是vim, grep, sed, awk等重多强大文本处理工具的重要组成部分。正则表达式因”坑”多而闻名，其实是对正则的掌握不到位所致。各工具中正则的语法有所差别，我们将介绍在Linux系统上处理文本的三个重要工具grep, sed, awk。 本文首先介绍grep
-grep, sed, awk
-grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析处理正则表达式分类 在Linux系统中，正则表达式分为两类：
-基本正则表达式扩展正则正则表达式正则表达式的组成 正则表达式一般由匹配字符，次数控制字符，位置控制字符，分组字符，普通字符组成，除了普通字符外的字符都叫元字符，元字符不再表示字符字面意义，而表示控制或通配功能。
-基本正则表达式字符匹配
-用来表示通配功能
-字符作用.匹配任意单个字符[]匹配指定范围内的任意单个字符[:lower:]匹配小写字母, 同a-z，但与匹配路径的通配符不一样喔[:upper:]匹配大写字母，同A_Z[:alph:]匹配所有大小写字母，同a-z,A-Z[:digit:]匹配数字，同0-9[:xdigit:]匹配十六进制数字[:alphnum:]匹配所有字母和数字, 同a-z,A-Z,0-9[:blank:]匹配空白字符(空格和制表符)[:space:]匹配水平或垂直空白字符(比[:blank:]包含的范围广)[:cntrl:]匹配不可打印的控制字符(退格、删除等)[:print:]匹配可打印字符[:punct:]匹配标点符号[:graph:]匹配可打印的非空白字符匹配次数</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">July 29, 2017</span>
-        <a
-        href="/posts/linux/2017-07-27-grep/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
     </div>
     <div class="paginator">
       
@@ -641,6 +654,14 @@ grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析�
     <div class="row text-left">
       <div class="col-md-4 col-sm-12">
         <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
         
 
       </div>
