@@ -47,8 +47,9 @@ params:
   customMenus:
   - name: 随笔
     url: https://www.yuque.com/zhubiaook/share
-  - name: 语雀
-    url: https://www.yuque.com/zhubiaook
+
+  - name: Learn English
+    url: https://www.yuque.com/zhubiaook/english
 
   # some information about you
   author:

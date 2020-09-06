@@ -10,6 +10,9 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
+- name: 语雀-我
+  summary: "分享知识"
+  url: https://www.yuque.com/zhubiaook
 - name: blog-宋净超
   summary: "Kubernetes, Service Mesh"
   url: https://jimmysong.io/
@@ -25,3 +28,7 @@ skills:
 - name: blog-public0821
   summary: "Linux、 Docker网络"
   url: https://segmentfault.com/u/public0821/articles
+
+- name: github-在线工具
+  summary: "收集各种奇葩功能的在线工具"
+  url: https://github.com/zhaoolee/OnlineToolsBook
