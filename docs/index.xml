@@ -6,10 +6,65 @@
     <description>Recent content on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.zybz.fun/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C语言语法</title>
+      <link>https://blog.zybz.fun/posts/c/c_syntax/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/c/c_syntax/</guid>
+      <description>简单示例 # include &amp;lt;stdio.h&amp;gt;  /* * 注释语句 */ int main(void) { int num = 3; char letter = &amp;#39;b&amp;#39;; printf(&amp;#34;num = %d, letter = %c&amp;#34;, num, letter); return 0; } 数据类型 整型 char, short int, int, long int, long long int 除了char型，这些整数类型若未指明是signed或unsigned，都表示signed
+浮点型 float, double, long double
+运算符 位运算 &amp;amp;, |, ^, ~
+移位运算 &amp;laquo;, &amp;raquo;
+算术运算符 +, -, *, /, %
+赋值运算符 =, +=, *=, /=, %=, &amp;laquo;=, &amp;raquo;==, &amp;amp;=, |=, ^=</description>
+    </item>
+    
+    <item>
+      <title>file_io_management</title>
+      <link>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_io_management/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_io_management/</guid>
+      <description>文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = open(&amp;#34;/opt/c/hello.txt&amp;#34;, O_RDONLY); if (fd == -1) perror(&amp;#34;Error&amp;#34;); else printf(&amp;#34;%d&amp;#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &amp;lt;sys/types.h&amp;gt;#include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = creat(&amp;#34;/opt/c/1.</description>
+    </item>
+    
+    <item>
+      <title>process_management</title>
+      <link>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/process_management/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/process_management/</guid>
+      <description>创建并运行新进程 fork(), execl, execv /* * 获取进程 pid: int getpid(); * 获取父进程 pid: int getppid(); * 运行新进程: int execl(char *path, char *arg, ...); * 创建新进程: int fork(); * 终止进程: void exit(int status); */ #include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;sys/types.h&amp;gt;#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&amp;#34;fork&amp;#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &amp;gt; 0) { int pret; printf(&amp;#34;pid: %d, child_pid: %d\n&amp;#34;, getpid(), pid); pret = execl(&amp;#34;/usr/bin/sleep&amp;#34;,&amp;#34;sleep&amp;#34;, &amp;#34;100&amp;#34;, NULL); if(pret == -1) { perror(&amp;#34;parent execl&amp;#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&amp;#34;pid: %d, parent_pid: %d\n&amp;#34;, getpid(), getppid()); cret = execl(&amp;#34;/usr/bin/sleep&amp;#34;,&amp;#34;sleep&amp;#34;, &amp;#34;100&amp;#34;, NULL); if(cret == -1) { perror(&amp;#34;child execl&amp;#34;); exit(EXIT_FAILURE); } } } pid: 22190, child_pid: 22191 pid: 22191, parent_pid: 22190  /* * int execl(char *path, char *arg, .</description>
+    </item>
+    
+    <item>
+      <title>内存管理</title>
+      <link>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/memory_management/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/memory_management/</guid>
+      <description>内存结构 动态内存分配  void *malloc(int size);
+动态分配内存， 单位字节
+ #include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;unistd.h&amp;gt; int main(void) { char *p, ret; p = malloc(2048); if(!p) perror(&amp;#34;malloc&amp;#34;); ret = execl(&amp;#34;/usr/bin/ping&amp;#34;, &amp;#34;ping&amp;#34;, &amp;#34;www.baidu.com&amp;#34;, NULL); if(ret == -1) perror(&amp;#34;execl&amp;#34;); }  void *calloc(int nr, int size);
+为数组分配内存，且将分配到的内存置为0
+ #include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int *x, *y; /* 以下两种方法分配到的内存一样大 */ x = malloc(256*sizeof(int)); if(!x) { perror(&amp;#34;malloc&amp;#34;); return -1; } /* 将分配到的内存置为0 */ y = calloc(256, sizeof(int)); if(!</description>
+    </item>
+    
+    <item>
+      <title>文件和目录管理</title>
+      <link>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_and_directory_management/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_and_directory_management/</guid>
+      <description>文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { char *path = &amp;#34;/opt/c/1.txt&amp;#34;; struct stat sb; int ret; ret = stat(path, &amp;amp;sb); if(ret == -1) perror(&amp;#34;stat&amp;#34;); printf(&amp;#34;uid: %d&amp;#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int ret; ret = chmod(&amp;#34;/opt/c/1.</description>
+    </item>
     
     <item>
       <title>tcpdump</title>

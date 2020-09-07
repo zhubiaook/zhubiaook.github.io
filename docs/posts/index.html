@@ -93,6 +93,31 @@
   
     
     <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
       <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
       
       <ul class="">
@@ -226,6 +251,58 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -289,6 +366,131 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/c/c_syntax/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">C语言语法</h5>
+        <p class="card-text post-summary">简单示例 # include &lt;stdio.h&gt;  /* * 注释语句 */ int main(void) { int num = 3; char letter = &#39;b&#39;; printf(&#34;num = %d, letter = %c&#34;, num, letter); return 0; } 数据类型 整型 char, short int, int, long int, long long int 除了char型，这些整数类型若未指明是signed或unsigned，都表示signed
+浮点型 float, double, long double
+运算符 位运算 &amp;, |, ^, ~
+移位运算 &laquo;, &raquo;
+算术运算符 +, -, *, /, %
+赋值运算符 =, +=, *=, /=, %=, &laquo;=, &raquo;==, &amp;=, |=, ^=</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/c/c_syntax/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">file_io_management</h5>
+        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_io_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">process_management</h5>
+        <p class="card-text post-summary">创建并运行新进程 fork(), execl, execv /* * 获取进程 pid: int getpid(); * 获取父进程 pid: int getppid(); * 运行新进程: int execl(char *path, char *arg, ...); * 创建新进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } pid: 22190, child_pid: 22191 pid: 22191, parent_pid: 22190  /* * int execl(char *path, char *arg, .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">内存管理</h5>
+        <p class="card-text post-summary">内存结构 动态内存分配  void *malloc(int size);
+动态分配内存， 单位字节
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt;#include &lt;unistd.h&gt; int main(void) { char *p, ret; p = malloc(2048); if(!p) perror(&#34;malloc&#34;); ret = execl(&#34;/usr/bin/ping&#34;, &#34;ping&#34;, &#34;www.baidu.com&#34;, NULL); if(ret == -1) perror(&#34;execl&#34;); }  void *calloc(int nr, int size);
+为数组分配内存，且将分配到的内存置为0
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; int main(void) { int *x, *y; /* 以下两种方法分配到的内存一样大 */ x = malloc(256*sizeof(int)); if(!x) { perror(&#34;malloc&#34;); return -1; } /* 将分配到的内存置为0 */ y = calloc(256, sizeof(int)); if(!</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/memory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_and_directory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件和目录管理</h5>
+        <p class="card-text post-summary">文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { char *path = &#34;/opt/c/1.txt&#34;; struct stat sb; int ret; ret = stat(path, &amp;sb); if(ret == -1) perror(&#34;stat&#34;); printf(&#34;uid: %d&#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { int ret; ret = chmod(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/command/tcpdump/" class="post-card-link">
@@ -485,121 +687,6 @@ git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t 
 </div>
 
       
-        <div class="post-card">
-  <a href="/posts/database/2017-11-18-redis_sentinel_and_cluster/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">REDIS Sentinel and Cluster</h5>
-        <p class="card-text post-summary">REDIS Sentinel and Cluster.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 18, 2017</span>
-        <a
-        href="/posts/database/2017-11-18-redis_sentinel_and_cluster/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-16-redis-install_and_configure/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">REDIS 安装配置</h5>
-        <p class="card-text post-summary">REDIS 安装配置.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 16, 2017</span>
-        <a
-        href="/posts/database/2017-11-16-redis-install_and_configure/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-14-proxysql_mha/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">ProxySQL&#43;MHA实现读写分离及高可用</h5>
-        <p class="card-text post-summary">ProxySQL+MHA实现读写分离及高可用.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 14, 2017</span>
-        <a
-        href="/posts/database/2017-11-14-proxysql_mha/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-12-mysql_replication/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">MySQL Replication 实现高可用</h5>
-        <p class="card-text post-summary">MySQL Replication 实现高可用.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 12, 2017</span>
-        <a
-        href="/posts/database/2017-11-12-mysql_replication/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-11-mysqlbackup/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">MySQL日志和备份</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 11, 2017</span>
-        <a
-        href="/posts/database/2017-11-11-mysqlbackup/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
     </div>
     <div class="paginator">
       
@@ -619,14 +706,17 @@ git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t 
   <li class="page-item">
     <a class="page-link" href="/posts/page/3/">3</a>
   </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/4/">4</a>
+    <a class="page-link" href="/posts/page/5/">5</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

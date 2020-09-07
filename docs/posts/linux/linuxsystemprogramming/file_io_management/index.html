@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>file_io_management</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="file_io_management" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/">Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>September 7, 2020</p>
+        </div>
+
+        <div class="title">
+          <h1>file_io_management</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <h1 id="文件读写---系统调用">文件读写 - 系统调用</h1>
+<p>open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int open(const char *name, int flags);
+</span><span style="color:#75715e"> * int open(const char *name, int flags, mode_t mode);
+</span><span style="color:#75715e"> *   flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ...
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span> fd;
+    fd <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;/opt/c/hello.txt&#34;</span>, O_RDONLY);
+
+    <span style="color:#66d9ef">if</span> (fd <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        perror(<span style="color:#e6db74">&#34;Error&#34;</span>);
+    <span style="color:#66d9ef">else</span>
+        printf(<span style="color:#e6db74">&#34;%d&#34;</span>, fd);
+}
+</code></pre></div><pre><code>3
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int create(const char *name, mode_t mode);
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span> fd;
+    fd <span style="color:#f92672">=</span> creat(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, <span style="color:#ae81ff">0644</span>);
+
+    <span style="color:#75715e">// 等同于
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// fd = open(&#34;/opt/c/1.txt&#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int read(int fd, void *buf, int len);
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">char</span> word[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">int</span> nr, fd;
+    fd <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;/opt/c/hello.txt&#34;</span>, O_RDONLY);
+
+    nr <span style="color:#f92672">=</span> read(fd, word, <span style="color:#ae81ff">7</span>);
+    printf(<span style="color:#e6db74">&#34;%s&#34;</span>, word);
+    close(fd);
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>hello w
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int write(int fd, const void *buf, int count);
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span> fd;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My ship is solid!&#34;</span>;
+
+    fd <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, O_RDWR);
+    write(fd, buf, strlen(buf));
+    close(fd);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h1 id="同步io">同步IO</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int fsync(int fd);
+</span><span style="color:#75715e"> * 对当前打开的fd缓冲区数据同步到磁盘
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span> fd, nr;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Something so beautiful!!&#34;</span>;
+
+    fd <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, O_RDWR);
+    nr <span style="color:#f92672">=</span> write(fd, buf, strlen(buf));
+
+    <span style="color:#66d9ef">if</span>(nr <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;Error&#34;</span>);
+    } <span style="color:#66d9ef">else</span> {
+        fsync(fd);
+        printf(<span style="color:#e6db74">&#34;writed sucessful&#34;</span>);
+    }
+    close(fd);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>writed sucessful
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * void sync(void);
+</span><span style="color:#75715e"> * 将磁盘上所有缓冲区的数据同步到磁盘
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    sync();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><pre><code>/tmp/tmprzt81yif.c: In function ‘main’:
+/tmp/tmprzt81yif.c:11:5: warning: implicit declaration of function ‘sync’ [-Wimplicit-function-declaration]
+     sync();
+     ^
+</code></pre>
+<h1 id="io多路复用">IO多路复用</h1>
+<h2 id="select">select</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * 测试select的使用，此处只监控一个I/O(标准输入)，并不是多路复用
+</span><span style="color:#75715e"> * 需要到Linux终端上运行
+</span><span style="color:#75715e"> * int select(int n, fd_set *readfs, fd_set *writefds, fd_set *execptfds, struct timeval *timeout);
+</span><span style="color:#75715e"> *   n: 监控集合中的最大文件描述符 + 1
+</span><span style="color:#75715e"> *   timeout: 
+</span><span style="color:#75715e">        struct timeval {
+</span><span style="color:#75715e">             long tv_sec; //seconds
+</span><span style="color:#75715e">             long tv_usec; //microseconds
+</span><span style="color:#75715e">        }
+</span><span style="color:#75715e"> * 当监控的文件描述符I/O未就绪，且处于设定的超时范围内，select()调用就一直阻塞。
+</span><span style="color:#75715e"> * 监控的文件描述符分为3类, 不监控的设置位NULL：
+</span><span style="color:#75715e"> *   1. readfds: 监控是否数据可读取
+</span><span style="color:#75715e"> *   2. writefds: 监控是否写操作可以无阻塞的完成
+</span><span style="color:#75715e"> *   3. exceptfds: 监控是否发生异常
+</span><span style="color:#75715e"> * FD_ZERO() 从指定集合中删除文件描述符
+</span><span style="color:#75715e"> * FD_SET() 向指定集合中添加文件描述符
+</span><span style="color:#75715e"> * FD_ISSET() 判读一个文件描述符是否在指定的集合中
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/time.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define TIMEOUT 5
+</span><span style="color:#75715e">#define BUF_LEN 1024
+</span><span style="color:#75715e">#define STDIN_FILENO 0
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">struct</span> timeval tv;
+    fd_set readfds;
+    <span style="color:#66d9ef">int</span> ret;
+
+    <span style="color:#75715e">// wait on stdin for input.
+</span><span style="color:#75715e"></span>    FD_ZERO(<span style="color:#f92672">&amp;</span>readfds);
+    FD_SET(STDIN_FILENO, <span style="color:#f92672">&amp;</span>readfds);
+
+    <span style="color:#75715e">// wait up to five seconds
+</span><span style="color:#75715e"></span>    tv.tv_sec <span style="color:#f92672">=</span> TIMEOUT;
+    tv.tv_usec <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#75715e">// all right, nou block!
+</span><span style="color:#75715e"></span>    ret <span style="color:#f92672">=</span> select(
+        STDIN_FILENO <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>,
+        <span style="color:#f92672">&amp;</span>readfds,
+        NULL,
+        NULL,
+        <span style="color:#f92672">&amp;</span>tv);
+
+    <span style="color:#66d9ef">if</span>(ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;select&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>ret) {
+        printf(<span style="color:#e6db74">&#34;%d seconds elapsed.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, TIMEOUT);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+
+    <span style="color:#75715e">// is our file descriptor ready to read?
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(FD_ISSET(STDIN_FILENO, <span style="color:#f92672">&amp;</span>readfds)) {
+        <span style="color:#66d9ef">char</span> buf[BUF_LEN<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+        <span style="color:#66d9ef">int</span> len;
+        len <span style="color:#f92672">=</span> read(STDIN_FILENO, buf, BUF_LEN);
+        <span style="color:#66d9ef">if</span>(len <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+            perror(<span style="color:#e6db74">&#34;read&#34;</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(len) {
+            buf[len] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+            printf(<span style="color:#e6db74">&#34;read: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buf);
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+    fprintf(stderr, <span style="color:#e6db74">&#34;This should not happen!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><h2 id="poll">poll</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int poll(struct pollfd *fds, int nfds, int timeout);
+</span><span style="color:#75715e">     fds: 结构体数组，可以向poll传递多个监控结构体
+</span><span style="color:#75715e">     nfds: 传递的监控结构体个数
+</span><span style="color:#75715e">     timeout: 超时时长，单位ms
+</span><span style="color:#75715e"> */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;poll.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define TIMEOUT 5
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">struct</span> pollfd fds[<span style="color:#ae81ff">2</span>];
+    <span style="color:#66d9ef">int</span> ret;
+
+    <span style="color:#75715e">// watch stdin for input
+</span><span style="color:#75715e"></span>    fds[<span style="color:#ae81ff">0</span>].fd <span style="color:#f92672">=</span> STDIN_FILENO;
+    fds[<span style="color:#ae81ff">0</span>].events <span style="color:#f92672">=</span> POLLIN;
+
+    <span style="color:#75715e">// watch stdout for ability to write
+</span><span style="color:#75715e"></span>    fds[<span style="color:#ae81ff">1</span>].fd <span style="color:#f92672">=</span> STDIN_FILENO;
+    fds[<span style="color:#ae81ff">1</span>].events <span style="color:#f92672">=</span> POLLOUT;
+
+    <span style="color:#75715e">// all set, block, timeout单位是ms
+</span><span style="color:#75715e"></span>    ret <span style="color:#f92672">=</span> poll(fds, <span style="color:#ae81ff">2</span>, TIMEOUT<span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>);
+    <span style="color:#66d9ef">if</span>(ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;poll&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>ret) {
+        printf(<span style="color:#e6db74">&#34;%d seconds elapsed.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, TIMEOUT);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+
+    <span style="color:#66d9ef">if</span>(fds[<span style="color:#ae81ff">0</span>].revents <span style="color:#f92672">&amp;</span> POLLIN) {
+        printf(<span style="color:#e6db74">&#34;stdin is readable</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    }
+
+    <span style="color:#66d9ef">if</span> (fds[<span style="color:#ae81ff">1</span>].revents <span style="color:#f92672">&amp;</span> POLLOUT) {
+        printf(<span style="color:#e6db74">&#34;stdout is writeable</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h1 id="文件读写---c标准库">文件读写 - C标准库</h1>
+<p>fopen, fread, fwrite是由C标准库(stdio.h)提供的C库函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * FILE *fopen(char *path, char *mode)
+</span><span style="color:#75715e"> */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    FILE <span style="color:#f92672">*</span>stream;
+
+    <span style="color:#75715e">// 打开文件流
+</span><span style="color:#75715e"></span>    stream <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>);
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>stream) {
+        perror(<span style="color:#e6db74">&#34;open&#34;</span>);
+    }
+
+    <span style="color:#75715e">// 关闭文件流
+</span><span style="color:#75715e"></span>    fclose(stream);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int fread(void *buf, int size, int nr, FILE *stream)
+</span><span style="color:#75715e"> */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">8</span>];
+    <span style="color:#66d9ef">int</span> nr;
+    FILE <span style="color:#f92672">*</span>stream;
+
+    stream <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>);
+    <span style="color:#66d9ef">if</span>(stream)
+        nr <span style="color:#f92672">=</span> fread(buf, <span style="color:#66d9ef">sizeof</span>(buf), <span style="color:#ae81ff">1</span>, stream);
+
+    <span style="color:#66d9ef">if</span>(nr)
+        printf(<span style="color:#e6db74">&#34;%s&#34;</span>, buf);
+    fclose(stream);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * int fwrite(void *buf, int size, int nr, FILE *stream)
+</span><span style="color:#75715e"> */</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">100</span>];
+    <span style="color:#66d9ef">int</span> nr;
+    FILE <span style="color:#f92672">*</span>stream;
+
+    strcpy(buf, <span style="color:#e6db74">&#34;hello, This is beautiful&#34;</span>);
+
+    stream <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>);
+    <span style="color:#66d9ef">if</span>(stream)
+        nr <span style="color:#f92672">=</span> fwrite(buf, <span style="color:#66d9ef">sizeof</span>(buf), <span style="color:#ae81ff">1</span>, stream);
+
+    <span style="color:#66d9ef">if</span>(nr)
+        printf(<span style="color:#e6db74">&#34;write sucessfully&#34;</span>);
+    fclose(stream);
+}
+</code></pre></div><pre><code>write sucessfully
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * fopen, fread, fwrite, fclose综合练习
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    FILE <span style="color:#f92672">*</span>in, <span style="color:#f92672">*</span>out;
+
+    <span style="color:#66d9ef">struct</span> person {
+        <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">50</span>];
+        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> weight;
+        <span style="color:#66d9ef">char</span> gender;
+    } zy, zb <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;zhubiao&#34;</span>, <span style="color:#ae81ff">80</span>, <span style="color:#e6db74">&#39;M&#39;</span>};
+
+    out <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/opt/c/2.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>);
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>out) {
+        perror(<span style="color:#e6db74">&#34;fopen&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>fwrite(<span style="color:#f92672">&amp;</span>zb, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> person), <span style="color:#ae81ff">1</span>, out)) {
+        perror(<span style="color:#e6db74">&#34;fread&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    <span style="color:#66d9ef">if</span>(fclose(out)) {
+        perror(<span style="color:#e6db74">&#34;fclose&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    in <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/opt/c/2.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>);
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>in) {
+        perror(<span style="color:#e6db74">&#34;fopen&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>fread(<span style="color:#f92672">&amp;</span>zy, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> person), <span style="color:#ae81ff">1</span>, in)) {
+        perror(<span style="color:#e6db74">&#34;fread&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    } <span style="color:#66d9ef">else</span> {
+        printf(<span style="color:#e6db74">&#34;%s, %c, %d&#34;</span>, zy.name, zy.gender, zy.weight);
+    }
+
+    <span style="color:#66d9ef">if</span>(fclose(in)){
+        perror(<span style="color:#e6db74">&#34;fclose&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    }
+
+}
+</code></pre></div><pre><code>zhubiao, M, 80
+</code></pre>
+<h1 id="存储映射">存储映射</h1>
+<p>存储映射是将文件映射到内存中，对文件的读写操作变成对该内存区域的数据的访问，这样做的优点：</p>
+<pre><code>a. 使用fread, fwrite涉及到两次拷贝：从内核缓冲区到用户缓冲区，从用户缓冲区到用户读写区域；而使用映射是直接对映射区域进行读写操作
+b. 读写映省去系统调用、上下文切换的开销
+c. 当多个进程将同一个对象映射到内存中共享时，数据在所有内存间共享
+d. 映射对象间搜索时，只是简单的指针操作，不需要系统调用lseek()
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * void * mmap(void, *addr, int len, int prot, int flags, int fd, int offset);
+</span><span style="color:#75715e">     调用成功返回内存映射的起始地址，失败返回-1
+</span><span style="color:#75715e">     addr: 告诉内核映射文件的最佳内存地址，不是强制性要求，传0由系统决定。
+</span><span style="color:#75715e">     len: 映射len个字节
+</span><span style="color:#75715e">     prot: 控制映射内存区域的访问权限, 不能与文件描述符fd冲突。
+</span><span style="color:#75715e">         PROT_READ: 页可读
+</span><span style="color:#75715e">         PROT_WRITE: 页可写
+</span><span style="color:#75715e">         PROT_EXEC: 页可执行
+</span><span style="color:#75715e">     flags:
+</span><span style="color:#75715e">         MAP_FIXED: 强制使用addr参数，如果无法映射到指定的内存区域，调用失败，不建议使用
+</span><span style="color:#75715e">         MAP_PRIVATE: 映射区域不共享
+</span><span style="color:#75715e">         MAP_SHARED: 映射区域共享，该映射区域会受其他进行写操作的影响。
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    int munmap(void *addr, size_t len)
+</span><span style="color:#75715e">        调用成功返回0， 失败返回-1
+</span><span style="color:#75715e">        addr: 需取消的内存映射区域首地址，通常是mmap返回的地址
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    int msync(void *addr, size_t len, int flags);
+</span><span style="color:#75715e">        将映射区域的数据同步到硬盘，等同于fsync()
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/mman.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span> fd;
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>p;
+    <span style="color:#66d9ef">int</span> len;
+    len <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+
+    fd <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;/opt/c/1.txt&#34;</span>, O_RDONLY);  
+
+    <span style="color:#75715e">// 存储映射
+</span><span style="color:#75715e"></span>    p <span style="color:#f92672">=</span> mmap(<span style="color:#ae81ff">0</span>, len, PROT_READ, MAP_SHARED, fd, <span style="color:#ae81ff">0</span>);
+    printf(<span style="color:#e6db74">&#34;%s&#34;</span>, p);
+
+    <span style="color:#75715e">// 将映射同步到硬盘
+</span><span style="color:#75715e"></span>    msync(p, len, MS_SYNC);
+
+    <span style="color:#75715e">// 取消映射
+</span><span style="color:#75715e"></span>    munmap(p, len);
+    <span style="color:#75715e">// 此时再读取该内存区域会报错， printf(&#34;%s&#34;, p);
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+
+    printf(<span style="color:#e6db74">&#34;%d&#34;</span>, MAP_FAILED);
+}
+</code></pre></div><pre><code>hello world
+someting so beautiful
+</code></pre>
+
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io/edit/master/content/posts%5cLinux%5cLinuxSystemProgramming%5cfile_io_management.md">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/c/c_syntax/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>C语言语法</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/linux/linuxsystemprogramming/process_management/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>process_management</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文件读写---系统调用">文件读写 - 系统调用</a></li>
+    <li><a href="#同步io">同步IO</a></li>
+    <li><a href="#io多路复用">IO多路复用</a>
+      <ul>
+        <li><a href="#select">select</a></li>
+        <li><a href="#poll">poll</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件读写---c标准库">文件读写 - C标准库</a></li>
+    <li><a href="#存储映射">存储映射</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

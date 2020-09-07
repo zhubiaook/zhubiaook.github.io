@@ -4,21 +4,56 @@
   
   <url>
     <loc>https://blog.zybz.fun/</loc>
-    <lastmod>2020-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.zybz.fun/posts/linux/command/</loc>
-    <lastmod>2020-09-04T00:00:00+00:00</lastmod>
+    <loc>https://blog.zybz.fun/posts/c/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/c/c_syntax/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_io_management/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.zybz.fun/posts/linux/</loc>
-    <lastmod>2020-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.zybz.fun/posts/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/process_management/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/memory_management/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_and_directory_management/</loc>
+    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zybz.fun/posts/linux/command/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
   </url>
   
