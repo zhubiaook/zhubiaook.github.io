@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>安全和加密 on blog</title>
+    <link>https://blog.zybz.fun/tags/%E5%AE%89%E5%85%A8%E5%92%8C%E5%8A%A0%E5%AF%86/</link>
+    <description>Recent content in 安全和加密 on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/tags/%E5%AE%89%E5%85%A8%E5%92%8C%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SSH 协议及 openssh</title>
+      <link>https://blog.zybz.fun/posts/linux/2017-09-13-ssh-openssh/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/2017-09-13-ssh-openssh/</guid>
+      <description>SSH 协议及 openssh.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}SSH 协议及 opensshSSH 协议SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持；用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别；连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+opensshdropbearSSH用户认证方式
+基于口令的认证 基于口令的认证方式如下图所示：
+基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中[root@localhost ~]# ssh 172.18.17.201The authenticity of host &#39;172.</description>
+    </item>
+    
+    <item>
+      <title>openssl 及 CA</title>
+      <link>https://blog.zybz.fun/posts/linux/2017-09-10-openssl-ca/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/2017-09-10-openssl-ca/</guid>
+      <description>openssl 及 CA.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</description>
+    </item>
+    
+  </channel>
+</rss>

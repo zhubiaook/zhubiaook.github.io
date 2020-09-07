@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Linux</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+    <link rel="stylesheet" href="/assets/css/layouts/list.css">
+    <link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/">Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">内存管理</h5>
+        <p class="card-text post-summary">内存结构 动态内存分配  void *malloc(int size);
+动态分配内存， 单位字节
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt;#include &lt;unistd.h&gt; int main(void) { char *p, ret; p = malloc(2048); if(!p) perror(&#34;malloc&#34;); ret = execl(&#34;/usr/bin/ping&#34;, &#34;ping&#34;, &#34;www.baidu.com&#34;, NULL); if(ret == -1) perror(&#34;execl&#34;); }  void *calloc(int nr, int size);
+为数组分配内存，且将分配到的内存置为0
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; int main(void) { int *x, *y; /* 以下两种方法分配到的内存一样大 */ x = malloc(256*sizeof(int)); if(!x) { perror(&#34;malloc&#34;); return -1; } /* 将分配到的内存置为0 */ y = calloc(256, sizeof(int)); if(!</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/memory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件IO管理</h5>
+        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_io_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_and_directory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件和目录管理</h5>
+        <p class="card-text post-summary">文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { char *path = &#34;/opt/c/1.txt&#34;; struct stat sb; int ret; ret = stat(path, &amp;sb); if(ret == -1) perror(&#34;stat&#34;); printf(&#34;uid: %d&#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { int ret; ret = chmod(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">进程管理</h5>
+        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
+execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
+exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
+getpid(): 获取当前进程PID
+getppid(): 获取父进程PID
+ /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/tcpdump/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">tcpdump</h5>
+        <p class="card-text post-summary">语法 tcpdump [OPTION] [FILTER]  选项
+   -i INTERFACE： 指定网络设备
+  -e 显示源，目的MAC地址
+  -n 部进行域名解析
+   过滤条件
+   过滤主机：[src|dst] host IP
+  过滤端口：[src|dst] port PORT
+  网络过滤：[src|dst] net NET_ADDRESS
+  协议过滤：arp|ip|tcp|udp|icmp
+   逻辑表达式
+   !, not
+  &amp;&amp;, and
+  ||, or
+  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
+tcpdump -i eth1 &#39;((tcp) and (port 80) and ((dst host 192.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 4, 2020</span>
+        <a
+        href="/posts/linux/command/tcpdump/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/ip/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">ip</h5>
+        <p class="card-text post-summary">语法 ip [OPTIONS] OBJECT {COMMAND | help}  OBJECT
+   link, l: 网络设备
+  address, a: 网络协议（IP, IPv6）地址
+  route, r: 路由表
+  addrlabel, addrl: Label configuration for protocol address selection
+  neighbour, n: ARP or NDISC cache entry.
+  rule, ru: Rule in routing policy database
+  tunnel, t: Tunnel over IP
+   帮助
+   ip help</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 2, 2020</span>
+        <a
+        href="/posts/linux/command/ip/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/sysctl/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">sysctl</h5>
+        <p class="card-text post-summary">sysctl 用来修改内核参数(/proc/sys/)
+ 语法 sysctl [OPTIONS] [variable[=value]] sysctl -p [FILE] 选项 -a, -A: 显示所有变量及值 -n: 只显示值 -w: 设置变量的值(临时) -p: 从指定的文件读取变量和值修改内核参数(永久)，默认从/etc/sysctl.conf读取 示例： 查看所有内核参数
+sysctl -a 输出：
+net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow_entries = 0 net.core.somaxconn = 128 net.core.warnings = 1 net.core.wmem_default = 212992 net.core.wmem_max = 212992 net.core.xfrm_acq_expires = 30 net.core.xfrm_aevent_etime = 10 net.core.xfrm_aevent_rseqth = 2 net.core.xfrm_larval_drop = 1 net.ipv4.cipso_cache_bucket_size = 10 net.ipv4.cipso_cache_enable = 1 net.ipv4.cipso_rbm_optfmt = 0 net.ipv4.cipso_rbm_strictvalid = 1 net.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 1, 2020</span>
+        <a
+        href="/posts/linux/command/sysctl/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-11-07-session/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">会话保持</h5>
+        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">November 7, 2017</span>
+        <a
+        href="/posts/linux/2017-11-07-session/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-11-03-varnish/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">varnish</h5>
+        <p class="card-text post-summary">varnish.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">November 3, 2017</span>
+        <a
+        href="/posts/linux/2017-11-03-varnish/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-10-20-iptables/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux iptables</h5>
+        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">October 20, 2017</span>
+        <a
+        href="/posts/linux/2017-10-20-iptables/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-23-dns-bind/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">DNS 及 bind</h5>
+        <p class="card-text post-summary">DNS 及 bind.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
+DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 23, 2017</span>
+        <a
+        href="/posts/linux/2017-09-23-dns-bind/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+
+PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 17, 2017</span>
+        <a
+        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+    </div>
+    <div class="paginator">
+      
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/linux/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/linux/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/linux/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/linux/page/3/">3</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/linux/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/linux/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+    <script src="/assets/js/list.js"></script>
+
+  </body>
+</html>

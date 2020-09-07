@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on blog</title>
+    <link>https://blog.zybz.fun/tags/nginx/</link>
+    <description>Recent content in Nginx on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LNMP</title>
+      <link>https://blog.zybz.fun/posts/webserver/nginx/2017-10-25-lnmp/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/webserver/nginx/2017-10-25-lnmp/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+    <item>
+      <title>Nginx 服务器的安装与配置</title>
+      <link>https://blog.zybz.fun/posts/webserver/nginx/2017-10-27-nginx/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/webserver/nginx/2017-10-27-nginx/</guid>
+      <description>Untitled.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</description>
+    </item>
+    
+  </channel>
+</rss>

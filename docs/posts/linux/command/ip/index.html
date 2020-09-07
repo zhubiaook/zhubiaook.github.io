@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ip</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="ip" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/">Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/command/">Command</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>September 2, 2020</p>
+        </div>
+
+        <div class="title">
+          <h1>ip</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <h2 id="语法">语法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> OBJECT <span style="color:#f92672">{</span>COMMAND | help<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>OBJECT</p>
+</blockquote>
+<ul>
+<li>
+<p>link, l: 网络设备</p>
+</li>
+<li>
+<p>address, a:  网络协议（IP, IPv6）地址</p>
+</li>
+<li>
+<p>route, r: 路由表</p>
+</li>
+<li>
+<p>addrlabel, addrl: Label configuration for protocol address selection</p>
+</li>
+<li>
+<p>neighbour, n: ARP or NDISC cache entry.</p>
+</li>
+<li>
+<p>rule, ru: Rule in routing policy database</p>
+</li>
+<li>
+<p>tunnel, t: Tunnel over IP</p>
+</li>
+</ul>
+<blockquote>
+<p>帮助</p>
+</blockquote>
+<ul>
+<li>
+<p>ip help</p>
+</li>
+<li>
+<p>ip OBJECT help</p>
+</li>
+<li>
+<p>ip OBJECT COMMAND help</p>
+</li>
+</ul>
+<h2 id="示例">示例</h2>
+<h3 id="ip-link">ip link</h3>
+<p><strong>创建网络设备</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link add <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span> DEVICE type TYPE
+</code></pre></div><blockquote>
+<p>TYPE</p>
+</blockquote>
+<ul>
+<li>
+<p>vlan</p>
+</li>
+<li>
+<p>veth: 虚拟网卡，成对出现，一端连接协议栈，另外一端和另外一个相连</p>
+</li>
+<li>
+<p>bridge：虚拟网桥</p>
+</li>
+<li>
+<p>vxlan</p>
+</li>
+</ul>
+<p>创建虚拟网卡<code>veth</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link add name veth0 type veth peer name veth1
+</code></pre></div><p>创建虚拟网桥<code>bridge</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link add name br0 type bridge
+</code></pre></div><p><strong>启动/停止网络设备</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link set dev DEVICE up|down
+</code></pre></div><p><strong>修改<em>txqueuelen</em>大小</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link set txqueuelen <span style="color:#ae81ff">1000</span> dev eth0
+</code></pre></div><p><strong>修改MTU大小</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip link set mtu <span style="color:#ae81ff">9000</span> dev eth0
+</code></pre></div><h3 id="ip-address">ip address</h3>
+<p><strong>查看网卡信息</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip a show
+</code></pre></div><p><strong>Assigns the IP address to the interface</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip a add IP/mask dev INTERFACE
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip a add 192.168.0.32/24 dev eth0
+</code></pre></div><h3 id="ip-route">ip route</h3>
+<p><strong>查看路由表</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route 
+</code></pre></div><p><strong>增加网关地址</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route add default via 192.168.0.1
+</code></pre></div><p><strong>增加路由条目</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route add 172.19.0.0/24 dev eth0
+</code></pre></div><p>或使用下一跳地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route add 172.19.0.0/24 via 172.19.0.200
+</code></pre></div><h3 id="ip-neigh">ip neigh</h3>
+<p>** 查看ARP缓存**</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip n show
+</code></pre></div><p>** 增加ARP缓存**</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip n add IP lladdr MAC dev DEVICE nud STATE
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip neigh add 192.168.1.5 lladdr 00:1a:30:38:a8:00 dev eth0 nud perm
+</code></pre></div><h2 id="net-tools-与-iproute-包命令对比"><code>net-tools</code> 与 <code>iproute</code> 包命令对比</h2>
+<table>
+<thead>
+<tr>
+<th>Old command (Deprecated)</th>
+<th>New command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ifconfig -a</td>
+<td>ip a</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0 down</td>
+<td>ip link set enp6s0 down</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0 up</td>
+<td>ip link set enp6s0 up</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0 192.168.2.24</td>
+<td>ip addr add 192.168.2.24/24 dev enp6s0</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0 netmask 255.255.255.0</td>
+<td>ip addr add 192.168.1.1/24 dev enp6s0</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0 mtu 9000</td>
+<td>ip link set enp6s0 mtu 9000</td>
+</tr>
+<tr>
+<td>ifconfig enp6s0:0 192.168.2.25</td>
+<td>ip addr add 192.168.2.25/24 dev enp6s0</td>
+</tr>
+<tr>
+<td>netstat</td>
+<td>ss</td>
+</tr>
+<tr>
+<td>netstat -tulpn</td>
+<td>ss -tulpn</td>
+</tr>
+<tr>
+<td>netstat -neopa</td>
+<td>ss -neopa</td>
+</tr>
+<tr>
+<td>netstat -g</td>
+<td>ip maddr</td>
+</tr>
+<tr>
+<td>route</td>
+<td>ip r</td>
+</tr>
+<tr>
+<td>route add -net 192.168.2.0 netmask 255.255.255.0 dev enp6s0</td>
+<td>ip route add 192.168.2.0/24 dev enp6s0</td>
+</tr>
+<tr>
+<td>route add default gw 192.168.2.254</td>
+<td>ip route add default via 192.168.2.254</td>
+</tr>
+<tr>
+<td>arp -a</td>
+<td>ip neigh</td>
+</tr>
+<tr>
+<td>arp -v</td>
+<td>ip -s neigh</td>
+</tr>
+<tr>
+<td>arp -s 192.168.2.33 1:2:3:4:5:6</td>
+<td>ip neigh add 192.168.3.33 lladdr 1:2:3:4:5:6 dev enp6s0</td>
+</tr>
+<tr>
+<td>arp -i enp6s0 -d 192.168.2.254</td>
+<td>ip neigh del 192.168.2.254 dev wlp7s0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考文档">参考文档</h2>
+<p><a href="https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/#2">Linux ip Command Examples - nixCraft</a></p>
+
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io/edit/master/content/posts%5cLinux%5cCommand%5cip.md">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/container/network/tun_tap/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>Linux虚拟网络设备TUN/TAP</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/linux/command/sysctl/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>sysctl</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#示例">示例</a>
+          <ul>
+            <li><a href="#ip-link">ip link</a></li>
+            <li><a href="#ip-address">ip address</a></li>
+            <li><a href="#ip-route">ip route</a></li>
+            <li><a href="#ip-neigh">ip neigh</a></li>
+          </ul>
+        </li>
+        <li><a href="#net-tools-与-iproute-包命令对比"><code>net-tools</code> 与 <code>iproute</code> 包命令对比</a></li>
+        <li><a href="#参考文档">参考文档</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

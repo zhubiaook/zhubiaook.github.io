@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文件查找 on blog</title>
+    <link>https://blog.zybz.fun/tags/%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</link>
+    <description>Recent content in 文件查找 on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/tags/%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>文件查找 locate &amp; find</title>
+      <link>https://blog.zybz.fun/posts/linux/2017-08-01-find/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/2017-08-01-find/</guid>
+      <description>文件查找(find， locate)文件查找(find， locate)在Linux文件系统中快速、准确的搜索到自己想要的文件是运维人员的一项基本能力
+在Linux系统中主要使用find和locate来查找文件，两者的区别如下
+locate 基于数据库索引进行查找，查找文件速度快，是模糊查询，查找不够精确，同时数据库自动更新周期为每天一次，导致不能实时查找，可以通过手动更新数据库来达到实时查找，不过更新数据库将会搜索整个磁盘，耗费系统资源，当系统繁忙时是一件危险的操作。find 命令选项特别多，可以根据各种条件精确查找文件，通过搜索磁盘进行查找，属于实时查找，由于搜索磁盘，速度比locate慢。locatelocate [options] keyword locate 查找包含关键词或正则表达式匹配的文件路径或文件名，然后输出文件的完整路径，所查找的文件需具有读、执行权限。
+常用选项
+-i | –ignore-cate #查找文件时忽略大小写 -r | –regexp REGEXP #使用基本正则表达式匹配文件路径 -n NUM #输出搜索到的前N个匹配的路径
+实例
+查找家目录下面包含.txt的文件[centos7@root math]# locate ~/*.txt
+/root/1.txt
+/root/3.txt
+/root/dest.txt
+/root/destination.txt
+/root/passwd.txt
+/root/shadown.txt
+/root/source.txt
+查找/etc/目录下面结尾包含config，且路或文件名中包含数字的文件locate -r &#34;/etc/.*[[:digit:]]\+.*config$&#34; &amp;lt;=使用正则表达式进行匹配
+/etc/dconf/db/distro.d/10-authconfig
+/etc/selinux/targeted/active/modules/100/authconfig
+/etc/setuptool.d/98netconfig
+/etc/setuptool.d/99authconfig
+/etc/setuptool.d/99kbdconfig
+/etc/setuptool.d/99mouseconfig
+/etc/setuptool.d/99sndconfig
+/etc/setuptool.d/99timeconfig
+/etc/sysconfig/ip6tables-config
+查找家目录下以m开头的文件，忽略大小写[centos7@root math]# locate -i ~/m &amp;lt;= -i忽略大小写</description>
+    </item>
+    
+  </channel>
+</rss>

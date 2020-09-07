@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/">Linux</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>January 1, 0001</p>
+        </div>
+
+        <div class="title">
+          <h1></h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <h1 id="v-on-事件处理">v-on 事件处理</h1>
+<blockquote>
+<p>可以用 <code>v-on</code> 指令监听DOM事件，当事件触发时，执行JavaScript代码</p>
+</blockquote>
+<h2 id="参考文档">参考文档</h2>
+<p><a href="http://www.imooc.com/wiki/vuelesson/vueevents.html">http://www.imooc.com/wiki/vuelesson/vueevents.html</a></p>
+<h2 id="基本使用">基本使用</h2>
+<h3 id="js直接写在模板中">JS直接写在模板中</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">JS代码直接写在模板中</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on</span><span style="color:#f92672">:</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;count += 1&#34;</span>&gt;<span style="color:#a6e22e">click</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      <span style="color:#a6e22e">数量</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">count</span> }}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+          <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        }
+      }
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="不带参数方法">不带参数方法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">使用方法</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on:click</span><span style="color:#e6db74">=&#34;add&#34;</span>&gt;<span style="color:#a6e22e">click</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      <span style="color:#a6e22e">数量</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">count</span> }}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+          <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        }
+      },
+      
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">add</span>() {
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+        }
+      },
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="带参数方法">带参数方法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">使用方法</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on:click</span><span style="color:#e6db74">=&#34;add(10)&#34;</span>&gt;<span style="color:#a6e22e">click</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      <span style="color:#a6e22e">数量</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">count</span> }}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+          <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        }
+      },
+      
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">num</span>) {
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">num</span>;
+        }
+      },
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="传送event事件">传送event事件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">使用方法</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on</span><span style="color:#f92672">:</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add(10, $event)&#34;</span>&gt;<span style="color:#a6e22e">click</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      <span style="color:#a6e22e">数量</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">count</span> }}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+          <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        }
+      },
+      
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">num</span>, <span style="color:#a6e22e">event</span>) {
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">num</span>;
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">event</span>)
+        }
+      },
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="事件修饰符">事件修饰符</h2>
+<blockquote>
+<ol>
+<li>.stop: 阻止单击事件继续传播；</li>
+<li>.prevent: 只有修饰符，提交事件不再重载页面。</li>
+<li>.capture: 添加事件监听器时使用事件捕获模式，即元素自身触发的事件先在自身处理，然后交由内部元素进行处理；</li>
+<li>.self: 只有在event.target是当前元素自身时触发处理函数，即事件不是从内部元素触发的；</li>
+<li>.once: 点击事件将只触发一次</li>
+<li>.passive: 滚动事件会立即触发，不会等待其他串联事件。即prevent会失效。</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#f92672">&lt;!</span><span style="color:#a6e22e">DOCTYPE</span> <span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+  &lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">stop</span> <span style="color:#a6e22e">案例</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">div</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;clickTargetContainer&#34;</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click.stop</span><span style="color:#e6db74">=&#34;clickTargetA&#34;</span>&gt;<span style="color:#a6e22e">点我</span> <span style="color:#a6e22e">stop</span> <span style="color:#a6e22e">案例</span>&lt;/<span style="color:#f92672">button</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;clickTargetA&#34;</span>&gt;<span style="color:#a6e22e">点我</span> <span style="color:#a6e22e">无</span> <span style="color:#a6e22e">stop</span> <span style="color:#a6e22e">修饰</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+
+      <span style="color:#960050;background-color:#1e0010">&lt;!--</span> <span style="color:#a6e22e">submit.prevent</span> <span style="color:#a6e22e">案例</span> <span style="color:#960050;background-color:#1e0010">--</span>&gt;
+      &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;get&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">@submit.prevent</span><span style="color:#e6db74">=&#34;submit&#34;</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;<span style="color:#a6e22e">点我提交表单</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">form</span>&gt;
+
+      &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;get&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.baidu.com&#34;</span> <span style="color:#f92672">@submit</span><span style="color:#e6db74">=&#34;submit&#34;</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;<span style="color:#a6e22e">点我提交表单</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">form</span>&gt;
+
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">capture</span> <span style="color:#a6e22e">案例</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on:click.capture</span><span style="color:#e6db74">=&#34;capture&#34;</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click.stop</span><span style="color:#e6db74">=&#34;clickTargetA&#34;</span>&gt;<span style="color:#a6e22e">点我</span> <span style="color:#a6e22e">capture</span> <span style="color:#a6e22e">案例</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+
+      <span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">self</span> <span style="color:#a6e22e">案例</span> <span style="color:#f92672">--&gt;</span>
+      &lt;<span style="color:#f92672">div</span> <span style="color:#f92672">@click.self</span><span style="color:#e6db74">=&#34;clickTargetContainer&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding: 20px;border: 1px solid #cccccc;&#34;</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;clickTargetA&#34;</span>&gt;<span style="color:#a6e22e">点我</span> <span style="color:#a6e22e">self</span> <span style="color:#a6e22e">案例</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+
+      <span style="color:#960050;background-color:#1e0010">&lt;!--</span> <span style="color:#a6e22e">once</span> <span style="color:#a6e22e">案例</span> <span style="color:#960050;background-color:#1e0010">--</span>&gt;
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click.once</span><span style="color:#e6db74">=&#34;clickTargetA&#34;</span>&gt;<span style="color:#a6e22e">点我</span> <span style="color:#a6e22e">once</span> <span style="color:#a6e22e">案例</span>&lt;/<span style="color:#f92672">button</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#app&#39;</span>,
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">clickTargetContainer</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;父级容器点击事件触发&#39;</span>)
+        },
+        <span style="color:#a6e22e">clickTargetA</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;按钮标签点击事件触发&#39;</span>)
+        },
+        <span style="color:#a6e22e">submit</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;提交表单了&#39;</span>)
+        },
+        <span style="color:#a6e22e">capture</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;虽然你点击的是内部元素，但是我先触发！&#39;</span>)
+        }
+      }
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="按键修饰符">按键修饰符</h2>
+<blockquote>
+<ol>
+<li>.enter: 回车键；</li>
+<li>.tab: TAB键；</li>
+<li>.delete: 删除和退格键；</li>
+<li>.esc: 只有在event.终止键；</li>
+<li>.space: 删除键；</li>
+<li>.up: 上方向键：</li>
+<li>.down: 下方向键：</li>
+<li>.left: 左方向键：</li>
+<li>.right: 右方向键：</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@keyup.enter</span><span style="color:#e6db74">=&#34;clickA&#34;</span>&gt;<span style="color:#a6e22e">enter</span>&lt;/<span style="color:#f92672">button</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">clickA</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;hello&#34;</span>)
+        }
+      },
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="系统按键修饰符">系统按键修饰符</h2>
+<blockquote>
+<ol>
+<li>.ctrl:</li>
+<li>.alt:</li>
+<li>.shift:</li>
+<li>.meta: 在 Mac 系统键盘上，meta 对应 command 键 (⌘)。在 Windows 系统键盘 meta 对应 Windows 徽标键 (⊞)</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click.ctrl</span><span style="color:#e6db74">=&#34;clickA&#34;</span>&gt;<span style="color:#a6e22e">enter</span>&lt;/<span style="color:#f92672">button</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+      <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+      <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">clickA</span>() {
+          <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;hello&#34;</span>)
+        }
+      },
+    })
+  &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div>
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io/edit/master/content/posts%5cv-on%20%e4%ba%8b%e4%bb%b6%e5%a4%84%e7%90%86.md">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/v-model-%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A-/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span></span>
+        </a>
+      </div>
+      
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#v-on-事件处理">v-on 事件处理</a>
+      <ul>
+        <li><a href="#参考文档">参考文档</a></li>
+        <li><a href="#基本使用">基本使用</a>
+          <ul>
+            <li><a href="#js直接写在模板中">JS直接写在模板中</a></li>
+            <li><a href="#不带参数方法">不带参数方法</a></li>
+            <li><a href="#带参数方法">带参数方法</a></li>
+            <li><a href="#传送event事件">传送event事件</a></li>
+          </ul>
+        </li>
+        <li><a href="#事件修饰符">事件修饰符</a></li>
+        <li><a href="#按键修饰符">按键修饰符</a></li>
+        <li><a href="#系统按键修饰符">系统按键修饰符</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>
