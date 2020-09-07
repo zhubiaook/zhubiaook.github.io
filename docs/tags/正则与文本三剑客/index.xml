@@ -1,39 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>正则与文本三剑客 on blog</title>
-    <link>https://blog.zybz.fun/tags/%E6%AD%A3%E5%88%99%E4%B8%8E%E6%96%87%E6%9C%AC%E4%B8%89%E5%89%91%E5%AE%A2/</link>
-    <description>Recent content in 正则与文本三剑客 on blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.zybz.fun/tags/%E6%AD%A3%E5%88%99%E4%B8%8E%E6%96%87%E6%9C%AC%E4%B8%89%E5%89%91%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>文本三剑客之 awk</title>
-      <link>https://blog.zybz.fun/posts/linux/2017-09-06-awk/</link>
-      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.zybz.fun/posts/linux/2017-09-06-awk/</guid>
-      <description>文本三剑客之 awk.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
-    </item>
-    
-    <item>
-      <title>文本三剑客之 grep</title>
-      <link>https://blog.zybz.fun/posts/linux/2017-07-27-grep/</link>
-      <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.zybz.fun/posts/linux/2017-07-27-grep/</guid>
-      <description>文本三剑客之 grep文本三剑客之 grep正则表达式是一钟特殊的字符串模式，用于匹配一组字符串，正则表达式的宗旨是文本资源为我所用。正则表达式是vim, grep, sed, awk等重多强大文本处理工具的重要组成部分。正则表达式因”坑”多而闻名，其实是对正则的掌握不到位所致。各工具中正则的语法有所差别，我们将介绍在Linux系统上处理文本的三个重要工具grep, sed, awk。 本文首先介绍grep
-grep, sed, awk
-grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析处理正则表达式分类 在Linux系统中，正则表达式分为两类：
-基本正则表达式扩展正则正则表达式正则表达式的组成 正则表达式一般由匹配字符，次数控制字符，位置控制字符，分组字符，普通字符组成，除了普通字符外的字符都叫元字符，元字符不再表示字符字面意义，而表示控制或通配功能。
-基本正则表达式字符匹配
-用来表示通配功能
-字符作用.匹配任意单个字符[]匹配指定范围内的任意单个字符[:lower:]匹配小写字母, 同a-z，但与匹配路径的通配符不一样喔[:upper:]匹配大写字母，同A_Z[:alph:]匹配所有大小写字母，同a-z,A-Z[:digit:]匹配数字，同0-9[:xdigit:]匹配十六进制数字[:alphnum:]匹配所有字母和数字, 同a-z,A-Z,0-9[:blank:]匹配空白字符(空格和制表符)[:space:]匹配水平或垂直空白字符(比[:blank:]包含的范围广)[:cntrl:]匹配不可打印的控制字符(退格、删除等)[:print:]匹配可打印字符[:punct:]匹配标点符号[:graph:]匹配可打印的非空白字符匹配次数</description>
-    </item>
-    
-  </channel>
-</rss>
