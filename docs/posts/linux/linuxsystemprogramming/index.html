@@ -156,6 +156,31 @@
   
     
     <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
       <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
       
       <ul class="">
@@ -374,53 +399,6 @@
       
       
         <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">file_io_management</h5>
-        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
-/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 7, 2020</span>
-        <a
-        href="/posts/linux/linuxsystemprogramming/file_io_management/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">process_management</h5>
-        <p class="card-text post-summary">创建并运行新进程 fork(), execl, execv /* * 获取进程 pid: int getpid(); * 获取父进程 pid: int getppid(); * 运行新进程: int execl(char *path, char *arg, ...); * 创建新进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } pid: 22190, child_pid: 22191 pid: 22191, parent_pid: 22190  /* * int execl(char *path, char *arg, .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 7, 2020</span>
-        <a
-        href="/posts/linux/linuxsystemprogramming/process_management/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -448,6 +426,30 @@
 
       
         <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件IO管理</h5>
+        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_io_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/file_and_directory_management/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -461,6 +463,34 @@
         <span class="float-left">September 7, 2020</span>
         <a
         href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">进程管理</h5>
+        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
+execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
+exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
+getpid(): 获取当前进程PID
+getppid(): 获取父进程PID
+ /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_management/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

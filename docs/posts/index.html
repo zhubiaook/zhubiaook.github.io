@@ -156,6 +156,31 @@
   
     
     <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
       <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
       
       <ul class="">
@@ -396,43 +421,21 @@
 
       
         <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+  <a href="/posts/container/namespaceandcgroup/namespace/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
-        <h5 class="card-title">file_io_management</h5>
-        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
-/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+        <h5 class="card-title">namespace</h5>
+        <p class="card-text post-summary">参考文档 Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否
+Docker背后的内核知识——Namespace资源隔离-InfoQ
+修改主机名 /* * int gethostname(char *name, int len); * int sethostname(char *name, int len); * 获取，设定主机名 */ #include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main() { int ret; ret = sethostname(&#34;Slynxes&#34;, 8); if(ret == -1) perror(&#34;sethostname&#34;); } UTS隔离 #define _GNU_SOURCE #include &lt;sys/types.h&gt;#include &lt;sys/wait.h&gt;#include &lt;stdio.h&gt;#include &lt;sched.h&gt;#include &lt;signal.h&gt;#include &lt;unistd.h&gt; #define STACK_SIZE (1024 * 1024)  static char child_stack[STACK_SIZE]; int child_process() { printf(&#34;start child process ...\n&#34;); /* 设置新的主机名 */ sethostname(&#34;NewName&#34;, 7); /* 当前进程执行新的程序bash */ execl(&#34;/bin/bash&#34;, &#34;bash&#34;, NULL); /* 后面的程序将不会再执行，被bash程序取代，直到bash退出，该子进程执行完毕 */ /* 子函数退出时返回的数据 */ return 1; } int main(void) { int pid; printf(&#34;start process\n&#34;); /* CLONE_NEWUTS: UTS隔离*/ pid = clone(child_process, // 子进程执行的函数  child_stack + STACK_SIZE, // 初始栈地址指向高位，因为栈是从高位向地位增长  CLONE_NEWUTS | SIGCHLD, NULL); // SIGCHLD与Namespace没关系，是子进程推出后返回给父进程的信号量  /* 父进程继续执行后面的程序，子进程去执行child_process子函数，不再执行后面的程序 */ waitpid(pid, NULL, 0); printf(&#34;process stopped\n&#34;); } 上面的程序指向流程：</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
         <a
-        href="/posts/linux/linuxsystemprogramming/file_io_management/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">process_management</h5>
-        <p class="card-text post-summary">创建并运行新进程 fork(), execl, execv /* * 获取进程 pid: int getpid(); * 获取父进程 pid: int getppid(); * 运行新进程: int execl(char *path, char *arg, ...); * 创建新进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } pid: 22190, child_pid: 22191 pid: 22191, parent_pid: 22190  /* * int execl(char *path, char *arg, .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 7, 2020</span>
-        <a
-        href="/posts/linux/linuxsystemprogramming/process_management/"
+        href="/posts/container/namespaceandcgroup/namespace/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -470,6 +473,30 @@
 
       
         <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件IO管理</h5>
+        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_io_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/file_and_directory_management/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -483,6 +510,34 @@
         <span class="float-left">September 7, 2020</span>
         <a
         href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">进程管理</h5>
+        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
+execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
+exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
+getpid(): 获取当前进程PID
+getppid(): 获取父进程PID
+ /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_management/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -655,29 +710,6 @@ git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t 
         <span class="float-left">December 4, 2017</span>
         <a
         href="/posts/autoops/2017-12-04-ansible_web_cluster/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/autoops/2017-11-25-puppet_standalone/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Puppet 基础语法</h5>
-        <p class="card-text post-summary">Puppet 基础语法.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 25, 2017</span>
-        <a
-        href="/posts/autoops/2017-11-25-puppet_standalone/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

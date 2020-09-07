@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NamespaceAndCgroup on blog</title>
+    <link>https://blog.zybz.fun/posts/container/namespaceandcgroup/</link>
+    <description>Recent content in NamespaceAndCgroup on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/posts/container/namespaceandcgroup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>namespace</title>
+      <link>https://blog.zybz.fun/posts/container/namespaceandcgroup/namespace/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/container/namespaceandcgroup/namespace/</guid>
+      <description>参考文档 Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否
+Docker背后的内核知识——Namespace资源隔离-InfoQ
+修改主机名 /* * int gethostname(char *name, int len); * int sethostname(char *name, int len); * 获取，设定主机名 */ #include &amp;lt;unistd.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main() { int ret; ret = sethostname(&amp;#34;Slynxes&amp;#34;, 8); if(ret == -1) perror(&amp;#34;sethostname&amp;#34;); } UTS隔离 #define _GNU_SOURCE #include &amp;lt;sys/types.h&amp;gt;#include &amp;lt;sys/wait.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;sched.h&amp;gt;#include &amp;lt;signal.h&amp;gt;#include &amp;lt;unistd.h&amp;gt; #define STACK_SIZE (1024 * 1024)  static char child_stack[STACK_SIZE]; int child_process() { printf(&amp;#34;start child process ...\n&amp;#34;); /* 设置新的主机名 */ sethostname(&amp;#34;NewName&amp;#34;, 7); /* 当前进程执行新的程序bash */ execl(&amp;#34;/bin/bash&amp;#34;, &amp;#34;bash&amp;#34;, NULL); /* 后面的程序将不会再执行，被bash程序取代，直到bash退出，该子进程执行完毕 */ /* 子函数退出时返回的数据 */ return 1; } int main(void) { int pid; printf(&amp;#34;start process\n&amp;#34;); /* CLONE_NEWUTS: UTS隔离*/ pid = clone(child_process, // 子进程执行的函数  child_stack + STACK_SIZE, // 初始栈地址指向高位，因为栈是从高位向地位增长  CLONE_NEWUTS | SIGCHLD, NULL); // SIGCHLD与Namespace没关系，是子进程推出后返回给父进程的信号量  /* 父进程继续执行后面的程序，子进程去执行child_process子函数，不再执行后面的程序 */ waitpid(pid, NULL, 0); printf(&amp;#34;process stopped\n&amp;#34;); } 上面的程序指向流程：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,8 +9,6 @@ menu:
     parent: Linux.LinuxSystemProgramming
 ---
 
-
-
 # 文件及元数据
 
 ## 基本属性

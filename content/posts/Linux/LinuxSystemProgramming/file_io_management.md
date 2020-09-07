@@ -1,5 +1,5 @@
 ---
-title: "file_io_management"
+title: "文件IO管理"
 date: 2020-09-07
 hero: /assets/images/default-hero.jpg
 menu:
@@ -8,8 +8,6 @@ menu:
     identifier: "Linux.LinuxSystemProgramming.file_io_management.md"
     parent: Linux.LinuxSystemProgramming
 ---
-
-
 
 # 文件读写 - 系统调用
 

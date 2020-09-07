@@ -1,5 +1,5 @@
 ---
-title: "process_management"
+title: "进程管理"
 date: 2020-09-07
 hero: /assets/images/default-hero.jpg
 menu:
@@ -11,14 +11,24 @@ menu:
 
 # 创建并运行新进程
 
-## fork(), execl, execv
+## fork(), execl(), exit(), getpid(), getppid()
+
+>  `fork()`:  当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如`execl()` 来替换后续要执行的程序。
+> 
+> `execl()`: 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
+> 
+> `exit()`: 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
+> 
+> `getpid()`: 获取当前进程PID
+> 
+> `getppid()`: 获取父进程PID
 
 ```c
 /*
- * 获取进程 pid: int getpid();
- * 获取父进程 pid: int getppid();
- * 运行新进程: int execl(char *path, char *arg, ...);
- * 创建新进程: int fork();
+ * 获取当前进程pid: int getpid();
+ * 获取父进程pid: int getppid();
+ * 执行新的程序: int execl(char *path, char *arg, ...);
+ * 创建子进程: int fork();
  * 终止进程: void exit(int status);
  */
 
@@ -64,8 +74,14 @@ int main(void) {
 }
 ```
 
+输出
+
+```
     pid: 22190, child_pid: 22191
     pid: 22191, parent_pid: 22190
+```
+
+`execl, execlp, execle, execv, execvp` 
 
 ```c
 /*
@@ -101,6 +117,8 @@ wait(): 获取任意一个子进程退出信息
 waitpid(): 获取特定子进程退出信息
 ```
 
+wait
+
 ```c
 /*
  * int wait(int *status);
@@ -113,30 +131,38 @@ waitpid(): 获取特定子进程退出信息
 
 int main(void) {
     int status;
-    int pid;
+    int pid, wpid;
 
-    if(fork() == 0) {
-        execl("/usr/bin/sleep", "sleep", "100", NULL);
+    pid = fork();
+
+    if(pid == 0) {
+        execl("/usr/bin/sleep", "sleep", "10", NULL);
     }
 
-    pid = wait(&status);
-    printf("pid = %d\n", pid);
+    if(pid > 0) {
+        printf("pid: %d, child_pid: %d\n", pid, getpid());
 
-    if(WIFEXITED(status)) {
-        printf("Normal exit, status = %d\n", WEXITSTATUS(status));
-    }
+        wpid = wait(&status);
+        printf("wpid = %d\n", wpid);
 
-    if(WIFSIGNALED(status)) {
-        printf("killed by singnal = %d\n", WTERMSIG(status));
-    }
+        if(WIFEXITED(status)) {
+            printf("Normal exit, status = %d\n", WEXITSTATUS(status));
+        }
 
-    if(WIFSTOPPED(status)) {
-        printf("stopped by singnal = %d\n", WSTOPSIG(status));
+        if(WIFSIGNALED(status)) {
+            printf("killed by singnal = %d\n", WTERMSIG(status));
+        }
+
+        if(WIFSTOPPED(status)) {
+            printf("stopped by singnal = %d\n", WSTOPSIG(status));
+        }
     }
 
     return 0;
 }
 ```
+
+waitpid
 
 ```c
 /*
@@ -164,277 +190,19 @@ int main(void) {
 }
 ```
 
-# namespace 资源隔离
+## clone
 
-[参考文档](https://www.infoq.cn/article/docker-kernel-knowledge-namespace-resource-isolation)
-
-## 修改主机名
-
-```c
-/*
- * int gethostname(char *name, int len);
- * int sethostname(char *name, int len);
- * 获取，设定主机名
- */
-
-#include <unistd.h>
-#include <stdio.h>
-
-int main() {
-    int ret;
-    ret = sethostname("Slynxes", 8);
-    if(ret == -1)
-        perror("sethostname");
-}
-```
-
-    /tmp/tmpv5vcf9jj.c: In function ‘main’:
-    /tmp/tmpv5vcf9jj.c:12:5: warning: implicit declaration of function ‘sethostname’ [-Wimplicit-function-declaration]
-         ret = sethostname("Slynxes", 8);
-         ^
-    sethostname: Operation not permitted
-
-## UTS隔离
+> `clone()` 与 `fork()` 类似，都是用来创建新进程，不同之处在于：
+> 
+> `forck()`创建的子进程仍然继续运行调用点后面的程序
+> 
+> `clone()` 创建的子进程不再执行调用点后面的程序，转而去执行参数中func指定的函数
 
 ```c
-#define _GNU_SOURCE
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <sched.h>
-#include <signal.h>
-#include <unistd.h>
-
-#define STACK_SIZE (1024 * 1024)
-
-static char child_stack[STACK_SIZE];
-
-int child_process() {
-    printf("start child process ...\n");   
-    /* 设置新的主机名 */
-    sethostname("NewName", 7);
-    execl("/bin/bash", "bash", NULL);
-    return 1;
-}
-
-int main(void) {
-    int pid;
-
-    printf("start process\n");   
-    /* CLONE_NEWUTS: UTS隔离*/
-    pid = clone(child_process, child_stack + STACK_SIZE, CLONE_NEWUTS | SIGCHLD, NULL);
-    waitpid(pid, NULL, 0);
-    printf("process stopped\n");
-}
+int clone(int (*func)(void *), void *child_stack, int flags)
 ```
 
-## IPC 隔离
 
-```c
-/*
- * 子进程收不到父进程中的信号量等
- * 父进程中执行：ipcmk -Q, 子进程中执行: ipcs将查看不到
- */
-#define _GNU_SOURCE
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <sched.h>
-#include <signal.h>
-#include <unistd.h>
-
-#define STACK_SIZE (1024 * 1024)
-
-static char child_stack[STACK_SIZE];
-
-int child_process() {
-    printf("start child process ...\n");
-    sethostname("NewName", 7);
-    execl("/bin/bash", "bash", NULL);
-    return 1;
-}
-
-int main(void) {
-    int pid;
-
-    printf("start process\n");
-    /* CLONE_NEWIPC: IPC隔离*/
-    pid = clone(child_process, child_stack + STACK_SIZE, CLONE_NEWIPC | CLONE_NEWUTS | SIGCHLD, NULL);
-    waitpid(pid, NULL, 0);
-    printf("process stopped\n");
-}
-```
-
-## PID隔离
-
-```c
-/*
- * 进入子进程后执行命令：echo $$， 会发现当前进程ID为1
- */
-
-#define _GNU_SOURCE
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <sched.h>
-#include <signal.h>
-#include <unistd.h>
-
-#define STACK_SIZE (1024 * 1024)
-
-static char child_stack[STACK_SIZE];
-
-int child_process() {
-    printf("start child process ...\n");
-    sethostname("NewName", 7);
-    execl("/bin/bash", "bash", NULL);
-    return 1;
-}
-
-int main(void) {
-    int pid;
-
-    printf("start process\n");
-    /* NEW_PID: PID隔离 */
-    pid = clone(child_process, child_stack + STACK_SIZE, CLONE_NEWPID | CLONE_NEWIPC | CLONE_NEWUTS | SIGCHLD, NULL);
-    waitpid(pid, NULL, 0);
-    printf("process stopped\n");
-}
-```
-
-### 挂载proc
-
-经过上面的隔离，你会发现使用ps, top命令仍然可以看到父进程中namespace空间中的进程信息，这是因为文件系统还没有隔离，这些命令查询的是父进程/proc目录下的文件。
-
-```
-# 重新挂载proc
-mount -t proc proc /proc
-
-# 此时再使用ps等进程查看命令，就只有子namespce空间中的进程信息了
-```
-
-## Mount隔离
-
-```c
-#define _GNU_SOURCE
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <sched.h>
-#include <signal.h>
-#include <unistd.h>
-
-#define STACK_SIZE (1024 * 1024)
-
-static char child_stack[STACK_SIZE];
-
-int child_process() {
-    printf("start child process ...\n");
-    sethostname("NewName", 7);
-    execl("/bin/bash", "bash", NULL);
-    return 1;
-}
-
-int main(void) {
-    int pid;
-
-    printf("start process\n");
-    /* CLONE_NEWNS: Mount隔离 */
-    pid = clone(child_process, child_stack + STACK_SIZE, CLONE_NEWNS | CLONE_NEWPID | CLONE_NEWIPC | CLONE_NEWUTS | SIGCHLD, NULL);
-    waitpid(pid, NULL, 0);
-    printf("process stopped\n");
-}
-```
-
-## User隔离
-
-```c
-#define _GNU_SOURCE
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <sched.h>
-#include <signal.h>
-#include <unistd.h>
-#define STACK_SIZE (1024 * 1024)
-
-static char child_stack[STACK_SIZE];
-
-void set_uid_map(int pid, int inside_id, int outside_id, int length) {
-    char path[256];
-    sprintf(path, "/proc/%d/uid_map", getpid());
-    FILE* uid_map = fopen(path, "w");
-    fprintf(uid_map, "%d %d %d", inside_id, outside_id, length);
-    fclose(uid_map);
-}
-
-void set_gid_map(int pid, int inside_id, int outside_id, int length) {
-    char path[256];
-    sprintf(path, "/proc/%d/gid_map", getpid());
-    FILE* gid_map = fopen(path, "w");
-    fprintf(gid_map, "%d %d %d", inside_id, outside_id, length);
-    fclose(gid_map);
-}
-
-
-int child_process() {
-    printf("start child process ...\n");
-    set_uid_map(getpid(), 0, 1000, 1);
-    set_gid_map(getpid(), 0, 1000, 1);
-    printf("EUID: %d, EGID: %d\n", geteuid(), getegid());
-    sethostname("NewName", 7);
-    execl("/bin/bash", "bash", NULL);
-    return 1;
-}
-
-int main(void) {
-    int pid;
-
-    printf("start process\n");
-    /* CLONE_NEWUSER: USER隔离 */
-    pid = clone(child_process, child_stack + STACK_SIZE, CLONE_NEWUSER | SIGCHLD, NULL);
-    waitpid(pid, NULL, 0);
-    printf("process stopped\n");
-    return 0;
-}
-```
-
-# 用户ID和组ID
-
-进程相关的uid, gid
-
-```
-uid/ruid, gid/rgid: 运行进程的用户和组
-euid, egid: 进程当前的uid和gid, 决定进程能够获取到哪些系统资源
-saved uid, saved gid: 进程原有的有效用户uid,gid
-```
-
-```c
-/*
- * 修改用户真实uid，gid: int setuid(int uid); int setgid(int gid);
- * 修改用户有效euid, egid: int seteuid(int uid), int setegid(int egid);
- * 获取uid, gid: int getuid(); int getgid();
- */
-
-#include <unistd.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
-int main(void) {
-    int status;
-    int pid;
-
-    // 修改真实用户uid为1001
-    setuid(1001);
-    printf("%d", getuid);    
-    if(fork() == 0) {
-        // 修改子进程用户有效uid为 1002
-
-        seteuid(1002);
-        execl("/usr/bin/sleep", "sleep", "100", NULL);
-    }
-```
 
 # 会话和进程组
 
