@@ -30,8 +30,10 @@
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_io_management/</guid>
-      <description>文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
-/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = open(&amp;#34;/opt/c/hello.txt&amp;#34;, O_RDONLY); if (fd == -1) perror(&amp;#34;Error&amp;#34;); else printf(&amp;#34;%d&amp;#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &amp;lt;sys/types.h&amp;gt;#include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = creat(&amp;#34;/opt/c/1.</description>
+      <description>文件读写 - 系统调用  int open(const char *name, int flags, mode_t mode);
+flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &amp;hellip;
+ #include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = open(&amp;#34;/opt/c/hello.txt&amp;#34;, O_RDONLY); if (fd == -1) perror(&amp;#34;Error&amp;#34;); else printf(&amp;#34;%d&amp;#34;, fd); }  int create(const char *name, mode_t mode);
+ #include &amp;lt;sys/types.h&amp;gt;#include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;fcntl.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int fd; fd = creat(&amp;#34;/opt/c/1.txt&amp;#34;, 0644); // 等同于  // fd = open(&amp;#34;/opt/c/1.txt&amp;#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);  return 0; }  int read(int fd, void *buf, int len);</description>
     </item>
     
     <item>
@@ -40,7 +42,8 @@
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.zybz.fun/posts/linux/linuxsystemprogramming/file_and_directory_management/</guid>
-      <description>文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { char *path = &amp;#34;/opt/c/1.txt&amp;#34;; struct stat sb; int ret; ret = stat(path, &amp;amp;sb); if(ret == -1) perror(&amp;#34;stat&amp;#34;); printf(&amp;#34;uid: %d&amp;#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &amp;lt;sys/stat.h&amp;gt;#include &amp;lt;stdio.h&amp;gt; int main(void) { int ret; ret = chmod(&amp;#34;/opt/c/1.</description>
+      <description>文件及元数据 基本属性  stat结构体
+ struct stat { dev_t st_dev; // ID of device containing file  ino_t st_ino; // inode number  mode_t st_mode; // permissions  nlink_t st_nlink; // number of hard link  uid_t st_uid; // user ID of owner  gid_t st_gid; // group ID of owner  dev_t st_rdev; // device ID  off_t st_size; // total size in bytes  blksize_t st_blksize; // blocksize for filesystem I/O  blkcnt_t st_blocks; // number of blocks allocated  time_t st_atime; // last access time  time_t st_mtime; // last modification time  time_t st_ctime; // last status change time }  int stat(const char *path, struct stat *buf);</description>
     </item>
     
     <item>

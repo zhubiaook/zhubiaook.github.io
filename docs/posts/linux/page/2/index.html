@@ -262,6 +262,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -272,6 +281,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -394,6 +412,59 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-23-dns-bind/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">DNS 及 bind</h5>
+        <p class="card-text post-summary">DNS 及 bind.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
+DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 23, 2017</span>
+        <a
+        href="/posts/linux/2017-09-23-dns-bind/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+
+PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 17, 2017</span>
+        <a
+        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-09-13-ssh-openssh/" class="post-card-link">
@@ -646,79 +717,6 @@ RAID-0 条带卷 strip, 将数据分割成chunk, 存在不同的硬盘中，写�
         <span class="float-left">August 11, 2017</span>
         <a
         href="/posts/linux/2017-08-11-raid/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-10-quota/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">磁盘配额 quota</h5>
-        <p class="card-text post-summary">磁盘配额 quota磁盘配额 quota对于多用户的Linux系统而言，磁盘空间总是很宝贵的，若某用户过度占用磁盘将影响其他用户的使用，若磁盘空间耗尽将会影响系统的正常运行。征对此种情况，我们可以通过磁盘配额限制普通用户最大能使用的磁盘空间。
-quota常用情况
-/home/ 限制家目录的空间httpd server 限制网站空间ftp server 限制网络共享空间mail server 限制邮件空间磁盘配额quota限制的方式
-通过属主限制 当用户添加了quota, 该用户创建的的文件所占的空间必须遵守限额规定。即对文件的属主生效。通过属组限制 当属组添加了quota，主组是该组的用户所创建的文件所占的空间必须遵守限额的规定。即对文件的属组生效。quota 限制方法
-限制block，磁盘容量，一般使用这种方式限制inode，创建文件的数量柔性劝导(soft)，硬性规定(hard)，宽限期限(grace period )
-柔性劝导(soft): 当磁盘空间使用超过soft（block/inode）规定的值时将在每次用户增加磁盘空间的时候均提醒用户，在未超过硬性规定值之前，不禁止用户增加使用空间。硬性规定(hard): 当磁盘空间超过硬性规定值之后，用户将无法再增加磁盘的使用空间。宽限期限(grace period ): 设置soft和hard的目的在于提前提醒用户空间将快使用完，而宽限期限是当用户使用的空间在soft和hard之间时，再增加日期的限定，当超过此日期(从超过soft的时间开始算起)，用户能使用的最大空间将是soft设定的值。实验这里的磁盘配额针对单独的分区做限制，默认新分区未启用磁盘限额的功能，我们需在挂载分区时添加磁盘配额特性，并启用该功能。其次还需在分区所挂载的目录下生成限额数据库(quota.user, quota.group 分别征对用户和用户的主组)，我们新建两个用户(user1, user2)和组(grp1)，将用户user1,user2的主组设定为grp1,然后对这两个用户和组添加quota磁盘空间限制，测试用户和组在启用配额的分区空间的限制
-第一步 配置实验环境关闭SELinux 不关闭SELinux，将无法生成磁盘配额数据库，所以我们这里将其关闭#停用SELinux
-[root@zhubiaook work]# setenforce 0
-#修改配置文件，禁止开机启动SELinux
-[root@zhubiaook work]# cat /etc/selinux/config | grep "^SELINUX="
-SELINUX=permissive
-创建用户和组#创建组grp1</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 10, 2017</span>
-        <a
-        href="/posts/linux/2017-08-10-quota/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-05-rpm-yum/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">源码安装 rpm &amp; yum</h5>
-        <p class="card-text post-summary">程序包管理: 源码安装 rpm & yum程序包管理: 源码安装 rpm &amp; yum操作系统上的程序都是程序员通过工具开发出来的，程序员直接编写的文本称为源码，计算机只能识别二进制文件，所以程序员编好的源码要能在计算机上运行需编译为二进制文件。
-通过源码来安装首先要部署好系统环境，然后将源码编译为二进制文件，然后再将二进制文件及运行该程序的一些配置文件放到指定的目录下，这对于没有编程经验的人来说是很痛苦的一件事。系统厂商为了解决编译所给客户带来的麻烦，在与我们相同的系统环境上完成编译，并将二进制文件，配置文件，程序安装默认路径，程序相关信息打包压缩到一个文件中，发布到网络上或光盘中提供给用户下载，用户只需要将该文件下载下来，用系统厂商提供的安装工具进行安装即可完成软件的部署。对于CentOS系统，给系统厂商给我们提供的编译好的程序是以.rpm结尾的压缩文件，安装工具有rpm和yum，两者的关系后文件介绍。
-源码安装在网络上有很多开源程序是通过源码的方式发布的，若此时又没有编译好的压缩包，或者未针对我们使用的系统编译的程序包，那我们只能自己下载源码，自己编译。
-我们以一个C语言编写的源码为例演示，程序开发、编译、运行的过程
-编译过程如下： 程序源码(hello.c) --预处理--&gt; 预处理程序(hello.i) --编译--&gt; 汇编程序(hello.s) --汇编--&gt; 目标程序--链接--&gt; 可执行文件
-首先安装好c语言编译工具gcc，gcc可以将源码一步就编译为可执行文件，但此处为了演示编译的过程，我们按上面的编译过程分步操作。
-[root-yum.repos.d] $ yum -y install gcc 上面是通过yum工具安装gcc编译工具，对于yum安装的方式后文介绍
-a. C语言源码 我们用C语言，打印一句经典的话”hello world!”
-[root-c] $ cat hello.c #include &lt;stdio.h&gt; //声明头文件
-int main() //程序入口
-{
-printf("hello world!\n"); //打印"hello world!"
-return 0;
-}
-b. 预处理 gcc中 -E选项是用来生成预处理程序
-[root-c] $ gcc -E hello.c -o hello.i
-[root-c] $ ls</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 5, 2017</span>
-        <a
-        href="/posts/linux/2017-08-05-rpm-yum/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

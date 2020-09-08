@@ -162,7 +162,7 @@ int main(void) {
 }
 ```
 
-waitpid
+>  `pid_t waitpid(pid_t pid, int wstatus, int options);`
 
 ```c
 /*
@@ -200,6 +200,51 @@ int main(void) {
 
 ```c
 int clone(int (*func)(void *), void *child_stack, int flags)
+```
+
+## 
+
+## setns(), unshare()
+
+> `#define _GNU_SOURCE`
+> `#include <sched.h>`
+> 
+> `setns(int fd, int nstype);`
+> 
+> 将当前进程加入到指定的namespace中，fd为进程描述符或路径
+
+> 
+> 
+> `#define _GNU_SOURCE`
+> 
+> `#include <sched.h>`
+> 
+> `unshare(int flags)` 
+> 
+> 退出当前Namespace，并加入新创建的Namespace
+> 
+> flags:
+> 
+> * CLONE_FILES
+> 
+> * CLONE_FS
+> 
+> * CLONE_NEWCGROUP
+> 
+> * CLONE_NEWIPC
+> 
+> * CLONE_NEWPID
+> 
+> * CLONE_NEWNET
+> 
+> * CLONE_NEWNS
+> 
+> * CLONE_NEWUSER
+> 
+> * CLONE_NEWUTS
+
+```c
+
 ```
 
 

@@ -267,6 +267,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -277,6 +286,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -422,14 +440,11 @@
 
         <div class="post-content" id="post-content">
           <h1 id="文件读写---系统调用">文件读写 - 系统调用</h1>
-<p>open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int open(const char *name, int flags);
-</span><span style="color:#75715e"> * int open(const char *name, int flags, mode_t mode);
-</span><span style="color:#75715e"> *   flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ...
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+<blockquote>
+<p><code>int open(const char *name, int flags, mode_t mode);</code></p>
+<p>flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
@@ -441,13 +456,10 @@
     <span style="color:#66d9ef">else</span>
         printf(<span style="color:#e6db74">&#34;%d&#34;</span>, fd);
 }
-</code></pre></div><pre><code>3
-</code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int create(const char *name, mode_t mode);
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>int create(const char *name, mode_t mode);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
@@ -460,11 +472,10 @@
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// fd = open(&#34;/opt/c/1.txt&#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int read(int fd, void *buf, int len);
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>int read(int fd, void *buf, int len);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
@@ -481,13 +492,10 @@
 
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre></div><pre><code>hello w
-</code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int write(int fd, const void *buf, int count);
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>int write(int fd, const void *buf, int count);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
@@ -787,7 +795,10 @@
 b. 读写映省去系统调用、上下文切换的开销
 c. 当多个进程将同一个对象映射到内存中共享时，数据在所有内存间共享
 d. 映射对象间搜索时，只是简单的指针操作，不需要系统调用lseek()
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</code></pre><blockquote>
+<p>mmap()</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * void * mmap(void, *addr, int len, int prot, int flags, int fd, int offset);
 </span><span style="color:#75715e">     调用成功返回内存映射的起始地址，失败返回-1
 </span><span style="color:#75715e">     addr: 告诉内核映射文件的最佳内存地址，不是强制性要求，传0由系统决定。
@@ -982,6 +993,10 @@ someting so beautiful
         </div>
       
     
+  
+
+  
+
   
 
   

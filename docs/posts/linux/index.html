@@ -262,6 +262,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -272,6 +281,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -396,6 +414,65 @@
       
       
         <div class="post-card">
+  <a href="/posts/linux/command/strace/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">strace</h5>
+        <p class="card-text post-summary"> strace 最简单的用法是，指定一个要执行的命令，命令结束后它也退出。在命令的执行过程中，strace会记录和解析命令进程的所有系统调用，和该进程收到的信号量。
+ 语法 strace [OPTIONS] COMMAND 示例 strace -o record.txt -f ls </p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 8, 2020</span>
+        <a
+        href="/posts/linux/command/strace/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/unshare/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">unshare</h5>
+        <p class="card-text post-summary"> 用于Linux Namespace，unshare 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
+ 语法 unshare [OPTIONS] COMMAND OPTIONS:
+  -m, &ndash;mount : CLONE_NEWNS
+  -u, &ndash;uts : CLONE_NEWUTS
+  -i, &ndash;ipc : CLONE_NEWIPC
+  -n, &ndash;net : CLONE_NEWNET
+  -p, &ndash;pid : CLONE_NEWPID
+  -U, &ndash;user : CLONE_NEWUSER
+  -f, &ndash;fork : 创建一个子进程执行COMMAND，而不是取代当前的进程
+  -r, &ndash;map-root-user : 必须有-U选项，新命名空间中的用户为root
+  &ndash;propagation slave|shared|private|unchanged : 挂载选项
+  示例 创建一个各命名空间都隔离的Namespace，行Namespace执行bash程序
+unshare -m -u -i -n -p -U -f -r --propagation slave /bin/bash </p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 8, 2020</span>
+        <a
+        href="/posts/linux/command/unshare/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -430,8 +507,10 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">文件IO管理</h5>
-        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
-/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+        <p class="card-text post-summary">文件读写 - 系统调用  int open(const char *name, int flags, mode_t mode);
+flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;
+ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); }  int create(const char *name, mode_t mode);
+ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.txt&#34;, 0644); // 等同于  // fd = open(&#34;/opt/c/1.txt&#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);  return 0; }  int read(int fd, void *buf, int len);</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -454,7 +533,8 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">文件和目录管理</h5>
-        <p class="card-text post-summary">文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { char *path = &#34;/opt/c/1.txt&#34;; struct stat sb; int ret; ret = stat(path, &amp;sb); if(ret == -1) perror(&#34;stat&#34;); printf(&#34;uid: %d&#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { int ret; ret = chmod(&#34;/opt/c/1.</p>
+        <p class="card-text post-summary">文件及元数据 基本属性  stat结构体
+ struct stat { dev_t st_dev; // ID of device containing file  ino_t st_ino; // inode number  mode_t st_mode; // permissions  nlink_t st_nlink; // number of hard link  uid_t st_uid; // user ID of owner  gid_t st_gid; // group ID of owner  dev_t st_rdev; // device ID  off_t st_size; // total size in bytes  blksize_t st_blksize; // blocksize for filesystem I/O  blkcnt_t st_blocks; // number of blocks allocated  time_t st_atime; // last access time  time_t st_mtime; // last modification time  time_t st_ctime; // last status change time }  int stat(const char *path, struct stat *buf);</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -652,59 +732,6 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
         <span class="float-left">October 20, 2017</span>
         <a
         href="/posts/linux/2017-10-20-iptables/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-09-23-dns-bind/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">DNS 及 bind</h5>
-        <p class="card-text post-summary">DNS 及 bind.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
-目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
-DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
-Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
-hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
-这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 23, 2017</span>
-        <a
-        href="/posts/linux/2017-09-23-dns-bind/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
-        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
-
-PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 17, 2017</span>
-        <a
-        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

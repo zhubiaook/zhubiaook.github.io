@@ -9,17 +9,15 @@ menu:
     parent: Linux.LinuxSystemProgramming
 ---
 
+
+
 # 文件读写 - 系统调用
 
-open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
+> `int open(const char *name, int flags, mode_t mode);`
+> 
+> flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ...
 
 ```c
-/*
- * int open(const char *name, int flags);
- * int open(const char *name, int flags, mode_t mode);
- *   flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ...
- */
-
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -34,13 +32,11 @@ int main(void) {
 }
 ```
 
-    3
+
+
+> `int create(const char *name, mode_t mode);` 
 
 ```c
-/*
- * int create(const char *name, mode_t mode);
- */
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -56,11 +52,11 @@ int main(void) {
 }
 ```
 
-```c
-/*
- * int read(int fd, void *buf, int len);
- */
 
+
+> `int read(int fd, void *buf, int len);`
+
+```c
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -80,13 +76,11 @@ int main(void) {
 }
 ```
 
-    hello w
+
+
+> `int write(int fd, const void *buf, int count);`
 
 ```c
-/*
- * int write(int fd, const void *buf, int count);
- */
-
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
@@ -102,6 +96,10 @@ int main(void) {
     return 0;
 }
 ```
+
+
+
+
 
 # 同步IO
 
@@ -423,6 +421,8 @@ b. 读写映省去系统调用、上下文切换的开销
 c. 当多个进程将同一个对象映射到内存中共享时，数据在所有内存间共享
 d. 映射对象间搜索时，只是简单的指针操作，不需要系统调用lseek()
 ```
+
+> mmap()
 
 ```c
 /*

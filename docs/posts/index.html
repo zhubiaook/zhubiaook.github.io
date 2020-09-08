@@ -259,6 +259,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -269,6 +278,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -393,6 +411,65 @@
       
       
         <div class="post-card">
+  <a href="/posts/linux/command/strace/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">strace</h5>
+        <p class="card-text post-summary"> strace 最简单的用法是，指定一个要执行的命令，命令结束后它也退出。在命令的执行过程中，strace会记录和解析命令进程的所有系统调用，和该进程收到的信号量。
+ 语法 strace [OPTIONS] COMMAND 示例 strace -o record.txt -f ls </p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 8, 2020</span>
+        <a
+        href="/posts/linux/command/strace/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/unshare/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">unshare</h5>
+        <p class="card-text post-summary"> 用于Linux Namespace，unshare 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
+ 语法 unshare [OPTIONS] COMMAND OPTIONS:
+  -m, &ndash;mount : CLONE_NEWNS
+  -u, &ndash;uts : CLONE_NEWUTS
+  -i, &ndash;ipc : CLONE_NEWIPC
+  -n, &ndash;net : CLONE_NEWNET
+  -p, &ndash;pid : CLONE_NEWPID
+  -U, &ndash;user : CLONE_NEWUSER
+  -f, &ndash;fork : 创建一个子进程执行COMMAND，而不是取代当前的进程
+  -r, &ndash;map-root-user : 必须有-U选项，新命名空间中的用户为root
+  &ndash;propagation slave|shared|private|unchanged : 挂载选项
+  示例 创建一个各命名空间都隔离的Namespace，行Namespace执行bash程序
+unshare -m -u -i -n -p -U -f -r --propagation slave /bin/bash </p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 8, 2020</span>
+        <a
+        href="/posts/linux/command/unshare/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/c/c_syntax/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -428,9 +505,10 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">namespace</h5>
-        <p class="card-text post-summary">参考文档 Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否
-Docker背后的内核知识——Namespace资源隔离-InfoQ
-修改主机名 /* * int gethostname(char *name, int len); * int sethostname(char *name, int len); * 获取，设定主机名 */ #include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main() { int ret; ret = sethostname(&#34;Slynxes&#34;, 8); if(ret == -1) perror(&#34;sethostname&#34;); } UTS隔离 #define _GNU_SOURCE #include &lt;sys/types.h&gt;#include &lt;sys/wait.h&gt;#include &lt;stdio.h&gt;#include &lt;sched.h&gt;#include &lt;signal.h&gt;#include &lt;unistd.h&gt; #define STACK_SIZE (1024 * 1024)  static char child_stack[STACK_SIZE]; int child_process() { printf(&#34;start child process ...\n&#34;); /* 设置新的主机名 */ sethostname(&#34;NewName&#34;, 7); /* 当前进程执行新的程序bash */ execl(&#34;/bin/bash&#34;, &#34;bash&#34;, NULL); /* 后面的程序将不会再执行，被bash程序取代，直到bash退出，该子进程执行完毕 */ /* 子函数退出时返回的数据 */ return 1; } int main(void) { int pid; printf(&#34;start process\n&#34;); /* CLONE_NEWUTS: UTS隔离*/ pid = clone(child_process, // 子进程执行的函数  child_stack + STACK_SIZE, // 初始栈地址指向高位，因为栈是从高位向地位增长  CLONE_NEWUTS | SIGCHLD, NULL); // SIGCHLD与Namespace没关系，是子进程推出后返回给父进程的信号量  /* 父进程继续执行后面的程序，子进程去执行child_process子函数，不再执行后面的程序 */ waitpid(pid, NULL, 0); printf(&#34;process stopped\n&#34;); } 上面的程序指向流程：</p>
+        <p class="card-text post-summary">知识准备 进程管理
+C语言语法
+Namesapce 当前Linux内核支持的7种Namespace
+名称 宏定义 隔离内容 Cgroup CLONE_NEWCGROUP Cgroup root directory (since Linux 4.6) IPC CLONE_NEWIPC System V IPC, POSIX message queues (since Linux 2.6.19) Network CLONE_NEWNET Network devices, stacks, ports, etc. (since Linux 2.6.24) Mount CLONE_NEWNS Mount points (since Linux 2.4.19) PID CLONE_NEWPID Process IDs (since Linux 2.6.24) User CLONE_NEWUSER User and group IDs (started in Linux 2.6.23 and completed in Linux 3.8) UTS CLONE_NEWUTS Hostname and NIS domain name (since Linux 2.</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -480,8 +558,10 @@ Docker背后的内核知识——Namespace资源隔离-InfoQ
       </div>
       <div class="card-body">
         <h5 class="card-title">文件IO管理</h5>
-        <p class="card-text post-summary">文件读写 - 系统调用 open, read, create属于系统调用，未使用缓冲区(页缓存,页回写)
-/* * int open(const char *name, int flags); * int open(const char *name, int flags, mode_t mode); * flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ... */ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); } 3  /* * int create(const char *name, mode_t mode); */ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+        <p class="card-text post-summary">文件读写 - 系统调用  int open(const char *name, int flags, mode_t mode);
+flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;
+ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); }  int create(const char *name, mode_t mode);
+ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.txt&#34;, 0644); // 等同于  // fd = open(&#34;/opt/c/1.txt&#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);  return 0; }  int read(int fd, void *buf, int len);</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -504,7 +584,8 @@ Docker背后的内核知识——Namespace资源隔离-InfoQ
       </div>
       <div class="card-body">
         <h5 class="card-title">文件和目录管理</h5>
-        <p class="card-text post-summary">文件及元数据 基本属性 /* * int stat(const char *path, struct stat *buf); 获取文件信息 st_dev st_ino st_mode st_nlink st_uid st_gid st_rdev st_size st_blksize st_blocks st_atime st_mtime st_ctime */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { char *path = &#34;/opt/c/1.txt&#34;; struct stat sb; int ret; ret = stat(path, &amp;sb); if(ret == -1) perror(&#34;stat&#34;); printf(&#34;uid: %d&#34;, sb.st_uid); } uid: 1000  /* * int chmod(const char *path, mode_t mode); * 修改文件权限 */ #include &lt;sys/stat.h&gt;#include &lt;stdio.h&gt; int main(void) { int ret; ret = chmod(&#34;/opt/c/1.</p>
+        <p class="card-text post-summary">文件及元数据 基本属性  stat结构体
+ struct stat { dev_t st_dev; // ID of device containing file  ino_t st_ino; // inode number  mode_t st_mode; // permissions  nlink_t st_nlink; // number of hard link  uid_t st_uid; // user ID of owner  gid_t st_gid; // group ID of owner  dev_t st_rdev; // device ID  off_t st_size; // total size in bytes  blksize_t st_blksize; // blocksize for filesystem I/O  blkcnt_t st_blocks; // number of blocks allocated  time_t st_atime; // last access time  time_t st_mtime; // last modification time  time_t st_ctime; // last status change time }  int stat(const char *path, struct stat *buf);</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -660,56 +741,6 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
         <span class="float-left">September 1, 2020</span>
         <a
         href="/posts/linux/command/sysctl/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/hugo/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Hugo Installation</h5>
-        <p class="card-text post-summary">Requirements Hugo Version 0.68.0 or higher
-Installation Create your site if you haven’t already
-hugo new site my-site -f=yaml cd my-site git init Add the theme as git sub-module
-git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t use SSH URL of the theme during adding as git sub-module. Also, don’t clone the theme in your themes directory using git clone. They don’t work well with Github Action or Netlify.
- If you want to customize the theme templates, then fork it and use the fork as your theme.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 31, 2020</span>
-        <a
-        href="/posts/hugo/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/autoops/2017-12-04-ansible_web_cluster/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Ansible配置管理高可用WEB集群</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">December 4, 2017</span>
-        <a
-        href="/posts/autoops/2017-12-04-ansible_web_cluster/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

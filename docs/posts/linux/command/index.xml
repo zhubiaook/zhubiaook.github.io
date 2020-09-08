@@ -6,10 +6,41 @@
     <description>Recent content in Command on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.zybz.fun/posts/linux/command/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>strace</title>
+      <link>https://blog.zybz.fun/posts/linux/command/strace/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/strace/</guid>
+      <description> strace 最简单的用法是，指定一个要执行的命令，命令结束后它也退出。在命令的执行过程中，strace会记录和解析命令进程的所有系统调用，和该进程收到的信号量。
+ 语法 strace [OPTIONS] COMMAND 示例 strace -o record.txt -f ls </description>
+    </item>
+    
+    <item>
+      <title>unshare</title>
+      <link>https://blog.zybz.fun/posts/linux/command/unshare/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/unshare/</guid>
+      <description> 用于Linux Namespace，unshare 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
+ 语法 unshare [OPTIONS] COMMAND OPTIONS:
+  -m, &amp;ndash;mount : CLONE_NEWNS
+  -u, &amp;ndash;uts : CLONE_NEWUTS
+  -i, &amp;ndash;ipc : CLONE_NEWIPC
+  -n, &amp;ndash;net : CLONE_NEWNET
+  -p, &amp;ndash;pid : CLONE_NEWPID
+  -U, &amp;ndash;user : CLONE_NEWUSER
+  -f, &amp;ndash;fork : 创建一个子进程执行COMMAND，而不是取代当前的进程
+  -r, &amp;ndash;map-root-user : 必须有-U选项，新命名空间中的用户为root
+  &amp;ndash;propagation slave|shared|private|unchanged : 挂载选项
+  示例 创建一个各命名空间都隔离的Namespace，行Namespace执行bash程序
+unshare -m -u -i -n -p -U -f -r --propagation slave /bin/bash </description>
+    </item>
     
     <item>
       <title>tcpdump</title>

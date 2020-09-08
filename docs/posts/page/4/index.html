@@ -259,6 +259,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -269,6 +278,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -391,6 +409,52 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-03-kernel-minilinux/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">编译内核并制作微小Linux系统</h5>
+        <p class="card-text post-summary">编译内核并制作微小Linux系统.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 3, 2017</span>
+        <a
+        href="/posts/linux/2017-09-03-kernel-minilinux/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/bash/2017-08-26-bash-arithmetic-test/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">bash 数学运算与条件测试</h5>
+        <p class="card-text post-summary">bash 数学运算与条件测试.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 26, 2017</span>
+        <a
+        href="/posts/linux/bash/2017-08-26-bash-arithmetic-test/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/bash/2017-08-26-bash-slelect-for-while/" class="post-card-link">
@@ -711,68 +775,6 @@ grep(包括egrep): 主要用来过滤文本sed: 文本编辑awk: 文本分析�
         <span class="float-left">July 29, 2017</span>
         <a
         href="/posts/linux/2017-07-27-grep/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-07-25-access-control-lists/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Linux 文件系统上的权限</h5>
-        <p class="card-text post-summary">Linux文件系统上的权限Linux 文件系统上的权限文件系统权限的概念文件系统上的权限指文件系统上文件和目录的权限，这种权限是建立在文件系统上的，与操作系统本身没关系。不同的文件系统对文件的访问控制权限是不一样的。比如ext4，xfs等CentOS6和CentOS7上的文件系统可以使用属主、属组、其它的方式针对三类用户来设置访问控制权限，而windows上常见的FAT32文件系统却不支持这种设置方式。
-实验环境是：CentOS6和CentOS7系统
-常见权限分类文件系统主要针对三类用户设置访问权限，当然还有更复杂的权限设置，后面介绍。 * 属主 * 属组 * 其它
-如下所示通过ll命令可查看这三类权限
-[centos7@root app]# ll file1 
--rw-r--r--.1 user1 grp16 Jul25 09:23 file1
-#属主权限：-rw
-#属组权限：-r--
-#其它用户权限：r--
-每类用户又定义了三类权限 * r : readable 可读 * w : writeable 可写 * x : executable 可执行
-目录和文件可读，可写，可执行含义不一样 * 文件
-权限位含义r可以使用查看类命令读取文件的内容w可以将内容写入文件x可以执行文件，即将文件提请到内核启动为一个进程，对于二进制可执行文件有x权限即可将其运行起来，而对于shell脚本(文本文件)，需要有r,x权限才能执行此脚本。* 目录</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">July 25, 2017</span>
-        <a
-        href="/posts/linux/2017-07-25-access-control-lists/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-07-23-linux-managing-users-and-groups/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Linux 用户和组的管理</h5>
-        <p class="card-text post-summary">Linux 用户和组的管理Linux 用户和组的管理本文基于CentOS6 和 CentOS7系统
-Linux 属于多用户多任务管理系统，系统上一切皆文件，一切用户或程序首先得获得Linux系统分配的用户，通过用户所具有对文件访问、读取、执行的权限来获取Linux系统上的资源。
-用户和组的概念用户和组在Linux系统体现为用户名、UID和组名、GID，对于Linux系统只识别UID和GID，而用户名和组名是给人看的，便于记忆，有点类似域名和IP吧。也就是说修改了用户名和组名，UID和GID不变并不会影响用户和组所具有的权限，列如我们将UID为500的用户名删除后属主部分将变成UID-rw-r--r--. 1 500 zb10 0 Jul 23 09:47 1.txt，既然通过用户就可以获取系统资源，那我们为什么还需要组呢，都是为了权限分配的方便，比如有一类用户，对某些文件具有相同的读取、删除、修改等权限，若我们一个一个的将这些权限分配给这类用户，用户数量少还可以做到，大批量用户将累惨了。可以创建一个组，然后将这类用加入到组中，然后将权限分配给组，该组的用户将继承组中的权限。
-用户和组的关系一对一 一对多 多对一
-一个用户既可以只有一个组（该组为这个用户的私有组）, 也可以加入多个组中（其中与用户同名的是用户的基本组，其它为该用户的附加组）。当然一个组中也可以有多个用户，这是创建组的初衷。
-用户和组配置文件文件路径描述/etc/passwd用户及属性信息/etc/shadow用户密码及属性信息/etc/group组及属性信息/etc/gshadow组密码及属性信息/etc/login.defs控制新建用户和组的属性/etc/default/useradd新建用户默认值/etc/skel/此路径中存放用户家目录的模板文件/etc/passwd 格式描述UserName : x : UID : GID : Comment : HomeDir : ShellDir 包含7个字段，下面分别介绍</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">July 23, 2017</span>
-        <a
-        href="/posts/linux/2017-07-23-linux-managing-users-and-groups/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

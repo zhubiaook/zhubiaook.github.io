@@ -9,17 +9,45 @@ menu:
     parent: Container.NamespaceAndCgroup
 ---
 
-## 参考文档
+## 知识准备
 
-[Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否](https://segmentfault.com/a/1190000009732550)
+[进程管理](https://blog.zybz.fun/posts/linux/linuxsystemprogramming/process_management/)
 
-[Docker背后的内核知识——Namespace资源隔离-InfoQ](https://www.infoq.cn/article/docker-kernel-knowledge-namespace-resource-isolation)
+[C语言语法](https://blog.zybz.fun/posts/c/c_syntax/)
 
+## Namesapce
 
+当前Linux内核支持的7种Namespace
 
+```
+名称        宏定义             隔离内容
+Cgroup      CLONE_NEWCGROUP   Cgroup root directory (since Linux 4.6)
+IPC         CLONE_NEWIPC      System V IPC, POSIX message queues (since Linux 2.6.19)
+Network     CLONE_NEWNET      Network devices, stacks, ports, etc. (since Linux 2.6.24)
+Mount       CLONE_NEWNS       Mount points (since Linux 2.4.19)
+PID         CLONE_NEWPID      Process IDs (since Linux 2.6.24)
+User        CLONE_NEWUSER     User and group IDs (started in Linux 2.6.23 and completed in Linux 3.8)
+UTS         CLONE_NEWUTS      Hostname and NIS domain name (since Linux 2.6.19)
+```
 
+查看当前bash进程所属的namespace（CentOS8.2)
 
-## 修改主机名
+```bash
+$ ll /proc/$$/ns
+total 0
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 cgroup -> 'cgroup:[4026531835]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 ipc -> 'ipc:[4026531839]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 mnt -> 'mnt:[4026531840]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 net -> 'net:[4026531992]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 pid -> 'pid:[4026531836]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 pid_for_children -> 'pid:[4026531836]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 user -> 'user:[4026531837]'
+lrwxrwxrwx 1 opt opt 0 Sep  7 19:04 uts -> 'uts:[4026531838]'
+```
+
+## UTS隔离
+
+修改主机名
 
 ```c
 /*
@@ -39,7 +67,7 @@ int main() {
 }
 ```
 
-## UTS隔离
+UTS隔离
 
 ```c
 #define _GNU_SOURCE
@@ -173,6 +201,8 @@ mount -t proc proc /proc
 
 ## Mount隔离
 
+Mount namespaces是第一个被加入Linux的namespace，由于当时没想到还会引入其它的namespace，所以取名为CLONE_NEWNS，而没有叫CLONE_NEWMOUNT。
+
 ```c
 #define _GNU_SOURCE
 #include <sys/types.h>
@@ -296,4 +326,8 @@ int main(void) {
     }
 ```
 
-# 会话和进程组
+## 参考文档
+
+[Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否](https://segmentfault.com/a/1190000009732550)
+
+[Docker背后的内核知识——Namespace资源隔离-InfoQ](https://www.infoq.cn/article/docker-kernel-knowledge-namespace-resource-isolation)

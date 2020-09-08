@@ -267,6 +267,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -277,6 +286,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -423,25 +441,30 @@
         <div class="post-content" id="post-content">
           <h1 id="文件及元数据">文件及元数据</h1>
 <h2 id="基本属性">基本属性</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int stat(const char *path, struct stat *buf);
-</span><span style="color:#75715e">     获取文件信息
-</span><span style="color:#75715e">     st_dev
-</span><span style="color:#75715e">     st_ino
-</span><span style="color:#75715e">     st_mode
-</span><span style="color:#75715e">     st_nlink
-</span><span style="color:#75715e">     st_uid
-</span><span style="color:#75715e">     st_gid
-</span><span style="color:#75715e">     st_rdev
-</span><span style="color:#75715e">     st_size
-</span><span style="color:#75715e">     st_blksize
-</span><span style="color:#75715e">     st_blocks
-</span><span style="color:#75715e">     st_atime
-</span><span style="color:#75715e">     st_mtime
-</span><span style="color:#75715e">     st_ctime
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+<blockquote>
+<p>stat结构体</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> stat {
+    dev_t st_dev;     <span style="color:#75715e">// ID of device containing file
+</span><span style="color:#75715e"></span>    ino_t st_ino;     <span style="color:#75715e">// inode number
+</span><span style="color:#75715e"></span>    mode_t st_mode;   <span style="color:#75715e">// permissions
+</span><span style="color:#75715e"></span>    nlink_t st_nlink; <span style="color:#75715e">// number of hard link
+</span><span style="color:#75715e"></span>    uid_t st_uid;     <span style="color:#75715e">// user ID of owner
+</span><span style="color:#75715e"></span>    gid_t st_gid;     <span style="color:#75715e">// group ID of owner
+</span><span style="color:#75715e"></span>    dev_t st_rdev;    <span style="color:#75715e">// device ID 
+</span><span style="color:#75715e"></span>    off_t st_size;    <span style="color:#75715e">// total size in bytes
+</span><span style="color:#75715e"></span>    blksize_t st_blksize;  <span style="color:#75715e">// blocksize for filesystem I/O
+</span><span style="color:#75715e"></span>    blkcnt_t st_blocks;    <span style="color:#75715e">// number of blocks allocated
+</span><span style="color:#75715e"></span>    time_t st_atime;       <span style="color:#75715e">// last access time
+</span><span style="color:#75715e"></span>    time_t st_mtime;       <span style="color:#75715e">// last modification time
+</span><span style="color:#75715e"></span>    time_t st_ctime;       <span style="color:#75715e">// last status change time
+</span><span style="color:#75715e"></span>}
+</code></pre></div><blockquote>
+<p><code>int stat(const char *path, struct stat *buf);</code></p>
+<p><code>int fstat(int fd, struct stat *buf);</code></p>
+<p><code>int lstat(const char *path, struct stat *buf);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
@@ -455,14 +478,10 @@
 
     printf(<span style="color:#e6db74">&#34;uid: %d&#34;</span>, sb.st_uid);
 }
-</code></pre></div><pre><code>uid: 1000
-</code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int chmod(const char *path, mode_t mode);
-</span><span style="color:#75715e"> * 修改文件权限
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>int chmod(const char *path, mode_t mode);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
@@ -472,6 +491,39 @@
     <span style="color:#66d9ef">if</span>(ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
         perror(<span style="color:#e6db74">&#34;chmod&#34;</span>);
 }
+</code></pre></div><blockquote>
+<p>判断文件属性</p>
+<p><code>int access(const char pathname, int mode);</code></p>
+<p>mode:</p>
+<ul>
+<li>
+<p>F_OK 文件是否存在</p>
+</li>
+<li>
+<p>R_OK 文件是否存在，并可读</p>
+</li>
+<li>
+<p>W_OK 文件是否存在，并可写</p>
+</li>
+<li>
+<p>X_OK 文件是否存在，并可执行</p>
+</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./test&#34;</span>;
+    <span style="color:#66d9ef">int</span> ret;
+
+    ret <span style="color:#f92672">=</span> access(path, X_OK);
+    <span style="color:#66d9ef">if</span>(ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        perror(<span style="color:#e6db74">&#34;error access&#34;</span>);
+
+    printf(<span style="color:#e6db74">&#34;%d&#34;</span>, ret);
+}
 </code></pre></div><h2 id="扩展属性">扩展属性</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * int getxattr(char *path, char *key, void *value, int size);
@@ -479,16 +531,12 @@
 </span><span style="color:#75715e"> * int listxattr(char *path, char *list, int size);
 </span><span style="color:#75715e"> * int removexattr(char *path, char *key);
 </span><span style="color:#75715e"> */</span>
-</code></pre></div><pre><code>/tmp/tmpmvfzmx2j.out: /tmp/tmpjaya540_.out: undefined symbol: main
-[C kernel] Executable exited with code 1
-</code></pre>
-<h1 id="目录">目录</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * char *getcwd(char *buf, int size);
-</span><span style="color:#75715e"> * 获取当前工作目录
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</code></pre></div><h1 id="目录">目录</h1>
+<blockquote>
+<p><code>char *getcwd(char *buf, int size);</code></p>
+<p>获取当前工作目录</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
@@ -500,14 +548,11 @@
 
     printf(<span style="color:#e6db74">&#34;cwd: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, cwd);
 }
-</code></pre></div><pre><code>cwd: /data/jupyter/notebook/jupyter/C/Linux_system_programming
-</code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * int chdir(char *path);
-</span><span style="color:#75715e"> * 改变当前工作目录
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>int chdir(char *path);</code></p>
+<p>改变当前工作目录</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
@@ -516,13 +561,12 @@
     <span style="color:#66d9ef">if</span>(ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) 
         perror(<span style="color:#e6db74">&#34;chdir&#34;</span>);
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * DIR *opendir(char *name);
-</span><span style="color:#75715e"> * struct dirent *readdir(Dir *dir);
-</span><span style="color:#75715e"> * int closdir(DIR *dir);
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</code></pre></div><blockquote>
+<p><code>DIR *opendir(char *name);</code></p>
+<p><code>struct dirent *readdir(Dir *dir);</code></p>
+<p><code>int closdir(DIR *dir);</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;dirent.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
@@ -536,14 +580,7 @@
     }
     closedir(dir);
 }
-</code></pre></div><pre><code>程序编译_链接.ipynb
-Linux_system_programming
-C语言入门
-.
-..
-.ipynb_checkpoints
-</code></pre>
-<h1 id="链接">链接</h1>
+</code></pre></div><h1 id="链接">链接</h1>
 <h2 id="硬链接">硬链接</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * int link(char *oldpath, char *newpath);
@@ -560,9 +597,7 @@ C语言入门
      <span style="color:#66d9ef">if</span>(ret)
          perror(<span style="color:#e6db74">&#34;link&#34;</span>);
  }
-</code></pre></div><pre><code>link: File exists
-</code></pre>
-<h2 id="符号链接">符号链接</h2>
+</code></pre></div><h2 id="符号链接">符号链接</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * int symlink(char *oldpath, char *newpath);
 </span><span style="color:#75715e"> */</span>
@@ -576,15 +611,8 @@ C语言入门
      <span style="color:#66d9ef">if</span>(ret)
          perror(<span style="color:#e6db74">&#34;symlink&#34;</span>);
  }
-</code></pre></div><pre><code>/tmp/tmp0bt5x683.c: In function ‘main’:
-/tmp/tmp0bt5x683.c:9:5: warning: implicit declaration of function ‘symlink’ [-Wimplicit-function-declaration]
-     symlink(&quot;/opt/c/1.txt&quot;, &quot;/opt/c/4.txt&quot;);
-     ^
-</code></pre>
-<h1 id="监视文件事件">监视文件事件</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">
-</code></pre></div>
+</code></pre></div><h1 id="监视文件事件">监视文件事件</h1>
+
         </div>
 
         
@@ -729,6 +757,10 @@ C语言入门
         </div>
       
     
+  
+
+  
+
   
 
   

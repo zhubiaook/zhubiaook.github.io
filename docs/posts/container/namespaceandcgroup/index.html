@@ -265,6 +265,15 @@
   
   
     
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
   
 
@@ -275,6 +284,15 @@
   
     
     <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
   
 
 
@@ -406,9 +424,10 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">namespace</h5>
-        <p class="card-text post-summary">参考文档 Linux Namespace和Cgroup - Linux程序员 - SegmentFault 思否
-Docker背后的内核知识——Namespace资源隔离-InfoQ
-修改主机名 /* * int gethostname(char *name, int len); * int sethostname(char *name, int len); * 获取，设定主机名 */ #include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main() { int ret; ret = sethostname(&#34;Slynxes&#34;, 8); if(ret == -1) perror(&#34;sethostname&#34;); } UTS隔离 #define _GNU_SOURCE #include &lt;sys/types.h&gt;#include &lt;sys/wait.h&gt;#include &lt;stdio.h&gt;#include &lt;sched.h&gt;#include &lt;signal.h&gt;#include &lt;unistd.h&gt; #define STACK_SIZE (1024 * 1024)  static char child_stack[STACK_SIZE]; int child_process() { printf(&#34;start child process ...\n&#34;); /* 设置新的主机名 */ sethostname(&#34;NewName&#34;, 7); /* 当前进程执行新的程序bash */ execl(&#34;/bin/bash&#34;, &#34;bash&#34;, NULL); /* 后面的程序将不会再执行，被bash程序取代，直到bash退出，该子进程执行完毕 */ /* 子函数退出时返回的数据 */ return 1; } int main(void) { int pid; printf(&#34;start process\n&#34;); /* CLONE_NEWUTS: UTS隔离*/ pid = clone(child_process, // 子进程执行的函数  child_stack + STACK_SIZE, // 初始栈地址指向高位，因为栈是从高位向地位增长  CLONE_NEWUTS | SIGCHLD, NULL); // SIGCHLD与Namespace没关系，是子进程推出后返回给父进程的信号量  /* 父进程继续执行后面的程序，子进程去执行child_process子函数，不再执行后面的程序 */ waitpid(pid, NULL, 0); printf(&#34;process stopped\n&#34;); } 上面的程序指向流程：</p>
+        <p class="card-text post-summary">知识准备 进程管理
+C语言语法
+Namesapce 当前Linux内核支持的7种Namespace
+名称 宏定义 隔离内容 Cgroup CLONE_NEWCGROUP Cgroup root directory (since Linux 4.6) IPC CLONE_NEWIPC System V IPC, POSIX message queues (since Linux 2.6.19) Network CLONE_NEWNET Network devices, stacks, ports, etc. (since Linux 2.6.24) Mount CLONE_NEWNS Mount points (since Linux 2.4.19) PID CLONE_NEWPID Process IDs (since Linux 2.6.24) User CLONE_NEWUSER User and group IDs (started in Linux 2.6.23 and completed in Linux 3.8) UTS CLONE_NEWUTS Hostname and NIS domain name (since Linux 2.</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
