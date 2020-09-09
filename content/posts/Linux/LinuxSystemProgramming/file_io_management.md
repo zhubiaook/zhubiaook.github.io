@@ -9,8 +9,6 @@ menu:
     parent: Linux.LinuxSystemProgramming
 ---
 
-
-
 # 文件读写 - 系统调用
 
 > `int open(const char *name, int flags, mode_t mode);`
@@ -32,8 +30,6 @@ int main(void) {
 }
 ```
 
-
-
 > `int create(const char *name, mode_t mode);` 
 
 ```c
@@ -51,8 +47,6 @@ int main(void) {
     return 0;
 }
 ```
-
-
 
 > `int read(int fd, void *buf, int len);`
 
@@ -76,8 +70,6 @@ int main(void) {
 }
 ```
 
-
-
 > `int write(int fd, const void *buf, int count);`
 
 ```c
@@ -96,10 +88,6 @@ int main(void) {
     return 0;
 }
 ```
-
-
-
-
 
 # 同步IO
 

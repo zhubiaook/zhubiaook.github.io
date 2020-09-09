@@ -9,11 +9,7 @@ menu:
     parent: Linux.Command
 ---
 
-
-
 > 用于Linux Namespace，`unshare` 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
-
-
 
 ## 语法
 
@@ -41,7 +37,7 @@ unshare [OPTIONS] COMMAND
 
 * --propagation slave|shared|private|unchanged : 挂载选项
 
-
+* --mount-proc : 新的Namespace中重新挂载proc，前提有-m选项。
 
 ## 示例
 

@@ -213,8 +213,6 @@ int clone(int (*func)(void *), void *child_stack, int flags)
 > 
 > 将当前进程加入到指定的namespace中，fd为进程描述符或路径
 
-> 
-> 
 > `#define _GNU_SOURCE`
 > 
 > `#include <sched.h>`
@@ -246,8 +244,6 @@ int clone(int (*func)(void *), void *child_stack, int flags)
 ```c
 
 ```
-
-
 
 # 会话和进程组
 

@@ -6,10 +6,44 @@
     <description>Recent content on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.zybz.fun/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ethtool</title>
+      <link>https://blog.zybz.fun/posts/linux/command/ethtool/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/ethtool/</guid>
+      <description>查询和修改以太网卡的配置信息（网卡驱动层）
+命令显示的信息来源于网卡驱动层，即TCP/IP协议的链路层
+ 语法 ethtool [OPTIONS] DEVNAME OPTIONS -a 查看网卡中 接收模块RX、发送模块TX和Autonegotiate模块的状态：启动on 或 停用off。 -A 修改网卡中 接收模块RX、发送模块TX和Autonegotiate模块的状态：启动on 或 停用off。 -c display the Coalesce information of the specified ethernet card。 -C Change the Coalesce setting of the specified ethernet card。 -g Display the rx/tx ring parameter information of the specified ethernet card。 -G change the rx/tx ring setting of the specified ethernet card。 -i 显示网卡驱动的信息，如驱动的名称、版本等。 -d 显示register dump信息, 部分网卡驱动不支持该选项。 -e 显示EEPROM dump信息，部分网卡驱动不支持该选项。 -E 修改网卡EEPROM byte。 -k 显示网卡Offload参数的状态：on 或 off，包括rx-checksumming、tx-checksumming等。 -K 修改网卡Offload参数的状态。 -p 用于区别不同ethX对应网卡的物理位置，常用的方法是使网卡port上的led不断的闪；N指示了网卡闪的持续时间，以秒为单位。 -r 如果auto-negotiation模块的状态为on，则restarts auto-negotiation。 -S 显示NIC- and driver-specific 的统计参数，如网卡接收/发送的字节数、接收/发送的广播包个数等。 -t 让网卡执行自我检测，有两种模式：offline or online。 -s 修改网卡的部分配置，包括网卡速度、单工/全双工模式、mac地址等。 示例 ethtool devname ethtool -h|--help ethtool --version ethtool -a|--show-pause devname ethtool -A|--pause devname [autoneg on|off] [rx on|off] [tx on|off] ethtool -c|--show-coalesce devname ethtool -g|--show-ring devname ethtool -G|--set-ring devname [rx N] [rx-mini N] [rx-jumbo N] [tx N] ethtool -i|--driver devname ethtool -d|--register-dump devname [raw on|off] [hex on|off] [file name] ethtool -e|--eeprom-dump devname [raw on|off] [offset N] [length N] ethtool -E|--change-eeprom devname [magic N] [offset N] [length N] [value N] ethtool -k|--show-features|--show-offload devname ethtool -K|--features|--offload devname feature on|off .</description>
+    </item>
+    
+    <item>
+      <title>veth</title>
+      <link>https://blog.zybz.fun/posts/container/network/veth/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/container/network/veth/</guid>
+      <description>概述  veth是Linux的虚拟网卡，和其他虚拟网卡一样，它有两端。不同之处在于veth设备通常成对出现，成对的两个veth设备一端互相连接（类似于一条网线连接两块网卡），另外一端各自连接协议栈。
+数据从协议栈流入veth设备后，将从另外一个与之相连的veth设备流出。
+ 案例  veth设备通常用作容器中，实现容器连通外部网络，容器其实就是通过Namespace和CGroup技术实现进程隔离和限制的进程。
+下面演示与主机不在同一个net namespace 的进程如何访问外部网络
+若在虚拟机中操作，需要设置虚拟机管理软件网卡开启混杂模式，让目的非本机的mac地址通过虚拟机网卡。
+ 方法1：通过bridge实现 网络示意图如下所示
+netnamespace-01 以下操作均在net-namespace01中
+创建网桥br0，并配置网络
+ip link add br0 type bridge 启动网桥
+ip link set br0 up 将物理网卡enp0s3加入网桥br0中，此时网络会中断，因为enp0s3 上原有的地址会消失，此时enp0s3的功能相当于一根网线，起到将br0与外界连接的作用。
+ip link set enp0s3 master br0 br0相当于交换机和网卡的功能，可以在上面配置ip
+ip addr add 192.168.0.183/24 dev br0 配置网关地址，DNS，此处均为临时配置。
+$ ip route add default via 192.168.0.1 $ echo &amp;#39;nameserver 192.168.0.1&amp;#39; &amp;gt;&amp;gt; /etc/resolv.conf 此时可以正常访问外部网络
+创建veth设备
+ip link add veth1 type veth peer veth0 激活veth0，并加入网桥br0</description>
+    </item>
     
     <item>
       <title>strace</title>
@@ -27,7 +61,7 @@
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.zybz.fun/posts/linux/command/unshare/</guid>
-      <description> 用于Linux Namespace，unshare 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
+      <description>用于Linux Namespace，unshare 命令可以创建一个新的Namespace，然后执行指定的程序，并将新的进程加入到新创建的Namespace中。新的Namespace支持多少种隔离，由unshare选项决定
  语法 unshare [OPTIONS] COMMAND OPTIONS:
   -m, &amp;ndash;mount : CLONE_NEWNS
   -u, &amp;ndash;uts : CLONE_NEWUTS
@@ -38,8 +72,8 @@
   -f, &amp;ndash;fork : 创建一个子进程执行COMMAND，而不是取代当前的进程
   -r, &amp;ndash;map-root-user : 必须有-U选项，新命名空间中的用户为root
   &amp;ndash;propagation slave|shared|private|unchanged : 挂载选项
-  示例 创建一个各命名空间都隔离的Namespace，行Namespace执行bash程序
-unshare -m -u -i -n -p -U -f -r --propagation slave /bin/bash </description>
+  &amp;ndash;mount-proc : 新的Namespace中重新挂载proc，前提有-m选项。
+  示例 创建一个各命名空间都隔离的Namespace，行Namespace执行bash程序</description>
     </item>
     
     <item>
@@ -64,6 +98,7 @@ unshare -m -u -i -n -p -U -f -r --propagation slave /bin/bash </description>
       <guid>https://blog.zybz.fun/posts/container/namespaceandcgroup/namespace/</guid>
       <description>知识准备 进程管理
 C语言语法
+unshare
 Namesapce 当前Linux内核支持的7种Namespace
 名称 宏定义 隔离内容 Cgroup CLONE_NEWCGROUP Cgroup root directory (since Linux 4.6) IPC CLONE_NEWIPC System V IPC, POSIX message queues (since Linux 2.6.19) Network CLONE_NEWNET Network devices, stacks, ports, etc. (since Linux 2.6.24) Mount CLONE_NEWNS Mount points (since Linux 2.4.19) PID CLONE_NEWPID Process IDs (since Linux 2.6.24) User CLONE_NEWUSER User and group IDs (started in Linux 2.6.23 and completed in Linux 3.8) UTS CLONE_NEWUTS Hostname and NIS domain name (since Linux 2.</description>
     </item>
@@ -163,6 +198,7 @@ TUN/TAP应用案例  OpenVPN就是使用TUN/TAP设备在公网上建立加密通
    link, l: 网络设备
   address, a: 网络协议（IP, IPv6）地址
   route, r: 路由表
+  netns: net-namespace管理
   addrlabel, addrl: Label configuration for protocol address selection
   neighbour, n: ARP or NDISC cache entry.
   rule, ru: Rule in routing policy database

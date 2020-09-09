@@ -208,6 +208,15 @@
     <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/veth/">veth</a></li>
+  
+
 
       </ul>
     </li>
@@ -258,6 +267,15 @@
       
       <ul class="">
         
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
   
   
   
@@ -442,6 +460,7 @@
           <h2 id="知识准备">知识准备</h2>
 <p><a href="https://blog.zybz.fun/posts/linux/linuxsystemprogramming/process_management/">进程管理</a></p>
 <p><a href="https://blog.zybz.fun/posts/c/c_syntax/">C语言语法</a></p>
+<p><a href="https://blog.zybz.fun/posts/linux/command/unshare/">unshare</a></p>
 <h2 id="namesapce">Namesapce</h2>
 <p>当前Linux内核支持的7种Namespace</p>
 <pre><code>名称        宏定义             隔离内容
@@ -560,7 +579,28 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> opt opt <span style="color:#ae81
     waitpid(pid, NULL, <span style="color:#ae81ff">0</span>);
     printf(<span style="color:#e6db74">&#34;process stopped</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 }
-</code></pre></div><h2 id="pid隔离">PID隔离</h2>
+</code></pre></div><h2 id="pid-namespace">PID Namespace</h2>
+<ol>
+<li>
+<p><code>PID Namespace</code>用来隔离进程PID，使得不同Namespace中的PID可以重复，且相互不影响。</p>
+</li>
+<li>
+<p><code>PID Namespace</code>可以嵌套，当前<code>PID Namespace</code>中创建的新<code>PID Namespace</code>均属于其子<code>PID Namespace</code>，父<code>PID Namespace</code>可以查看到子<code>PID Namespace</code>中所有进程信息，但子<code>PID Namespace</code>不能查看父的进程信息，包括兄弟的都不行。同一个进程在父、子Namespace中看到的进程PID是不一样的。</p>
+</li>
+<li>
+<p>每个Namespace都可以通过<code>/proc</code> 目录查看当前<code>Namespace</code>及其子孙<code>Namespace</code>的进程信息。</p>
+</li>
+<li>
+<p>每个Namespace中创建的第一个进程，在当前Namespace视图中进程PID为1，其子进程均由该进程创建，当子进程的父进程挂掉，则由当前Namespace中PID为1的进程接管，做其父进程。记住不是父Namespace中的PID=1的进程，而是当前。当PID=1的进程也挂断，则该Namespace中的所有进程都会收到自杀信号<code>SIGKILL</code>而自行了断，随之Namespace也被摧毁。</p>
+</li>
+<li>
+<p>已创建的进程无法改变其PID Namespace, 只有新创建的进程才可以指定PID Namespace</p>
+</li>
+</ol>
+<p><strong>示例</strong></p>
+<blockquote>
+<p>通过系统调用演示</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * 进入子进程后执行命令：echo $$， 会发现当前进程ID为1
 </span><span style="color:#75715e"> */</span>
@@ -593,13 +633,19 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> opt opt <span style="color:#ae81
     waitpid(pid, NULL, <span style="color:#ae81ff">0</span>);
     printf(<span style="color:#e6db74">&#34;process stopped</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 }
-</code></pre></div><h3 id="挂载proc">挂载proc</h3>
+</code></pre></div><p>重新挂载proc</p>
 <p>经过上面的隔离，你会发现使用ps, top命令仍然可以看到父进程中namespace空间中的进程信息，这是因为文件系统还没有隔离，这些命令查询的是父进程/proc目录下的文件。</p>
 <pre><code># 重新挂载proc
 mount -t proc proc /proc
 
 # 此时再使用ps等进程查看命令，就只有子namespce空间中的进程信息了
-</code></pre><h2 id="mount隔离">Mount隔离</h2>
+</code></pre><blockquote>
+<p>通过Linux命令<code>unshare</code></p>
+<p>-f 创建新的进程加入新创建的PID Namespace中，unshare程序启动的进程仍然在老的PID Namespace中</p>
+<p>&ndash;mount-proc: 执行重新挂载proc，不重新mount proc的话，读到的进程信息仍然是父PID Name中的</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">unshare -p -u -m -f --mount-proc /bin/bash
+</code></pre></div><h3 id="mount隔离">Mount隔离</h3>
 <p>Mount namespaces是第一个被加入Linux的namespace，由于当时没想到还会引入其它的namespace，所以取名为CLONE_NEWNS，而没有叫CLONE_NEWMOUNT。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define _GNU_SOURCE
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
@@ -864,6 +910,10 @@ saved uid, saved gid: 进程原有的有效用户uid,gid
 
   
 
+  
+
+  
+
 </div>
 
       <hr />
@@ -891,12 +941,11 @@ saved uid, saved gid: 进程原有的有效用户uid,gid
         <li><a href="#namesapce">Namesapce</a></li>
         <li><a href="#uts隔离">UTS隔离</a></li>
         <li><a href="#ipc-隔离">IPC 隔离</a></li>
-        <li><a href="#pid隔离">PID隔离</a>
+        <li><a href="#pid-namespace">PID Namespace</a>
           <ul>
-            <li><a href="#挂载proc">挂载proc</a></li>
+            <li><a href="#mount隔离">Mount隔离</a></li>
           </ul>
         </li>
-        <li><a href="#mount隔离">Mount隔离</a></li>
         <li><a href="#user隔离">User隔离</a></li>
       </ul>
     </li>

@@ -194,6 +194,15 @@
     <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/veth/">veth</a></li>
+  
+
 
       </ul>
     </li>
@@ -247,6 +256,15 @@
       
       <ul class="">
         
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
   
   
   
@@ -412,6 +430,37 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-08-11-raid/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">RAID</h5>
+        <p class="card-text post-summary">RAID 独立磁盘冗余阵列RAID 独立磁盘冗余阵列RAID计算机发展初期，”大容量”硬盘相当昂贵，1988年加州大学伯克利分校的工程师们提出了使用多块廉价硬盘组合成”大容量”硬盘的解决方案，这便是RAID，所以早期RIAD称作Redundant Array of Inexpensive Disks，中文名：廉价冗余磁盘阵列。而随着后期的发展，将硬盘组合起来的RAID阵列卡并不便宜，甚至比硬盘本身还贵，所以RAID改名为Redundant Array of Independent Disks, 中文名：独立冗余磁盘阵列
+RAID通过硬件的阵列卡（也有使用软件模拟，但一般情况不会这么做，性能太差）将多块容量相同的硬盘组合成一块逻辑的大硬盘。然后再在RAID盘上进行分区，装文件系统。这样做的目的是，配合不同的RAID级别，数据存储时，RAID先将数据分解成chunk（大小可以指定），然后并行的将chunk并行写入各个硬盘，读取也是并行的从各个硬盘中读取，提高了硬盘的I/O性能。其次还能实现存储数据的时候生成校验位，存储于某块或全部硬盘中，这样模块硬盘损坏，其上的数据也能通过其它硬盘计算而来，这是自动进行的，提高了硬盘的容错能力。总之使用RAID，配合不同的运行级别，将提高硬盘总体的I/O性能和容错能力。
+RAID实现方式
+外接RAID卡主板集成RAID控制器通过软件模拟 对于有硬件的RAID卡，可以在启动BIOS时按照硬件厂商提供的配置界面对RAID进行配置，然后再在RAID盘上安装操作系统。也可以先安装操作系统再配置RAID。RAID级别目前常用的RAID级别: RAID-0, RAID-1, RAID-5, RAID-6, RAID-10, RAID-01
+RAID-0 条带卷 strip, 将数据分割成chunk, 存在不同的硬盘中，写入和读取时并行进行。
+提升读写能力无容错能力最少磁盘数2可用空间: n*min(disk1,disk2 …)RAID-1 镜像卷 mirror, 存储数据时，将数据复制一份存在另一块硬盘中。读取时并行进行。
+降低写入能力，提升读取能力可以同时坏一块硬盘最少两块磁盘可用磁盘空间: 0.5*n*min(disk1,disk2,disk3 … )RAID-4 存储数据的时候，并行进行，并生成校验位， 其中一块磁盘做校验盘，通过计算可算出任意一块磁盘的数据，读取数据也是并行进行。RAID-4有一个天生的缺陷，由于该级别使用一块硬盘来存储校验位，实际生产经验得到，这块存储校验位的硬盘总比其它硬盘更容易损坏，可能是其I/O次数比其它硬盘多所致。
+提高读写能力可以同时坏一块磁盘至少三块磁盘可以空间: (n-1)*min(disk1,disk2 … )RAID-5 为了改进RAID-4的缺陷，RAID-5各磁盘轮循做校验盘。
+提高读写能力可以同时坏一块磁盘至少三块磁盘可以空间: (n-1)*min(disk1,disk2 … )RAID-6 RAID-6在RAID-5的基础上，存储数据的时候计算两份校验只，将校验验值存在不同磁盘中，各磁盘轮循做校验盘</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 11, 2017</span>
+        <a
+        href="/posts/linux/2017-08-11-raid/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-08-10-quota/" class="post-card-link">

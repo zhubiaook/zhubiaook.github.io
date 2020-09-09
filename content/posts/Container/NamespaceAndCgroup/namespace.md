@@ -15,6 +15,8 @@ menu:
 
 [C语言语法](https://blog.zybz.fun/posts/c/c_syntax/)
 
+[unshare](https://blog.zybz.fun/posts/linux/command/unshare/)
+
 ## Namesapce
 
 当前Linux内核支持的7种Namespace
@@ -151,7 +153,21 @@ int main(void) {
 }
 ```
 
-## PID隔离
+## PID Namespace
+
+1. `PID Namespace`用来隔离进程PID，使得不同Namespace中的PID可以重复，且相互不影响。
+
+2. `PID Namespace`可以嵌套，当前`PID Namespace`中创建的新`PID Namespace`均属于其子`PID Namespace`，父`PID Namespace`可以查看到子`PID Namespace`中所有进程信息，但子`PID Namespace`不能查看父的进程信息，包括兄弟的都不行。同一个进程在父、子Namespace中看到的进程PID是不一样的。
+
+3. 每个Namespace都可以通过`/proc` 目录查看当前`Namespace`及其子孙`Namespace`的进程信息。
+
+4. 每个Namespace中创建的第一个进程，在当前Namespace视图中进程PID为1，其子进程均由该进程创建，当子进程的父进程挂掉，则由当前Namespace中PID为1的进程接管，做其父进程。记住不是父Namespace中的PID=1的进程，而是当前。当PID=1的进程也挂断，则该Namespace中的所有进程都会收到自杀信号`SIGKILL`而自行了断，随之Namespace也被摧毁。
+
+5. 已创建的进程无法改变其PID Namespace, 只有新创建的进程才可以指定PID Namespace
+
+**示例**
+
+> 通过系统调用演示
 
 ```c
 /*
@@ -188,7 +204,7 @@ int main(void) {
 }
 ```
 
-### 挂载proc
+重新挂载proc
 
 经过上面的隔离，你会发现使用ps, top命令仍然可以看到父进程中namespace空间中的进程信息，这是因为文件系统还没有隔离，这些命令查询的是父进程/proc目录下的文件。
 
@@ -199,7 +215,17 @@ mount -t proc proc /proc
 # 此时再使用ps等进程查看命令，就只有子namespce空间中的进程信息了
 ```
 
-## Mount隔离
+> 通过Linux命令`unshare`
+> 
+> -f 创建新的进程加入新创建的PID Namespace中，unshare程序启动的进程仍然在老的PID Namespace中
+> 
+> --mount-proc: 执行重新挂载proc，不重新mount proc的话，读到的进程信息仍然是父PID Name中的
+
+```bash
+unshare -p -u -m -f --mount-proc /bin/bash
+```
+
+### Mount隔离
 
 Mount namespaces是第一个被加入Linux的namespace，由于当时没想到还会引入其它的namespace，所以取名为CLONE_NEWNS，而没有叫CLONE_NEWMOUNT。
 

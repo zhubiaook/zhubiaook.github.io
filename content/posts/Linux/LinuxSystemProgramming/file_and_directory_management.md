@@ -13,8 +13,6 @@ menu:
 
 ## 基本属性
 
-
-
 > stat结构体
 
 ```c
@@ -73,8 +71,6 @@ int main(void) {
 }
 ```
 
-
-
 > 判断文件属性
 > 
 > `int access(const char pathname, int mode);`
@@ -105,10 +101,6 @@ int main() {
     printf("%d", ret);
 }
 ```
-
-
-
-
 
 ## 扩展属性
 
@@ -142,8 +134,6 @@ int main(void) {
 }
 ```
 
-
-
 > `int chdir(char *path);`
 > 
 > 改变当前工作目录
@@ -159,8 +149,6 @@ int main(void) {
         perror("chdir");
 }
 ```
-
-
 
 > `DIR *opendir(char *name);`
 > 
@@ -224,7 +212,5 @@ int main(void) {
          perror("symlink");
  }
 ```
-
-
 
 # 监视文件事件
