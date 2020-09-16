@@ -356,7 +356,25 @@
   
   
     
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
   
 
 
@@ -427,6 +445,59 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+
+PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 17, 2017</span>
+        <a
+        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-09-13-ssh-openssh/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">SSH 协议及 openssh</h5>
+        <p class="card-text post-summary">SSH 协议及 openssh.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}SSH 协议及 opensshSSH 协议SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持；用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别；连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+opensshdropbearSSH用户认证方式
+基于口令的认证 基于口令的认证方式如下图所示：
+基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中[root@localhost ~]# ssh 172.18.17.201The authenticity of host '172.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 13, 2017</span>
+        <a
+        href="/posts/linux/2017-09-13-ssh-openssh/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-09-10-openssl-ca/" class="post-card-link">
@@ -685,92 +756,6 @@ SELINUX=permissive
         <span class="float-left">August 10, 2017</span>
         <a
         href="/posts/linux/2017-08-10-quota/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-05-rpm-yum/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">源码安装 rpm &amp; yum</h5>
-        <p class="card-text post-summary">程序包管理: 源码安装 rpm & yum程序包管理: 源码安装 rpm &amp; yum操作系统上的程序都是程序员通过工具开发出来的，程序员直接编写的文本称为源码，计算机只能识别二进制文件，所以程序员编好的源码要能在计算机上运行需编译为二进制文件。
-通过源码来安装首先要部署好系统环境，然后将源码编译为二进制文件，然后再将二进制文件及运行该程序的一些配置文件放到指定的目录下，这对于没有编程经验的人来说是很痛苦的一件事。系统厂商为了解决编译所给客户带来的麻烦，在与我们相同的系统环境上完成编译，并将二进制文件，配置文件，程序安装默认路径，程序相关信息打包压缩到一个文件中，发布到网络上或光盘中提供给用户下载，用户只需要将该文件下载下来，用系统厂商提供的安装工具进行安装即可完成软件的部署。对于CentOS系统，给系统厂商给我们提供的编译好的程序是以.rpm结尾的压缩文件，安装工具有rpm和yum，两者的关系后文件介绍。
-源码安装在网络上有很多开源程序是通过源码的方式发布的，若此时又没有编译好的压缩包，或者未针对我们使用的系统编译的程序包，那我们只能自己下载源码，自己编译。
-我们以一个C语言编写的源码为例演示，程序开发、编译、运行的过程
-编译过程如下： 程序源码(hello.c) --预处理--&gt; 预处理程序(hello.i) --编译--&gt; 汇编程序(hello.s) --汇编--&gt; 目标程序--链接--&gt; 可执行文件
-首先安装好c语言编译工具gcc，gcc可以将源码一步就编译为可执行文件，但此处为了演示编译的过程，我们按上面的编译过程分步操作。
-[root-yum.repos.d] $ yum -y install gcc 上面是通过yum工具安装gcc编译工具，对于yum安装的方式后文介绍
-a. C语言源码 我们用C语言，打印一句经典的话”hello world!”
-[root-c] $ cat hello.c #include &lt;stdio.h&gt; //声明头文件
-int main() //程序入口
-{
-printf("hello world!\n"); //打印"hello world!"
-return 0;
-}
-b. 预处理 gcc中 -E选项是用来生成预处理程序
-[root-c] $ gcc -E hello.c -o hello.i
-[root-c] $ ls</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 5, 2017</span>
-        <a
-        href="/posts/linux/2017-08-05-rpm-yum/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-08-01-find/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">文件查找 locate &amp; find</h5>
-        <p class="card-text post-summary">文件查找(find， locate)文件查找(find， locate)在Linux文件系统中快速、准确的搜索到自己想要的文件是运维人员的一项基本能力
-在Linux系统中主要使用find和locate来查找文件，两者的区别如下
-locate 基于数据库索引进行查找，查找文件速度快，是模糊查询，查找不够精确，同时数据库自动更新周期为每天一次，导致不能实时查找，可以通过手动更新数据库来达到实时查找，不过更新数据库将会搜索整个磁盘，耗费系统资源，当系统繁忙时是一件危险的操作。find 命令选项特别多，可以根据各种条件精确查找文件，通过搜索磁盘进行查找，属于实时查找，由于搜索磁盘，速度比locate慢。locatelocate [options] keyword locate 查找包含关键词或正则表达式匹配的文件路径或文件名，然后输出文件的完整路径，所查找的文件需具有读、执行权限。
-常用选项
--i | –ignore-cate #查找文件时忽略大小写 -r | –regexp REGEXP #使用基本正则表达式匹配文件路径 -n NUM #输出搜索到的前N个匹配的路径
-实例
-查找家目录下面包含.txt的文件[centos7@root math]# locate ~/*.txt
-/root/1.txt
-/root/3.txt
-/root/dest.txt
-/root/destination.txt
-/root/passwd.txt
-/root/shadown.txt
-/root/source.txt
-查找/etc/目录下面结尾包含config，且路或文件名中包含数字的文件locate -r "/etc/.*[[:digit:]]\+.*config$" &lt;=使用正则表达式进行匹配
-/etc/dconf/db/distro.d/10-authconfig
-/etc/selinux/targeted/active/modules/100/authconfig
-/etc/setuptool.d/98netconfig
-/etc/setuptool.d/99authconfig
-/etc/setuptool.d/99kbdconfig
-/etc/setuptool.d/99mouseconfig
-/etc/setuptool.d/99sndconfig
-/etc/setuptool.d/99timeconfig
-/etc/sysconfig/ip6tables-config
-查找家目录下以m开头的文件，忽略大小写[centos7@root math]# locate -i ~/m &lt;= -i忽略大小写</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 1, 2017</span>
-        <a
-        href="/posts/linux/2017-08-01-find/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

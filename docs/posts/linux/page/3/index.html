@@ -359,7 +359,25 @@
   
   
     
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
   
 
 
@@ -430,6 +448,69 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-08-20-static-route/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux 静态路由实验</h5>
+        <p class="card-text post-summary">Linux 静态路由实验Linux 静态路由实验CentOS6.9 和 CentOS7.3 上完成测试
+简介Linux主机通过启用路由转发，配置路由表后就可以当做路由器使用，当然这需要主机上有多张网卡。
+路由管理命令 在CentOS系统上路由表的管理命令主要有route和ip route这两个命令
+查看路由表 route -n ip route show 或 ip route list 或 ip route
+增加路由条目 增加主机路由 route add -host 3.3.3.3 gw 10.1.2.2 dev eth1 ip route add 6.6.6.6 via 10.1.4.1 dev ens33 增加网络路由 route add -net 10.1.3.0/24 gw 10.1.2.2 dev eth1 ip route add 10.1.4.0/24 via 10.1.2.2 dev eth1 增加默认路由 route add default gw 10.1.4.1 dev ens33 ip route add default via 10.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 20, 2017</span>
+        <a
+        href="/posts/linux/2017-08-20-static-route/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-08-12-lvm/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">逻辑卷的管理 LVM</h5>
+        <p class="card-text post-summary">LVM 逻辑卷管理LVM 逻辑卷管理想象一个场景，某天你管理的服务器硬盘空间不足了，该怎么处理。当然是加硬盘，但若系统不允许关机，服务不能停，如何添加硬盘。此时我们可以在早期规划的时候就创建逻辑卷。逻辑卷可以在不影响系统运行的情况下弹性的扩展、压缩硬盘空间。
+逻辑卷组成如下图所示，逻辑卷的逻辑结构图，PV（physical volume）组成卷组VG(volume group)，在卷组上可以创建逻辑卷LV(logical volume)。
+PV (Physical Volume) PV 物理卷，就是硬盘或分区，和物理的硬盘有同样的功能，和普通硬盘的区别在于，它被标识为物理卷，有物理卷的管理参数，将来用它创建卷组用。
+VG (Volume Group) VG 卷组，将多个物理卷集合为一个大的逻辑硬盘，类似于没有LVM功能的硬盘，为创建逻辑卷提供硬盘空间，普通硬盘上面分配空间是通过block块进行分配，而卷组中是通过PE进行分配，PE是逻辑卷中空间分配的最小单位，默认值为4M。
+LV (Logical Volume) LV 逻辑卷，逻辑卷是在卷组的基础上将卷组分成不同大小的隔离空间，类似于非LVM中分区的概念。
+逻辑卷的用途在于弹性的扩展，压缩磁盘空间。其并不具有容错能力和提高I/O性能的功能。
+实验一、 逻辑卷的创建
+逻辑卷的创建步骤如下
+创建物理卷创建卷组创建逻辑卷创建文件系统挂载文件系统a. 准备实验环境 本实验中使用分区来创建物理卷，实际生产环境中一般使用整块硬盘来创建物理卷，我们创建4个分区/dev/sdb1, /dev/sdb2, /dev/sdb3, /dev/sdb4, 先使用3g分区创建逻辑卷，留一个分区到后面做扩展逻辑卷使用。
+创建分区, 并将分区类型调整为8e(Linux LVM)
+# 使用fdisk分区
+[root@zhubiaook ~]# fdisk /dev/sdb
+Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+Building a new DOS disklabel with disk identifier 0xb0beda60.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 12, 2017</span>
+        <a
+        href="/posts/linux/2017-08-12-lvm/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-08-11-raid/" class="post-card-link">

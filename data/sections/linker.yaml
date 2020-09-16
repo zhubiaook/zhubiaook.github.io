@@ -10,9 +10,38 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
+- name: GitHub
+  summary: "GitHub汇总页面"
+  url: https://github.com/trending
+
+- name: HackerNews
+  summary: "技术新闻"
+  url: https://news.ycombinator.com/
+
+- name: InfoQ
+  summary: "IT内容"
+  url: https://www.infoq.com
+
+- name: StackOverflow
+  summary: "解决bug社区"
+  url: https://stackoverflow.com/
+
+- name: Medium
+  summary: "博客分享平台"
+  url: https://medium.com/
+
+- name: GeeksforGeeks
+  summary: "编程练习"
+  url: https://www.geeksforgeeks.org/
+  
 - name: 语雀-我
   summary: "分享知识"
   url: https://www.yuque.com/zhubiaook
+
+- name: 语雀-日记
+  summary: "分享知识"
+  url: https://www.yuque.com/notebook
+
 - name: blog-宋净超
   summary: "Kubernetes, Service Mesh"
   url: https://jimmysong.io/

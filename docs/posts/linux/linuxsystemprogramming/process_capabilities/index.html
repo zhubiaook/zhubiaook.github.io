@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>process_capabilities</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="process_capabilities" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/layouts/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/veth/">veth</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/">Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://blog.zybz.fun/assets/images/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">zhubiao</h5>
+          <p>September 15, 2020</p>
+        </div>
+
+        <div class="title">
+          <h1>process_capabilities</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <h2 id="相关系统调用">相关系统调用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">cap_t <span style="color:#a6e22e">cap_get_proc</span>() <span style="color:#75715e">// 获取当前进程的capalibities
+</span><span style="color:#75715e"></span>cap_t cap_get_pid(pid_t pid) <span style="color:#75715e">// 获取指定进程的capalibities
+</span><span style="color:#75715e"></span>cap_t cap_from_text(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf_p) <span style="color:#75715e">// 将文本转化为capablibities
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>cap_to_text(cap_t caps, ssize_t <span style="color:#f92672">*</span>length_p) <span style="color:#75715e">// 将capalibities转为文本
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> cap_from_name(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>name, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>cap_p) <span style="color:#75715e">// 将字符串表示的capability转为对应的数字
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>cap_to_name(<span style="color:#66d9ef">int</span> cap) <span style="color:#75715e">// 将cap的数字转为文本
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> cap_get_flag(cap_t cap_p, cap_value_t cap, cap_flag_t flag, cap_flag_value_t <span style="color:#f92672">*</span>value_p); <span style="color:#75715e">// 设置能力，配合cap_set_proc()使用
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> cap_set_proc(cap_t cap_p) <span style="color:#75715e">//设置当前进程的能力
+</span><span style="color:#75715e"></span>cap_t cap_init() <span style="color:#75715e">// creates a capability state
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> cap_free() <span style="color:#75715e">// 释放capability state内存
+</span></code></pre></div><h2 id="获取修改文件capability的命令">获取、修改文件capability的命令</h2>
+<p>获取文件capabilities</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ getcap /usr/bin/ping
+/usr/bin/ping <span style="color:#f92672">=</span> cap_net_admin,cap_net_raw+p
+</code></pre></div><p>设置文件capabilities</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setcap <span style="color:#e6db74">&#39;cap_net_admin+ep cap_net_raw+ei&#39;</span> /tmp/cap/sleep
+</code></pre></div><h2 id="执行exec之类的系统调用capabilities变化如下">执行<code>exec()</code>之类的系统调用，capabilities变化如下：</h2>
+<blockquote>
+<p>ambient capability set 是Linux 4.3后才有</p>
+<p>Linux 2.6.25, the bounding set was a system-wide attribute shared by all threads.</p>
+</blockquote>
+<pre><code>P'(ambient)     = (file is privileged) ? 0 : P(ambient)
+P'(permitted)   = (P(inheritable) &amp; F(inheritable)) | (F(permitted) &amp; P(bounding)) | P'(ambient)
+P'(effective)   = F(effective) ? P'(permitted) : P'(ambient)
+P'(inheritable) = P(inheritable)
+P'(bounding)    = P(bounding)
+</code></pre><h2 id="示例">示例</h2>
+<p>提前安装好相关依赖库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum -y install libcap-devel libcap-ng-devel
+</code></pre></div><p>打印当前进程的capabilities</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/capability.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+    pid_t pid;
+    cap_t cap;
+    cap_value_t cap_list[CAP_LAST_CAP<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+    cap_flag_t cap_flags;
+    cap_flag_value_t cap_flags_value;
+
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>cap_name[CAP_LAST_CAP<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> {
+        <span style="color:#e6db74">&#34;cap_chown&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_dac_override&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_dac_read_search&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_fowner&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_fsetid&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_kill&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_setgid&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_setuid&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_setpcap&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_linux_immutable&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_net_bind_service&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_net_broadcast&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_net_admin&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_net_raw&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_ipc_lock&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_ipc_owner&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_module&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_rawio&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_chroot&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_ptrace&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_pacct&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_admin&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_boot&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_nice&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_resource&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_time&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_sys_tty_config&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_mknod&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_lease&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_audit_write&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_audit_control&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_setfcap&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_mac_override&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_mac_admin&#34;</span>,
+        <span style="color:#e6db74">&#34;cap_syslog&#34;</span>
+    };
+
+    pid <span style="color:#f92672">=</span> getpid();
+    cap <span style="color:#f92672">=</span> cap_get_pid(pid);
+    <span style="color:#66d9ef">if</span> (cap <span style="color:#f92672">==</span> NULL) {
+        perror(<span style="color:#e6db74">&#34;cap_get_pid&#34;</span>);
+        exit(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    }
+
+    <span style="color:#75715e">/* effetive cap */</span>
+    cap_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> CAP_CHOWN;
+    <span style="color:#66d9ef">if</span> (cap_set_flag(cap, CAP_EFFECTIVE, <span style="color:#ae81ff">1</span>, cap_list, CAP_SET) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;cap_set_flag cap_chown&#34;</span>);
+        cap_free(cap);
+        exit(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    }
+
+    <span style="color:#75715e">/* permitted cap */</span>
+    cap_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> CAP_MAC_ADMIN;
+    <span style="color:#66d9ef">if</span> (cap_set_flag(cap, CAP_PERMITTED, <span style="color:#ae81ff">1</span>, cap_list, CAP_SET) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;cap_set_flag cap_mac_admin&#34;</span>);
+        cap_free(cap);
+        exit(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    }
+
+    <span style="color:#75715e">/* inherit cap */</span>
+    cap_list[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> CAP_SETFCAP;
+    <span style="color:#66d9ef">if</span> (cap_set_flag(cap, CAP_INHERITABLE, <span style="color:#ae81ff">1</span>, cap_list, CAP_SET) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        perror(<span style="color:#e6db74">&#34;cap_set_flag cap_setfcap&#34;</span>);
+        cap_free(cap);
+        exit(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    }
+
+        <span style="color:#75715e">/* dump them */</span>
+    <span style="color:#66d9ef">int</span> i;
+    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> CAP_LAST_CAP <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+        cap_from_name(cap_name[i], <span style="color:#f92672">&amp;</span>cap_list[i]);
+        printf(<span style="color:#e6db74">&#34;%-20s %d</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">&#34;</span>, cap_name[i], cap_list[i]);
+        printf(<span style="color:#e6db74">&#34;flags: </span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">&#34;</span>);
+        cap_get_flag(cap, cap_list[i], CAP_EFFECTIVE, <span style="color:#f92672">&amp;</span>cap_flags_value);
+        printf(<span style="color:#e6db74">&#34; EFFECTIVE %-4s &#34;</span>, (cap_flags_value <span style="color:#f92672">==</span> CAP_SET) <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;OK&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;NOK&#34;</span>);
+        cap_get_flag(cap, cap_list[i], CAP_PERMITTED, <span style="color:#f92672">&amp;</span>cap_flags_value);
+        printf(<span style="color:#e6db74">&#34; PERMITTED %-4s &#34;</span>, (cap_flags_value <span style="color:#f92672">==</span> CAP_SET) <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;OK&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;NOK&#34;</span>);
+        cap_get_flag(cap, cap_list[i], CAP_INHERITABLE, <span style="color:#f92672">&amp;</span>cap_flags_value);
+        printf(<span style="color:#e6db74">&#34; INHERITABLE %-4s &#34;</span>, (cap_flags_value <span style="color:#f92672">==</span> CAP_SET) <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;OK&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;NOK&#34;</span>);
+        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    }
+
+    cap_free(cap);
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>给进程赋予能力</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#undef _POSIX_SOURCE
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/capability.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> errno;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">whoami</span>(<span style="color:#66d9ef">void</span>)
+{
+  printf(<span style="color:#e6db74">&#34;uid=%i  euid=%i  gid=%i</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, getuid(), geteuid(), getgid());
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">listCaps</span>()
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#undef _POSIX_SOURCE
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/capability.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> errno;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">whoami</span>(<span style="color:#66d9ef">void</span>)
+{
+  printf(<span style="color:#e6db74">&#34;uid=%i  euid=%i  gid=%i</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, getuid(), geteuid(), getgid());
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">listCaps</span>()
+{
+  cap_t caps <span style="color:#f92672">=</span> cap_get_proc();
+  ssize_t y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  printf(<span style="color:#e6db74">&#34;The process %d was give capabilities %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,
+         (<span style="color:#66d9ef">int</span>) getpid(), cap_to_text(caps, <span style="color:#f92672">&amp;</span>y));
+  fflush(<span style="color:#ae81ff">0</span>);
+  cap_free(caps);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+{
+  <span style="color:#66d9ef">int</span> stat;
+  whoami();
+  stat <span style="color:#f92672">=</span> setuid(geteuid());
+  pid_t parentPid <span style="color:#f92672">=</span> getpid();
+
+  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>parentPid)
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+  cap_t caps <span style="color:#f92672">=</span> cap_init();
+
+
+  cap_value_t capList[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> { CAP_NET_RAW, CAP_NET_BIND_SERVICE , CAP_SETUID, CAP_SETGID, CAP_SETPCAP };
+  <span style="color:#66d9ef">unsigned</span> num_caps <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+  cap_set_flag(caps, CAP_EFFECTIVE, num_caps, capList, CAP_SET);
+  cap_set_flag(caps, CAP_INHERITABLE, num_caps, capList, CAP_SET);
+  cap_set_flag(caps, CAP_PERMITTED, num_caps, capList, CAP_SET);
+
+  <span style="color:#66d9ef">if</span> (cap_set_proc(caps)) {
+    perror(<span style="color:#e6db74">&#34;capset()&#34;</span>);
+
+    <span style="color:#66d9ef">return</span> EXIT_FAILURE;
+  }
+
+  listCaps();
+
+  printf(<span style="color:#e6db74">&#34;dropping caps</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+  cap_clear(caps);  <span style="color:#75715e">// resetting caps storage
+</span><span style="color:#75715e"></span>
+  <span style="color:#66d9ef">if</span> (cap_set_proc(caps)) {
+    perror(<span style="color:#e6db74">&#34;capset()&#34;</span>);
+    <span style="color:#66d9ef">return</span> EXIT_FAILURE;
+  }
+  listCaps();
+
+  cap_free(caps);
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>上面两个示例编译方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -lcap FILE.c -o FILE
+</code></pre></div><p>Ambient能力是Linux 4.3后面才有</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Test program for the ambient capabilities. This program spawns a shell
+</span><span style="color:#75715e"> * that allows running processes with a defined set of capabilities.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * (C) 2015 Christoph Lameter &lt;cl@linux.com&gt;
+</span><span style="color:#75715e"> * Released under: GPL v3 or later.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Compile using:
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *  gcc -o ambient_test ambient_test.o -lcap-ng
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * This program must have the following capabilities to run properly:
+</span><span style="color:#75715e"> * Permissions for CAP_NET_RAW, CAP_NET_ADMIN, CAP_SYS_NICE
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * A command to equip the binary with the right caps is:
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *  setcap cap_net_raw,cap_net_admin,cap_sys_nice+p ambient_test
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * To get a shell with additional caps that can be inherited by other processes:
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *  ./ambient_test /bin/bash
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Verifying that it works:
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * From the bash spawed by ambient_test run
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *  cat /proc/$$/status
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * and have a look at the capabilities.
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cap-ng.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/prctl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/capability.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Definitions from the kernel header files. These are going to be removed
+</span><span style="color:#75715e"> * when the /usr/include files have these defined.
+</span><span style="color:#75715e"> */</span>
+<span style="color:#75715e">#define PR_CAP_AMBIENT 47
+</span><span style="color:#75715e">#define PR_CAP_AMBIENT_IS_SET 1
+</span><span style="color:#75715e">#define PR_CAP_AMBIENT_RAISE 2
+</span><span style="color:#75715e">#define PR_CAP_AMBIENT_LOWER 3
+</span><span style="color:#75715e">#define PR_CAP_AMBIENT_CLEAR_ALL 4
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_ambient_cap</span>(<span style="color:#66d9ef">int</span> cap)
+{
+    <span style="color:#66d9ef">int</span> rc;
+
+    capng_get_caps_process();
+    rc <span style="color:#f92672">=</span> capng_update(CAPNG_ADD, CAPNG_INHERITABLE, cap);
+    <span style="color:#66d9ef">if</span> (rc) {
+        printf(<span style="color:#e6db74">&#34;Cannot add inheritable cap</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+        exit(<span style="color:#ae81ff">2</span>);
+    }
+    capng_apply(CAPNG_SELECT_CAPS);
+
+    <span style="color:#75715e">/* Note the two 0s at the end. Kernel checks for these */</span>
+    <span style="color:#66d9ef">if</span> (prctl(PR_CAP_AMBIENT, PR_CAP_AMBIENT_RAISE, cap, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)) {
+        perror(<span style="color:#e6db74">&#34;Cannot set cap&#34;</span>);
+        exit(<span style="color:#ae81ff">1</span>);
+    }
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+{
+    <span style="color:#66d9ef">int</span> rc;
+
+    set_ambient_cap(CAP_NET_RAW);
+    set_ambient_cap(CAP_NET_ADMIN);
+    set_ambient_cap(CAP_SYS_NICE);
+
+    printf(<span style="color:#e6db74">&#34;Ambient_test forking shell</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    <span style="color:#66d9ef">if</span> (execv(argv[<span style="color:#ae81ff">1</span>], argv <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))
+        perror(<span style="color:#e6db74">&#34;Cannot exec&#34;</span>);
+
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>编译</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -lcap-ng FILE.c -o FILE
+</code></pre></div><h2 id="参考文档">参考文档</h2>
+<p><a href="https://www.man7.org/linux/man-pages/man3/cap_set_proc.3.html">cap_set_proc(3) - Linux manual page</a></p>
+<p><a href="https://linux.die.net/man/3/cap_from_text">cap_from_text(3) - Linux man page</a></p>
+<p><a href="https://0x0916.gitbooks.io/linux-capability/content/chapter1.html">Capability 概述 · linux-capability</a></p>
+
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/zhubiaook/zhubiaook.github.io/edit/master/content/posts%5cLinux%5cLinuxSystemProgramming%5cprocess_capabilities.md">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+      
+        
+        
+        <div class="col-md-12 next-article">
+          <a href="/posts/linux/linuxsystemprogramming/process_credentials/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>进程凭证</span>
+          </a>
+        </div>
+      
+    
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#相关系统调用">相关系统调用</a></li>
+        <li><a href="#获取修改文件capability的命令">获取、修改文件capability的命令</a></li>
+        <li><a href="#执行exec之类的系统调用capabilities变化如下">执行<code>exec()</code>之类的系统调用，capabilities变化如下：</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#参考文档">参考文档</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

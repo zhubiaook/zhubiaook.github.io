@@ -356,7 +356,25 @@
   
   
     
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
   
 
 
@@ -427,6 +445,70 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/tcpdump/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">tcpdump</h5>
+        <p class="card-text post-summary">语法 tcpdump [OPTION] [FILTER]  选项
+   -i INTERFACE： 指定网络设备
+  -e 显示源，目的MAC地址
+  -n 部进行域名解析
+   过滤条件
+   过滤主机：[src|dst] host IP
+  过滤端口：[src|dst] port PORT
+  网络过滤：[src|dst] net NET_ADDRESS
+  协议过滤：arp|ip|tcp|udp|icmp
+   逻辑表达式
+   !, not
+  &amp;&amp;, and
+  ||, or
+  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
+tcpdump -i eth1 &#39;((tcp) and (port 80) and ((dst host 192.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 4, 2020</span>
+        <a
+        href="/posts/linux/command/tcpdump/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/container/network/tun_tap/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux虚拟网络设备TUN/TAP</h5>
+        <p class="card-text post-summary">虚拟网络网卡与物理网卡的区别 网卡就像一根管道(piple)，数据从一端进入，从另外一端流出。物理网卡的一端连接内核协议栈，另外一端连接外部网络，当数据从协议栈流入物理网卡，将从另外一端流入外部网络。虚拟网络与之类似，只是虚拟网卡的一端连接内核协议栈，另外一端连接哪里就不一定，由相应的网卡驱动程序决定。
+TUN/TAP是Linux内核中的其中一种虚拟网卡，它的一端连接内核协议栈，另外一端连接的是用户空间的应用程序（比如OpenVPN）。
+TUN/TAP应用案例  OpenVPN就是使用TUN/TAP设备在公网上建立加密通道，实现异地网络内网连通。
+ 实现原理图
+参考链接 Linux虚拟网络设备之tun/tap - Linux程序员 - SegmentFault 思否</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 3, 2020</span>
+        <a
+        href="/posts/container/network/tun_tap/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/command/ip/" class="post-card-link">
@@ -666,52 +748,6 @@ git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t 
         <span class="float-left">November 11, 2017</span>
         <a
         href="/posts/database/2017-11-11-mysqlbackup/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-11-07-session/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">会话保持</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 7, 2017</span>
-        <a
-        href="/posts/linux/2017-11-07-session/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/webserver/2017-11-05-tomcat/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">tomcat</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 5, 2017</span>
-        <a
-        href="/posts/webserver/2017-11-05-tomcat/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

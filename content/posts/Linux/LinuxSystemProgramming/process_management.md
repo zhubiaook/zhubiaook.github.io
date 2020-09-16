@@ -202,7 +202,35 @@ int main(void) {
 int clone(int (*func)(void *), void *child_stack, int flags)
 ```
 
-## 
+示例
+
+```c
+#define _GNU_SOURCE
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdio.h>
+#include <sched.h>
+#include <signal.h>
+#include <unistd.h>
+
+#define STACK_SIZE (1024 * 1024)
+
+static char child_stack[STACK_SIZE];
+
+int child_process() {
+    printf("start child process ...\n");
+    execl("/usr/bin/sleep", "sleep", "100", NULL);
+    return 1;
+}
+
+int main(void) {
+    int pid;
+    printf("start process\n");
+    pid = clone(child_process, child_stack + STACK_SIZE, SIGCHLD, NULL);
+    waitpid(pid, NULL, 0);
+    printf("process stopped\n");
+}
+```
 
 ## setns(), unshare()
 

@@ -69,7 +69,7 @@ int main() {
 }
 ```
 
-UTS隔离
+示例
 
 ```c
 #define _GNU_SOURCE
@@ -116,7 +116,7 @@ int main(void) {
 
 3. 子进程退出后，父进程继续执行`clone()` 调用点后面的程序。
 
-## IPC 隔离
+## IPC Namespace
 
 ```c
 /*
@@ -151,6 +151,46 @@ int main(void) {
     waitpid(pid, NULL, 0);
     printf("process stopped\n");
 }
+```
+
+## Net Namespace
+
+1. `net-namespace`用来隔离进程的网络，每个`net-namespace`都拥有独立的网络设备、网络协议栈、路由，互不影响
+
+2. 网络设备只能属于其中一个`net-namespace`，不能共享
+
+3. 标记为`netns-local`的设备不能从一个`net-namespace`移到另外一个`net-namespace`，比如`bridge`, `lo`设备
+   
+   ```bash
+   $ ethtool -k br0 | grep netns-local
+   netns-local: on [fixed]
+   ```
+
+此部分的操作示例请查看[veth](https://blog.zybz.fun/posts/container/network/veth/)
+
+#### `ip netns`
+
+> `ip netns` 可以用来操作方便操作`net-namespace`，下面解释其命令
+
+`ip netns add net-namespace01`命令可以通过下面的脚本实现
+
+```bash
+# 创建新的net namespace
+$ unshare -n /bin/bash
+# 绑定当前net-namespace到文件上，/var/run/netns为ip netns默认的目录
+$ touch /var/run/netns/net-namespace01
+$ mount --bind /proc/$$/ns/net /var/run/netns/net-namespace01
+# 可以看到该文件的inode节点就是net的inode节点
+$ ls -i /var/run/netns/net-namespace01
+4026532421 /var/run/netns/net-namespace01 
+$ readlink /proc/$$/ns/net
+net:[4026532421]
+```
+
+`ip netns exec net-namespace01 /bin/bash`命令可以通过以下脚本实现
+
+```bash
+nsenter --net=/var/run/netns/net-namespace01 /bin/bash
 ```
 
 ## PID Namespace
@@ -225,7 +265,7 @@ mount -t proc proc /proc
 unshare -p -u -m -f --mount-proc /bin/bash
 ```
 
-### Mount隔离
+### Mount Namespace
 
 Mount namespaces是第一个被加入Linux的namespace，由于当时没想到还会引入其它的namespace，所以取名为CLONE_NEWNS，而没有叫CLONE_NEWMOUNT。
 
@@ -260,7 +300,7 @@ int main(void) {
 }
 ```
 
-## User隔离
+## User Namespace
 
 ```c
 #define _GNU_SOURCE
@@ -313,7 +353,7 @@ int main(void) {
 }
 ```
 
-# 用户ID和组ID
+### 用户ID和组ID
 
 进程相关的uid, gid
 

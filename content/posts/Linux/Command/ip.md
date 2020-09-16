@@ -167,8 +167,6 @@ ip netns exec net1 /bin/bash
 readlink /proc/$$/ns/net
 ```
 
-
-
 ### ip neigh
 
 ** 查看ARP缓存**

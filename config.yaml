@@ -51,6 +51,9 @@ params:
   - name: Learn English
     url: https://www.yuque.com/zhubiaook/english
 
+  - name: IDE
+    url: https://repl.it
+
   # some information about you
   author:
     name: "zhubiao"

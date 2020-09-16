@@ -359,7 +359,25 @@
   
   
     
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
   
 
 
@@ -430,6 +448,65 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_capabilities/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">process_capabilities</h5>
+        <p class="card-text post-summary">相关系统调用 cap_t cap_get_proc() // 获取当前进程的capalibities cap_t cap_get_pid(pid_t pid) // 获取指定进程的capalibities cap_t cap_from_text(char *buf_p) // 将文本转化为capablibities char *cap_to_text(cap_t caps, ssize_t *length_p) // 将capalibities转为文本 int cap_from_name(char *name, int *cap_p) // 将字符串表示的capability转为对应的数字 char *cap_to_name(int cap) // 将cap的数字转为文本  int cap_get_flag(cap_t cap_p, cap_value_t cap, cap_flag_t flag, cap_flag_value_t *value_p); // 设置能力，配合cap_set_proc()使用 int cap_set_proc(cap_t cap_p) //设置当前进程的能力 cap_t cap_init() // creates a capability state int cap_free() // 释放capability state内存 获取、修改文件capability的命令 获取文件capabilities
+$ getcap /usr/bin/ping /usr/bin/ping = cap_net_admin,cap_net_raw+p 设置文件capabilities</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 15, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_capabilities/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_credentials/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">进程凭证</h5>
+        <p class="card-text post-summary">每个进程都有一套用数字表示的useridentifiers(UIDs)和group identifiers(GIDs)，这些ID称为进程的凭证，决定了进程的权限。
+ UIDs和GIDs包含以下几种：
+  实际用户ID：real user ID(RUID) 和实际组ID： real group ID(RGID)
+  有效用户ID：effective user ID(EUID) 和有效组ID： effective group ID(EGID)
+  保存set-user-ID：saved set-user-ID(SUID)和保存set-grop-ID：saved set-group-ID(SGID)
+  文件系统用户ID：filesystem user ID(FUID)和文件系统组ID：filesystem group ID(FGID)
+  附加组ID: supplementary group IDs
+  FUID和FGID通常与EUID和EGID一样，后文不再对其单独叙述。
+UIDs, GIDs作用   RUID(RGID): 实际用户(组)ID决定了进程所属的用户和组（可能被进程执行的程序指令改变）。CentOS发行版上，当我们登录bash(即进入bash进程提供的命令行终端）时，登录程序会读取/etc/passwd文件对应用户的第三、第四字段的值作为bash进程的RUID和RGID，我们在bash里面执行的各种命令的RUID和RGID都继承自父进程bash。同样，当创建新进程时，该进程的RUID, RGID也继承自其父进程。
+  EUID(EGID): 有效用户(组)ID决定了进程执行各种操作时所拥有的权限，通常EUDI等同于RUID，但以下两种情况会使其不一样：
+  当可执行文件（程序或命令）设置了set-user-ID,set-group-ID，则执行该程序时，进程的有效用户(组)ID会被改变为可执行文件的属主ID(属组ID)。若可执行文件属主、属组ID是0(比如root)，则进程就间接拥有了超级权限。
+  进程执行了setuid()之类的系统调用，改变了进程的有效用户ID。
+    SUID(SGID)：save set-user-ID的初值从EUID复制而来，通常配合set-user-ID标志位使用，设置了该标志位的程序启动后，进程的EUID为程序的属主ID，从而save set-user-ID的值也为程序属主ID，进程通过seteuid()等指令可以自由的将EUID设置为RUID或save set-user-ID。当进程需要执行特权操作时，将EUID设置为save set-user-ID而获得需要的权限，而执行普通操作时，将EUID设置为RUID，降低进程的权限，保证系统安全。</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 11, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_credentials/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/command/ethtool/" class="post-card-link">
@@ -707,52 +784,6 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
         <span class="float-left">September 1, 2020</span>
         <a
         href="/posts/linux/command/sysctl/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-11-07-session/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">会话保持</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 7, 2017</span>
-        <a
-        href="/posts/linux/2017-11-07-session/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-11-03-varnish/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">varnish</h5>
-        <p class="card-text post-summary">varnish.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 3, 2017</span>
-        <a
-        href="/posts/linux/2017-11-03-varnish/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
