@@ -726,6 +726,23 @@ mount -t proc proc /proc
     printf(<span style="color:#e6db74">&#34;process stopped</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 }
 </code></pre></div><h2 id="user-namespace">User Namespace</h2>
+<p><strong>use-namesapce特性</strong></p>
+<ol>
+<li>user-namespace可以嵌套，除了系统默认user-namespace没有父user-namespace外，其他的都有。</li>
+<li>一个user-namespace可以有零到多个user-namespace</li>
+<li>调用clone(child_process, child_stack + STACK_SIZE, CLONE_NEWUSER|SIGCHLD, NULL)等系统调用创建子进程时，会创建新的user-namespace, 父进程user-namespace保持不变，子进程进入新的user-namespace。 新user-namespace的父是父进程的user-namespace。</li>
+<li>同一进程，不同user-namespace视角下看到的RUID, EUID, Save-set-user-ID可能不一样，若该进程在当前user-namespace下面EUID=0,则该进程在当前及子user-namespace下面就拥有特权。 capabilities同样</li>
+</ol>
+<p><strong>父、子user-namesapce中进程的RUID映射关系</strong></p>
+<p>父、子user-namespace中进程RUID的映射关系记录于<code>/proc/PID/uid_map</code>文件中（PID为该进程的PID），该文件内容如下：</p>
+<p>子user-namespace中的RUID, 父user-namespace中的UID, 映射的数量。</p>
+<pre><code>child-user-ns-RUID father-user-ns-RUID NUM
+</code></pre><p>例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /proc/26438/uid_map
+         <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">1000</span>          <span style="color:#ae81ff">1</span>
+</code></pre></div><p>可以在父user-namespace中修改该映射关系：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;100 1000 10&#39;</span> &gt; /proc/PID/uid_map
+</code></pre></div><p>系统调用示例：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define _GNU_SOURCE
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/wait.h&gt;</span><span style="color:#75715e">

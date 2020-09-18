@@ -302,6 +302,40 @@ int main(void) {
 
 ## User Namespace
 
+**use-namesapce特性**
+
+1. user-namespace可以嵌套，除了系统默认user-namespace没有父user-namespace外，其他的都有。
+2. 一个user-namespace可以有零到多个user-namespace
+3. 调用clone(child_process, child_stack + STACK_SIZE, CLONE_NEWUSER|SIGCHLD, NULL)等系统调用创建子进程时，会创建新的user-namespace, 父进程user-namespace保持不变，子进程进入新的user-namespace。 新user-namespace的父是父进程的user-namespace。
+4. 同一进程，不同user-namespace视角下看到的RUID, EUID, Save-set-user-ID可能不一样，若该进程在当前user-namespace下面EUID=0,则该进程在当前及子user-namespace下面就拥有特权。 capabilities同样
+
+
+
+**父、子user-namesapce中进程的RUID映射关系**
+
+父、子user-namespace中进程RUID的映射关系记录于`/proc/PID/uid_map`文件中（PID为该进程的PID），该文件内容如下：  
+
+子user-namespace中的RUID, 父user-namespace中的UID, 映射的数量。
+
+```
+child-user-ns-RUID father-user-ns-RUID NUM
+```
+
+例如：
+
+```bash
+cat /proc/26438/uid_map
+         0       1000          1
+```
+
+可以在父user-namespace中修改该映射关系：
+
+```bash
+echo '100 1000 10' > /proc/PID/uid_map
+```
+
+系统调用示例：
+
 ```c
 #define _GNU_SOURCE
 #include <sys/types.h>

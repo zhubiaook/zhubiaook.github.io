@@ -151,8 +151,6 @@ int main(void) {
 }
 ```
 
-
-
 ### 内存覆盖
 
 ```c
@@ -172,8 +170,6 @@ int main(void) {
 }
 ```
 
-
-
 ### 内存泄漏
 
 ```c
@@ -185,8 +181,6 @@ int main(void) {
     return 0;
 }
 ```
-
-
 
 ## 内存锁定
 
@@ -209,11 +203,11 @@ int main(void) {
 int main(void) {
     int ret;
     char secret[10];
-    
+
     ret = mlock(secret, strlen(secret));
     if(ret)
         perror("mlock");
-    
+
     munlockall();
 }
 ```

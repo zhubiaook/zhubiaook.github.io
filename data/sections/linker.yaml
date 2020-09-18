@@ -26,6 +26,10 @@ skills:
   summary: "解决bug社区"
   url: https://stackoverflow.com/
 
+- name: kernel-doc
+  summary: "kernel documentation"
+  url: https://www.kernel.org/doc/html/latest/
+
 - name: Medium
   summary: "博客分享平台"
   url: https://medium.com/
@@ -33,6 +37,10 @@ skills:
 - name: GeeksforGeeks
   summary: "编程练习"
   url: https://www.geeksforgeeks.org/
+
+- name: blog-manybutfinite
+  summary: "Linux kernel"
+  url: https://manybutfinite.com/
   
 - name: 语雀-我
   summary: "分享知识"
@@ -61,3 +69,7 @@ skills:
 - name: github-在线工具
   summary: "收集各种奇葩功能的在线工具"
   url: https://github.com/zhaoolee/OnlineToolsBook
+
+- name: Aggregated Awesome
+  summary: "将GitHub项目按编程语言汇总"
+  ur: https://aggregatedawesome.com/

@@ -630,11 +630,11 @@ $ valgrind --tool<span style="color:#f92672">=</span>memcheck ./source
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
     <span style="color:#66d9ef">int</span> ret;
     <span style="color:#66d9ef">char</span> secret[<span style="color:#ae81ff">10</span>];
-    
+
     ret <span style="color:#f92672">=</span> mlock(secret, strlen(secret));
     <span style="color:#66d9ef">if</span>(ret)
         perror(<span style="color:#e6db74">&#34;mlock&#34;</span>);
-    
+
     munlockall();
 }
 </code></pre></div>

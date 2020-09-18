@@ -475,7 +475,181 @@
         </div>
 
         <div class="post-content" id="post-content">
-          <h2 id="相关系统调用">相关系统调用</h2>
+          <h2 id="capabilities概述">capabilities概述</h2>
+<p>传统的<code>UNIX</code>系统将进程分为两类：</p>
+<ul>
+<li>
+<p><code>provileged</code>特权进程：<code>effective user ID</code>是0的进程，内核对此类进程跳过所有权限检查，即有权限执行任何操作。</p>
+</li>
+<li>
+<p><code>unprivileged</code>非特权进程：<code>effective user ID</code>不是0的进程，内核对此类进程进行全面权限检查，根据<code>effective UID, effective GID, supplementary grop list</code>决定是否有权限执行某项操作。</p>
+</li>
+</ul>
+<p>传统<code>UNIX</code>对于普通进程执行特权操作就必须使进程的<code>effective user ID</code>为0(通过set-user-ID)，如此进程就拥有了所有特权，若进程执行非法或意外操作将导致严重破坏。为了安全Linux-kernel-2.2后将特权(以前属于effective user ID = 0的)拆分为不同的细小单元。一个单元只拥有一部分特权。这些单元就是<code>capabilities</code>，其实<code>capabilities</code>是属于线程的特性，也就是可以给线程分配不同的<code>capability</code>。</p>
+<h2 id="capabilites-列表">capabilites 列表</h2>
+<table>
+<thead>
+<tr>
+<th>capability 名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAP_AUDIT_CONTROL</td>
+<td>启用和禁用内核审计；改变审计过滤规则；检索审计状态和过滤规则</td>
+</tr>
+<tr>
+<td>CAP_AUDIT_READ</td>
+<td>允许通过 multicast netlink 套接字读取审计日志</td>
+</tr>
+<tr>
+<td>CAP_AUDIT_WRITE</td>
+<td>将记录写入内核审计日志</td>
+</tr>
+<tr>
+<td>CAP_BLOCK_SUSPEND</td>
+<td>使用可以阻止系统挂起的特性</td>
+</tr>
+<tr>
+<td>CAP_CHOWN</td>
+<td>修改文件所有者的权限</td>
+</tr>
+<tr>
+<td>CAP_DAC_OVERRIDE</td>
+<td>忽略文件的 DAC 访问限制</td>
+</tr>
+<tr>
+<td>CAP_DAC_READ_SEARCH</td>
+<td>忽略文件读及目录搜索的 DAC 访问限制</td>
+</tr>
+<tr>
+<td>CAP_FOWNER</td>
+<td>忽略文件属主 ID 必须和进程用户 ID 相匹配的限制</td>
+</tr>
+<tr>
+<td>CAP_FSETID</td>
+<td>允许设置文件的 setuid 位</td>
+</tr>
+<tr>
+<td>CAP_IPC_LOCK</td>
+<td>允许锁定共享内存片段</td>
+</tr>
+<tr>
+<td>CAP_IPC_OWNER</td>
+<td>忽略 IPC 所有权检查</td>
+</tr>
+<tr>
+<td>CAP_KILL</td>
+<td>允许对不属于自己的进程发送信号</td>
+</tr>
+<tr>
+<td>CAP_LEASE</td>
+<td>允许修改文件锁的 FL_LEASE 标志</td>
+</tr>
+<tr>
+<td>CAP_LINUX_IMMUTABLE</td>
+<td>允许修改文件的 IMMUTABLE 和 APPEND 属性标志</td>
+</tr>
+<tr>
+<td>CAP_MAC_ADMIN</td>
+<td>允许 MAC 配置或状态更改</td>
+</tr>
+<tr>
+<td>CAP_MAC_OVERRIDE</td>
+<td>忽略文件的 DAC 访问限制</td>
+</tr>
+<tr>
+<td>CAP_MKNOD</td>
+<td>允许使用 mknod() 系统调用</td>
+</tr>
+<tr>
+<td>CAP_NET_ADMIN</td>
+<td>允许执行网络管理任务</td>
+</tr>
+<tr>
+<td>CAP_NET_BIND_SERVICE</td>
+<td>允许绑定到小于 1024 的端口</td>
+</tr>
+<tr>
+<td>CAP_NET_BROADCAST</td>
+<td>允许网络广播和多播访问</td>
+</tr>
+<tr>
+<td>CAP_NET_RAW</td>
+<td>允许使用原始套接字</td>
+</tr>
+<tr>
+<td>CAP_SETGID</td>
+<td>允许改变进程的 GID</td>
+</tr>
+<tr>
+<td>CAP_SETFCAP</td>
+<td>允许为文件设置任意的 capabilities</td>
+</tr>
+<tr>
+<td>CAP_SETPCAP</td>
+<td>参考 capabilities man page</td>
+</tr>
+<tr>
+<td>CAP_SETUID</td>
+<td>允许改变进程的 UID</td>
+</tr>
+<tr>
+<td>CAP_SYS_ADMIN</td>
+<td>允许执行系统管理任务，如加载或卸载文件系统、设置磁盘配额等</td>
+</tr>
+<tr>
+<td>CAP_SYS_BOOT</td>
+<td>允许重新启动系统</td>
+</tr>
+<tr>
+<td>CAP_SYS_CHROOT</td>
+<td>允许使用 chroot() 系统调用</td>
+</tr>
+<tr>
+<td>CAP_SYS_MODULE</td>
+<td>允许插入和删除内核模块</td>
+</tr>
+<tr>
+<td>CAP_SYS_NICE</td>
+<td>允许提升优先级及设置其他进程的优先级</td>
+</tr>
+<tr>
+<td>CAP_SYS_PACCT</td>
+<td>允许执行进程的 BSD 式审计</td>
+</tr>
+<tr>
+<td>CAP_SYS_PTRACE</td>
+<td>允许跟踪任何进程</td>
+</tr>
+<tr>
+<td>CAP_SYS_RAWIO</td>
+<td>允许直接访问 /devport、/dev/mem、/dev/kmem 及原始块设备</td>
+</tr>
+<tr>
+<td>CAP_SYS_RESOURCE</td>
+<td>忽略资源限制</td>
+</tr>
+<tr>
+<td>CAP_SYS_TIME</td>
+<td>允许改变系统时钟</td>
+</tr>
+<tr>
+<td>CAP_SYS_TTY_CONFIG</td>
+<td>允许配置 TTY 设备</td>
+</tr>
+<tr>
+<td>CAP_SYSLOG</td>
+<td>允许使用 syslog() 系统调用</td>
+</tr>
+<tr>
+<td>CAP_WAKE_ALARM</td>
+<td>允许触发一些能唤醒系统的东西(比如 CLOCK_BOOTTIME_ALARM 计时器)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相关系统调用">相关系统调用</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">cap_t <span style="color:#a6e22e">cap_get_proc</span>() <span style="color:#75715e">// 获取当前进程的capalibities
 </span><span style="color:#75715e"></span>cap_t cap_get_pid(pid_t pid) <span style="color:#75715e">// 获取指定进程的capalibities
 </span><span style="color:#75715e"></span>cap_t cap_from_text(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf_p) <span style="color:#75715e">// 将文本转化为capablibities
@@ -503,7 +677,8 @@ P'(permitted)   = (P(inheritable) &amp; F(inheritable)) | (F(permitted) &amp; P(
 P'(effective)   = F(effective) ? P'(permitted) : P'(ambient)
 P'(inheritable) = P(inheritable)
 P'(bounding)    = P(bounding)
-</code></pre><h2 id="示例">示例</h2>
+</code></pre><h2 id="执行fork等创建进程的系统调用capabilities继承父进程的">执行<code>fork()</code>等创建进程的系统调用，capabilities继承父进程的</h2>
+<h2 id="示例">示例</h2>
 <p>提前安装好相关依赖库</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum -y install libcap-devel libcap-ng-devel
 </code></pre></div><p>打印当前进程的capabilities</p>
@@ -780,6 +955,7 @@ P'(bounding)    = P(bounding)
 </code></pre></div><p>编译</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcc -lcap-ng FILE.c -o FILE
 </code></pre></div><h2 id="参考文档">参考文档</h2>
+<p><a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7) - Linux manual page</a></p>
 <p><a href="https://www.man7.org/linux/man-pages/man3/cap_set_proc.3.html">cap_set_proc(3) - Linux manual page</a></p>
 <p><a href="https://linux.die.net/man/3/cap_from_text">cap_from_text(3) - Linux man page</a></p>
 <p><a href="https://0x0916.gitbooks.io/linux-capability/content/chapter1.html">Capability 概述 · linux-capability</a></p>
@@ -953,9 +1129,12 @@ P'(bounding)    = P(bounding)
   <ul>
     <li>
       <ul>
+        <li><a href="#capabilities概述">capabilities概述</a></li>
+        <li><a href="#capabilites-列表">capabilites 列表</a></li>
         <li><a href="#相关系统调用">相关系统调用</a></li>
         <li><a href="#获取修改文件capability的命令">获取、修改文件capability的命令</a></li>
         <li><a href="#执行exec之类的系统调用capabilities变化如下">执行<code>exec()</code>之类的系统调用，capabilities变化如下：</a></li>
+        <li><a href="#执行fork等创建进程的系统调用capabilities继承父进程的">执行<code>fork()</code>等创建进程的系统调用，capabilities继承父进程的</a></li>
         <li><a href="#示例">示例</a></li>
         <li><a href="#参考文档">参考文档</a></li>
       </ul>
