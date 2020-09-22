@@ -64,6 +64,4 @@ params:
       email: "zhubiaook@outlook.com"
     # a summary of what you do
     summary:
-    - I am a DevOps
-    - I work with Python
-    - I love to work with some fun projects
+    - Talk is cheap. Show me the code.

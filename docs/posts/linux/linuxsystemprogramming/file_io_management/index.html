@@ -88,6 +88,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">.Linux.LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory/">memory</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/autoops/">AutoOps</a></li>
   
 
@@ -477,8 +502,15 @@
         <div class="post-content" id="post-content">
           <h1 id="文件读写---系统调用">文件读写 - 系统调用</h1>
 <blockquote>
-<p><code>int open(const char *name, int flags, mode_t mode);</code></p>
-<p>flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;</p>
+<p>#include &lt;fnctl.h&gt;</p>
+<p>int open(char *pathname, int flags);</p>
+<p>int open(char *pathname, int flags, mode_t mode);</p>
+<p>flags:</p>
+<p>    O_RDONLY</p>
+<p>    O_WRONLY</p>
+<p>    O_RDWR</p>
+<p>    O_CREAT</p>
+<p>    O_DIRECT : Direct I/O, 不加此参数为 Bufferd I/O</p>
 </blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
@@ -1007,7 +1039,7 @@ someting so beautiful
         <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="btn btn-outline-info">
           <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
           <br />
-          <span>内存管理</span>
+          <span>内存相关的系统调用</span>
         </a>
       </div>
       
@@ -1029,6 +1061,8 @@ someting so beautiful
         </div>
       
     
+  
+
   
 
   

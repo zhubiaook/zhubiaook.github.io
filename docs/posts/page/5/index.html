@@ -83,6 +83,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">.Linux.LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory/">memory</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/autoops/">AutoOps</a></li>
   
 
@@ -445,6 +470,40 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/2017-08-10-quota/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">磁盘配额 quota</h5>
+        <p class="card-text post-summary">磁盘配额 quota磁盘配额 quota对于多用户的Linux系统而言，磁盘空间总是很宝贵的，若某用户过度占用磁盘将影响其他用户的使用，若磁盘空间耗尽将会影响系统的正常运行。征对此种情况，我们可以通过磁盘配额限制普通用户最大能使用的磁盘空间。
+quota常用情况
+/home/ 限制家目录的空间httpd server 限制网站空间ftp server 限制网络共享空间mail server 限制邮件空间磁盘配额quota限制的方式
+通过属主限制 当用户添加了quota, 该用户创建的的文件所占的空间必须遵守限额规定。即对文件的属主生效。通过属组限制 当属组添加了quota，主组是该组的用户所创建的文件所占的空间必须遵守限额的规定。即对文件的属组生效。quota 限制方法
+限制block，磁盘容量，一般使用这种方式限制inode，创建文件的数量柔性劝导(soft)，硬性规定(hard)，宽限期限(grace period )
+柔性劝导(soft): 当磁盘空间使用超过soft（block/inode）规定的值时将在每次用户增加磁盘空间的时候均提醒用户，在未超过硬性规定值之前，不禁止用户增加使用空间。硬性规定(hard): 当磁盘空间超过硬性规定值之后，用户将无法再增加磁盘的使用空间。宽限期限(grace period ): 设置soft和hard的目的在于提前提醒用户空间将快使用完，而宽限期限是当用户使用的空间在soft和hard之间时，再增加日期的限定，当超过此日期(从超过soft的时间开始算起)，用户能使用的最大空间将是soft设定的值。实验这里的磁盘配额针对单独的分区做限制，默认新分区未启用磁盘限额的功能，我们需在挂载分区时添加磁盘配额特性，并启用该功能。其次还需在分区所挂载的目录下生成限额数据库(quota.user, quota.group 分别征对用户和用户的主组)，我们新建两个用户(user1, user2)和组(grp1)，将用户user1,user2的主组设定为grp1,然后对这两个用户和组添加quota磁盘空间限制，测试用户和组在启用配额的分区空间的限制
+第一步 配置实验环境关闭SELinux 不关闭SELinux，将无法生成磁盘配额数据库，所以我们这里将其关闭#停用SELinux
+[root@zhubiaook work]# setenforce 0
+#修改配置文件，禁止开机启动SELinux
+[root@zhubiaook work]# cat /etc/selinux/config | grep "^SELINUX="
+SELINUX=permissive
+创建用户和组#创建组grp1</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 10, 2017</span>
+        <a
+        href="/posts/linux/2017-08-10-quota/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/2017-08-05-rpm-yum/" class="post-card-link">

@@ -11,9 +11,23 @@ menu:
 
 # 文件读写 - 系统调用
 
-> `int open(const char *name, int flags, mode_t mode);`
+> #include <fnctl.h>
 > 
-> flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, ...
+> int open(char *pathname, int flags);
+> 
+> int open(char *pathname, int flags, mode_t mode);
+> 
+> flags: 
+> 
+>     O_RDONLY
+> 
+>     O_WRONLY
+> 
+>     O_RDWR
+> 
+>     O_CREAT
+> 
+>     O_DIRECT : Direct I/O, 不加此参数为 Bufferd I/O
 
 ```c
 #include <fcntl.h>

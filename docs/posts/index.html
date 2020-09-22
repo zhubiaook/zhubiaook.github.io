@@ -83,6 +83,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">.Linux.LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory/">memory</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/autoops/">AutoOps</a></li>
   
 
@@ -447,6 +472,45 @@
       
       
         <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/memory/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux内存管理</h5>
+        <p class="card-text post-summary">内存概述  Linux内核并不是将物理内存直接分配给进程，而是采用虚拟内存结构。每个进程拥有一个独立的虚拟内存空间和内存映射表(page table)，虚拟内存到物理内存的地址映射关系记录于page table中，当CPU执行指令时，若该指令是从内存中读取或写入数据时，就需要通过MMU(Memory Manage Unit)将内存virtual address替换为physical address
+ 物理内存 物理内存根据用途划分为不同的区域，比如：DAM, ZONE_HIGHMEM , ZONE_NORMAL , 每个区域又划分为多个page, page是物理内存进行分配的最小单位，每个page的大小是由CPU架构决定的，有些架构支持多种page size，可以在内核初始化时通过内核配置文件选择其中一种尺寸。默认采用4KB。
+若是多颗处理器的机器，内存类型可能是NUMA(Non-Uniform Memory Access)，CPU读取不同内存（是否与自己相邻，相邻的称为该CPU的local memory）的速度是不一样的。与之相对应的UMA读取所有内存速度一样。NUMA将内存划分为不同的bank，每个bank对应一个Node, 每个Node下面分不同区域。
+虚拟内存 由于物理内存采用page作为基本单位进行分配，虚拟内存也采用page作为基本单位进行内存的分配。虚拟内存到物理内存的地址映射通过记录于page table中的映射条目完成，每个物理内存页可以映射多个虚拟内存页，这样可以实现不同进程的内存共享。
+采用虚拟内存架构可以带来以下好处：
+  隔离用户进程和内核进程内存空间，隔离用户进程之间的内存空间：
+由于进程使用的时虚拟内存地址，虚拟地址所对应的物理地址是由MMU映射完成的，所以进程无法访问其他进程的内存空间，除非有意共享。
+  硬件抽象：
+物理内存通常比较复杂，比如多块物理内存，甚至是NUMA，虚拟内存将物理内存的各种细节隐藏，对每个进程抽象出一个统一的虚拟地址空间。 由于内核可以自由的修改虚拟内存到物理内存地址的映射，为了节省物理内存，内核并不及时将虚拟内存映射到物理内存，而是当进程真正使用到了才给其进行映射，使用多少映射多少，这就是延时分配和按需分配。 其次如果物理内存紧张，内核可以将最近没使用，且使用频率不高的占用内存的数据换出到硬盘，使用到时再换出到内存。
+  实现内存中的数据移动到硬盘交换分区中
+  实现内存区域访问权限控制
+  实现物理内存共享，将物理内存page映射到多个进程虚拟地址空间中
+  MMU MMU(Memory Manage Unit)是CPU和内存之间的一块硬件，用于virtual-memory-address 到 physical-memory-address的转换，MMU不但实现地址转换，还实现内存权限控制，管理TLB缓存等
+为了加快虚拟地址到物理地址的映射速度，CPU使用TLB缓存，TLB访问速度介于CPU和CPU缓存之间，TLB缓存记录了最近的内存地址映射条目，CPU首先查找TLB中是否有映射条目，没有才取查询内存中的page table。
+虚拟地址空间 Linux中，不仅是用户空间进程，内核也使用虚拟地址，虚拟地址空间被划分为内核和用户空间，虚拟地址包括以下三部分：
+  内核空间   Kernel Logical Address
+  Kernel Virtual Address</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 21, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/memory/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/process_capabilities/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -691,7 +755,7 @@ Namesapce 当前Linux内核支持的7种Namespace
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
-        <h5 class="card-title">内存管理</h5>
+        <h5 class="card-title">内存相关的系统调用</h5>
         <p class="card-text post-summary">内存结构 动态内存分配  void *malloc(int size);
 动态分配内存， 单位字节
  #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt;#include &lt;unistd.h&gt; int main(void) { char *p, ret; p = malloc(2048); if(!p) perror(&#34;malloc&#34;); ret = execl(&#34;/usr/bin/ping&#34;, &#34;ping&#34;, &#34;www.baidu.com&#34;, NULL); if(ret == -1) perror(&#34;execl&#34;); }  void *calloc(int nr, int size);
@@ -719,10 +783,17 @@ Namesapce 当前Linux内核支持的7种Namespace
       </div>
       <div class="card-body">
         <h5 class="card-title">文件IO管理</h5>
-        <p class="card-text post-summary">文件读写 - 系统调用  int open(const char *name, int flags, mode_t mode);
-flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;
+        <p class="card-text post-summary">文件读写 - 系统调用  #include &lt;fnctl.h&gt;
+int open(char *pathname, int flags);
+int open(char *pathname, int flags, mode_t mode);
+flags:
+ O_RDONLY
+ O_WRONLY
+ O_RDWR
+ O_CREAT
+ O_DIRECT : Direct I/O, 不加此参数为 Bufferd I/O
  #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); }  int create(const char *name, mode_t mode);
- #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.txt&#34;, 0644); // 等同于  // fd = open(&#34;/opt/c/1.txt&#34;, O_WRONLY | O_CREATE | O_TRUNC, 0644);  return 0; }  int read(int fd, void *buf, int len);</p>
+ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 7, 2020</span>
@@ -752,34 +823,6 @@ flags: O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, &hellip;
         <span class="float-left">September 7, 2020</span>
         <a
         href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">进程管理</h5>
-        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
-execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
-exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
-getpid(): 获取当前进程PID
-getppid(): 获取父进程PID
- /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 7, 2020</span>
-        <a
-        href="/posts/linux/linuxsystemprogramming/process_management/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
