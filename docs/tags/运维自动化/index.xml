@@ -13,13 +13,13 @@
     
     <item>
       <title>PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</title>
-      <link>https://blog.zybz.fun/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</link>
+      <link>https://blog.zybz.fun/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</link>
       <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</guid>
-      <description>PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
-
-PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</description>
+      <guid>https://blog.zybz.fun/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/</guid>
+      <description>PXE+DHCP+Apache+KickStart 无人值守安装 CentOS .note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;} PXE+DHCP+Apache+KickStart 无人值守安装 CentOS  本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+ 
+ PXE+DHCP+Apache+KickStart 无人值守安装 CentOS 一、原理介绍 1. PXE介绍 2. DHCP介绍 3. TFTP介绍   二、安装、配置、启动相应服务 1. 服务器搭建规划 2. DHCP 3. HTTP 4. TFTP   三、准备yum源 四、准备PXE相关文件 五、准备应答文件 六、测试通过网络自动安装系统       一、原理介绍 1. PXE介绍 PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</description>
     </item>
     
   </channel>

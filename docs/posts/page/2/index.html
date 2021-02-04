@@ -153,7 +153,32 @@
   
   
     
-    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -244,6 +269,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/database/">Database</a></li>
   
 
@@ -285,6 +335,15 @@
   
     
     <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
   
 
   
@@ -407,6 +466,40 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -472,6 +565,145 @@
       
       
         <div class="post-card">
+  <a href="/posts/c/c_syntax/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">C语言语法</h5>
+        <p class="card-text post-summary">简单示例 # include &lt;stdio.h&gt;  /* * 注释语句 */ int main(void) { int num = 3; char letter = &#39;b&#39;; printf(&#34;num = %d, letter = %c&#34;, num, letter); return 0; } 数据类型 整型 char, short int, int, long int, long long int 除了char型，这些整数类型若未指明是signed或unsigned，都表示signed
+浮点型 float, double, long double
+运算符 位运算 &amp;, |, ^, ~
+移位运算 &laquo;, &raquo;
+算术运算符 +, -, *, /, %
+赋值运算符 =, +=, *=, /=, %=, &laquo;=, &raquo;==, &amp;=, |=, ^=</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/c/c_syntax/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/container/namespaceandcgroup/namespace/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">namespace</h5>
+        <p class="card-text post-summary">知识准备 进程管理
+C语言语法
+unshare
+Namesapce 当前Linux内核支持的7种Namespace
+名称 宏定义 隔离内容 Cgroup CLONE_NEWCGROUP Cgroup root directory (since Linux 4.6) IPC CLONE_NEWIPC System V IPC, POSIX message queues (since Linux 2.6.19) Network CLONE_NEWNET Network devices, stacks, ports, etc. (since Linux 2.6.24) Mount CLONE_NEWNS Mount points (since Linux 2.4.19) PID CLONE_NEWPID Process IDs (since Linux 2.6.24) User CLONE_NEWUSER User and group IDs (started in Linux 2.6.23 and completed in Linux 3.8) UTS CLONE_NEWUTS Hostname and NIS domain name (since Linux 2.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/container/namespaceandcgroup/namespace/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/memory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">内存相关的系统调用</h5>
+        <p class="card-text post-summary">内存结构 动态内存分配  void *malloc(int size);
+动态分配内存， 单位字节
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt;#include &lt;unistd.h&gt; int main(void) { char *p, ret; p = malloc(2048); if(!p) perror(&#34;malloc&#34;); ret = execl(&#34;/usr/bin/ping&#34;, &#34;ping&#34;, &#34;www.baidu.com&#34;, NULL); if(ret == -1) perror(&#34;execl&#34;); }  void *calloc(int nr, int size);
+为数组分配内存，且将分配到的内存置为0
+ #include &lt;stdlib.h&gt;#include &lt;stdio.h&gt; int main(void) { int *x, *y; /* 以下两种方法分配到的内存一样大 */ x = malloc(256*sizeof(int)); if(!x) { perror(&#34;malloc&#34;); return -1; } /* 将分配到的内存置为0 */ y = calloc(256, sizeof(int)); if(!</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/memory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_io_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件IO管理</h5>
+        <p class="card-text post-summary">文件读写 - 系统调用  #include &lt;fnctl.h&gt;
+int open(char *pathname, int flags);
+int open(char *pathname, int flags, mode_t mode);
+flags:
+ O_RDONLY
+ O_WRONLY
+ O_RDWR
+ O_CREAT
+ O_DIRECT : Direct I/O, 不加此参数为 Bufferd I/O
+ #include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = open(&#34;/opt/c/hello.txt&#34;, O_RDONLY); if (fd == -1) perror(&#34;Error&#34;); else printf(&#34;%d&#34;, fd); }  int create(const char *name, mode_t mode);
+ #include &lt;sys/types.h&gt;#include &lt;sys/stat.h&gt;#include &lt;fcntl.h&gt;#include &lt;stdio.h&gt; int main(void) { int fd; fd = creat(&#34;/opt/c/1.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_io_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/file_and_directory_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文件和目录管理</h5>
+        <p class="card-text post-summary">文件及元数据 基本属性  stat结构体
+ struct stat { dev_t st_dev; // ID of device containing file  ino_t st_ino; // inode number  mode_t st_mode; // permissions  nlink_t st_nlink; // number of hard link  uid_t st_uid; // user ID of owner  gid_t st_gid; // group ID of owner  dev_t st_rdev; // device ID  off_t st_size; // total size in bytes  blksize_t st_blksize; // blocksize for filesystem I/O  blkcnt_t st_blocks; // number of blocks allocated  time_t st_atime; // last access time  time_t st_mtime; // last modification time  time_t st_ctime; // last status change time }  int stat(const char *path, struct stat *buf);</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/file_and_directory_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -508,20 +740,22 @@ getppid(): 获取父进程PID
       <div class="card-body">
         <h5 class="card-title">tcpdump</h5>
         <p class="card-text post-summary">语法 tcpdump [OPTION] [FILTER]  选项
-   -i INTERFACE： 指定网络设备
+ 常规选项：
+  -i INTERFACE： 指定网络设备
+  -n 不进行域名解析，显示IP
+  -nn 显示IP和端口
+  -c N 抓包数量
+  -P in|out|inout 指定抓的是流入还是流出包
+  输出选项：
   -e 显示源，目的MAC地址
-  -n 部进行域名解析
-   过滤条件
-   过滤主机：[src|dst] host IP
-  过滤端口：[src|dst] port PORT
-  网络过滤：[src|dst] net NET_ADDRESS
-  协议过滤：arp|ip|tcp|udp|icmp
-   逻辑表达式
-   !, not
-  &amp;&amp;, and
-  ||, or
-  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
-tcpdump -i eth1 &#39;((tcp) and (port 80) and ((dst host 192.</p>
+  -q 输出精简信息
+  -X, -XX 输出包的头部数据
+  -v, -vv, -vv 产生详细输出
+  其他选项：
+  -D 列出抓包接口，可用于-i 选项
+  -F 从文件中读取过滤条件
+  -w 将抓包数据输出到文件，而不是标准输出
+  -r 从文件中读取数据</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 4, 2020</span>
@@ -663,121 +897,6 @@ git submodule add https://github.com/hossainemruz/toha.git themes/toha  Don’t 
         <span class="float-left">December 4, 2017</span>
         <a
         href="/posts/autoops/2017-12-04-ansible_web_cluster/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/autoops/2017-11-25-puppet_standalone/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Puppet 基础语法</h5>
-        <p class="card-text post-summary">Puppet 基础语法.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 25, 2017</span>
-        <a
-        href="/posts/autoops/2017-11-25-puppet_standalone/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-18-redis_sentinel_and_cluster/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">REDIS Sentinel and Cluster</h5>
-        <p class="card-text post-summary">REDIS Sentinel and Cluster.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 18, 2017</span>
-        <a
-        href="/posts/database/2017-11-18-redis_sentinel_and_cluster/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-16-redis-install_and_configure/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">REDIS 安装配置</h5>
-        <p class="card-text post-summary">REDIS 安装配置.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 16, 2017</span>
-        <a
-        href="/posts/database/2017-11-16-redis-install_and_configure/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-14-proxysql_mha/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">ProxySQL&#43;MHA实现读写分离及高可用</h5>
-        <p class="card-text post-summary">ProxySQL+MHA实现读写分离及高可用.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 14, 2017</span>
-        <a
-        href="/posts/database/2017-11-14-proxysql_mha/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/database/2017-11-12-mysql_replication/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">MySQL Replication 实现高可用</h5>
-        <p class="card-text post-summary">MySQL Replication 实现高可用.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">November 12, 2017</span>
-        <a
-        href="/posts/database/2017-11-12-mysql_replication/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Subsystem on blog</title>
+    <link>https://blog.zybz.fun/posts/linux/subsystem/</link>
+    <description>Recent content in Subsystem on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.zybz.fun/posts/linux/subsystem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>udev</title>
+      <link>https://blog.zybz.fun/posts/linux/subsystem/udev/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/subsystem/udev/</guid>
+      <description>创建一个脚本，当你插入的计算机插入设备时，触发脚本的执行
+ 参考文档 技术|udev 入门：管理设备事件的 Linux 子系统
+udev简介 当你的计算机插入一个硬件设备，比如网卡，硬盘，U盘，鼠标，键盘，光驱等设备时，内核将给udevd一个udev事件，udevd根据/etc/udev/rules.d/*.rules，/run/udev/rules.d/*.rules, /usr/lib/udev/rule.d/*.rules中定义的规则执行相应的操作，比如给网卡命名，挂载硬盘，或执行一段自定义的脚本。
+本文介绍由udev事件触发执行自定义的脚本。比如插入U盘。当理解了udev的工作原理后，可以做很多事情，比如插入一个无线网卡后就安装相应的驱动，插入指定的U盘就执行备份操作。
+udevadm命令 udevadm是一个管理udev的工具
+udevadm info # Qurey sysfs or the udev database control # Control the udev daemon monitor # Listen to kernel and udev events 示例1： 查看硬盘/dev/sdaudev信息
+$ udevadm info -a -n /dev/sda ... KERNEL==&amp;#34;sda&amp;#34; SUBSYSTEM==&amp;#34;block&amp;#34; DRIVER==&amp;#34;&amp;#34; SUBSYSTEMS==&amp;#34;scsi&amp;#34; DRIVERS==&amp;#34;sd&amp;#34; ... 示例2： 查看udev事件
+$ udevadm monitor 示例3： 当编写了一个新的udev规则，需要重新加载udev deamon
+$ udevadm control --reload udev事件触发脚本执行   编写脚本
+$ cat /opt/work/scripts/test.</description>
+    </item>
+    
+  </channel>
+</rss>

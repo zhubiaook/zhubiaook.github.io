@@ -6,10 +6,44 @@
     <description>Recent content in Command on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.zybz.fun/posts/linux/command/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lsof</title>
+      <link>https://blog.zybz.fun/posts/linux/command/lsof/</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/lsof/</guid>
+      <description>命令格式  lsof [options] [name]
+   options: 选项
+  name: 文件
+  注意点：
+  通常多个选项直接是 or 关系，即同时显示多个选项匹配到的内容，要使用 and 关系，添加选项 -a
+  -r TIME 不断执行lsof命令，间隔时间为TIME
+  显示网络信息  -i [46][protocol][@hostname|hostaddr][:service|port]
+   46
+  4: IPv4
+  6: IPv6
+    protocol: TCP|UDP
+  hostname|hostaddr: 主机名或地址
+  :service|port: 端口或者/etc/services中定义的，比如http, ftp
+  示例1： 列出所有TCP/UDP连接
+lsof -i 示例2： 列出本地socket连接</description>
+    </item>
+    
+    <item>
+      <title>iftop</title>
+      <link>https://blog.zybz.fun/posts/linux/command/iftop/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.zybz.fun/posts/linux/command/iftop/</guid>
+      <description>安装 yum -y install iftop 使用 启动
+iftop 进入界面命令
+进入界面后的命令 ------------------ h: 进入帮助命令 L: 显示流量柱状图 主机显示： t: TX流量 / RX流量 / 全部 n: 显示名称 / 不解析名称 s|d: 显示/隐藏源地址 | 显示/隐藏目的地址 端口显示： p: 显示所有端口 N: 显示端口名称 / 不显示端口名称，显示数字 s|d 显示/隐藏源端口 | 显示/隐藏目的端口 排序: 1/2/3: 按第1/2/3列排序 &amp;lt;: 按源地址名称排列 &amp;gt;: 按目的地址名称排列 o: 固定当前排列，不刷新 通用选项： P: 暂停刷新 h: 帮助 </description>
+    </item>
     
     <item>
       <title>ethtool</title>
@@ -60,20 +94,22 @@
       
       <guid>https://blog.zybz.fun/posts/linux/command/tcpdump/</guid>
       <description>语法 tcpdump [OPTION] [FILTER]  选项
-   -i INTERFACE： 指定网络设备
+ 常规选项：
+  -i INTERFACE： 指定网络设备
+  -n 不进行域名解析，显示IP
+  -nn 显示IP和端口
+  -c N 抓包数量
+  -P in|out|inout 指定抓的是流入还是流出包
+  输出选项：
   -e 显示源，目的MAC地址
-  -n 部进行域名解析
-   过滤条件
-   过滤主机：[src|dst] host IP
-  过滤端口：[src|dst] port PORT
-  网络过滤：[src|dst] net NET_ADDRESS
-  协议过滤：arp|ip|tcp|udp|icmp
-   逻辑表达式
-   !, not
-  &amp;amp;&amp;amp;, and
-  ||, or
-  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
-tcpdump -i eth1 &amp;#39;((tcp) and (port 80) and ((dst host 192.</description>
+  -q 输出精简信息
+  -X, -XX 输出包的头部数据
+  -v, -vv, -vv 产生详细输出
+  其他选项：
+  -D 列出抓包接口，可用于-i 选项
+  -F 从文件中读取过滤条件
+  -w 将抓包数据输出到文件，而不是标准输出
+  -r 从文件中读取数据</description>
     </item>
     
     <item>

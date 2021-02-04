@@ -153,7 +153,32 @@
   
   
     
-    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -244,6 +269,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/database/">Database</a></li>
   
 
@@ -285,6 +335,15 @@
   
     
     <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
   
 
   
@@ -407,6 +466,40 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -472,24 +565,24 @@
       
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-23-dns-bind/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">DNS 及 bind</h5>
-        <p class="card-text post-summary">DNS 及 bind.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+        <p class="card-text post-summary">DNS 及 bind .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} DNS 及 bind  DNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
 目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
-DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
-Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
-hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+  DNS 及 bind DNS介绍 DNS域名空间 DNS解析 资源记录 DNS端口   DNS 的实现之 BIND BIND介绍 BIND实验         DNS介绍 DNS域名空间 计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hosts windows: %WINDIR%/system32/drivers/etc/hosts  早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机 hosts 文件越来越大，占用过多存储空间，查询缓慢  为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
 这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 23, 2017</span>
         <a
-        href="/posts/linux/2017-09-23-dns-bind/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >

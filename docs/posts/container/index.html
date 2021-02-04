@@ -156,7 +156,32 @@
   
   
     
-    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -247,6 +272,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/database/">Database</a></li>
   
 
@@ -288,6 +338,15 @@
   
     
     <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
   
 
   
@@ -410,6 +469,40 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -473,6 +566,62 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/container/docker/container_concept/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">container_concept</h5>
+        <p class="card-text post-summary"></p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 28, 2020</span>
+        <a
+        href="/posts/container/docker/container_concept/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/container/docker/virtualmachine_container/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">virtualmachine_container</h5>
+        <p class="card-text post-summary">虚拟机(Virtual Machine)  通过VMM(Virtual Machine Monitor)或Hypervisor虚拟化软件模拟出多份存储，内存，网络、CPU等物理资源。每一份资源称为一台虚拟机(VM)，原物理机称为宿主机，可以在每台VM上面安装不同于宿主机或彼此的操作系统（宿主机有可能没有OS，被VMM或Hypervisor取代）。
+ 虚拟机(VM)的用途：   隔离应用： 若将所有应用安装在同一台物理机上面，不同应用进程之间将共享物理资源，但同时也会出现相互干扰（比如资源之间的竞争，或进程访问了部署于自己的数据等安全问题），也不便于管理。虚拟机出现后，可以每台虚拟机上面安装一个应用，这样就完全将应该隔离开来。
+  发挥单台物理机的最大性能：有人说那为什么不每台物理机上面安装一个应用呢? 这也是可行的。但现代物理机的性能越来越高，一台物理机安装一个应用有可能使用不完物理资源，造成资源的浪费。此时一台物理机上面安装多台虚拟机，每台虚拟机运行一个应用。就相当于一台物理机上面运行了多个应用，应用之间的进程还是隔离的。
+  多操作系统环境： 每台虚拟机可以安装不同的操作系统（Unix, Windows, Linux），这样就可以实现一台物理机上面，通过虚拟软件而运行不同的操作系统，每个应用可以根据需求选择相应的操作系统
+  便于应用在不同的物理机上面迁移，保证应用的高可用：传统的模式，若物理机出现问题，不同物理机上面迁移应用由于受到物理机硬件类型的不同而难以实现。而虚拟机解决了这一问题，只要在物理机上面安装相同的VMM或Hypervsor，对于VM来说，就相当于拥有了相同的底层环境，可以方便的在这些Hyperversor上面迁移。从而实现不同物理机上面快速迁移应用的目的。
+  虚拟机与物理机的对比图： 容器(Container)  在实现进程隔离方面，容器（Container）采用了与虚拟机完全不同的思路，容器并不虚拟出硬件，所以也没有使用另外的操作系统（OS），而是使用物理机原有的操作系统，通过Linux内核所支持的Namespace和Cgroup技术来实现进程的隔离和资源的限制。
+此操作的好处是容器（Container）相较于虚拟机相当轻量，容器甚至可以安装到虚拟机里面，所以容器并不是取代虚拟机，而是另辟蹊径。现在围绕容器的生态现在已经建立起来，并还在不断壮大。
+ 容器与虚拟机的对比图 IaaS, PaaS, SaaS  云厂商通常为我们提供以下三种模式的服务：
+  IaaS(Infrastructure as a Service)：比如AWS的EC2, Google云的VM, 阿里云的ECS等各种云服务器
+  PaaS(Platform as a Service): AWS Elastic Beanstalk, Windows Azure, Heroku, Force.com, Google App Engine等各种软件发布平台。
+  SaaS(Softer as a Service)：Facebook , 微信，Google Apps等各种应用软件。</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 27, 2020</span>
+        <a
+        href="/posts/container/docker/virtualmachine_container/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/container/network/veth/" class="post-card-link">

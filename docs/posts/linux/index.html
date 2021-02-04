@@ -153,7 +153,32 @@
   
   
     
-    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -244,6 +269,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/database/">Database</a></li>
   
 
@@ -288,6 +338,15 @@
   
     
     <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
   
 
   
@@ -410,6 +469,40 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -473,6 +566,100 @@
   <div class="content container-fluid" id="content">
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/lsof/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">lsof</h5>
+        <p class="card-text post-summary">命令格式  lsof [options] [name]
+   options: 选项
+  name: 文件
+  注意点：
+  通常多个选项直接是 or 关系，即同时显示多个选项匹配到的内容，要使用 and 关系，添加选项 -a
+  -r TIME 不断执行lsof命令，间隔时间为TIME
+  显示网络信息  -i [46][protocol][@hostname|hostaddr][:service|port]
+   46
+  4: IPv4
+  6: IPv6
+    protocol: TCP|UDP
+  hostname|hostaddr: 主机名或地址
+  :service|port: 端口或者/etc/services中定义的，比如http, ftp
+  示例1： 列出所有TCP/UDP连接
+lsof -i 示例2： 列出本地socket连接</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">February 3, 2021</span>
+        <a
+        href="/posts/linux/command/lsof/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/iftop/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">iftop</h5>
+        <p class="card-text post-summary">安装 yum -y install iftop 使用 启动
+iftop 进入界面命令
+进入界面后的命令 ------------------ h: 进入帮助命令 L: 显示流量柱状图 主机显示： t: TX流量 / RX流量 / 全部 n: 显示名称 / 不解析名称 s|d: 显示/隐藏源地址 | 显示/隐藏目的地址 端口显示： p: 显示所有端口 N: 显示端口名称 / 不显示端口名称，显示数字 s|d 显示/隐藏源端口 | 显示/隐藏目的端口 排序: 1/2/3: 按第1/2/3列排序 &lt;: 按源地址名称排列 &gt;: 按目的地址名称排列 o: 固定当前排列，不刷新 通用选项： P: 暂停刷新 h: 帮助 </p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">December 18, 2020</span>
+        <a
+        href="/posts/linux/command/iftop/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/subsystem/udev/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">udev</h5>
+        <p class="card-text post-summary">创建一个脚本，当你插入的计算机插入设备时，触发脚本的执行
+ 参考文档 技术|udev 入门：管理设备事件的 Linux 子系统
+udev简介 当你的计算机插入一个硬件设备，比如网卡，硬盘，U盘，鼠标，键盘，光驱等设备时，内核将给udevd一个udev事件，udevd根据/etc/udev/rules.d/*.rules，/run/udev/rules.d/*.rules, /usr/lib/udev/rule.d/*.rules中定义的规则执行相应的操作，比如给网卡命名，挂载硬盘，或执行一段自定义的脚本。
+本文介绍由udev事件触发执行自定义的脚本。比如插入U盘。当理解了udev的工作原理后，可以做很多事情，比如插入一个无线网卡后就安装相应的驱动，插入指定的U盘就执行备份操作。
+udevadm命令 udevadm是一个管理udev的工具
+udevadm info # Qurey sysfs or the udev database control # Control the udev daemon monitor # Listen to kernel and udev events 示例1： 查看硬盘/dev/sdaudev信息
+$ udevadm info -a -n /dev/sda ... KERNEL==&#34;sda&#34; SUBSYSTEM==&#34;block&#34; DRIVER==&#34;&#34; SUBSYSTEMS==&#34;scsi&#34; DRIVERS==&#34;sd&#34; ... 示例2： 查看udev事件
+$ udevadm monitor 示例3： 当编写了一个新的udev规则，需要重新加载udev deamon
+$ udevadm control --reload udev事件触发脚本执行   编写脚本
+$ cat /opt/work/scripts/test.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">November 11, 2020</span>
+        <a
+        href="/posts/linux/subsystem/udev/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
       
         <div class="post-card">
   <a href="/posts/linux/linuxsystemprogramming/memory/" class="post-card-link">
@@ -743,104 +930,6 @@ flags:
 </div>
 
       
-        <div class="post-card">
-  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">进程管理</h5>
-        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
-execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
-exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
-getpid(): 获取当前进程PID
-getppid(): 获取父进程PID
- /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 7, 2020</span>
-        <a
-        href="/posts/linux/linuxsystemprogramming/process_management/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/command/tcpdump/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">tcpdump</h5>
-        <p class="card-text post-summary">语法 tcpdump [OPTION] [FILTER]  选项
-   -i INTERFACE： 指定网络设备
-  -e 显示源，目的MAC地址
-  -n 部进行域名解析
-   过滤条件
-   过滤主机：[src|dst] host IP
-  过滤端口：[src|dst] port PORT
-  网络过滤：[src|dst] net NET_ADDRESS
-  协议过滤：arp|ip|tcp|udp|icmp
-   逻辑表达式
-   !, not
-  &amp;&amp;, and
-  ||, or
-  案例 抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据
-tcpdump -i eth1 &#39;((tcp) and (port 80) and ((dst host 192.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 4, 2020</span>
-        <a
-        href="/posts/linux/command/tcpdump/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/command/ip/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">ip</h5>
-        <p class="card-text post-summary">语法 ip [OPTIONS] OBJECT {COMMAND | help}  OBJECT
-   link, l: 网络设备
-  address, a: 网络协议（IP, IPv6）地址
-  route, r: 路由表
-  netns: net-namespace管理
-  addrlabel, addrl: Label configuration for protocol address selection
-  neighbour, n: ARP or NDISC cache entry.
-  rule, ru: Rule in routing policy database
-  tunnel, t: Tunnel over IP
-   帮助
-   ip help</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 2, 2020</span>
-        <a
-        href="/posts/linux/command/ip/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
     </div>
     <div class="paginator">
       
@@ -861,10 +950,13 @@ tcpdump -i eth1 &#39;((tcp) and (port 80) and ((dst host 192.</p>
     <a class="page-link" href="/posts/linux/page/3/">3</a>
   </li>
   <li class="page-item">
+    <a class="page-link" href="/posts/linux/page/4/">4</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/linux/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/linux/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/linux/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

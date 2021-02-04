@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Linux基础</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/layouts/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+    <link rel="stylesheet" href="/assets/css/layouts/list.css">
+    <link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://blog.zybz.fun/">
+      <img src="/assets/images/main-logo.png">blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/main-logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/inverted-logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">.Linux.LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory/">memory</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/autoops/">AutoOps</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/c/">C</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/c/c_syntax/">c_syntax</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/">Container</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/istio/">Istio</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/kubernetes/">Kubernetes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/namespaceandcgroup/">NamespaceAndCgroup</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/namespaceandcgroup/namespace/">namespace</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/network/">Network</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/tun_tap/">tun_tap</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/network/veth/">veth</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/database/">Database</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/linux/">Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/bash/">Bash</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/command/">Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/ip/">ip</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/strace/">strace</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/sysctl/">sysctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/tcpdump/">tcpdump</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/unshare/">unshare</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/linuxsystemprogramming/">LinuxSystemProgramming</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_and_directory_management/">file_and_directory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/file_io_management/">file_io_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/memory_management/">memory_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_capabilities/">process_capabilities</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_management/">process_management</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linuxsystemprogramming/process_credentials/">process_permission</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/monitoring/">Monitoring</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/webserver/">WebServer</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/apache/">Apache</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/webserver/nginx/">Nginx</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-07-session/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">会话保持</h5>
+        <p class="card-text post-summary">Untitled .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content * Tomorrow Night Eighties Theme */ .hljs-comment, .note-content .hljs-quote {color: #999999;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;} .note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;} .note-content .hljs-attribute {color: #ffcc66;} .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">November 7, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-07-session/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-03-varnish/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">varnish</h5>
+        <p class="card-text post-summary">varnish .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;} .note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;} .note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">November 3, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-03-varnish/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-10-20-iptables/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux iptables</h5>
+        <p class="card-text post-summary">Untitled .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;} .note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;} .note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">October 20, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-10-20-iptables/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">DNS 及 bind</h5>
+        <p class="card-text post-summary">DNS 及 bind .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} DNS 及 bind  DNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
+  DNS 及 bind DNS介绍 DNS域名空间 DNS解析 资源记录 DNS端口   DNS 的实现之 BIND BIND介绍 BIND实验         DNS介绍 DNS域名空间 计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hosts windows: %WINDIR%/system32/drivers/etc/hosts  早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机 hosts 文件越来越大，占用过多存储空间，查询缓慢  为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 23, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} PXE+DHCP+Apache+KickStart 无人值守安装 CentOS  本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+ 
+ PXE+DHCP+Apache+KickStart 无人值守安装 CentOS 一、原理介绍 1. PXE介绍 2. DHCP介绍 3. TFTP介绍   二、安装、配置、启动相应服务 1. 服务器搭建规划 2. DHCP 3. HTTP 4. TFTP   三、准备yum源 四、准备PXE相关文件 五、准备应答文件 六、测试通过网络自动安装系统       一、原理介绍 1. PXE介绍 PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 17, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-13-ssh-openssh/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">SSH 协议及 openssh</h5>
+        <p class="card-text post-summary">SSH 协议及 openssh .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} SSH 协议及 openssh SSH 协议 SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成  传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持； 用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别； 连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。  在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+ openssh dropbear SSH用户认证方式
+  基于口令的认证 基于口令的认证方式如下图所示：
+ 基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中  [root@localhost ~]# ssh 172.18.17.201 The authenticity of host '172.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 13, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-13-ssh-openssh/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-10-openssl-ca/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">openssl 及 CA</h5>
+        <p class="card-text post-summary">openssl 及 CA .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 10, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-10-openssl-ca/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-06-awk/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">文本三剑客之 awk</h5>
+        <p class="card-text post-summary">文本三剑客之 awk .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;} .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 6, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-06-awk/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-03-kernel-minilinux/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">编译内核并制作微小Linux系统</h5>
+        <p class="card-text post-summary">编译内核并制作微小Linux系统 .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;} .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 3, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-03-kernel-minilinux/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-24-at-cron-anacron/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux 任务计划</h5>
+        <p class="card-text post-summary">Linux 任务计划 .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;} .</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 24, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-24-at-cron-anacron/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-20-static-route/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Linux 静态路由实验</h5>
+        <p class="card-text post-summary">Linux 静态路由实验Linux 静态路由实验 CentOS6.9 和 CentOS7.3 上完成测试
+简介 Linux主机通过启用路由转发，配置路由表后就可以当做路由器使用，当然这需要主机上有多张网卡。
+路由管理命令 在CentOS系统上路由表的管理命令主要有route和ip route这两个命令
+查看路由表 route -n ip route show 或 ip route list 或 ip route
+ 增加路由条目 增加主机路由 route add -host 3.3.3.3 gw 10.1.2.2 dev eth1 ip route add 6.6.6.6 via 10.1.4.1 dev ens33 增加网络路由 route add -net 10.1.3.0/24 gw 10.1.2.2 dev eth1 ip route add 10.1.4.0/24 via 10.1.2.2 dev eth1 增加默认路由 route add default gw 10.1.4.1 dev ens33 ip route add default via 10.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 20, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-20-static-route/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-12-lvm/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">逻辑卷的管理 LVM</h5>
+        <p class="card-text post-summary">LVM 逻辑卷管理LVM 逻辑卷管理  想象一个场景，某天你管理的服务器硬盘空间不足了，该怎么处理。当然是加硬盘，但若系统不允许关机，服务不能停，如何添加硬盘。此时我们可以在早期规划的时候就创建逻辑卷。逻辑卷可以在不影响系统运行的情况下弹性的扩展、压缩硬盘空间。
+ 逻辑卷组成 如下图所示，逻辑卷的逻辑结构图，PV（physical volume）组成卷组VG(volume group)，在卷组上可以创建逻辑卷LV(logical volume)。
+PV (Physical Volume) PV 物理卷，就是硬盘或分区，和物理的硬盘有同样的功能，和普通硬盘的区别在于，它被标识为物理卷，有物理卷的管理参数，将来用它创建卷组用。
+VG (Volume Group) VG 卷组，将多个物理卷集合为一个大的逻辑硬盘，类似于没有LVM功能的硬盘，为创建逻辑卷提供硬盘空间，普通硬盘上面分配空间是通过block块进行分配，而卷组中是通过PE进行分配，PE是逻辑卷中空间分配的最小单位，默认值为4M。
+LV (Logical Volume) LV 逻辑卷，逻辑卷是在卷组的基础上将卷组分成不同大小的隔离空间，类似于非LVM中分区的概念。
+逻辑卷的用途在于弹性的扩展，压缩磁盘空间。其并不具有容错能力和提高I/O性能的功能。
+实验 一、 逻辑卷的创建
+逻辑卷的创建步骤如下
+创建物理卷 创建卷组 创建逻辑卷 创建文件系统 挂载文件系统  a. 准备实验环境 本实验中使用分区来创建物理卷，实际生产环境中一般使用整块硬盘来创建物理卷，我们创建4个分区/dev/sdb1, /dev/sdb2, /dev/sdb3, /dev/sdb4, 先使用3g分区创建逻辑卷，留一个分区到后面做扩展逻辑卷使用。
+创建分区, 并将分区类型调整为8e(Linux LVM)
+# 使用fdisk分区
+[root@zhubiaook ~]# fdisk /dev/sdb
+Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+Building a new DOS disklabel with disk identifier 0xb0beda60.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 12, 2017</span>
+        <a
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-08-12-lvm/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+    </div>
+    <div class="paginator">
+      
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#links">Links</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>zhubiaook@outlook.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+    <script src="/assets/js/list.js"></script>
+
+  </body>
+</html>

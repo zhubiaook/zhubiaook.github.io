@@ -153,7 +153,32 @@
   
   
     
-    <li><a class="" href="/posts/container/docker/">Docker</a></li>
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/container/docker/">Docker</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/container_concept/">container_concept</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/container/docker/virtualmachine_container/">virtualmachine_container</a></li>
+  
+
+
+      </ul>
+    </li>
   
 
   
@@ -244,6 +269,31 @@
   
   
     
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="">content.posts.Linux.Command</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/lsof/">lsof</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
     <li><a class="" href="/posts/database/">Database</a></li>
   
 
@@ -288,6 +338,15 @@
   
     
     <li><a class="" href="/posts/linux/command/ethtool/">ethtool</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/command/iftop/">iftop</a></li>
   
 
   
@@ -410,6 +469,40 @@
     </li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/linux%E5%9F%BA%E7%A1%80/">Linux基础</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/linux/subsystem/">Subsystem</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/linux/subsystem/udev/">udev</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
       </ul>
     </li>
@@ -475,6 +568,106 @@
       
       
         <div class="post-card">
+  <a href="/posts/linux/linuxsystemprogramming/process_management/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">进程管理</h5>
+        <p class="card-text post-summary">创建并运行新进程 fork(), execl(), exit(), getpid(), getppid()  fork(): 当前进程（父进程）创建一个新的进程（子进程），创建后的父、子进程继续执行fork()调用点后面的程序，当然也可以使用比如execl() 来替换后续要执行的程序。
+execl(): 替换当前进程后续要执行的程序（从execl()调用点后续的程序被替换，也就是说原来在execl()调用点后面的程序不再执行，而去执行execl参数中指定的程序）。
+exit(): 终止一个进程，将进程占用的所有资源（内存，文件描述符）交还内核，由其进行再次分配。
+getpid(): 获取当前进程PID
+getppid(): 获取父进程PID
+ /* * 获取当前进程pid: int getpid(); * 获取父进程pid: int getppid(); * 执行新的程序: int execl(char *path, char *arg, ...); * 创建子进程: int fork(); * 终止进程: void exit(int status); */ #include &lt;stdlib.h&gt;#include &lt;sys/types.h&gt;#include &lt;unistd.h&gt;#include &lt;stdio.h&gt; int main(void) { long pid; pid = fork(); /* fork执行错误 */ if(pid == -1) { perror(&#34;fork&#34;); exit(EXIT_FAILURE); } /* parent */ if(pid &gt; 0) { int pret; printf(&#34;pid: %d, child_pid: %d\n&#34;, getpid(), pid); pret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(pret == -1) { perror(&#34;parent execl&#34;); exit(EXIT_FAILURE); } } /* child */ if(pid == 0) { int cret; printf(&#34;pid: %d, parent_pid: %d\n&#34;, getpid(), getppid()); cret = execl(&#34;/usr/bin/sleep&#34;,&#34;sleep&#34;, &#34;100&#34;, NULL); if(cret == -1) { perror(&#34;child execl&#34;); exit(EXIT_FAILURE); } } } 输出</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 7, 2020</span>
+        <a
+        href="/posts/linux/linuxsystemprogramming/process_management/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/tcpdump/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">tcpdump</h5>
+        <p class="card-text post-summary">语法 tcpdump [OPTION] [FILTER]  选项
+ 常规选项：
+  -i INTERFACE： 指定网络设备
+  -n 不进行域名解析，显示IP
+  -nn 显示IP和端口
+  -c N 抓包数量
+  -P in|out|inout 指定抓的是流入还是流出包
+  输出选项：
+  -e 显示源，目的MAC地址
+  -q 输出精简信息
+  -X, -XX 输出包的头部数据
+  -v, -vv, -vv 产生详细输出
+  其他选项：
+  -D 列出抓包接口，可用于-i 选项
+  -F 从文件中读取过滤条件
+  -w 将抓包数据输出到文件，而不是标准输出
+  -r 从文件中读取数据</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 4, 2020</span>
+        <a
+        href="/posts/linux/command/tcpdump/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/linux/command/ip/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">ip</h5>
+        <p class="card-text post-summary">语法 ip [OPTIONS] OBJECT {COMMAND | help}  OBJECT
+   link, l: 网络设备
+  address, a: 网络协议（IP, IPv6）地址
+  route, r: 路由表
+  netns: net-namespace管理
+  addrlabel, addrl: Label configuration for protocol address selection
+  neighbour, n: ARP or NDISC cache entry.
+  rule, ru: Rule in routing policy database
+  tunnel, t: Tunnel over IP
+   帮助
+   ip help</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 2, 2020</span>
+        <a
+        href="/posts/linux/command/ip/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
   <a href="/posts/linux/command/sysctl/" class="post-card-link">
     <div class="card">
       <div class="card-head">
@@ -501,19 +694,19 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-11-07-session/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-07-session/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">会话保持</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content * Tomorrow Night Eighties Theme */.hljs-comment, .note-content .hljs-quote {color: #999999;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;}.note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;}.note-content .hljs-attribute {color: #ffcc66;}.</p>
+        <p class="card-text post-summary">Untitled .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content * Tomorrow Night Eighties Theme */ .hljs-comment, .note-content .hljs-quote {color: #999999;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-regexp, .note-content .hljs-deletion {color: #f2777a;} .note-content .hljs-number, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params, .note-content .hljs-meta, .note-content .hljs-link {color: #f99157;} .note-content .hljs-attribute {color: #ffcc66;} .</p>
       </div>
       <div class="card-footer">
         <span class="float-left">November 7, 2017</span>
         <a
-        href="/posts/linux/2017-11-07-session/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-07-session/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -524,19 +717,19 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-11-03-varnish/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-03-varnish/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">varnish</h5>
-        <p class="card-text post-summary">varnish.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+        <p class="card-text post-summary">varnish .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;} .note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;} .note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
       </div>
       <div class="card-footer">
         <span class="float-left">November 3, 2017</span>
         <a
-        href="/posts/linux/2017-11-03-varnish/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-11-03-varnish/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -547,19 +740,19 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-10-20-iptables/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-10-20-iptables/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">Linux iptables</h5>
-        <p class="card-text post-summary">Untitled.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;}.note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;}.note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;}.note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
+        <p class="card-text post-summary">Untitled .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs-comment, .note-content .hljs-quote {color: #655f6d;} .note-content .hljs-variable, .note-content .hljs-template-variable, .note-content .hljs-attribute, .note-content .hljs-tag, .note-content .hljs-name, .note-content .hljs-regexp, .note-content .hljs-link, .note-content .hljs-name, .note-content .hljs-name, .note-content .hljs-selector-id, .note-content .hljs-selector-class {color: #be4678;} .note-content .hljs-number, .note-content .hljs-meta, .note-content .hljs-built_in, .note-content .hljs-builtin-name, .note-content .hljs-literal, .note-content .hljs-type, .note-content .hljs-params {color: #aa573c;} .note-content .hljs-string, .note-content .hljs-symbol, .note-content .</p>
       </div>
       <div class="card-footer">
         <span class="float-left">October 20, 2017</span>
         <a
-        href="/posts/linux/2017-10-20-iptables/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-10-20-iptables/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -570,24 +763,24 @@ net.core.rmem_default = 212992 net.core.rmem_max = 212992 net.core.rps_sock_flow
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-23-dns-bind/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">DNS 及 bind</h5>
-        <p class="card-text post-summary">DNS 及 bind.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}DNS 及 bindDNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
+        <p class="card-text post-summary">DNS 及 bind .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} DNS 及 bind  DNS（Domain Name System）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。
 目前，负责管理域名和IP地址的分配等与互联网相关的任务的组织是ICANN，ICANN是美国加利福尼亚的非营利社团，主要由互联网协会的成员组成。
-DNS 及 bindDNS介绍DNS域名空间DNS解析资源记录DNS端口DNS 的实现之 BINDBIND介绍BIND实验DNS介绍DNS域名空间计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
-Linux: /etc/hostswindows: %WINDIR%/system32/drivers/etc/hosts早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
-hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过多存储空间，查询缓慢为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
+  DNS 及 bind DNS介绍 DNS域名空间 DNS解析 资源记录 DNS端口   DNS 的实现之 BIND BIND介绍 BIND实验         DNS介绍 DNS域名空间 计算机之间的网络通信是靠IP识别彼此的，目前使用的IPv4地址由32位二进制数组成，对于计算机来说，最擅长的莫过于识别数字，而人类却很难记住这么长的数字，人类容易记住的是有意义的名字，早期的人们为了解决这个问题，将IP与主机名的对应关系存储于电脑的hosts文件中：
+Linux: /etc/hosts windows: %WINDIR%/system32/drivers/etc/hosts  早期网络还未流行起来的时候，计算机数量不多，使用hosts文件存储的方法还可行，后期网络大规模扩展以后，使用hosts文件存储IP与主机名映射关系遇到了诸多问题：
+hosts 文件无法同步到所有计算机 hosts 文件越来越大，占用过多存储空间，查询缓慢  为了解决这一日益突出的问题，加州大学伯克利分校的研究生设计出了一套分层式IP与名称映射数据库管理系统，就是今天的DNS系统。DNS分层结构如下图所示：
 这种树状的分层结构我们称之为DNS域名空间，通过分层的方式将DNS划分成多层级区域，最顶层为根域，下一层为顶级域(一级域)，二级域，… ，根域不再存储所有的资源记录，仅存储顶级域的资源记录，将其它层级的资源记录委派给其子域，同理顶级域也将更低层级的资源记录委派给下层子域。在逻辑上已将DNS分成诸多区域，物理上我们可以将各区域数据库存储于同一台电脑上，也可以将同一个区域数据库存储于不同的电脑上。</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 23, 2017</span>
         <a
-        href="/posts/linux/2017-09-23-dns-bind/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-23-dns-bind/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -598,21 +791,21 @@ hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过�
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">PXE&#43;DHCP&#43;Apache&#43;KickStart 无人值守安装 CentOS</h5>
-        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}PXE+DHCP+Apache+KickStart 无人值守安装 CentOS本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
-
-PXE+DHCP+Apache+KickStart 无人值守安装 CentOS一、原理介绍1. PXE介绍2. DHCP介绍3. TFTP介绍二、安装、配置、启动相应服务1. 服务器搭建规划2. DHCP3. HTTP4. TFTP三、准备yum源四、准备PXE相关文件五、准备应答文件六、测试通过网络自动安装系统一、原理介绍1. PXE介绍PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
+        <p class="card-text post-summary">PXE+DHCP+Apache+KickStart 无人值守安装 CentOS .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} PXE+DHCP+Apache+KickStart 无人值守安装 CentOS  本文介绍通过PXE和相应的服务自动化安装 Linux 系统的原理。然后通过一个实验演示如何通过网络自动化安装 CentOS6 和 CentOS7 系统。
+ 
+ PXE+DHCP+Apache+KickStart 无人值守安装 CentOS 一、原理介绍 1. PXE介绍 2. DHCP介绍 3. TFTP介绍   二、安装、配置、启动相应服务 1. 服务器搭建规划 2. DHCP 3. HTTP 4. TFTP   三、准备yum源 四、准备PXE相关文件 五、准备应答文件 六、测试通过网络自动安装系统       一、原理介绍 1. PXE介绍 PXE(Pre-boot Execution Environment)是由Intel设计的协议，协议分为Client和Server端，PXE-Client存于网卡的ROM中，当计算机引导时，BIOS将PXE-Client调入内存中执行。 要通过网络安装操作系统：首先PXE-Client得获取IP地址，其次得从PXE服务端下载引导程序(bootstrap),内核,虚拟内存磁盘文件,启动菜单配置文件等资料。通过以下方式解决这两个问题</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 17, 2017</span>
         <a
-        href="/posts/linux/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-17-pxe&#43;dhcp&#43;apache&#43;kickstart/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -623,24 +816,24 @@ hosts 文件无法同步到所有计算机hosts 文件越来越大，占用过�
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-13-ssh-openssh/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-13-ssh-openssh/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">SSH 协议及 openssh</h5>
-        <p class="card-text post-summary">SSH 协议及 openssh.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}SSH 协议及 opensshSSH 协议SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
-SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持；用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别；连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。在 Linux 系统上有两个应用程序可以来实现 SSH 协议
-opensshdropbearSSH用户认证方式
-基于口令的认证 基于口令的认证方式如下图所示：
-基于口令的认证方式简要概括如下：
-客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中[root@localhost ~]# ssh 172.18.17.201The authenticity of host '172.</p>
+        <p class="card-text post-summary">SSH 协议及 openssh .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} SSH 协议及 openssh SSH 协议 SSH 协议为 Secure SHell 的缩写，SSH 协议专为远程登录会话和其它网络层提供安全协议。
+SSH协议由三部分组成  传输层协议 (SSH-TRANS) 提供服务器认证，数据机密性，信息完整性 等的支持； 用户认证协议 (SSH-USERAUTH) 为服务器提供客户端的身份鉴别； 连接协议 (SSH-CONNECT) 将加密的信息隧道复用成若干个逻辑通道，提供给更高层的应用协议使用； 各种高层应用协议可以相对地独立于SSH基本体系之外，并依靠这个基本框架，通过连接协议使用SSH的安全机制。  在 Linux 系统上有两个应用程序可以来实现 SSH 协议
+ openssh dropbear SSH用户认证方式
+  基于口令的认证 基于口令的认证方式如下图所示：
+ 基于口令的认证方式简要概括如下：
+客户端向服务器发起SSH连接请求，服务器将自己的公钥发送给客户端，SSH客户端提示用户是否信任服务器的公钥，若信任则将服务器的公钥及对应的IP存在用户家目录~/.ssh/known_hosts文件中  [root@localhost ~]# ssh 172.18.17.201 The authenticity of host '172.</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 13, 2017</span>
         <a
-        href="/posts/linux/2017-09-13-ssh-openssh/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-13-ssh-openssh/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -651,19 +844,19 @@ SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证�
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-10-openssl-ca/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-10-openssl-ca/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">openssl 及 CA</h5>
-        <p class="card-text post-summary">openssl 及 CA.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</p>
+        <p class="card-text post-summary">openssl 及 CA .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 10, 2017</span>
         <a
-        href="/posts/linux/2017-09-10-openssl-ca/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-10-openssl-ca/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -674,88 +867,19 @@ SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证�
 
       
         <div class="post-card">
-  <a href="/posts/linux/2017-09-06-awk/" class="post-card-link">
+  <a href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-06-awk/" class="post-card-link">
     <div class="card">
       <div class="card-head">
         <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
       </div>
       <div class="card-body">
         <h5 class="card-title">文本三剑客之 awk</h5>
-        <p class="card-text post-summary">文本三剑客之 awk.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
+        <p class="card-text post-summary">文本三剑客之 awk .note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;} .</p>
       </div>
       <div class="card-footer">
         <span class="float-left">September 6, 2017</span>
         <a
-        href="/posts/linux/2017-09-06-awk/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/2017-09-03-kernel-minilinux/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">编译内核并制作微小Linux系统</h5>
-        <p class="card-text post-summary">编译内核并制作微小Linux系统.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 3, 2017</span>
-        <a
-        href="/posts/linux/2017-09-03-kernel-minilinux/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/bash/2017-08-26-bash-arithmetic-test/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">bash 数学运算与条件测试</h5>
-        <p class="card-text post-summary">bash 数学运算与条件测试.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 26, 2017</span>
-        <a
-        href="/posts/linux/bash/2017-08-26-bash-arithmetic-test/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-      
-        <div class="post-card">
-  <a href="/posts/linux/bash/2017-08-26-bash-slelect-for-while/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/assets/images/default-hero.jpg'/>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">bash 流程控制语句</h5>
-        <p class="card-text post-summary">bash 流程控制语句.note-content {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">August 26, 2017</span>
-        <a
-        href="/posts/linux/bash/2017-08-26-bash-slelect-for-while/"
+        href="/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-06-awk/"
         class="float-right btn btn-outline-info btn-sm"
         >Read</a
         >
@@ -785,10 +909,13 @@ SSH协议由三部分组成 传输层协议 (SSH-TRANS) 提供服务器认证�
     <a class="page-link" href="/posts/linux/page/3/">3</a>
   </li>
   <li class="page-item">
+    <a class="page-link" href="/posts/linux/page/4/">4</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/linux/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/linux/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/linux/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

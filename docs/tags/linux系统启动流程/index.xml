@@ -13,11 +13,11 @@
     
     <item>
       <title>编译内核并制作微小Linux系统</title>
-      <link>https://blog.zybz.fun/posts/linux/2017-09-03-kernel-minilinux/</link>
+      <link>https://blog.zybz.fun/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-03-kernel-minilinux/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.zybz.fun/posts/linux/2017-09-03-kernel-minilinux/</guid>
-      <description>编译内核并制作微小Linux系统.note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;}.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;}.note-content .hljs, .note-content .hljs-subst {color: #444;}.note-content .hljs-comment {color: #888888;}.note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;}.note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;}.</description>
+      <guid>https://blog.zybz.fun/posts/linux/linux%E5%9F%BA%E7%A1%80/2017-09-03-kernel-minilinux/</guid>
+      <description>编译内核并制作微小Linux系统 .note-content {font-family: &#34;Helvetica Neue&#34;, Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, SimSun, Song, sans-serif;} .note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #F0F0F0;} .note-content .hljs, .note-content .hljs-subst {color: #444;} .note-content .hljs-comment {color: #888888;} .note-content .hljs-keyword, .note-content .hljs-attribute, .note-content .hljs-selector-tag, .note-content .hljs-meta-keyword, .note-content .hljs-doctag, .note-content .hljs-name {font-weight: bold;} .note-content .hljs-type, .note-content .hljs-string, .note-content .hljs-number, .note-content .hljs-selector-id, .note-content .hljs-selector-class, .note-content .hljs-quote, .note-content .hljs-template-tag, .note-content .hljs-deletion {color: #880000;} .</description>
     </item>
     
   </channel>
