@@ -1,0 +1,128 @@
+---
+layout: post
+title: '磁盘配额 quota'
+date: 2017-08-10
+author: "zhubiao"
+header-img: "img/post-bg-universe.jpg"
+categories: Linux
+tags: 磁盘管理
+---
+
+<!DOCTYPE html><html><head><title>磁盘配额 quota</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h1 id="磁盘配额-quota">磁盘配额 quota</h1>
+
+<blockquote>
+  <p>对于多用户的Linux系统而言，磁盘空间总是很宝贵的，若某用户过度占用磁盘将影响其他用户的使用，若磁盘空间耗尽将会影响系统的正常运行。征对此种情况，我们可以通过磁盘配额限制普通用户最大能使用的磁盘空间。</p>
+</blockquote>
+
+<h1 id="quota">quota</h1>
+
+<p><strong>常用情况</strong></p>
+
+<ul><li>/home/ 限制家目录的空间</li>
+<li>httpd server  限制网站空间</li>
+<li>ftp server 限制网络共享空间</li>
+<li>mail server 限制邮件空间</li>
+</ul>
+
+<p><strong>磁盘配额quota限制的方式</strong></p>
+
+<ul><li>通过属主限制 <br>
+当用户添加了quota, 该用户创建的的文件所占的空间必须遵守限额规定。即对文件的属主生效。</li>
+<li>通过属组限制 <br>
+当属组添加了quota，主组是该组的用户所创建的文件所占的空间必须遵守限额的规定。即对文件的属组生效。</li>
+</ul>
+
+<p><strong>quota 限制方法</strong></p>
+
+<ul><li>限制block，磁盘容量，一般使用这种方式</li>
+<li>限制inode，创建文件的数量</li>
+</ul>
+
+<p><strong>柔性劝导(soft)，硬性规定(hard)，宽限期限(grace period )</strong></p>
+
+<ul><li>柔性劝导(soft): 当磁盘空间使用超过soft（block/inode）规定的值时将在每次用户增加磁盘空间的时候均提醒用户，在未超过硬性规定值之前，不禁止用户增加使用空间。</li>
+<li>硬性规定(hard): 当磁盘空间超过硬性规定值之后，用户将无法再增加磁盘的使用空间。</li>
+<li>宽限期限(grace period ): 设置soft和hard的目的在于提前提醒用户空间将快使用完，而宽限期限是当用户使用的空间在soft和hard之间时，再增加日期的限定，当超过此日期(从超过soft的时间开始算起)，用户能使用的最大空间将是soft设定的值。</li>
+</ul>
+
+<h2 id="实验">实验</h2>
+
+<p>这里的磁盘配额针对单独的分区做限制，默认新分区未启用磁盘限额的功能，我们需在挂载分区时添加磁盘配额特性，并启用该功能。其次还需在分区所挂载的目录下生成限额数据库(quota.user, quota.group 分别征对用户和用户的主组)，我们新建两个用户(user1, user2)和组(grp1)，将用户user1,user2的主组设定为grp1,然后对这两个用户和组添加quota磁盘空间限制，测试用户和组在启用配额的分区空间的限制</p>
+
+<h3 id="第一步-配置实验环境">第一步 配置实验环境</h3>
+
+<ol start="0"><li rel="0">关闭SELinux <br>
+不关闭SELinux，将无法生成磁盘配额数据库，所以我们这里将其关闭</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs ini"><span class="hljs-comment">#停用SELinux</span><br><span class="hljs-section">[root@zhubiaook work]</span><span class="hljs-comment"># setenforce 0</span><br><br><span class="hljs-comment">#修改配置文件，禁止开机启动SELinux</span><br><span class="hljs-section">[root@zhubiaook work]</span><span class="hljs-comment"># cat /etc/selinux/config | grep "^SELINUX="</span><br><span class="hljs-attr">SELINUX</span>=permissive<br></code></pre>
+
+<ol start="1"><li rel="1">创建用户和组</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs julia"><span class="hljs-comment">#创建组grp1</span><br>[root<span class="hljs-meta">@zhubiaook</span> quota]<span class="hljs-comment"># groupadd grp1</span><br><br><span class="hljs-comment">#增加用户user1, user2</span><br>[root<span class="hljs-meta">@zhubiaook</span> quota]<span class="hljs-comment"># for user in user1 user2</span><br>&gt; <span class="hljs-keyword">do</span><br>&gt; useradd <span class="hljs-string">"<span class="hljs-variable">$user</span>"</span> -g grp1<br>&gt; echo <span class="hljs-string">"123"</span> | passwd --stdin <span class="hljs-string">"<span class="hljs-variable">$user</span>"</span><br>&gt; done<br>Changing password <span class="hljs-keyword">for</span> user user1.<br>passwd: all authentication tokens updated successfully.<br>Changing password <span class="hljs-keyword">for</span> user user2.<br>passwd: all authentication tokens updated successfully.<br><br><span class="hljs-comment"># 查看用户是否创建成功</span><br>[root<span class="hljs-meta">@zhubiaook</span> quota]<span class="hljs-comment"># id user1</span><br>uid=<span class="hljs-number">505</span>(user1) gid=<span class="hljs-number">505</span>(grp1) groups=<span class="hljs-number">505</span>(grp1)<br>[root<span class="hljs-meta">@zhubiaook</span> quota]<span class="hljs-comment"># id user2</span><br>uid=<span class="hljs-number">506</span>(user2) gid=<span class="hljs-number">505</span>(grp1) groups=<span class="hljs-number">505</span>(grp1)<br></code></pre>
+
+<ol start="2"><li rel="2">创建分区 <br>
+我们创建分区/dev/sdd1，作为本实验的限额分区</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta">#分区之前</span><br>[root<span class="hljs-symbol">@zhubiaook</span> work]<span class="hljs-meta"># lsblk /dev/sdd </span><br>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>sdd    <span class="hljs-number">8</span>:<span class="hljs-number">48</span>   <span class="hljs-number">0</span>   <span class="hljs-number">5</span>G  <span class="hljs-number">0</span> disk <br><br><span class="hljs-meta"># 使用fdisk创建分区</span><br>...<br>Command (m <span class="hljs-keyword">for</span> help): n<br>Command action<br>   e   extended<br>   p   primary partition (<span class="hljs-number">1</span><span class="hljs-number">-4</span>)<br>p<br>Partition <span class="hljs-built_in">number</span> (<span class="hljs-number">1</span><span class="hljs-number">-4</span>): <span class="hljs-number">1</span><br>First cylinder (<span class="hljs-number">1</span><span class="hljs-number">-652</span>, <span class="hljs-keyword">default</span> <span class="hljs-number">1</span>): <span class="hljs-number">1</span><br>Last cylinder, +cylinders <span class="hljs-literal">or</span> +size{K,M,G} (<span class="hljs-number">1</span><span class="hljs-number">-652</span>, <span class="hljs-keyword">default</span> <span class="hljs-number">652</span>): <span class="hljs-number">652</span><br><br>Command (m <span class="hljs-keyword">for</span> help): w<br>The partition table has been altered!<br><br>Calling ioctl() <span class="hljs-keyword">to</span> re-read partition table.<br>Syncing disks.<br><br><span class="hljs-meta">#同步磁盘和内存的分区表(CentOS6系统，CentOS7使用partprobe同步)</span><br>[root<span class="hljs-symbol">@zhubiaook</span> work]<span class="hljs-meta"># partx -a  /dev/sdd</span><br><br><span class="hljs-meta">#创建好的分区</span><br>[root<span class="hljs-symbol">@zhubiaook</span> work]<span class="hljs-meta"># lsblk /dev/sdd</span><br>NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>sdd      <span class="hljs-number">8</span>:<span class="hljs-number">48</span>   <span class="hljs-number">0</span>   <span class="hljs-number">5</span>G  <span class="hljs-number">0</span> disk <br>└─sdd1   <span class="hljs-number">8</span>:<span class="hljs-number">49</span>   <span class="hljs-number">0</span>   <span class="hljs-number">5</span>G  <span class="hljs-number">0</span> part <br></code></pre>
+
+<ol start="3"><li rel="3">创建文件系统 <br>
+此处我们对/dev/sdd1创建ext4文件系统</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs autoit"><span class="hljs-meta">#创建ext4文件系统</span><br>[root<span class="hljs-symbol">@zhubiaook</span> work]<span class="hljs-meta"># mkfs.ext4 /dev/sdd1</span><br><br><span class="hljs-meta">#使用blkid可查看到文件系统已创建</span><br>[root<span class="hljs-symbol">@zhubiaook</span> work]<span class="hljs-meta"># blkid /dev/sdd1</span><br>/dev/sdd1: UUID=<span class="hljs-string">"ffb444ac-7761-4366-8e17-8172f31e1afc"</span> TYPE=<span class="hljs-string">"ext4"</span> <br></code></pre>
+
+
+
+<h3 id="第二步-配置-quota">第二步 配置 quota</h3>
+
+<ol start="1"><li rel="1">修改/etc/fstab，并挂载分区 <br>
+在/etc/fstab中将/dev/sdd1记录添加进去，有两方面的作用，一方面是让系统启动自动挂载，另一方面将磁盘配额特性添加进去(usrquota, grpquota)</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs coffeescript"><span class="hljs-comment">#创建挂载目录</span><br>[root@zhubiaook work]<span class="hljs-comment"># mkdir /mnt/quota</span><br><br><span class="hljs-comment">#修改权限，以便普通用户能够在该目录下创建文件</span><br>[root@zhubiaook work]<span class="hljs-comment"># chmod 1777 /mnt/quota</span><br><br><span class="hljs-comment">#将/dev/sdd1挂载的记录及特性添加到/etc/fstab中</span><br>[root@zhubiaook work]<span class="hljs-comment"># cat /etc/fstab | grep quota</span><br>UUID=ffb444ac<span class="hljs-number">-7761</span><span class="hljs-number">-4366</span><span class="hljs-number">-8e17</span><span class="hljs-number">-8172</span>f31e1afc /mnt/quota ext4 defaults,usrquota,grpquota <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><br><span class="hljs-comment">#挂载分区</span><br>[root@zhubiaook work]<span class="hljs-comment"># mount -a</span><br><br><span class="hljs-comment">#确认sdd1是否挂载</span><br>[root@zhubiaook work]<span class="hljs-comment"># df -Th /dev/sdd1</span><br>Filesystem     Type  Size  Used Avail Use% Mounted <span class="hljs-literal">on</span><br>/dev/sdd1      ext4  <span class="hljs-number">4.8</span>G   <span class="hljs-number">10</span>M  <span class="hljs-number">4.6</span>G   <span class="hljs-number">1</span>% /mnt/quota<br></code></pre>
+
+<ol start="2"><li rel="2">创建quota数据库 <br>
+quota是通过quota数据库实现限额的，该数据库中记录了用户能使用的最大空间，已使用的空间，及对用户发出空间将超限的警告，我们使用quotacheck自动生成，该数据库将在分区的根目录即挂载点下面生成。</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs crmsh"><span class="hljs-comment"># 使用quotacheck创建限额数据库，-c 创建，-u 征对用户quota.user,-g 征对组quota.group。</span><br>[root@zhubiaook work]<span class="hljs-comment"># quotacheck -cug /mnt/quota/</span><br>[root@zhubiaook work]<span class="hljs-comment"># ls /mnt/quota/</span><br>aquota.<span class="hljs-keyword">group</span>  <span class="hljs-title">aquota</span>.<span class="hljs-keyword">user</span>  <span class="hljs-title">lost</span>+found<br></code></pre>
+
+<ol start="3"><li rel="3">启用quota</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs crmsh">[root@zhubiaook work]<span class="hljs-comment"># quotaon -guva</span><br>/dev/sdd1 [/mnt/quota]: <span class="hljs-keyword">group</span> <span class="hljs-title">quotas</span> turned on<br>/dev/sdd1 [/mnt/quota]: <span class="hljs-keyword">user</span> <span class="hljs-title">quotas</span> turned on<br></code></pre>
+
+<ol start="4"><li rel="4">给用户添加限额空间 <br>
+我们给用户user1, user2添加blcok的soft quota数量为8M, hard quota数量10M，组grp1的block数量soft为12M, hard为15M</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap"><span class="hljs-comment">#添加block限额</span><br><span class="hljs-comment">#此处需注意的是，该处的单位为1k，添加user1的block软性引导为8M,硬性限额为10M</span><br>[root@zhubiaook work]<span class="hljs-comment"># edquota user1</span><br><br>     <span class="hljs-number"> 1 </span>Disk quotas for user user1 (uid 505):<br>     <span class="hljs-number"> 2 </span>  Filesystem                   blocks       soft       hard     inodes     soft     hard<br>     <span class="hljs-number"> 3 </span>  /dev/sdd1                        <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 8000 </span>     <span class="hljs-number"> 10000 </span>     <span class="hljs-number"> 0 </span>      <span class="hljs-number"> 0 </span>       0<br><br><span class="hljs-comment">#添加宽限期限</span><br>[root@zhubiaook work]<span class="hljs-comment"># edquota -t</span><br><br>     <span class="hljs-number"> 1 </span>Grace period before enforcing soft limits for users:<br>     <span class="hljs-number"> 2 </span>Time units may be: days, hours, minutes, or seconds<br>     <span class="hljs-number"> 3 </span>  Filesystem             Block grace period     Inode grace period<br>     <span class="hljs-number"> 4 </span>  /dev/sdd1                     1days                  1days<br><br><span class="hljs-comment"># 查看user1的限额   </span><br>[root@zhubiaook quota]<span class="hljs-comment"># quota -v user1</span><br>Disk quotas for user user1 (uid 505): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span>  <span class="hljs-number"> 8000 </span> <span class="hljs-number"> 10000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>    <br><br><span class="hljs-comment"># 将user1的quota的值复制给user2</span><br>[root@zhubiaook quota]<span class="hljs-comment"># edquota -p user1 user2</span><br>[root@zhubiaook quota]<span class="hljs-comment"># quota -v user1 user2</span><br>Disk quotas for user user1 (uid 505): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span>  <span class="hljs-number"> 8000 </span> <span class="hljs-number"> 10000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>       <br><br><span class="hljs-comment"># 查看user1,user2 quota的值</span><br>Disk quotas for user user2 (uid 506): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span>  <span class="hljs-number"> 8000 </span> <span class="hljs-number"> 10000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span> <br><br><span class="hljs-comment"># 修改grp1组的quota，soft为12M,hard为15M</span><br>[root@zhubiaook quota]<span class="hljs-comment"># edquota -g grp1</span><br><br>     <span class="hljs-number"> 1 </span>Disk quotas for group grp1 (gid 507):<br>     <span class="hljs-number"> 2 </span>  Filesystem                   blocks       soft       hard     inodes     soft     hard<br>     <span class="hljs-number"> 3 </span>  /dev/sdd1                        <span class="hljs-number"> 0 </span>    <span class="hljs-number"> 12000 </span>    <span class="hljs-number"> 15000 </span>        <span class="hljs-number"> 0 </span>      <span class="hljs-number"> 0 </span>      <span class="hljs-number"> 0 </span>                                                                          <br></code></pre>
+
+<h3 id="第三部-测试">第三部 测试</h3>
+
+<ol start="1"><li rel="1">查看当前user1, user2, grp1空间使用情况</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs tap">[root@zhubiaook quota]<span class="hljs-comment"># quota -v -u user1 user2</span><br>Disk quotas for user user1 (uid 505): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span>  <span class="hljs-number"> 8000 </span> <span class="hljs-number"> 10000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>       <br>Disk quotas for user user2 (uid 506): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span>  <span class="hljs-number"> 8000 </span> <span class="hljs-number"> 10000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>       <br>[root@zhubiaook quota]<span class="hljs-comment"># quota -v -g grp1</span><br>Disk quotas for group grp1 (gid 507): <br>     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace<br>      /dev/sdd1      <span class="hljs-number"> 0 </span> <span class="hljs-number"> 12000 </span> <span class="hljs-number"> 15000 </span>             <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>     <span class="hljs-number"> 0 </span>       <br></code></pre>
+
+<ol start="2"><li rel="2">user1用户分别写入9M和20M的数据，测试限额是否生效</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs ruby"><span class="hljs-comment"># 写入9M的数据</span><br>[root@zhubiaook quota]<span class="hljs-comment"># su user1</span><br>[user1@zhubiaook quota]$ dd <span class="hljs-keyword">if</span>=<span class="hljs-regexp">/dev/zero</span> of=./user1_file1 bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">9</span><br><span class="hljs-symbol">sdd1:</span> warning, user block quota exceeded.  &lt;=超过<span class="hljs-number">8</span>M就提醒用户<br><span class="hljs-number">9</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span><br><span class="hljs-number">9</span>+<span class="hljs-number">0</span> records out<br><span class="hljs-number">9437184</span> bytes (<span class="hljs-number">9.4</span> MB) copied, <span class="hljs-number">0</span>.<span class="hljs-number">02</span>993 s, <span class="hljs-number">315</span> MB/s<br><span class="hljs-comment"># 虽然已超过soft值，但未超过hard值，仍然可以写入</span><br>[user1@zhubiaook quota]$ ll -h user1_file1 <br>-rw-rw-r--. <span class="hljs-number">1</span> user1 user1 <span class="hljs-number">9.0</span>M Aug <span class="hljs-number">10</span> <span class="hljs-number">11</span><span class="hljs-symbol">:</span><span class="hljs-number">45</span> user1_file1<br><br><span class="hljs-comment"># 向该目录下写入20M的数据</span><br>[user1@zhubiaook quota]$ dd <span class="hljs-keyword">if</span>=<span class="hljs-regexp">/dev/zero</span> of=./user1_file1 bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">20</span><br><span class="hljs-symbol">sdd1:</span> warning, user block quota exceeded.<br><span class="hljs-symbol">sdd1:</span> write failed, user block limit reached.<br><span class="hljs-symbol">dd:</span> writing <span class="hljs-string">`./user1_file1': Disk quota exceeded &lt;=超过的数据写入失败<br>10+0 records in<br>9+0 records out<br>10240000 bytes (10 MB) copied, 0.0308164 s, 332 MB/s &lt;=只能写入10M的数据<br><br>[user1@zhubiaook quota]$ ll -h user1_file1 <br>-rw-rw-r--. 1 user1 user1 9.8M Aug 10 11:47 user1_file1</span><br></code></pre>
+
+<ol start="3"><li rel="3">测试组grp1 的quota是否生效 <br>
+当前quota分区中，user1有10M的数据，user2无数据，虽然user2的限额为soft8M, hard10M, 但他们两个用户的基本组配额是soft 12M, hard15M, 若组限额生效，则用户user2只能最多写入5M的数据，并且超过2M时将警告</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs ruby"><span class="hljs-comment"># 切换到用户user2</span><br>[root@zhubiaook quota]<span class="hljs-comment"># su user2</span><br>[user2@zhubiaook quota]$ du -sh<br><span class="hljs-number">9.8</span>M    .<br><br><span class="hljs-comment"># user2写入3M数据</span><br>[user2@zhubiaook quota]$ dd <span class="hljs-keyword">if</span>=<span class="hljs-regexp">/dev/zero</span> of=user2_file2 bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">3</span><br><span class="hljs-symbol">sdd1:</span> warning, group block quota exceeded. &lt;=超过组限额soft值警告<br><span class="hljs-number">3</span>+<span class="hljs-number">0</span> records <span class="hljs-keyword">in</span><br><span class="hljs-number">3</span>+<span class="hljs-number">0</span> records out<br><span class="hljs-number">3145728</span> bytes (<span class="hljs-number">3.1</span> MB) copied, <span class="hljs-number">0</span>.<span class="hljs-number">00713016</span> s, <span class="hljs-number">441</span> MB/s<br><br><span class="hljs-comment"># user2写入7M数据</span><br>[user2@zhubiaook quota]$ dd <span class="hljs-keyword">if</span>=<span class="hljs-regexp">/dev/zero</span> of=user2_file2 bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">7</span><br><span class="hljs-symbol">sdd1:</span> write failed, group block limit reached.<br><span class="hljs-symbol">dd:</span> writing <span class="hljs-string">`user2_file2': Disk quota exceeded &lt;=超过组限额hard值的数据将写入失败<br>5+0 records in<br>4+0 records out<br>5120000 bytes (5.1 MB) copied, 0.0205964 s, 249 MB/s<br>[user2@zhubiaook quota]$ ll user2_file2 <br>-rw-r--r--. 1 user2 grp1 5120000 Aug 10 12:20 user2_file2<br>[user2@zhubiaook quota]$ ll -h user2_file2 <br>-rw-r--r--. 1 user2 grp1 4.9M Aug 10 12:20 user2_file2</span><br></code></pre></div></body></html>

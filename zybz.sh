@@ -1,7 +1,6 @@
-basedir="content/posts"
 create_dir () {
     subpath="$1"
-    path="$basedir"/"$1"
+    path="$1"
     name=`basename "$subpath"`
     identifier=`echo "$subpath" | sed 's#/#.#g'`
     parent_path=`dirname "$subpath"`
@@ -28,7 +27,7 @@ EOF
 
 create_file () {
     subpath="$1"
-    path="$basedir"/"$1"
+    path="$1"
     suffix=${path##*.}
     name=`basename "$subpath" .$suffix`
     identifier=`echo "$subpath" | sed 's#/#.#g'`
