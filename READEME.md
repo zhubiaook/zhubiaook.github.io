@@ -1,4 +1,4 @@
-hugo -server -D
+hugo server -D
 git add .
 git commit -m 'add'
 git push
