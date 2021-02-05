@@ -57,14 +57,6 @@ skills:
 - name: blog-manybutfinite
   summary: "Linux kernel"
   url: https://manybutfinite.com/
-  
-- name: 语雀-我
-  summary: "分享知识"
-  url: https://www.yuque.com/zhubiaook
-
-- name: 语雀-日记
-  summary: "分享知识"
-  url: https://www.yuque.com/notebook
 
 - name: blog-宋净超
   summary: "Kubernetes, Service Mesh"
