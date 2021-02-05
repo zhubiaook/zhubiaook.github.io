@@ -1,5 +1,5 @@
 create_dir () {
-    subpath="$1"
+    subpath=`echo "$1" | sed 's#content/posts##g'`
     path="$1"
     name=`basename "$subpath"`
     identifier=`echo "$subpath" | sed 's#/#.#g'`
@@ -26,7 +26,7 @@ EOF
 }
 
 create_file () {
-    subpath="$1"
+    subpath=`echo "$1" | sed 's#content/posts##g'`
     path="$1"
     suffix=${path##*.}
     name=`basename "$subpath" .$suffix`

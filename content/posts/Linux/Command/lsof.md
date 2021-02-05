@@ -5,8 +5,8 @@ hero: /assets/images/default-hero.jpg
 menu:
   sidebar:
     name: "lsof"
-    identifier: "content.posts.Linux.Command.lsof.md"
-    parent: content.posts.Linux.Command
+    identifier: "Linux.Command.lsof.md"
+    parent: Linux.Command
 ---
 
 ## 命令格式
@@ -69,8 +69,6 @@ lsof -i 4TCP:22
 lsof -i 4TCP@0.0.0.0:22
 ```
 
-
-
 > `-s [protocol:state]` 
 
 - protocol: TCP|UDP
@@ -113,8 +111,6 @@ lsof -i 4TCP@0.0.0.0:22
 lsof -i 4TCP:22 -s TCP:LISTEN
 ```
 
-
-
 ## 进程打开的文件
 
 > `lsof -p PID|^PID` 
@@ -154,8 +150,6 @@ lsof test.txt
 ```bash
 lsof +D /opt/c/
 ```
-
-
 
 > `-d FD|FD1-FD2|FD1,FD2,...|^FD1 |txt|mem`
 
