@@ -23,6 +23,10 @@ menu:
 
 * `-r TIME` 不断执行lsof命令，间隔时间为TIME
 
+* `-n`: 不进行域名解析
+
+* `-P`: 显示端口为数字，不是端口名
+
 ## 显示网络信息
 
 > `-i [46][protocol][@hostname|hostaddr][:service|port]` 

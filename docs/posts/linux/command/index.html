@@ -568,15 +568,15 @@
   注意点：
   通常多个选项直接是 or 关系，即同时显示多个选项匹配到的内容，要使用 and 关系，添加选项 -a
   -r TIME 不断执行lsof命令，间隔时间为TIME
+  -n: 不进行域名解析
+  -P: 显示端口为数字，不是端口名
   显示网络信息  -i [46][protocol][@hostname|hostaddr][:service|port]
    46
   4: IPv4
   6: IPv6
     protocol: TCP|UDP
   hostname|hostaddr: 主机名或地址
-  :service|port: 端口或者/etc/services中定义的，比如http, ftp
-  示例1： 列出所有TCP/UDP连接
-lsof -i 示例2： 列出本地socket连接</p>
+  :service|port: 端口或者/etc/services中定义的，比如http, ftp</p>
       </div>
       <div class="card-footer">
         <span class="float-left">February 3, 2021</span>
