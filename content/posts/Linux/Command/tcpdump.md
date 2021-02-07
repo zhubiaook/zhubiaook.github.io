@@ -45,7 +45,7 @@ tcpdump [OPTION] [FILTER]
 
 * -F  从文件中读取过滤条件
 
-* -w 将抓包数据输出到文件，而不是标准输出
+* -w FILE.cap 将抓包数据输出到文件，而不是标准输出
 
 * -r 从文件中读取数据
 
@@ -66,6 +66,14 @@ tcpdump [OPTION] [FILTER]
 * &&, and
 
 * ||, or
+
+> tcpdump中对TCP头部控制字段的表示
+
+| CWR | ECE | URG | ACK | PSH | RST | SYN | FIN |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| W   | E   | U   | .   | P   | R   | S   | F   |
+
+
 
 ## 案例
 

@@ -624,7 +624,7 @@
 <p>-F  从文件中读取过滤条件</p>
 </li>
 <li>
-<p>-w 将抓包数据输出到文件，而不是标准输出</p>
+<p>-w FILE.cap 将抓包数据输出到文件，而不是标准输出</p>
 </li>
 <li>
 <p>-r 从文件中读取数据</p>
@@ -661,6 +661,35 @@
 <p>||, or</p>
 </li>
 </ul>
+<blockquote>
+<p>tcpdump中对TCP头部控制字段的表示</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">CWR</th>
+<th align="center">ECE</th>
+<th align="center">URG</th>
+<th align="center">ACK</th>
+<th align="center">PSH</th>
+<th align="center">RST</th>
+<th align="center">SYN</th>
+<th align="center">FIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">W</td>
+<td align="center">E</td>
+<td align="center">U</td>
+<td align="center">.</td>
+<td align="center">P</td>
+<td align="center">R</td>
+<td align="center">S</td>
+<td align="center">F</td>
+</tr>
+</tbody>
+</table>
 <h2 id="案例">案例</h2>
 <p>抓取所有经过eth1，目的地址是192.168.1.254或192.168.1.200端口是80的TCP数据</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tcpdump -i eth1 <span style="color:#e6db74">&#39;((tcp) and (port 80) and ((dst host 192.168.1.254) or (dst host 192.168.1.200)))&#39;</span>
