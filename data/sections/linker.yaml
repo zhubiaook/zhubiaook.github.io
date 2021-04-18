@@ -26,6 +26,14 @@ skills:
   summary: "Linux C编程一站式学习"
   url: http://akaedu.github.io/book/
 
+- name: High Performance Browser Networking
+  summary: "HTTP协议在线书籍"
+  url: https://hpbn.co/
+
+- name: xigang's home
+  summary: "Container, Kubernetes博客"
+  url: https://xigang.github.io/
+
 - name: Maths Fun
   summary: "Math, Physical"
   url: https://www.mathsisfun.com/index.htm
