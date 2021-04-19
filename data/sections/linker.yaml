@@ -10,6 +10,15 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
+
+- name: Pexels
+  summary: 免费图片
+  url: https://www.pexels.com/zh-cn/
+
+- name: pixabay
+  summary: 免费图片
+  url: https://pixabay.com/
+
 - name: GitHub
   summary: "GitHub汇总页面"
   url: https://github.com/trending
