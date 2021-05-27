@@ -35,6 +35,10 @@ skills:
   summary: "Linux C编程一站式学习"
   url: http://akaedu.github.io/book/
 
+- name: Cizixs Write Here
+  summary: "istio, kubernetes, 容器网络"
+  url: https://cizixs.com/
+
 - name: High Performance Browser Networking
   summary: "HTTP协议在线书籍"
   url: https://hpbn.co/
@@ -90,6 +94,10 @@ skills:
 - name: blog-public0821
   summary: "Linux、 Docker网络"
   url: https://segmentfault.com/u/public0821/articles
+
+- name: ArthurChiao Blog
+  summary: "network, bpf, strace等翻译"
+  url: http://arthurchiao.art/categories/
 
 - name: github-在线工具
   summary: "收集各种奇葩功能的在线工具"
